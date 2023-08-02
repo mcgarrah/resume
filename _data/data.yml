@@ -250,7 +250,7 @@ certifications:
           start: 2012
           organization: SAS Institute
           credentialid: PA000207v9
-        - name: SAS Certified Statistical Business Analyst Using SAS 9: Regression and Modeling
+        - name: SAS Certified Statistical Business Analyst Using SAS 9 - Regression and Modeling
           start: 2013
           organization: SAS Institute
           credentialid: SBARM000177v9
@@ -262,7 +262,7 @@ certifications:
           start: 2001
           end: 2006
           organization: Red Hat, Inc.
-        - name: Microsoft Certified Professional: 70-215 & 70-210: Windows 2000 (2003)
+        - name: Microsoft Certified Professional - 70-215 & 70-210: Windows 2000 (2003)
           start: 2003
           organization: Microsoft Corporation
         - name: Nortel Networks Certified Design Specialist (2002)
