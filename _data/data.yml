@@ -107,7 +107,6 @@ experiences:
           Engaged in advanced analytics with multiple platforms. Primary focus on a SAS 9.4 and SAS Viya in-memory 
           cluster with linkage to Hadoop Datalake inching up on 1Pb of data. Exploring machine learning and big data. 
           We work with Tb not Gb of data in a high security environment.
-
       - role: Cloud Architect
         time: Jul 2016 - Sep 2017
         company: American Kennel Club, Raleigh-Durham, North Carolina Area
@@ -116,7 +115,6 @@ experiences:
             cloud application design, and cloud management and monitoring. Provide expertise in the definition, design, 
             implementation, adoption and adherence to enterprise architecture strategies, processes and standards. This 
             role at AKC was focused on expertise in the Amazon cloud technologies.
-
       - role: Enterprise Architect for Strategic Initiatives
         time: May 2015 - Jul 2016
         company: North Carolina Department of Information Technology, Raleigh NC
@@ -128,7 +126,6 @@ experiences:
             Systematic management of enterprise IT standards, polices and strategies for a portfolio of technology 
             platforms, products, and practices. Initial focus on converged technologies to include software defines 
             networks (SDN) and software defined infrastructures (SDI).
-
       - role: Senior Systems Programmer & Administrator (AI Technologies)
         time: Apr 2013 - Jul 2015
         company: Measurement Incorporated, Durham, NC
@@ -179,26 +176,108 @@ experiences:
         details: |
             Sun Solaris and IBM AIX systems administrator, UNIX programming in Perl and shell, and write technical 
             documentation for colleges on system tasks. Network and OS support for colleges.
-
-      - role: ROLE
-        time: Jan 2000 - jan 2000
-        company: COMPANY, Raleigh NC
+      - role: Systems Engineer
+        time: May 2004 - Jan 2005
+        company: Hosted Solutions (Springboard Hosting), Raleigh, NC
         details: |
-
-      - role: ROLE
-        time: Jan 2000 - jan 2000
-        company: COMPANY, Raleigh NC
+          A senior UNIX & Windows systems and network administrator with an emphasis on storage technologies.  
+          I also provided guidance to off-shift personnel in three separate operation centers.
+      - role: UNIX Engineer
+        time: Jun 2002 - May 2004
+        company: NetIQ, Raleigh, NC
         details: |
-
-      - role: ROLE
-        time: Jan 2000 - jan 2000
-        company: COMPANY, Raleigh NC
+          Brought a broad background in UNIX and Windows programming and administration to the 
+          new UNIX agent services for the flagship AppManager product.  Managed the lab and was 
+          the primary systems administrator and quality engineer for the UNIX services and also 
+          maintain and extend network testing facilities.
+      - role: Systems Programmer II
+        time: Nov 2000 - Jun 2002
+        company: North Carolina State University, Raleigh, NC
         details: |
-
-      - role: ROLE
-        time: Jan 2000 - jan 2000
-        company: COMPANY, Raleigh NC
+          Programmer and administrator for College of Engineering financial systems. Also secondary 
+          duties in Solaris and Windows NT systems administration. Participate in NCSU open source 
+          initiatives and became Red Hat certified (RHCE). Provide technical assistance for upgrades 
+          of Engineering server room network infrastructure.
+      - role: Senior Operations Technician in NOC (part-time)
+        time: Feb 2000 - Oct 2001
+        company: Interpath Communications, Raleigh, NC
         details: |
+          Senior weekend operations technician for Network Operations Center. Supported a diverse 
+          server and network environment including Cisco network equipment, Solaris and Windows NT. 
+          Worked with following products: Veritas NetBackup 3.1.1, SAP R/3, BMC Patrol, Remedy, and 
+          HP OpenView. Provided first line diagnostics for Cisco devices, network connectivity and 
+          Windows/UNIX servers.
+      - role: Applications Manager / Operations Manager
+        time: Jan 1999 - Nov 2000
+        company: North Carolina State University, Raleigh, NC
+        details: |
+          Managed development and primary architect of NC LIVE web services. Implemented statewide 
+          remote access and authentication system used by all North Carolina public libraries, 
+          community colleges, and both public and independent universities. Managed Cisco 4700 using 
+          Distributed Director product to provide load balancing and redundancy of service. 
+          Provide senior level guidence to UNIX systems administrators. Acting Operations Manager 
+          for NC LIVE server site.
+      - role: Application Analyst Programmer
+        time: Jun 1998 - Jan 1999
+        company: North Carolina State University, Raleigh, NC
+        details: |
+          Move College of Engineering financial services from failing hardware to new platform.
+          Migrated and maintained financial applications. Assisted with integration of Windows NT
+          into NCSU UNIX campus-computing environment. Provide assistance on network infrastructure 
+          upgrades for labs.
+      - role: Benchmark Developer
+        time: Jun 1994 - Jun 1998
+        company: Ziff-Davis Publishing, Raleigh, NC
+        details: |
+          Developed industry standard benchmarks for public distribution. These benchmarks included: 
+          PC Bench© , Jmark, Winstone® and WinBench© . Provided consulting services for internal 
+          project development for magazines.
+      - role: Operations Technician (part-time)
+        time: Jan 1998 - May 1998
+        company: Interpath Communications, Raleigh, NC
+        details: |
+          Helpdesk and networking administration for in the NOC. Technical writer for SOP on 
+          first and second line support.  Provided assistance in multiple areas of operations 
+          as needed. Contract ended with company buyout by CP&L/Progress Energy.
+      - role: Consultant (full-time)
+        time: Apr 1994 - Jun 1994
+        company: DB Basics, Inc., Morrisville, NC
+        details: |
+          Consulted on a project with Liggett-Meyer porting from a proprietary IBM mainframe 
+          database to an Oracle 7 server. Redesigned and ported existing applications to use 
+          the new Oracle system.
+      - role: Technical Services Manager
+        time: Jul 1992 - Jun 1994
+        company: Pioneer Software, Inc (Q+E Software / Intersolv / Merant / Data Direct / Serena), Raleigh, NC
+        details: |
+          OEM services and international support manager. Supported over 30 commercial DBMS. 
+          Worked, on as needed basis, for development, quality assurance and technical-writing 
+          departments.
+      - role: Computer Consultant (part-time)
+        time: Mar 1992 - Jul 1992
+        company: Roemer Weather, Inc, Raleigh, NC
+        details: |
+          Assist in analysis of weather data and purchase of  computing resources for business office.
+      - role: Teaching Assistant for Computer Science Department (part-time)
+        time: Aug 1990 - Jun 1992
+        company: North Carolina State University, Raleigh, NC
+        details: |
+          Taught course work in: 
+          E115: Introduction to EOS (UNIX)   
+          CSC110: Introduction to Programming (PASCAL)   
+          CSC112: Introduction to Programming (FORTRAN)   
+          CSC114: Introduction to Programming (C++)
+      - role: Consultant for Library Systems at D.H. Hill Library (part-time)
+        time: Aug 1990 - Mar 1992
+        company: North Carolina State University, Raleigh, NC
+        details: |
+          Maintain hardware inventory under service by Library Systems.  Hardware services
+          for IBM and Macintosh systems. Software support for IBM, Macintosh and UNIX software packages.
+      - role: Computer Operator for Computer Science Department (part-time)
+        time: Aug 1990 - Jan 1991
+        company: North Carolina State University, Raleigh, NC
+        details: |
+          Assist users with basic usage of UNIX systems
 
 certifications:
       title: Certifications
