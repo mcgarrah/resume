@@ -80,7 +80,7 @@ education:
 experiences:
     title: Experiences
     info:
-      - role: Senior Platform Engineer
+      - role: Lead Platform Engineer
         time: Oct 2021 - Present
         company: Envestnet, Inc, Remote
         details: |
@@ -262,7 +262,7 @@ experiences:
         time: Aug 1990 - Jun 1992
         company: North Carolina State University, Raleigh, NC
         details: |
-          Taught course work in: 
+          Taught course work in:          
           E115: Introduction to EOS (UNIX)   
           CSC110: Introduction to Programming (PASCAL)   
           CSC112: Introduction to Programming (FORTRAN)   
