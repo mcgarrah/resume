@@ -66,8 +66,10 @@ education:
           focused curiculm in the Spring of 2019. My focus area was Interactive Intelligence,
           Machine Learning and Perception Systems. While in school, I have pursued guided independent
           study research projects and worked to present papers at conferences to extend my academic credentials.
-            - NWAV Presentation -- TODO
-            - Masters Project -- TODO
+            - <a href="https://dept.english.wisc.edu/nwav46/?page_id=57" target="_blank">NWAV 46 Conference Presentation</a>
+              155. "Introducing NordFA:Forced alignment of Nordic languages." Nathan J. Young & Michael McGarrah
+            - <a href="https://github.com/mcgarrah/LG-FAVE" target="_blank">LG-FAVE Software</a>
+            - <i>Publication below</i>
 
       - degree: Bachelor of Science in Computer Science
         university: North Carolina State University
@@ -421,6 +423,15 @@ certifications:
 #         link: "#"
 #         authors: Edgar T. Irons
 #         conference: "Comm. ACM 4 (1961), 51–55"
+
+publications:
+    title: Publications
+    papers:
+      - title: Forced alignment for Nordic languages: Rapidly constructing a high-quality prototype.
+        link: "https://github.com/mcgarrah/LG-FAVE/blob/7c592cf6c75b8c6feee08c0fe9b79b17dd699404/Young_McGarrah_2021.pdf"
+        authors: Young, N. & McGarrah, M.
+        conference: Nordic Journal of Linguistics, 2021
+
 
 skills:
     title: Skills &amp; Proficiency
