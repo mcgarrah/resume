@@ -58,25 +58,26 @@ career-profile:
 education:
     title: Education
     info:
-      - degree: Masters of Science in Computer Science (Interactive Intelligence)
+      - degree: Masters of Science in Computer Science
         university: Georgia Institute of Technology
         time: 2014 - 2019
         details: |
-          I began classes in Fall 2014 semester while working full-time on a Machine Learning
-          project and finished in the Spring of 2019 building Machine Learning platforms in the
-          Cloud. My focus was in Interactive Intelligence and Machine Learning. While in school, 
-          I have pursued guided independent study research projects and worked to present papers
-          at conferences to extend my academic understanding and credentials.
-            - NWAV Presentation
-            - Masters Project
+          Beginning the Fall of 2014 while working full-time, I completed my Machine Learning 
+          focused curiculm in the Spring of 2019. My focus area was Interactive Intelligence,
+          Machine Learning and Perception Systems. While in school, I have pursued guided independent
+          study research projects and worked to present papers at conferences to extend my academic credentials.
+            - NWAV Presentation (TODO ADD LINK)
+            - Masters Project (TODO ADD LINK)
+
       - degree: Bachelor of Science in Computer Science
         university: North Carolina State University
         time: 1990 - 2011
         details: |
           I completed my Bachelor of Science in Computer Science May of 2011 graduating with Honors
-          while working full-time.
+          while working full-time and raising a family.
             - Member of ACM/AITP and IEEE
             - Upsilon Pi Epsilon (UPE): International Computer Science honor society
+
 experiences:
     title: Experiences
     info:
@@ -90,16 +91,16 @@ experiences:
           and cloud services. An automation first attitude pervades this work. 
           Containerized cloud-first technologies ﴾AWS & Kubernetes﴿ to support new 
           initiatives are current focus areas.
-            - https://upswot.com/upswot-signs-a-new-multi-year-and-multi-million-dollar-deal-with-envestnet-yodlee/
-            - https://newsroom.envestnet.com/2022-10-24-Envestnet-Data-Analytics-Unveils-New-Vision-at-Money-20-20
+            - https://upswot.com/upswot-signs-a-new-multi-year-and-multi-million-dollar-deal-with-envestnet-yodlee/ (TODO)
+            - https://newsroom.envestnet.com/2022-10-24-Envestnet-Data-Analytics-Unveils-New-Vision-at-Money-20-20 (TODO)
       - role: Principal Data & Analytics Platform Engineer
         time: Apr 2019 - Oct 2021
-        company: Blue Cross and Blue Shield of NC, Raleigh-Durham NC
+        company: [Blue Cross and Blue Shield of NC](https://www.bluecrossnc.com/), Raleigh-Durham NC
         details: |
           Building a data science platform incorporating a data‐warehouse, data‐lake and data‐execution environment 
           using containerized cloud-first technologies ﴾AWS & Kubernetes﴿ to support our mission of data driven 
           decision to provide for a value‐based healthcare approach. A public example includes the media example below:
-            - https://www.bluecrossnc.com/medicare-guided-selling-landing-page
+            - [Medicare Guided Selling](https://www.bluecrossnc.com/medicare-guided-selling-landing-page)
       - role: Data Engineer
         time: Nov 2017 - Apr 2019
         company: United States Postal Service, Raleigh NC
