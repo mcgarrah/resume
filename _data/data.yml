@@ -230,9 +230,13 @@ experiences:
         time: Jun 1994 - Jun 1998
         company: Ziff-Davis Publishing, Raleigh, NC
         details: |
-          Developed industry standard benchmarks for public distribution. These benchmarks included: 
-          PC Bench© , Jmark, Winstone® and WinBench© . Provided consulting services for internal 
-          project development for magazines.
+          Provided consulting services for internal project development for magazines.
+          Developed industry standard benchmarks for public distribution.
+          These benchmarks included: 
+          - PC Bench©
+          - Jmark
+          - Winstone® 
+          - WinBench©
       - role: Operations Technician (part-time)
         time: Jan 1998 - May 1998
         company: Interpath Communications, Raleigh, NC
@@ -264,10 +268,10 @@ experiences:
         company: North Carolina State University, Raleigh, NC
         details: |
           Taught course work in:          
-          E115: Introduction to EOS (UNIX)   
-          CSC110: Introduction to Programming (PASCAL)   
-          CSC112: Introduction to Programming (FORTRAN)   
-          CSC114: Introduction to Programming (C++)
+          - E115: Introduction to EOS (UNIX)   
+          - CSC110: Introduction to Programming (PASCAL)   
+          - CSC112: Introduction to Programming (FORTRAN)   
+          - CSC114: Introduction to Programming (C++)
       - role: Consultant for Library Systems at D.H. Hill Library (part-time)
         time: Aug 1990 - Mar 1992
         company: North Carolina State University, Raleigh, NC
