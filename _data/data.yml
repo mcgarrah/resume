@@ -83,7 +83,7 @@ education:
 experiences:
     title: Experiences
     info:
-      - role: Lead Platform Engineer
+      - role: Principle Platform Engineer (Cloud Focus)
         time: Oct 2021 - Present
         company: Envestnet, Inc, Remote
         details: |
@@ -97,7 +97,7 @@ experiences:
             - <a href="https://newsroom.envestnet.com/2022-10-24-Envestnet-Data-Analytics-Unveils-New-Vision-at-Money-20-20" target="_blank">Envestnet Data & Analytics</a>
       - role: Principal Data & Analytics Platform Engineer
         time: Apr 2019 - Oct 2021
-        company: Blue Cross and Blue Shield of NC, Raleigh-Durham NC
+        company: Blue Cross and Blue Shield of NC, Raleigh-Durham NC (Remote)
         details: |
           Building a data science platform incorporating a data‐warehouse, data‐lake and data‐execution environment 
           using containerized cloud-first technologies ﴾AWS & Kubernetes﴿ to support our mission of data driven 
