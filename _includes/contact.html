@@ -73,6 +73,12 @@
     </li>
     {% endif %}
 
+    {% if sidebar.discord %}
+    <li class="discord"><i class="fab fa-discord"></i>
+      <a href="https://discord.com/users/{{ sidebar.discord }}" target="_blank">{{ sidebar.discord }}</a>
+    </li>
+    {% endif %}
+
     {% if sidebar.stack-overflow %}
     <li class="stack-overflow"><i class="fab fa-stack-overflow"></i>
       <a href="https://stackoverflow.com/users/{{ sidebar.stack-overflow }}" target="_blank">{{ sidebar.stack-overflow }}</a>
