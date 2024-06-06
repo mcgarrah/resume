@@ -37,7 +37,13 @@
           <div class="time">{{ graduation.time }}</div>
         </div><!--//upper-row-->
 
-        <div class="university">{{ graduation.university }}</div>
+        <div class="second-upper-row">
+          <div class="university">{{ graduation.university }}</div>
+          {% if graduation.gpa %}
+          <div class="gpa">GPA: {{ graduation.gpa }}</div>
+          {% endif %}
+        </div><!--//second-upper-row-->
+
       </div><!--//meta-->
 
       {% if graduation.details %}
