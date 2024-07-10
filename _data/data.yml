@@ -93,9 +93,9 @@ experiences:
         summary: |
           Building large scale cloud platforms for financial services and data science 
           initiatives. A combination of AWS cloud and data center infrastructures are 
-          included in the architecture allowing for flexible integration between on-prem 
+          included in the architecture allowing for flexible integration between on-premise 
           and cloud services. An automation first attitude pervades this work. 
-          Containerized cloud-first technologies ﴾AWS & Kubernetes﴿ to support new 
+          Containerized cloud-first technologies (AWS & Kubernetes) to support new 
           initiatives are current focus areas.
             - <a href="https://upswot.com/upswot-signs-a-new-multi-year-and-multi-million-dollar-deal-with-envestnet-yodlee/" target="_blank">Envestnet upSWOT</a>
             - <a href="https://newsroom.envestnet.com/2022-10-24-Envestnet-Data-Analytics-Unveils-New-Vision-at-Money-20-20" target="_blank">Envestnet Data & Analytics</a>
@@ -1046,7 +1046,7 @@ experiences:
             level controls from NIST 800-53. This furthered the mission of the ETAAC who reports to Congress annually 
             provides for discussion of electronic tax administration issues in support of the goal of paperless filing.
             The final Congressional report applied these controls as a baseline for this industry.
-      - role: IT Engineer
+      - role: IT Engineer (IT Director)
         time: Mar 2006 - Mar 2007
         company: BD Biosciences, Durham, NC
         summary: |
