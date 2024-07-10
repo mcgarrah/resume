@@ -66,7 +66,7 @@ education:
         gpa: 3.63
         details: |
           Beginning the Fall of 2014 while working full-time, I completed my Machine Learning 
-          focused curiculm in the Spring of 2019. My focus area was Interactive Intelligence,
+          focused curriculum in the Spring of 2019. My focus area was Interactive Intelligence,
           Machine Learning and Perception Systems. While in school, I have pursued guided independent
           study research projects and worked to present papers at conferences to extend my academic credentials.
             - [NWAV 46](https://en.wikipedia.org/wiki/New_Ways_of_Analyzing_Variation){:target="_blank"} [Conference Presentation](https://dept.english.wisc.edu/nwav46/?page_id=57){:target="_blank"}
@@ -220,7 +220,7 @@ experiences:
           Society of Service Innovation Professionals (ISSIP) and the H2H model with an [Innovator Award from
           Healthcare Innovation](https://www.hcinnovationgroup.com/analytics-ai/predictive-analytics/article/21230131/innovator-awards-second-place-winning-team-blue-cross-blue-shield-of-north-carolina).
 
-          My role was to validate the framework and models along with assisting is making the code-base production
+          My role was to validate the framework and models along with assisting in making the code-base production
           ready. I was also the primary implementer for creating an enterprise production capable platform for the
           final product. The platform implementation was initially on local laptops and later an AWS EC2 instance.
           I performed code reviews and changes for the framework source code, individual model data-prep and
@@ -345,11 +345,11 @@ experiences:
           deployments.
 
           Application Modernization from legacy ColdFusion, PERL, and
-          Java application to move to a MEAN development stack and
+          Java applications to move to a MEAN development stack and
           utilize AWS for the new environments. Design and
           implementation of the new infrastructure proceeds. Varied
           solutions for the legacy migration include Amazon EMR, ELK log
-          management, ElactiCache, CloudFront, Beanstalk and varied other
+          management, ElastiCache, CloudFront, Beanstalk and various other
           AWS services. Impediments include a monolithic Oracle database
           structure and legacy desktop applications accessing the same data
           in real-time.
@@ -370,7 +370,7 @@ experiences:
           errors. Reduced load times on scripts noticeably.
           
           Varnish Caching server implementation requires a re-write of the
-          HTTP session and redirection rules. Current design allow for
+          HTTP session and redirection rules. Current design allows for
           replay of session actions for invalid responses.
           
           Redirection/Rewrite Rule proliferation includes six locations for a
@@ -388,8 +388,8 @@ experiences:
           Recent Hybrid Cloud work with Azure/Amazon integration with a
           software architecture for our new service-based software platform
           using a micro-services implementation and a serverless POC
-          implementation. Everything is in the context of merged Amazon to
-          local data center network hosting multiple data sources including
+          implementation. Everything is in the context of merging Amazon to
+          a local data center network hosting multiple data sources including
           Oracle and MongoDB. The intelligent load balancer transition and
           rules implementation across multiple isolated networks.
           
@@ -413,10 +413,10 @@ experiences:
         summary: |
             Accountable for developing, maintaining and overseeing the execution of formalized technology, application, 
             platform, and systems integration strategies. Conduct enterprise-wide analysis, collaboratively establish 
-            technology road maps, champion critical changes and negotiate statewide standards and polices in the form 
+            technology road maps, champion critical changes and negotiate statewide standards and policies in the form 
             of Enterprise Architecture. Ensure the successful development and effective execution of IT strategies. 
-            Systematic management of enterprise IT standards, polices and strategies for a portfolio of technology 
-            platforms, products, and practices. Initial focus on converged technologies to include software defines 
+            Systematic management of enterprise IT standards, policies and strategies for a portfolio of technology 
+            platforms, products, and practices. Initial focus on converged technologies to include software defined 
             networks (SDN) and software defined infrastructures (SDI).
         details: |
           **Architecture**
@@ -425,10 +425,10 @@ experiences:
           execution of formalized technology, application, platform, and
           systems integration strategies. Conduct enterprise-wide analysis,
           collaboratively establish technology road maps, champion critical
-          changes and negotiate statewide standards and polices in the form
+          changes and negotiate statewide standards and policies in the form
           of Enterprise Architecture. Ensure the successful development and
           effective execution of IT strategies. Systematic management of
-          enterprise IT standards, polices and strategies for a portfolio of
+          enterprise IT standards, policies and strategies for a portfolio of
           technology platforms, products, and practices.
 
           As part of the evaluation during the Network Modernization
@@ -452,7 +452,7 @@ experiences:
 
           Ensure the successful development and effective execution of IT
           strategies. Manage enterprise IT standards, policies and strategies
-          for portfolio of technology platforms, products, and practices.
+          for a portfolio of technology platforms, products, and practices.
           Initial focus on converged technologies with focus on network
           modernization with software defined networks (SDN).
 
@@ -511,10 +511,10 @@ experiences:
           a combined AWS and Eucalyptus environments.
 
           MXE – cross platform compilation of tools and libraries necessary
-          for AI & ML tools. Some of those include were: gcc and
+          for AI & ML tools. Some of those include: gcc and
           associated toolchain, ATLAS, LPSolve, CBlas, Eigen, ColPack,
           ARPrec, Ccache, LAPack. Patches and modifications contributed
-          back to open source communities. SHOGUN ported to native
+          back to open source communities. SHOGUN is ported to native
           Microsoft Windows platform using the above MXE cross-
           compilation environment. Porting of Machine Learning Toolkit
           (MLT) to both a 64-bit Cygwin environment and native Linux
@@ -535,7 +535,7 @@ experiences:
 
           AWS development stack includes Java, C#, Python, Groovy
           (Grails), Perl, and C. Built AWS DotNet SDK in Mono on Linux
-          and develop proof of concept examples for evaluation. Developed
+          and developed proof of concept examples for evaluation. Developed
           a Grails S3 web browser application as proof of concept.
           Contributed to open source Eucalyptus 3.3.0 project.
 
@@ -546,7 +546,7 @@ experiences:
           test platform for S3 local service utilizing Ceph & RiakCS
           integrated with Eucalyptus 3.4 IAM. Extended a local SNS
           implementation using Scala in-memory implementation. Extended
-          a local SNS stub provider for mock provider of web service.
+          a local SNS stub provider for mock providers of web service.
 
           Investigated OpenStack, CloudStack, and AWESOME
           technologies for AWS compatibility with mixed results. Each had
@@ -588,7 +588,7 @@ experiences:
           modifications and TCP stack updates using IETF RFC 6824 as a
           recommendation for implementation
 
-          Brought these projects back to company network to assist in work
+          Brought these projects back to the company network to assist in work
           on production networking challenges for our large scale web
           services deployment. The modeling of latency issues for remote
           education institutions in rural Canada. TCP Fast Open for Chrome
@@ -598,10 +598,10 @@ experiences:
 
           **Virtualization Technologies**
 
-          Implemented a Xen and KVM virtualization environments that
+          Implemented Xen and KVM virtualization environments that
           supported both Linux and Windows virtual machines to provide a
           reliable environment for development and investigation of
-          technology. Progression of investigation migrated to Eucalyptus
+          technology. Progression of investigation migrated to the Eucalyptus
           cloud environment.
 
           Performed hardware maintenance for existing servers, including
@@ -618,7 +618,7 @@ experiences:
           the environment. An advanced understanding of IP, Sub-Nets,
           VPNs, vLAN, Network routing, firewalls, load balancing and
           switching as related to the VMware platform were required for
-          implementation. Storage configuration include iSCSI both in client
+          implementation. Storage configuration includes iSCSI both in client
           and on ESXi software. Troubleshooting of ESXi server and virtual
           machine related performance issues was performed as necessary.
 
@@ -636,7 +636,7 @@ experiences:
           Upgrade several production Ubuntu systems from legacy LTS
           releases to 12.04 and planning migration to LTS 14.04.
           Implemented Linux Desktop initiative bringing several users into
-          Linux environment providing support for email, file sharing,
+          the Linux environment providing support for email, file sharing,
           development, source control, and integrated A&A. File sharing
           incorporates Samba 4 integration. Likewise, support for CentOS &
           Red Hat Enterprise Linux as required by projects.
@@ -644,10 +644,10 @@ experiences:
           **Windows Systems Administrator**
 
           Microsoft Windows Administration of services including: Active
-          Directory, RADUIS, Kerberos, LDAP schema extension and
+          Directory, RADIUS, Kerberos, LDAP schema extension and
           DHCP/DNS integration. User and Group account administration.
-          Develop procedure for provisioning of new employee (onboarding)
-          and exiting of employee. Document UNIX tools integration of
+          Develop procedure for provisioning of new employees (onboarding)
+          and exiting of employees. Document UNIX tools integration of
           UNIX services for windows including Xming, PuTTY, and
           WinSCP software.
 
@@ -663,7 +663,7 @@ experiences:
           **Network Administrator**
 
           Migrate Checkpoint DHCP services off device to AD. Migrate
-          private IP ranges to expanded addressable space for separation of
+          private IP ranges to expand addressable space for separation of
           services: servers, network, cloud, and desktop devices. Manage
           and configure HP ProCurve switch and F5 Load Balancer.
           Implement evaluation Nagios monitoring across Linux and
@@ -673,7 +673,7 @@ experiences:
           VPN services. Evaluate a OpenVPN-ALS SSL-VPN solution with
           Apache reverse proxy and shared certificates with Java applet
           clients and the Guacamole Clientless Remote Desktop integrated
-          with Active Directory for use in secure environment.
+          with Active Directory for use in a secure environment.
 
           **Database Administration**
 
@@ -690,7 +690,7 @@ experiences:
           Involved in all phases of database development, from needs
           assessment to QA, design, and support. Migration and upgrade of
           SQL Server 2008 to 2008R2 for legacy systems. Built and
-          maintain SQL Server 2012 servers for use in Streaming Scoring
+          maintained SQL Server 2012 servers for use in Streaming Scoring
           web service and distributed AWS processing platform. Technology
           investigation of Hadoop for use in model building.
       - role: Systems Administrator
@@ -698,8 +698,8 @@ experiences:
         company: SAS Institute, Inc., Cary, NC
         summary: |
             Systems administration for Windows, Solaris, AIX and Linux for SAS Solutions OnDemand with a focus on 
-            validated systems for pharmaceutical industry. SAS Drug Development (SDD), Clinical Data Integration Studio (CDI) 
-            and SAS Clinicial Standards Toolkit are my primary product focus. SAS Retail and Fraud are a secondary 
+            validated systems for the pharmaceutical industry. SAS Drug Development (SDD), Clinical Data Integration Studio (CDI) 
+            and SAS Clinical Standards Toolkit are my primary product focus. SAS Retail and Fraud are a secondary 
             focus area. Provided customers with automation solutions and POC extensions as necessary. Certification 
             in several SAS product lines.
         details: |
@@ -745,7 +745,7 @@ experiences:
 
           Designated to evaluate “Service Operations” and “Service
           Transition” as pertains to the SAS operations. Reviewed existing
-          processes and documentation and providing feedback on changes
+          processes and documentation and provided feedback on changes
           to facilitate the transition to ITIL best practices for validated
           systems environments.
 
@@ -768,7 +768,7 @@ experiences:
           include a mid-tier (web), compute-tier (SAS), and storage-tier
           (database).
 
-          Configurations designed included an LSF Grid implementations,
+          Configurations designed included LSF Grid implementations,
           load-balanced mid-tiers(web), load-balanced compute-tier(SAS)
           and variations on these configurations. Design of the plan and
           architectures are part of the Platform Administrators role at SAS.
@@ -776,7 +776,7 @@ experiences:
           **Validated Systems**
 
           Primary responsibility included expert level response for SAS
-          Drug Devleopment (SDD), SAS Clinical Data Integration (CDI),
+          Drug Development (SDD), SAS Clinical Data Integration (CDI),
           and Clinical Trial support services. Perform validated installations
           for systems participating in clinical trials to meet CFR Part 11
           Compliance. Practices for performing all actions in the validated
@@ -786,7 +786,7 @@ experiences:
 
           **SAS Fraud and Retail Systems**
 
-          Transitions to flat model of support for Platform Administrators
+          Transitions to a flat model of support for Platform Administrators
           included installing and managing non-Validated environments.
           This included SAS Fraud Framework and SAS Retail Solutions.
           Brought across the validated documentation mind-set to the non-
@@ -818,18 +818,20 @@ experiences:
         time: Mar 2007 - Aug 2011
         company: NC Department of Revenue, Raleigh NC
         summary: |
-            Review compliance to required state and federal policies. Review security requirements and adherence for agency.  
-            Provide risk assessments. Respond and document security incidents. Document security procedures.  NIST, FISMA, 
-            FIPS, and ISO are some standards I actively reviewed during my tenure.
+            Review compliance to required state and federal policies. Review
+            security requirements and adherence for the agency. Provide risk
+            assessments. Respond and document security incidents. Document security
+            procedures.  NIST, FISMA, FIPS, and ISO are some standards I actively
+            reviewed during my tenure.
         details: |
           **Project Management**
 
           Perform multiple roles in project management. Perform and
-          prepare feasibility and risk assessments, gathered business
-          requirements, develop project plans, organizing, manage and
+          prepare feasibility and risk assessments, gather business
+          requirements, develop project plans, organize, manage and
           allocate resources, and monitor and control progress. Participate
           as a key stakeholder in multiple critical agency projects. Primary
-          goal as a security professional are to manage risk, provide impact
+          goals as a security professional are to manage risk, provide impact
           & probability analysis while tracking progress on projects.
 
           Other projects as a core team member: Online Filing and Payment
@@ -848,7 +850,7 @@ experiences:
           system. Engaged in the RFI (request for information), RFP
           (request for proposal), and contract review process prior to project
           initiation. Active reviewer and documenter of security
-          requirements. Provide rapid risk assessments for evolving system.
+          requirements. Provide rapid risk assessments for evolving systems.
           Certify compliance to state, federal and PCI standards.
 
           **Development**
@@ -877,7 +879,7 @@ experiences:
           testers access to documentation and software. Defect tracking and
           source code changes are linked and related.
 
-          Security reviews and sign-off were integrating into each step of
+          Security reviews and sign-off were integrated into each step of the
           DOR SDLC process from business requirements to the completed
           production release. Integration of security reviews and sign-off
           into each step increased compliance and decreased re-work costs
@@ -887,10 +889,10 @@ experiences:
 
           Manual code reviews for multi-tier J2EE web applications in
           WebSphere and JBoss and vulnerability testing both automatic and
-          manual performed as part of security review process for all web
+          manual performed as part of the security review process for all web
           applications. SPI WebInspect, custom Perl scripts, WebScarab,
           Metasploit extensions, and manual testing were performed for all
-          web applications released. Local desktop java applications also
+          web applications released. Local desktop java applications are also
           reviewed as necessary.
 
           Review Perl and shell script automation for UNIX systems.
@@ -902,7 +904,7 @@ experiences:
 
           Wrote the complete specification for the automation of an
           authorization tracking system called EDORSA. Designed
-          automated system to incorporate business rules, automated
+          an automated system to incorporate business rules, automated
           approval routing, integration with SAP system (NC BEACON),
           and ITIL CMDB. The agency FTI data access tracking and
           reporting system is critical to federal audit requirements.
@@ -915,7 +917,7 @@ experiences:
           for discussion of electronic tax administration issues in support of
           the goal of paperless filing. Provided input into third-party tax
           preparer security standards based on moderate level controls from
-          NIST 800-53. Congressional report applied these controls as a
+          NIST 800-53. A Congressional report applied these controls as a
           baseline.
 
           *IRS TAG-SS*: Active participate in IRS Tactical Advisory
@@ -934,19 +936,19 @@ experiences:
 
           *Risk Assessment & Vulnerability Management*
 
-          Write vulnerability and risk assessments for agency both on
+          Write vulnerability and risk assessments for agencies both on
           requests for new projects and from managing existing
           infrastructure risks. Engage with technical staff in the
           implementation of mitigating controls for vulnerabilities assessed.
           Report monthly to senior management on outstanding
-          vulnerabilities and risks for agency as well as yearly summary.
+          vulnerabilities and risks for the agency as well as yearly summary.
 
           *IRS SafeGuard Audit (Dec 2007)*
 
           Part of a five person team that passed the IRS SafeGuard’s audit
           for the NC Dept of Revenue. This federal audit was a significant
           assessment requiring seven month preparation and a delivered
-          report of over 1300 pages covering all aspect of the IT computing
+          report of over 1300 pages covering all aspects of the IT computing
           infrastructure for the agency. The lack of noteworthy audit findings
           was acknowledged as a significant achievement by the IRS
           auditors. Continue with yearly updates on the original report while
@@ -954,7 +956,7 @@ experiences:
 
           *NC State Auditor’s Office*
 
-          Provide the NC Auditors Office with information as required for
+          Provide the NC Auditor's Office with information as required for
           yearly IT audits. No significant findings from these audits.
           Symantec Security Services provided an assessment for use by the
           Auditor’s Office in 2006. This comprehensive report and findings
@@ -1013,7 +1015,7 @@ experiences:
 
           Audit and provide assistance managing Novell SuSE Enterprise
           Linux, RedHat Enterprise Linux and IBM AIX 5L and 6L series
-          for agency. Review scripting in Perl, Python and various shell for
+          for the agency. Review scripting in Perl, Python and various shells for
           automation tasks. Audit for security policy compliance and assist
           in bringing systems into compliance. Limited evaluation of
           VMware ESX 4 for Linux hosts.
@@ -1027,7 +1029,7 @@ experiences:
           business requirements while meeting security standards for
           network configuration requests and changes.
 
-          Environment managed includes multiple public expose DMZ
+          Environment management includes multiple public exposed DMZ
           zones that include load balancing, SSL acceleration, IDS/IPS and
           complex firewall rule-sets. Nortel Alteon, Nortel Passport 8600,
           Nortel 5520, Cisco ASA 5500 series and a Cisco NAC are some of
@@ -1035,11 +1037,11 @@ experiences:
 
           Review and respond to NC ITS Foundstone scans and alerts.
           Manage local WebSense URL monitoring system.
-      - role: Congressional Sub-Committee Member
+      - role: Congressional Subcommittee Member
         time: Mar 2009 - Mar 2011
-        company: ETAAC Security Sub-Committee, Washington DC
+        company: ETAAC Security Subcommittee, Washington DC
         summary: |
-            As a member of the Electronic Tax Administration Advisory Committee (ETAAC) sub-committee on computing security, 
+            As a member of the Electronic Tax Administration Advisory Committee (ETAAC) subcommittee on computing security, 
             I provided significant input into third-party tax preparer security standards based on a subset of the moderate 
             level controls from NIST 800-53. This furthered the mission of the ETAAC who reports to Congress annually 
             provides for discussion of electronic tax administration issues in support of the goal of paperless filing.
@@ -1072,7 +1074,7 @@ experiences:
 
           Explore the feasibility, gathered requirements, and determined
           project plans for two infrastructure upgrades. Review design of
-          existing stalled projects and providing a written project plan to
+          existing stalled projects and provide a written project plan to
           close them out or bring them back online.
 
           **UNIX Systems Administrator**
@@ -1080,13 +1082,13 @@ experiences:
           Debian (on Sun UltraSPARC) server for use in network
           management, automated backup services, and basic system
           automation services. Solaris 8 system conforming to BD standard
-          used for automation system.
+          used for automation systems.
 
           **Allen & Bradley PLC Programming**
 
           Training in ControlLogix and RSLogix to allow for extracting data
           points from PLC (Programmable Logic Controllers) from
-          automation complexes on manufacturing floor. MicroLogix and
+          automation complexes on the manufacturing floor. MicroLogix and
           SLC controllers are also used and learned in independent study.
 
           RSMACC implementation started for two PLC complexes.
@@ -1104,7 +1106,7 @@ experiences:
 
           **Oracle Database Administrator**
 
-          MES (Manufacturing Execute System) are running both on Oracle
+          MES (Manufacturing Execution System) are running both on Oracle
           8 and 9i. Web interface includes Crystal Reports and custom
           Apriso software. A re-implementation of the backup system was
           done to improve restoration time and reliability. Further
@@ -1123,7 +1125,7 @@ experiences:
           Management of Cisco and Nortel switches and routers. Added
           GUI interface to allow for simplified administrator using the
           Nortel Device Manager using SNMP in read-only and read-write.
-          Allow other non-technical people access to read-only view of
+          Allow other non-technical people access to read-only views of
           network devices. Fully documented existing network
           infrastructure for ITIL infrastructure documentation. Added a new
           wiring closet for plant expansion.
@@ -1144,7 +1146,7 @@ experiences:
 
           Administer Sun Solaris 2.6, 8.0, and 9.0 systems and IBM AIX 5L
           series for 58 North Carolina Community Colleges. Wrote and
-          provide documentation to colleges on basic Solaris system
+          provided documentation to colleges on basic Solaris system
           administration tasks such as OS patch, performance monitoring,
           user creation and review, file system permissions, and security
           auditing.
@@ -1154,7 +1156,7 @@ experiences:
           Provide development staff with expertise on install/uninstall
           techniques for UNIX. Review contracted scripting before
           deployment. Korn shell (ksh) and Perl scripting to provide
-          specialized automation tools for UniData environment. These
+          specialized automation tools for the UniData environment. These
           tools automatically maintain file system and database integrity.
           Scripted solution provided for a reduction of manual efforts for
           each of the 58 local college system administrators.
@@ -1170,7 +1172,7 @@ experiences:
 
           Back ported tools and utilities from open source HypersonicSQL
           1.8 code base to a legacy HSQL 1.7 system to automate database
-          maintenance task for 58 colleges. Deployment of toolkit allows
+          maintenance tasks for 58 colleges. Deployment of the toolkit allows
           recovery of damaged databases and maintenance tasks that took
           significant support resources.
 
@@ -1181,7 +1183,7 @@ experiences:
 
           **Project Management**
 
-          Gathered business requirements, develop project plans, organizing,
+          Gather business requirements, develop project plans, organize,
           manage and allocate resources, and monitor and control progress
           on Sun Solaris 9 upgrade for 58 heterogeneous college systems.
           Provided management with impact & risk analysis weekly while
@@ -1205,11 +1207,11 @@ experiences:
           Provide UniData database administration services to college staff
           in data recovery, system maintenance, licensing evaluation, and
           security auditing services. Review and provide analysis of data
-          retrieval and reporting of financial and student records from
+          retrieval and reporting of financial and student records from the
           Colleague system. Provide second level support to development
           staff in UniData integrated database programming for both base
           PICK BASIC and Envision GUI environment. System level
-          diagnostics and tracing for more difficult problems. Extend
+          diagnostics and tracing for more difficult problems. Extend the
           UniData environment to allow for Solaris OS interaction.
 
           SQL Server Administrator for Merant PVCS system utilized as
@@ -1231,8 +1233,8 @@ experiences:
 
           Provide backup services for Veritas NetBackup installation on
           Windows 2003 and Sun Solaris 2.6 and 8.0. Ufsdump backups
-          remote dumped to custom tape repository. Backups services are
-          utilized across training, QA, and development servers. Since
+          remote dumped to custom tape repository. Backup services are
+          utilized across training, QA, and development servers. Since the
           current implementation was deployed, all data restore requests
           have been honored. Provide disaster recovery facilities and
           services to 58 community colleges on demand.
@@ -1254,7 +1256,7 @@ experiences:
 
           Provide senior level UNIX administration and assistance for UNIX
           systems including various brands of Linux (Red Hat, SuSE,
-          Debian), Solaris (sparc&intel), FreeBSD, and OpenBSD. Senior
+          Debian), Solaris (SPARC & Intel), FreeBSD, and OpenBSD. Senior
           systems administration included paid consulting services.
 
           **Enterprise Data Storage Administrator**
@@ -1279,7 +1281,7 @@ experiences:
 
           **Hostmaster/Postmaster (DNS/Email)**
 
-          Provide postmaster role on a diverse email system including Exim,
+          Provide a Postmaster role on a diverse email system including Exim,
           Microsoft Exchange, and Sendmail servers. Hostmaster role
           processing change requests for DNS on BIND 9.2.1 nameservers.
           BIND servers are on Sun Sparc hardware running Debian Linux to
@@ -1317,9 +1319,9 @@ experiences:
 
           **Project Management**
 
-          Explore the feasibility, gathered requirements, and determined
-          project plans for infrastructure upgrade project. Review design of
-          existing stalled project and providing a written project plan to
+          Explore the feasibility, gather requirements, and determine
+          project plans for infrastructure upgrade projects. Review design of
+          existing stalled projects and provide a written project plan to
           bring back on track.
 
           **Installations**
@@ -1344,7 +1346,7 @@ experiences:
           Brought a broad background in UNIX and Windows programming and administration to the 
           new UNIX agent services for the flagship AppManager product.  Managed the lab and was 
           the primary systems administrator and quality engineer for the UNIX services and also 
-          maintain and extend network testing facilities.
+          maintained and extended network testing facilities.
         details: |
           **Systems Integration (Windows NT/UNIX)**
 
@@ -1361,7 +1363,7 @@ experiences:
           **Installation Facilities**
 
           Built an imaging/reinstall service for some UNIX systems allowing
-          from automated rebuild of servers in 20 minutes or less to mirror
+          for automated rebuild of servers in 20 minutes or less to mirror
           existing Wintel service. Previous UNIX installs require 45 to 60
           minutes per machine with manual intervention during install.
 
@@ -1369,12 +1371,13 @@ experiences:
           to automate re-use of hardware for quality testing of software and providing
           build services, automated testing, and daily automated software releases. Using
           combinations of VMware ESX virtual machines, Intel hardware x32/x64 and ia64 (Itanium) 
-          with PXE boot, Sun Solaris 32-bit and 64-bin with OpenBoot, HPuX Ignite(?), IBM AIX, etc...
+          with PXE boot, Sun Solaris 32-bit and 64-bit with OpenBoot, HP-UX with Ignite, and
+          IBM AIX Netboot.
 
-          *TODO*: Finish the above story of API driven VMs and automated hardware 
-          rebuilds. This is why I believed in cloud later and fully automated
-          development pipelines like CI/CD. I still don't believe in Agile fully but
-          introduced to that here as well very early.
+          This API driven system using virtual machines (VM) and network booted hardware that
+          could be reconfigured automatically, allowed for a full automated build and regression
+          test every night. This made my later transition to API driven cloud and fully automated
+          development pipelines such as modern CI/CD easier to accept and pursue.
 
           **UNIX System Programming (consultation)**
 
@@ -1397,14 +1400,14 @@ experiences:
         company: North Carolina State University, Raleigh, NC
         summary: |
           Programmer and administrator for College of Engineering financial systems. Also secondary 
-          duties in Solaris and Windows NT systems administration. Participate in NCSU open source 
+          duties in Solaris and Windows NT systems administration. Participated in NCSU open source 
           initiatives and became Red Hat certified (RHCE). Provide technical assistance for upgrades 
           of Engineering server room network infrastructure.
         details: |
           **Systems Programming (UNIX)**
 
           Built tools for administering Sybase servers. Update and write
-          cron jobs used to import campus data. Design new system for
+          cron jobs used to import campus data. Design a new system for
           reporting on server activity. Developed expertise in Red Hat
           Linux and earned an RHCE (Red Hat Certified Engineer)
           certification.
@@ -1450,7 +1453,7 @@ experiences:
           **CVS Project**
 
           Identified a need for a cross-platform source control system for
-          College of Engineering. Prototyped and manage a CVS server
+          the College of Engineering. Prototyped and managed a CVS server
           with Kerberos (GSSAPI) and SSH authentication.
       - role: Senior Operations Technician in NOC (part-time 32+ hrs week)
         time: Feb 2000 - Oct 2001
@@ -1491,7 +1494,7 @@ experiences:
           extension to backup scripts and provided up to date documentation.
           
           Performed backups of several non-standard, non-robotic backup
-          systems on co-locationed servers.
+          systems on co-located servers.
 
           **Solaris and Windows NT Administration**
 
@@ -1512,8 +1515,8 @@ experiences:
 
           **Telecommunication Contact**
 
-          Contact and arrange Telco agents to dispatches technicians when
-          necessary to visit customer site and resolve issues. Through the use
+          Contact and arrange Telco agents to dispatch technicians when
+          necessary to visit customer sites and resolve issues. Through the use
           of trouble tickets, tracked the progress of client’s outages until they
           are brought back online. Effectively communicated with Telco
           agents and onsite technicians to quickly resolve customer’s
@@ -1531,7 +1534,7 @@ experiences:
 
           **Hostmaster/Postmaster**
 
-          Maintain and managed primary and secondary DNS servers and
+          Maintain and manage primary and secondary DNS servers and
           custom automation tools. Process queued requests received for
           DNS and email servers. Assists customers with change requests in
           their DNS records
@@ -1543,7 +1546,7 @@ experiences:
           remote access and authentication system used by all North Carolina public libraries, 
           community colleges, and both public and independent universities. Managed Cisco 4700 using 
           Distributed Director product to provide load balancing and redundancy of service. 
-          Provide senior level guidence to UNIX systems administrators. Acting Operations Manager 
+          Provide senior level guidance to UNIX systems administrators. Acting Operations Manager 
           for NC LIVE server sites.
         details: |
           **Acting Operations Manager**
@@ -1566,21 +1569,21 @@ experiences:
           **NC LIVE Session Manager**
           Designed and implemented a general solution for statewide remote
           access to NC LIVE web resources. Presented sessions on non-
-          proxy authentication solution at 1999 NC Library Association
+          proxy authentication solutions at 1999 NC Library Association
           (NCLA) and EDUCAUSE 99. Authored and presented several
           statewide and a national technical session.
 
           **Rapid Content Expansion**
 
-          Tripled number of service providers in twelve-month period. This
+          Tripled the number of service providers in the twelve-month period. This
           was made possible by extensive automation and overall redesign of
           the NC LIVE service to provide a scalable and extensible system.
 
           **Extend Network Infrastructure**
 
-          Enhanced and maintained the network infrastructure for fail over
-          systems. The basis for the NC LIVE fail over system was Cisco
-          Local and Distributed Directors installed on two Cisco 4700 router.
+          Enhanced and maintained the network infrastructure for failover
+          systems. The basis for the NC LIVE failover system was Cisco
+          Local and Distributed Directors installed on two Cisco 4700 routers.
           This installation was the first production installation of the product.
           The Cisco documentation had the NC LIVE configuration files
           including the IP addresses in their first revision of the manual.
@@ -1590,19 +1593,19 @@ experiences:
           Extensively customized Sean MacGuire's Big Brother 1.3/1.4
           monitoring system to monitor NC LIVE services. Provided twenty-
           four hour coverage and paging for service outages. Setup email
-          servers and fail over services for NC LIVE mail.
+          servers and failover services for NC LIVE mail.
 
           **Student Programming**
 
           Recruited, hired and trained CSC/CPE student programmers to
           write an SGML engine for Chadwyck-Healey poetry collection and
-          a web interfaces to aid in administering NC LIVE systems.
+          a web interface to aid in administering NC LIVE systems.
 
           **Open Source NC LIVE Initiative**
 
           Launched an open source port of NC LIVE service. Research
           project utilized Red Hat Linux 6.2, Apache 1.3, Perl 5.005, and
-          TCX MySQL 3.22. Pilot project was successful re-implementation
+          TCX MySQL 3.22. Pilot project was a successful re-implementation
           that reduced cost and increased flexibility and scalability of the
           NCLIVE platform.
       - role: Application Analyst Programmer
@@ -1679,6 +1682,7 @@ experiences:
           **Winstone® Version: 95, 96, 32, 97, 98**
 
           Languages used: Visual Basic, C/C++, NT batch
+
           Winstone is an application-based benchmark measuring
           performance based on application run times. Installation and
           removal of the applications is done without user intervention.
@@ -1686,7 +1690,8 @@ experiences:
           **WinBench© Version: 95, 96**
 
           Languages used: C
-          WinBench is a sub-system benchmark for the Windows operating
+
+          WinBench is a subsystem benchmark for the Windows operating
           system testing hard disk, processor, FPU, memory, graphics, video,
           CD-ROM, and an application playback system to reproduce
           application activity on each sub-system.
@@ -1694,12 +1699,14 @@ experiences:
           **PC Bench© Version: 8.0, 9.0**
 
           Languages used: C, C++
-          PC Bench is a DOS sub-system benchmark testing hard disk,
+
+          PC Bench is a DOS subsystem benchmark testing hard disk,
           processor, FPU, memory, and graphics card.
 
           **JMark Version: 2.0**
 
           Languages used: Java, C, Perl, SQL
+
           JMark (JavaBench) benchmark tests both compliance and
           performance of a Java virtual machine. Designed and implemented
           a VM independent method to save results using a custom Java
@@ -1724,7 +1731,7 @@ experiences:
 
           Reviewed and cleaned up a failed project for Ziff-Davis' product
           distribution database. An external-consulting group designed the
-          project. The system was setup using an Oracle 7.0 server with
+          project. The system was set up using an Oracle 7.0 server with
           Lotus Approach, Q+E technology, and Visual Basic 3.0.
           Performed a rapid retrofit and cleanup of the final system.
 
@@ -1744,9 +1751,9 @@ experiences:
         time: Jan 1998 - May 1998
         company: Interpath Communications, Raleigh, NC
         summary: |
-          Helpdesk and networking administration for in the NOC. Technical writer for SOP on 
+          Help desk and networking administration for the NOC. Technical writer for SOP on 
           first and second line support.  Provided assistance in multiple areas of operations 
-          as needed. Contract ended with company buyout by CP&L/Progress Energy.
+          as needed. Contract ended with a company buyout by CP&L / Progress Energy.
         details: |
           **Customer Support**
 
@@ -1757,7 +1764,7 @@ experiences:
 
           Documents all customer troubles and resolutions in a Remedy
           ticket management system. Coordinates efforts with other
-          departments and follow issue to resolution.
+          departments and follows issues to resolution.
 
           **Technical Writing**
 
@@ -1766,11 +1773,10 @@ experiences:
           show customer experience for in house staff.
 
           Maintained and enhanced Operation department's intranet site and
-          knowledge base as well as add functionality with web base tools.
+          knowledge base as well as add functionality with web based tools.
           These included links to web based ping, traceroute and telnet
           utilities so that technicians could easily perform preliminary
-          troubleshooting while customer was on the phone.
-          LOTS MORE DETAILS
+          troubleshooting while the customer was on the phone.
       - role: Consultant (full-time)
         time: Apr 1994 - Jun 1994
         company: DB Basics, Inc., Morrisville, NC
@@ -1783,7 +1789,7 @@ experiences:
         company: Pioneer Software, Inc (Q+E Software / Intersolv / Merant / Data Direct / Serena), Raleigh, NC
         summary: |
           OEM services and international support manager. Supported over 30 commercial DBMS. 
-          Worked, on as needed basis, for development, quality assurance and technical-writing 
+          Worked, on an as needed basis, for development, quality assurance and technical-writing 
           departments.
         details: |
           **OEM Manager**
@@ -1836,7 +1842,7 @@ experiences:
         time: Mar 1992 - Jul 1992
         company: Roemer Weather, Inc, Raleigh, NC
         summary: |
-          Assist in analysis of weather data and purchase of computing resources for business office.
+          Assist in analysis of weather data and purchase of computing resources for the business office.
         details: |
           Evaluated business needs and purchased computer hardware and
           software. Trained the employees on office automation software.
@@ -1847,7 +1853,7 @@ experiences:
         time: Aug 1990 - Jun 1992
         company: North Carolina State University, Raleigh, NC
         summary: |
-          As a teaching assistant taught engineering computing course work.
+          As a teaching assistant I taught engineering computing course work.
         details: |
           Taught course work in:          
           - E115: Introduction to EOS (UNIX)   
