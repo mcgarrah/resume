@@ -89,7 +89,7 @@ experiences:
     info:
       - role: Lead Principal Engineer (Cloud & ML Focus)
         time: Oct 2021 - Present
-        company: Envestnet, Inc, Remote
+        company: Envestnet, Inc., Remote
         summary: |
           Building large scale cloud platforms for financial services and data science 
           initiatives. A combination of AWS cloud and data center infrastructures are 
@@ -114,7 +114,7 @@ experiences:
           integrated portal includes the apps that most SMBs use to run their businesses and provides greater
           opportunity for growth and partnership between SMBs and banks. The software was implemented with
           cloud-native containerized microservices which was migrated to AWS managed cloud services as part of a
-          migration. IaC (infra as code) and conversion from on-prem and alternate cloud vendors was a major
+          migration. IaC (Infrastructure as Code) and conversion from on-premise and alternate cloud vendors was a major
           hurdle to implementation and bringing the product to a managed state.
 
           **Data Science Initiatives (DSI)**
@@ -137,7 +137,7 @@ experiences:
         company: Blue Cross and Blue Shield of NC, Raleigh-Durham NC (Remote)
         summary: |
           Building a data science platform incorporating a data‐warehouse, data‐lake and data‐execution environment 
-          using containerized cloud-first technologies ﴾AWS & Kubernetes﴿ to support our mission of data driven 
+          using containerized cloud-first technologies (AWS & Kubernetes) to support our mission of data driven 
           decision to provide for a value‐based healthcare approach. A public example includes the media example below:
             - <a href="https://www.bluecrossnc.com/medicare-guided-selling-landing-page" target="_blank">Medicare Guided Selling</a>
         details: |
@@ -177,7 +177,7 @@ experiences:
           a Blue Cross NC commercial plan to a Blue Cross NC Medicare plan. The public accessible interface for
           the recommendation engine can be found at [MGS Landing](https://www.bluecrossnc.com/medicare-guided-selling-landing-page).
           My involvement was to implement
-          the initial recommendations system in May 2019 before our AWS platform was ready for general use. I
+          the initial recommendation system in May 2019 before our AWS platform was ready for general use. I
           quickly created a fully integrated and managed Serverless Framework (SLS) implementation using an AWS
           API-Gateway backed with Lambda functions written in Python3 providing a REST API for WebUI
           developers which pulled content from a DAX/DynamoDB datastore populated by a custom built
@@ -200,7 +200,7 @@ experiences:
           **CarePath (Machine Learning) Models**
 
           CarePath is a software framework developed by Blue
-          Cross NC that acts as a deep learning model factory. It constructs state of the art deep neural networks
+          Cross NC that acts as a deep learning model factory. It constructs state-of-the-art deep neural networks
           which learn and then recognize the patterns in sequences of claims which eventually lead to particular
           health events. This enables Blue Cross to accurately identify members at risk for a wide range of
           preventable events.
@@ -209,7 +209,7 @@ experiences:
           risks and possible health impact to focus our care management programs on those members at greatest risk
           and improve their health outcomes. Production examples of this include:
           * Complex Case Management (CCM) models for predicting both potential hospital initial admissions
-          and a separate readmissions after care using claims and other historical data to target members at
+          and separate readmissions after care using claims and other historical data to target members at
           risk with the goal of improving health outcomes. These two models have had a measurable impact
           on member health.
           * Hospital to Home (H2H) model to identify members at high risk for readmission who need
@@ -264,8 +264,8 @@ experiences:
 
           **Analytics Programming Platform - SAS 94M5** 
 
-          Stabilize platform and provide administration runbooks and best-
-          practices to UNIX sysadmin staff. Configure programming
+          Stabilize platform and provide administration run books and 
+          best-practices to UNIX sysadmin staff. Configure programming
           platform for remote connectivity to Hadoop DataLake, TeraData,
           and Oracle. Reverse engineer and document installation.
           Technology includes R and Python integration with scientific and
@@ -324,7 +324,7 @@ experiences:
           environment. A lack of existing documentation, standards, and
           procedures for this rapid migration impeded earlier efforts at a
           seamless transition. No customer impact for the migration I led and
-          completed in a break-neck six week period. A similar exercise for
+          completed in a break-neck six-week period. A similar exercise for
           a large consumer transaction website marketplace.akc.org was
           completed in a period of two weeks with a contracted partner
           assisting in the effort. Again, done with no customer impact for
@@ -375,7 +375,7 @@ experiences:
           
           Redirection/Rewrite Rule proliferation includes six locations for a
           rule to be enacted with the possibility of looping redirections.
-          Building a separation of the rules evaluation with logging into an
+          Building a separation of the rule's evaluation with logging into an
           ELK implementation to assist in understanding the scope of the
           challenge. Current implementation has over twenty-six thousand
           (26,000) rules.
@@ -394,7 +394,7 @@ experiences:
           rules implementation across multiple isolated networks.
           
           Provide architecture and implementation of a modernization of the
-          interactive web application platform to use a MEAN (javascript)
+          interactive web application platform to use a MEAN (Javascript)
           based development stack and DevOps workflow pipeline
           supporting this platform development with multiple dev
           workflows.
@@ -432,8 +432,8 @@ experiences:
           technology platforms, products, and practices.
 
           As part of the evaluation during the Network Modernization
-          program, clear issues with the existing security policy and state-
-          wide architectural standards emerged. In cooperation with the State
+          program, clear issues with the existing security policy and state-wide
+          architectural standards emerged. In cooperation with the State
           Risk Officer, we are releasing a Request for Proposals (RFP) for a
           rewrite of the security standards with an emphasis on modernized
           practices based on NIST and DoD standards.
@@ -789,8 +789,8 @@ experiences:
           Transitions to a flat model of support for Platform Administrators
           included installing and managing non-Validated environments.
           This included SAS Fraud Framework and SAS Retail Solutions.
-          Brought across the validated documentation mind-set to the non-
-          validated solutions and implemented repeatable install processes
+          Brought across the validated documentation mind-set to the non-validated
+          solutions and implemented repeatable installation processes
           and run-books for standardized management.
 
           **Systems Administration**
@@ -1328,7 +1328,7 @@ experiences:
 
           Install hardware, OS builds, patch installation, deployment tools
           and utilities. Installation includes physical network pulls
-          (cablings), configuration of network hardware (switches), and
+          (cabling), configuration of network hardware (switches), and
           client machines configuration to customer specifications.
           Customer specifications include software installations such as
           Exchange, SQL Server and other applications as required.
