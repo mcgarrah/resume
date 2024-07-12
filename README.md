@@ -6,24 +6,35 @@ Here is a todo list for my resume website.
 
 - [ ] Fix the print version to be linear without sidebar - crazy looking when printed out
 - [ ] Add the PDF version from [Google Docs Resume](https://docs.google.com/document/d/1YuYyPKpCZNMarkZHMHJ7_-Tm3dAJ_BvS9kl7iwIFDYQ/edit?usp=sharing)
+    In data.yaml under section "#pdf: http://www.africau.edu/images/default/sample.pdf"
 - [ ] Fix light-gray job headers
     Fix the CSS or SASS for the job headers being a light gray... they wash out badly
 - [ ] Add a HR between each job or other method to delinate between the jobs... or make the sub-sections in job details smaller.
 - [x] Use Indeed.com resume reviewer to clean up grammar and spelling
 - [ ] ATS (Applicant Tracking Systems) score and data fields review
 - [ ] Major hiring websites review for terms:
-  - LinkedIn
+  - LinkedIn Jobs
   - Indeed
+  - Glassdoor
+  - GovernmentJobs
+  - Dice.com
+  - Monster
   - ZipRecruiter
   - Seek
   - SimplyHired
-  - Career Builder 
+  - Career Builder
+  - Zoho
+  - Hired
+- [ ] Review StackOverFlow for technical terms on resume and for their skills listings
 - [x] Copy work details
     Copy details from https://drive.google.com/file/d/1JOQZZ6Q81OQlPaJMbojlgaRHit4gfQDV/view?usp=sharing (resume-2018-11-05-14-08.pdf)
 
 ## WANT TO DO
 
 - [ ] Update this to include an image for the university under the date \<div\> section
+- [ ] https://www.linkedin.com/pulse/using-chatgpt-write-cover-notes-thomas-redstone-zvghf/
+- [ ] https://www.linkedin.com/pulse/making-good-resume-great-chatgpt-eugene-medynskiy-rt79c/
+- [ ] https://www.linkedin.com/posts/heyronir_12-chatgpt-prompts-for-a-resume-that-gets-activity-7188427259416928256-ml38/
 - [x] Update to include GPA in the template as well
     /home/mcgarrah/Github/resume/_includes/education.html
 - [ ] Certification section with an image
