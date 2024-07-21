@@ -26,11 +26,13 @@ Here is a todo list for my resume website.
   - Zoho
   - Hired
 - [ ] Review StackOverFlow for technical terms on resume and for their skills listings
+- [ ] Review Microsoft Profile for Skills list in https://jobs.careers.microsoft.com/global/en/profile (microsoft login)
 - [x] Copy work details
-    Copy details from https://drive.google.com/file/d/1JOQZZ6Q81OQlPaJMbojlgaRHit4gfQDV/view?usp=sharing (resume-2018-11-05-14-08.pdf)
+    Copy details from [resume-2018-11-05-14-08.pdf](https://drive.google.com/file/d/1JOQZZ6Q81OQlPaJMbojlgaRHit4gfQDV/view?usp=sharing)
 
 ## WANT TO DO
 
+- [ ] Create a plain text resume from Jekyll https://www.indeed.com/career-advice/resumes-cover-letters/text-resume
 - [ ] Update this to include an image for the university under the date \<div\> section
 - [ ] https://www.linkedin.com/pulse/using-chatgpt-write-cover-notes-thomas-redstone-zvghf/
 - [ ] https://www.linkedin.com/pulse/making-good-resume-great-chatgpt-eugene-medynskiy-rt79c/
@@ -39,7 +41,7 @@ Here is a todo list for my resume website.
     /home/mcgarrah/Github/resume/_includes/education.html
 - [ ] Certification section with an image
     /home/mcgarrah/Github/resume/_includes/certifications.html
-- [ ] Get images of companies and universities 
+- [ ] Get images of companies and universities
     /home/mcgarrah/github/resume/assets/images/company-logos/
 - [x] Local Jekyll run from VSCode
     https://stackoverflow.com/questions/31561632/run-bundle-exec-command-tasks-in-visual-studio-code
