@@ -5,6 +5,8 @@ Here is a todo list for my resume website.
 ## MUST DO
 
 - [ ] Fix the print version to be linear without sidebar - crazy looking when printed out
+- [ ] Add ETAAC link for 2009 report to Congress - https://www.irs.gov/pub/irs-prior/p3415--2009.pdf
+- [ ] Add SOC 2 Compliance work from Envestnet to work section
 - [ ] Add the PDF version from [Google Docs Resume](https://docs.google.com/document/d/1YuYyPKpCZNMarkZHMHJ7_-Tm3dAJ_BvS9kl7iwIFDYQ/edit?usp=sharing)
     In data.yaml under section "#pdf: http://www.africau.edu/images/default/sample.pdf"
 - [ ] Fix light-gray job headers
@@ -17,6 +19,7 @@ Here is a todo list for my resume website.
   - Indeed
   - Glassdoor
   - GovernmentJobs
+  - Welcome to the Jungle (was a disappointment)
   - Dice.com
   - Monster
   - ZipRecruiter
