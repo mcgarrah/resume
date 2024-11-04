@@ -4,11 +4,12 @@ Here is a todo list for my resume website.
 
 ## MUST DO
 
-- [ ] Fix the print version to be linear without sidebar - crazy looking when printed out
 - [ ] Add ETAAC link for 2009 report to Congress - https://www.irs.gov/pub/irs-prior/p3415--2009.pdf
 - [ ] Add SOC 2 Compliance work from Envestnet to work section
+- [ ] Add Credly certification profile https://www.credly.com/users/michael-mcgarrah
 - [ ] Add the PDF version from [Google Docs Resume](https://docs.google.com/document/d/1YuYyPKpCZNMarkZHMHJ7_-Tm3dAJ_BvS9kl7iwIFDYQ/edit?usp=sharing)
     In data.yaml under section "#pdf: http://www.africau.edu/images/default/sample.pdf"
+- [ ] Fix the print version to be linear without sidebar - crazy looking when printed out
 - [ ] Fix light-gray job headers
     Fix the CSS or SASS for the job headers being a light gray... they wash out badly
 - [ ] Add a HR between each job or other method to delinate between the jobs... or make the sub-sections in job details smaller.
