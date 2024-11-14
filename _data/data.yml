@@ -1877,6 +1877,11 @@ experiences:
 certifications:
       title: Certifications
       list:
+        - name: Certified in Cybersecurity (CC)
+          start: Nov 2024
+          end: Nov 2027
+          organization: ISC2
+          credentialurl: https://www.credly.com/badges/83a74f6a-26c8-4f36-8128-0c61787f29a3
         - name: ITIL Foundation in IT Service Management v2011 (2016)
           start: 2016
           organization: AXELOS Global Best Practice
@@ -1891,11 +1896,13 @@ certifications:
           end: 2020
           organization: Amazon
           credentialid: ZMS5T5T11N1E1XK5
+          credentialurl: https://www.credly.com/badges/5bac3ade-ac20-4e20-b248-b2501e3a8583
         - name: AWS Certified Solutions Architect - Associate
           start: 2017
           end: 2020
           organization: Amazon
           credentialid: QD3RGLB1KNQQQ295
+          credentialurl: https://www.credly.com/badges/c6097740-cabc-476e-90b1-dc7f0005c834
         - name: USPS Analytics University Bronze Certification for Delivery Operations
           start: 2018
           organization: United States Postal Service
@@ -1908,26 +1915,32 @@ certifications:
           start: 2012
           organization: SAS Institute
           credentialid: BP029145v9
+          credentialurl: https://www.credly.com/badges/ea83b320-25ff-4238-bba9-2935fa2e4c71
         - name: SAS Certified Clinical Trials Programmer Using SAS 9
           start: 2012
           organization: SAS Institute
           credentialid: CTP000286v9
+          credentialurl: https://www.credly.com/badges/ddb5bf65-42d5-4621-8e19-c9c17f00d1c4
         - name: SAS Certified Data Integration Developer for SAS 9
           start: 2012
           organization: SAS Institute
           credentialid: DID000615v9
+          credentialurl: https://www.credly.com/badges/581608f5-0e72-4e0e-9868-de2457cadc1b
         - name: SAS Certified BI Content Developer for SAS 9
           start: 2012
           organization: SAS Institute
           credentialid: BICD000693v9
+          credentialurl: https://www.credly.com/badges/b6e14e27-41a2-4217-ae80-3218c3d3bdf8
         - name: SAS Certified Platform Administrator for SAS 9
           start: 2012
           organization: SAS Institute
           credentialid: PA000207v9
+          credentialurl: https://www.credly.com/badges/aebc3edd-575e-4476-8b01-5a05bc93c36d
         - name: SAS Certified Statistical Business Analyst Using SAS 9 - Regression and Modeling
           start: 2013
           organization: SAS Institute
           credentialid: SBARM000177v9
+          credentialurl: https://www.credly.com/badges/668b5383-f67e-499d-8140-a598eb930430
         - name: Solaris Certified Systems Administrator - Solaris 8 (2003)
           start: 2003
           end: 2005
@@ -2013,6 +2026,66 @@ certifications:
 #         authors: Edgar T. Irons
 #         conference: "Comm. ACM 4 (1961), 51–55"
 
+# projects:
+#     title: Projects
+#     intro: >
+#       These are some of my academic projects that show my versitiliy.
+#     assignments:
+
+#       - title: Phonetic Transcriptions (2017,2021)
+#         link: https://www.youtube.com/playlist?list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe
+#         tagline: >
+#           Extract phonetic segments from general acoustic speach used automation. Produce a working
+#           model for multiple Nordic languages in a modular way. Publication can be found below.
+#           Code can be found at: https://github.com/mcgarrah/LG-FAVE
+
+#       - title: Photosynth Point Clouds Extraction and Visualization (2016)
+#         link: https://youtu.be/WZPtuNnaqVc
+#         tagline: >
+#           Extraction and visualization of point cloud data from the Microsoft Photosynth web service.
+#           Exporting the data into common formats for further analysis and processing.
+#           This Computational Photography project demonstrates building 3D models from a series of 2D photographs. 
+#           Code can be found at: https://github.com/mcgarrah/PyPhotoSynthExport
+
+#       - title: Artificial Intelligence for Robotics (2015)
+#         link: https://goo.gl/QmKfW3
+#         tagline: >
+#           The goal for the final project in CS6475 AI for Robotics was to create a robotic platform to investigate 
+#           computer vision technology. The platform included an Arduino with sensors and motors and a Raspberry Pi 2 
+#           for the vision and primary control system. The project URL is a video channel that shows the progress and 
+#           challenges.
+
+#       - title: “Senior Design: NetApp iSCSI with RDMA/TOE” (Fall 2010 Capstone Project)
+#         link: https://sdc.csc.ncsu.edu/projects/2010/fall#3
+#         tagline: >
+#           Develop a methodology for 10Gbps iSCSI that utilized RDMA and TOE to reduce primary CPU and 
+#           memory usage. Document and managed the project as a team leader. The resulting iSER implementation 
+#           was utilized in a related NetApp Phd project at the University of Bangalore India.
+
+#       - title: “Ecommerce & J2EE: Kodak Image Mapping (similar to Google Maps)” (Fall 2001 Graduate Class)
+#         tagline: >
+#           A web application similar to Google Maps but five years earlier and allowed for monetizing the 
+#           service. Interviewed customer and defined specifications for and delivered a prototype web 
+#           service for an online map delivery system. Service allowed for customers to purchase and 
+#           schedule aerial imaging via aircraft or satellite imaging at varied resolutions.
+
+#       # - title: Computational Photography - Final Project
+#       #   link: "https://www.youtube.com/watch?v=WZPtuNnaqVc&list=PLG_DpV4CFj60wdkJuM2cWBC-uyKEhbYNL&pp=gAQBiAQB"
+#       #   tagline: "This projects demonstrates building 3D models from a series of 2D photographs."
+#       # - title: Computational Photography - Stabilization and Looping Analysis
+#       #   link: "https://www.youtube.com/watch?v=WZPtuNnaqVc&list=PLG_DpV4CFj60wdkJuM2cWBC-uyKEhbYNL&pp=gAQBiAQB"
+#       #   tagline: "Here are videos used in key frame and looping analysis for Computational Photography. I used the stabilization filter from the video editor to make these easier to extract frames. The stabilized videos are extracted using the ClipGrab tool for further processing."
+
+#       # - title: AI for Robotics - Hardware Summary
+#       #   link: https://www.youtube.com/playlist?list=PLG_DpV4CFj63n9GYGOhZV1fKbdO_CHNoa
+#       #   tagline: "These are the presentation videos for my final project in my GaTech graduate class CS6475 AI for Robotics. The goal was to create a robotic platform to investigate computer vision technology. The platform included an Arduino with sensors and motors and a Raspberry Pi 2 for the vision and primary control system."
+#       # - title: AI for Robotics - OpenCV Motion Vectors
+#       #   link: https://youtu.be/Xke9OqZA_vo?si=egOsaepHnwLLCnMX
+#       #   tagline: "Use the robotics platform to demonstrate applied motion vectors for an extended perception system."
+#       # - title: AI for Robotics - Remote Web Interface
+#       #   link: https://youtu.be/ZeU_wm5y8og?si=mFrupzqK9u6Yy9zx
+#       #   tagline: "Create a full webui to remote control and view video for the robotics platform as testing platform for perception system."
+
 publications:
     title: Publications
     papers:
@@ -2033,7 +2106,7 @@ skills:
         level: 91%
 
       - name: Fun & Games
-        level: 32%
+        level: 7%
 
 # footer: >
 #     Designed with <i class="fas fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>

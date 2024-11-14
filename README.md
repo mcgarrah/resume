@@ -7,6 +7,13 @@ Here is a todo list for my resume website.
 - [ ] Add ETAAC link for 2009 report to Congress - https://www.irs.gov/pub/irs-prior/p3415--2009.pdf
 - [ ] Add SOC 2 Compliance work from Envestnet to work section
 - [ ] Add Credly certification profile https://www.credly.com/users/michael-mcgarrah
+- [x] Add credly SAS cert entries to Resume
+- [ ] Add all the LinkedIn projects to Resume as new section
+- [ ] https://www.youtube.com/@MichaelMcGarrah/playlists for above projects
+  - [ ] AI for Robotics https://www.youtube.com/watch?v=KFo8ECjZyg8&list=PLG_DpV4CFj63n9GYGOhZV1fKbdO_CHNoa
+  - [ ] Computation Photography https://www.youtube.com/watch?v=WZPtuNnaqVc&list=PLG_DpV4CFj60wdkJuM2cWBC-uyKEhbYNL
+  - [ ] Phonetic Transcriptions https://www.youtube.com/watch?v=WsvWZScw7Tk&list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe
+- [ ] Update the PDF version of resume to match web print version
 - [ ] Add the PDF version from [Google Docs Resume](https://docs.google.com/document/d/1YuYyPKpCZNMarkZHMHJ7_-Tm3dAJ_BvS9kl7iwIFDYQ/edit?usp=sharing)
     In data.yaml under section "#pdf: http://www.africau.edu/images/default/sample.pdf"
 - [ ] Fix the print version to be linear without sidebar - crazy looking when printed out
