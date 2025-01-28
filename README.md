@@ -51,6 +51,7 @@ Here is a todo list for my resume website.
 
 ## WANT TO DO
 
+- [ ] My personal [Kaggle Homepage](https://www.kaggle.com/mcgarrah) is anemic and needs some of my older work added
 - [ ] Create a plain text resume from Jekyll https://www.indeed.com/career-advice/resumes-cover-letters/text-resume
 - [ ] Update this to include an image for the university under the date \<div\> section
 - [ ] https://www.linkedin.com/pulse/using-chatgpt-write-cover-notes-thomas-redstone-zvghf/
