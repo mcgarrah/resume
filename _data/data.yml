@@ -1874,6 +1874,7 @@ experiences:
         details: |
           Provide basic support for UNIX systems. Assist users in login, printing, and basic 
           environment support for computing course work. Worked weekends and over-night shifts.
+
 certifications:
       title: Certifications
       list:
@@ -2026,48 +2027,71 @@ certifications:
 #         authors: Edgar T. Irons
 #         conference: "Comm. ACM 4 (1961), 51–55"
 
-# projects:
-#     title: Projects
-#     intro: >
-#       These are some of my academic projects that show my versitiliy.
-#     assignments:
+projects:
+    title: Projects
+    intro: >
+      These are some of my projects that show my versitiliy.
+    assignments:
 
-#       - title: Phonetic Transcriptions (2017,2021)
-#         link: https://www.youtube.com/playlist?list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe
-#         tagline: >
-#           Extract phonetic segments from general acoustic speach used automation. Produce a working
-#           model for multiple Nordic languages in a modular way. Publication can be found below.
-#           Code can be found at: https://github.com/mcgarrah/LG-FAVE
+      - title: Certification Timed Multiple Choice Quiz WebApp (Full Stack Development)
+        link: https://github.com/mcgarrah/legendary_quick_quiz
+        tagline: >
+          This application is a fully-fledged, dynamic quiz platform built on the lightweight Flask 
+          web framework for Python. The code demonstrates both front-end and back-end development 
+          using modern tools such as Bootstrap5 and dynamic rendering in the pages. Forgive me if
+          the demo site is down... free tier hosting.
+          <br>code: <a href="https://github.com/mcgarrah/legendary_quick_quiz" target="_blank">https://github.com/mcgarrah/legendary_quick_quiz</a>
+          <br>demo: <a href="https://plain-gaby-mcgarrah-a35e7264.koyeb.app" target="_blank">Demo Website</a>
 
-#       - title: Photosynth Point Clouds Extraction and Visualization (2016)
-#         link: https://youtu.be/WZPtuNnaqVc
-#         tagline: >
-#           Extraction and visualization of point cloud data from the Microsoft Photosynth web service.
-#           Exporting the data into common formats for further analysis and processing.
-#           This Computational Photography project demonstrates building 3D models from a series of 2D photographs. 
-#           Code can be found at: https://github.com/mcgarrah/PyPhotoSynthExport
+      - title: AWS Quicksight Demonstration (Terraform Automation)
+        link: https://github.com/mcgarrah/quicksight_demo
+        tagline: >
+          The goal of this repository is to automate as much as possible, from the varied AWS posts
+          on Federated QuickSight integration, the manual steps in Terraform and convert the CloudFormation 
+          to Terraform where possible. Also, updating the Python Lambda layers and code to more current 
+          versions of libraries and runtimes is in scope as well.
+          <br>code: <a href="https://github.com/mcgarrah/quicksight_demo" target="_blank">https://github.com/mcgarrah/quicksight_demo</a>
 
-#       - title: Artificial Intelligence for Robotics (2015)
-#         link: https://goo.gl/QmKfW3
-#         tagline: >
-#           The goal for the final project in CS6475 AI for Robotics was to create a robotic platform to investigate 
-#           computer vision technology. The platform included an Arduino with sensors and motors and a Raspberry Pi 2 
-#           for the vision and primary control system. The project URL is a video channel that shows the progress and 
-#           challenges.
+      - title: Phonetic Transcriptions (Acoustic Modeling) in 2017,2021
+        link: https://www.youtube.com/playlist?list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe
+        tagline: >
+          Extract phonetic segments from general acoustic speach used automation. Produce a working
+          model for multiple Nordic languages in a modular way. Publication can be found below.
+          <br>video: <a href="https://www.youtube.com/playlist?list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe" target="_blank">Presentation</a>
+          <br>code: <a href="https://github.com/mcgarrah/LG-FAVE" target="_blank">https://github.com/mcgarrah/LG-FAVE)</a>
+          <br>pub: <a href="https://github.com/mcgarrah/LG-FAVE/blob/7c592cf6c75b8c6feee08c0fe9b79b17dd699404/Young_McGarrah_2021.pdf" target="_blank">article</a>
 
-#       - title: “Senior Design: NetApp iSCSI with RDMA/TOE” (Fall 2010 Capstone Project)
-#         link: https://sdc.csc.ncsu.edu/projects/2010/fall#3
-#         tagline: >
-#           Develop a methodology for 10Gbps iSCSI that utilized RDMA and TOE to reduce primary CPU and 
-#           memory usage. Document and managed the project as a team leader. The resulting iSER implementation 
-#           was utilized in a related NetApp Phd project at the University of Bangalore India.
+      - title: Photosynth Point Clouds Extraction and Visualization (2016)
+        link: https://youtu.be/WZPtuNnaqVc
+        tagline: >
+          Extraction and visualization of point cloud data from the Microsoft Photosynth web service.
+          Exporting the data into common formats for further analysis and processing.
+          This Computational Photography project demonstrates building 3D models from a series of 2D photographs. 
+          <br>code: <a href="https://github.com/mcgarrah/PyPhotoSynthExport" target="_blank">PyPhotoSynthExport</a>
+          <br>video: <a href="https://youtu.be/WZPtuNnaqVc" target="_blank">Presentation</a>
 
-#       - title: “Ecommerce & J2EE: Kodak Image Mapping (similar to Google Maps)” (Fall 2001 Graduate Class)
-#         tagline: >
-#           A web application similar to Google Maps but five years earlier and allowed for monetizing the 
-#           service. Interviewed customer and defined specifications for and delivered a prototype web 
-#           service for an online map delivery system. Service allowed for customers to purchase and 
-#           schedule aerial imaging via aircraft or satellite imaging at varied resolutions.
+      - title: Artificial Intelligence for Robotics (2015)
+        link: https://goo.gl/QmKfW3
+        tagline: >
+          The goal for the final project in CS6475 AI for Robotics was to create a robotic platform to investigate 
+          computer vision technology. The platform included an Arduino with sensors and motors and a Raspberry Pi 2 
+          for the vision and primary control system. The project URL is a video channel that shows the progress and 
+          challenges.
+          <br>video: <a href="https://goo.gl/QmKfW3" target="_blank">Presentation</a>
+
+      - title: “Senior Design - NetApp iSCSI with RDMA/TOE” (Fall 2010 Capstone Project)
+        link: https://sdc.csc.ncsu.edu/projects/2010/fall#3
+        tagline: >
+          Develop a methodology for 10Gbps iSCSI that utilized RDMA and TOE to reduce primary CPU and 
+          memory usage. Document and managed the project as a team leader. The resulting iSER implementation 
+          was utilized in a related NetApp Phd project at the University of Bangalore India.
+
+      - title: “Ecommerce & J2EE - Kodak Image Mapping (similar to Google Maps)” (Fall 2001 Graduate Class)
+        tagline: >
+          A web application similar to Google Maps but five years earlier and allowed for monetizing the 
+          service. Interviewed customer and defined specifications for and delivered a prototype web 
+          service for an online map delivery system. Service allowed for customers to purchase and 
+          schedule aerial imaging via aircraft or satellite imaging at varied resolutions.
 
 #       # - title: Computational Photography - Final Project
 #       #   link: "https://www.youtube.com/watch?v=WZPtuNnaqVc&list=PLG_DpV4CFj60wdkJuM2cWBC-uyKEhbYNL&pp=gAQBiAQB"
