@@ -2040,8 +2040,8 @@ projects:
           web framework for Python. The code demonstrates both front-end and back-end development 
           using modern tools such as Bootstrap5 and dynamic rendering in the pages. Forgive me if
           the demo site is down... free tier hosting.
-          <br>code: <a href="https://github.com/mcgarrah/legendary_quick_quiz" target="_blank">https://github.com/mcgarrah/legendary_quick_quiz</a>
-          <br>demo: <a href="https://plain-gaby-mcgarrah-a35e7264.koyeb.app" target="_blank">Demo Website</a>
+           - code: [https://github.com/mcgarrah/legendary_quick_quiz](https://github.com/mcgarrah/legendary_quick_quiz){:target="_blank"}
+           - demo: [Demo Website](https://plain-gaby-mcgarrah-a35e7264.koyeb.app){:target="_blank"}
 
       - title: AWS Quicksight Demonstration (Terraform Automation)
         link: https://github.com/mcgarrah/quicksight_demo
@@ -2050,34 +2050,40 @@ projects:
           on Federated QuickSight integration, the manual steps in Terraform and convert the CloudFormation 
           to Terraform where possible. Also, updating the Python Lambda layers and code to more current 
           versions of libraries and runtimes is in scope as well.
-          <br>code: <a href="https://github.com/mcgarrah/quicksight_demo" target="_blank">https://github.com/mcgarrah/quicksight_demo</a>
+           - code: [https://github.com/mcgarrah/quicksight_demo](https://github.com/mcgarrah/quicksight_demo){:target="_blank"}
 
       - title: Phonetic Transcriptions (Acoustic Modeling) in 2017,2021
         link: https://www.youtube.com/playlist?list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe
         tagline: >
-          Extract phonetic segments from general acoustic speach used automation. Produce a working
-          model for multiple Nordic languages in a modular way. Publication can be found below.
-          <br>video: <a href="https://www.youtube.com/playlist?list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe" target="_blank">Presentation</a>
-          <br>code: <a href="https://github.com/mcgarrah/LG-FAVE" target="_blank">https://github.com/mcgarrah/LG-FAVE)</a>
-          <br>pub: <a href="https://github.com/mcgarrah/LG-FAVE/blob/7c592cf6c75b8c6feee08c0fe9b79b17dd699404/Young_McGarrah_2021.pdf" target="_blank">article</a>
+          My academic partner and I automated identifying the sounds of a non-English language,
+          found the temporal boundary markers or segmentations, and fully automated output of
+          segmentation results in a linguistically useful format. My part was generalizing the 
+          code to handle the language features and separate those into a configuration file. My 
+          partner created the non-English language dictionaries. The heavy lift was building the 
+          dictionaries for Swedish and Danish but he needed a platform to use them. I also built
+          a website to present an interface.
+           - code: [https://github.com/mcgarrah/LG-FAVE](https://github.com/mcgarrah/LG-FAVE){:target="_blank"}
+           - video: [Presentation](https://www.youtube.com/playlist?list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe){:target="_blank"}
+           - demo: [https://lgas.phonemes.org](https://lgas.phonemes.org){:target="_blank"}
+           - pub: [article](https://github.com/mcgarrah/LG-FAVE/blob/7c592cf6c75b8c6feee08c0fe9b79b17dd699404/Young_McGarrah_2021.pdf){:target="_blank"}
 
       - title: Photosynth Point Clouds Extraction and Visualization (2016)
         link: https://youtu.be/WZPtuNnaqVc
         tagline: >
           Extraction and visualization of point cloud data from the Microsoft Photosynth web service.
           Exporting the data into common formats for further analysis and processing.
-          This Computational Photography project demonstrates building 3D models from a series of 2D photographs. 
-          <br>code: <a href="https://github.com/mcgarrah/PyPhotoSynthExport" target="_blank">PyPhotoSynthExport</a>
-          <br>video: <a href="https://youtu.be/WZPtuNnaqVc" target="_blank">Presentation</a>
+          This Computational Photography project demonstrates building 3D models from a series of 2D photographs.
+           - code: [PyPhotoSynthExport](https://github.com/mcgarrah/PyPhotoSynthExport){:target="_blank"}
+           - video: [Presentation](https://youtu.be/WZPtuNnaqVc){:target="_blank"}
 
       - title: Artificial Intelligence for Robotics (2015)
         link: https://goo.gl/QmKfW3
         tagline: >
           The goal for the final project in CS6475 AI for Robotics was to create a robotic platform to investigate 
           computer vision technology. The platform included an Arduino with sensors and motors and a Raspberry Pi 2 
-          for the vision and primary control system. The project URL is a video channel that shows the progress and 
-          challenges.
-          <br>video: <a href="https://goo.gl/QmKfW3" target="_blank">Presentation</a>
+          for the vision and primary control system. A remote control web-ui was included as a cool extra for demoing
+          to graders. The project URL is a video channel that shows the progress and challenges.
+           - video: [Presentation](https://goo.gl/QmKfW3){:target="_blank"}
 
       - title: “Senior Design - NetApp iSCSI with RDMA/TOE” (Fall 2010 Capstone Project)
         link: https://sdc.csc.ncsu.edu/projects/2010/fall#3
