@@ -37,17 +37,15 @@ sidebar:
         - idiom: English
           level: Native
 
-    interests:
-      title: Interests
-      info:
-        - item: Machine Learning
-          link:
-
-        - item: Virtualization Technologies
-          link:
-
-        - item: Development
-          link:
+    # interests:
+    #   title: Interests
+    #   info:
+    #     - item: Machine Learning
+    #       link:
+    #     - item: Virtualization Technologies
+    #       link:
+    #     - item: Development
+    #       link:
 
 career-profile:
     title: Career Profile
@@ -1957,34 +1955,23 @@ certifications:
           start: 2002
           organization: Nortel Networks
 
-
-# projects:
-#     title: Projects
-#     intro: >
-#       You can list your side projects in this
-#       section. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-#       Vestibulum et ligula in nunc bibendum fringilla a eu lectus.
-#     assignments:
-#       - title: Velocity
-#         link: "#hook"
-#         tagline: "A responsive website template designed to help startups promote, market and sell their products."
-
-#       - title: DevStudio
-#         link: "#"
-#         tagline: "A responsive website template designed to help web developers/designers market their services."
-
-#       - title: Tempo
-#         link: "#"
-#         tagline: "A responsive website template designed to help startups promote their products or services and to attract users &amp; investors"
-
-#       - title: Atom
-#         link: "#"
-#         tagline: "A comprehensive website template solution for startups/developers to market their mobile apps."
-
-#       - title: Delta
-#         link: "#"
-#         tagline: "A responsive Bootstrap one page theme designed to help app developers promote their mobile apps"
-
+# recommendations:
+#   title: Recommendations
+#   list:
+#   - person: Yareli Perez
+#     email: perezyareli@example.com
+#     phone: 012 345 6789
+#     role: General Director at example.com
+#     recommendation: |
+#       Alan Doe is a super employee!
+#   - person: Lara Henderson
+#     email: larah@example.com
+#     phone: 012 345 6789
+#     role: General Director at example.com
+#     recommendation: |
+#       I would like to work with Alan Doe again!
+#
+#       He is a great employee!
 
 # oss:
 #     title: OSS Contributions
@@ -1996,11 +1983,9 @@ certifications:
 #       - title: Tempo
 #         link: "#"
 #         tagline: "A responsive website template designed to help startups promote their products or services and to attract users &amp; investors"
-
 #       - title: Atom
 #         link: "#"
 #         tagline: "A comprehensive website template solution for startups/developers to market their mobile apps."
-
 #       - title: Delta
 #         link: "#"
 #         tagline: "A responsive Bootstrap one page theme designed to help app developers promote their mobile apps"
@@ -2016,12 +2001,10 @@ certifications:
 #         link: "#"
 #         authors: Donald E. Knuth
 #         conference: Addison-Wesley, 1968
-
 #       - title: "Genetic Programming III: Darwinian Invention &amp; Problem Solving"
 #         link: "#"
 #         authors: Koza, J.R., Andre, D., Bennett, F.H., Keane, M.A.
 #         conference: "Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1st edn. (1999)"
-
 #       - title: A syntax directed compiler for Algol 60
 #         link: "#"
 #         authors: Edgar T. Irons
@@ -2051,6 +2034,15 @@ projects:
           to Terraform where possible. Also, updating the Python Lambda layers and code to more current 
           versions of libraries and runtimes is in scope as well.
            - code: [https://github.com/mcgarrah/quicksight_demo](https://github.com/mcgarrah/quicksight_demo){:target="_blank"}
+
+      # - title: AWS CloudFront based URL Redirecter (Terraform Automation)
+      #   link: https://github.com/mcgarrah/cloudfront_url_redirector_demo
+      #   tagline: >
+      #     A simple serverless url redirector using AWS CloudFront Deployment (CFD), CloudFront Function (CFF), 
+      #     ACM wildcard certificate, and Route 53 records all provisioned with Terraform. It uses all
+      #     serverless components for a light weight solution. I needed this quickly for a project and
+      #     decided to automate it for future use. I hope you find it useful.
+      #      - code: [https://github.com/mcgarrah/cloudfront_url_redirector_demo](https://github.com/mcgarrah/cloudfront_url_redirector_demo){:target="_blank"}
 
       - title: Phonetic Transcriptions (Acoustic Modeling) in 2017,2021
         link: https://www.youtube.com/playlist?list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe
@@ -2124,19 +2116,110 @@ publications:
         authors: Nathan J. Young & Michael McGarrah
         conference: Nordic Journal of Linguistics, 2021
 
-
 skills:
     title: Skills &amp; Proficiency
 
-    toolset:
-      - name: Python & Django
-        level: 95%
+    # toolset:
+    #   - name: Python & Django
+    #     level: 95%
+    #   - name: Machine Learning
+    #     level: 91%
 
-      - name: Machine Learning
-        level: 91%
+    skillsets:
+      - categories: Programming Languages
+        sub_categories:
+          - title: General
+            list: Python (1.5, 2.7, 3.x) • Java • C/C++ (Windows/UNIX) • SQL (ISO/IEC portable) • Scala • TypeScript/JavaScript • Shell Scripting (Bash, Zsh, Bourne) • C# • Perl (4/5.005/5.6/5.8/6) • Smalltalk • PHP • Ruby • Base SAS 9 • Groovy • R • MATLAB • Octave • Erlang • Go • Julia • Kotlin • Prolog • Visual Basic • Pascal • FORTRAN • PowerBuilder • Lisp • Scheme • COBOL
+          - title: IaC
+            list: Terraform • CloudFormation • Ansible • Chef • Puppet • pyFabric
+      - categories: Platforms & DevOps
+        sub_categories:
+          - title: OS Platforms
+            list: Linux (Ubuntu, Debian, Red Hat Enterprise, CentOS) • UNIX (Sun Solaris, AIX, HP-UX, FreeBSD, OpenBSD, NetBSD, Ultrix, SunOS) • Mac OS X (System 6.x – X) • Microsoft Windows (NT 3.1 - current) • VMware ESXi
+          - title: Cloud Platforms
+            sub_sub_categories:
+                - title: Amazon Web Services (AWS)
+                  list: S3 • EKS (Kubernetes) • Athena • QuickSight • Hadoop on EC2 • EMR • vEMR • CloudFormation • SageMaker • MWAA (Airflow) • Lambda • Step Functions • EventBridge • CloudFront • IAM • with Kubernetes (EKS, Istio, Calico, Cilium, ArgoCD, etc...)
+                - title: Google Cloud Platform (GCP)
+                  list: Kubernetes • BigQuery • App Engine • Apigee • Google Compute Engine (GCE) 
+                - title: Microsoft Azure
+                  list: Mirrored services from AWS and varied integration for SSO and key management services
+                - title: Misc
+                  list: Rackspace • IBM Cloud • Alibaba • SalesForce • Oracle Cloud (OCI) • DigitalOcean • Heroku • Koyeb • including on-premises hybrid solutions and colocation
+          - title: CI/CD & Automation & Collaboration
+            list: ArgoCD • GitLab CI/CD Pipelines • Jenkins • Git • Gitlab Pipelines • GitHub & GitHub Actions • Gitea • Helm • Docker & Rancher • Terraform • Ansible • Maven • Ant • Makefile • Maven • SVN & CVS & RCS • Perforce • SourceSafe • Jira • Redmine • Asana • Bugzilla • CircleCI • Travis CI • Confluence
+          - title: Serverless
+            list: Lambda • Step Function • EventBridge • API Gateway • Athena • CloudFront • CloudWatch • DynamoDB • SQS • Aurora Serverless
+      - categories: Databases
+        sub_categories:
+          - title: Relational Databases
+            list: PostgreSQL • MySQL • Microsoft SQL Server • Oracle • Sybase • IBM DB/2 • UniData • SQLite • HyperSQL • Informix • Ingres • Teradata
+          - title: Non-Relational Datastores
+            list: MongoDB • Cassandra • DynamoDB • Redis • CouchDB • HBase • Neo4j • InfluxDB • CockroachDB  
+      - categories: Data Management
+        sub_categories:
+          - title: Data Science Libraries
+            list: Pandas • Polars • Matplotlib • Seaborn • Spark • Scikit-learn • NumPy • PyTorch • SciPy • Keras • TensorFlow • NLTK • OpenCV • XGBoost
+          - title: Data Analytics Tools
+            list: Jupyter • Zeppelin (for Hadoop) • DataIKU • Snowflake • Hadoop • TensorFlow • Airflow • Alteryx • Tableau • PowerBI • Qlik • Splunk • ELK Stack • New Relic • Nagios
+          - title: Data Science Domains
+            list: Machine Learning • Deep Learning • Natural Language Processing (NLP) • Computer Vision • Speech Recognition
+      - categories: Software Development
+        sub_categories:
+          - title: Development Practices
+            list: Agile • Software Development Lifecycle • Full Stack Development • APIs (REST, WebSocket, gRPC, SOAP) • Microservices Architecture • Test-Driven Development (TDD) • Object-Oriented Programming (OOP) • Data Structures & Algorithms • HCI • UI/UX
+          - title: Web Development
+            list: Django • Flask • React • Angular • Vue • Bootstrap • Tailwind • jQuery • HTML5 • CSS3 • SASS/SCSS • LESS • FastAPI • Ruby on Rails • Groovy on Grails • Gradio • Apache • Nginx • Caddy • Varnish • Tomcat • Traefik • HAProxy
+          - title: Security & Compliance
+            list: OWASP Top 10 • NIST • HIPAA • GDPR • PCI DSS • ISO 27001 • SOC 2 • FedRAMP • FISMA • FERPA • GLBA • Cloud Controls Matrix (CCM) • ITIL
 
-      - name: Fun & Games
-        level: 7%
+
+#     skillsets:
+#       - category: Programming Languages
+#         - name: General
+#           list: Python (1.5, 2.7, 3.x) • Java • C/C++ (Windows/UNIX) • SQL (ISO/IEC portable) • Scala • TypeScript/JavaScript
+# • Shell Scripting (Bash, Zsh, Bourne) • C# • Perl (4/5.005/5.6/5.8/6) • Smalltalk • PHP • Ruby • Base SAS 9 • Groovy • R • MATLAB • Octave • Erlang • Go • Julia • Kotlin • Prolog • Visual Basic •
+# Pascal • FORTRAN • PowerBuilder • Lisp • Scheme • COBOL
+#         - name: IaC
+#           list: Terraform • CloudFormation • Ansible • Chef • Puppet • pyFabric
+#       - category: Platforms, Cloud & DevOps
+#         - name: OS Platforms
+#           list: Linux (Ubuntu, Debian, Red Hat Enterprise, CentOS) • UNIX (Sun Solaris, AIX, HP-UX, FreeBSD,
+# OpenBSD, NetBSD, Ultrix, SunOS) • Mac OS X (System 6.x – X) • Microsoft Windows (NT 3.1 - current) • VMware ESXi
+#         - name: Cloud Platforms
+#           list: AWS - S3, EKS (Kubernetes), Athena, QuickSight, EMR/vEMR, CloudFormation, SageMaker, MWAA
+# (Airflow), Lambda, Step Functions, EventBridge, CloudFront, IAM, with Kubernetes (EKS, Istio, Calico, Cilium, ArgoCD,
+# etc...) and Hadoop on EC2, EMR, vEMR. Azure - varied integration for SSO and key management services. GCP - Apigee
+# and Compute resources. Misc - Rackspace, IBM Cloud, and other hosting services
+#         - name: CI/CD & Automation & Collaboration
+#           list: ArgoCD • GitLab CI/CD Pipelines • Jenkins • Git • Gitlab Pipelines • GitHub &
+# GitHub Actions • Gitea • Helm • Docker & Rancher • Terraform • Ansible • Maven • Ant • Makefile • Maven • SVN & CVS &
+# RCS • Perforce • SourceSafe • Jira • Redmine • Asana • Bugzilla • CircleCI • Travis CI • Confluence
+#         - name: Serverless
+#           list: Lambda • Step Function • EventBridge • API Gateway • Athena • CloudFront • CloudWatch • DynamoDB •
+# SQS • Aurora Serverless
+#       - category: Databases & Data Management
+#         - name: SQL Databases
+#           list: PostgreSQL • MySQL • Microsoft SQL Server • Oracle • Sybase • IBM DB/2 • UniData • SQLite • HyperSQL • Informix • Ingres • Teradata
+#         - name: NoSQL Databases
+#           list: MongoDB • Cassandra • DynamoDB • Redis • CouchDB • HBase • Neo4j • InfluxDB • CockroachDB
+#         - name: Data Science Libraries
+#           list: Pandas • Polars • Matplotlib • Seaborn • Spark • Scikit-learn • NumPy • PyTorch • SciPy • Keras • TensorFlow • NLTK • OpenCV • XGBoost
+#         - name: Data Analytics Tools
+#           list: Jupyter • Zeppelin (for Hadoop) • DataIKU • Snowflake • Hadoop • TensorFlow • Airflow • Alteryx • Tableau • PowerBI • Qlik • Splunk • ELK Stack • New Relic • Nagios
+#         - name: Data Science Domains
+#           list: Machine Learning • Deep Learning • Natural Language Processing (NLP) • Computer Vision • Speech Recognition
+#       - category: Software Development
+#         - name: Development Practices
+#           list: Agile • Software Development Lifecycle • Full Stack Development • APIs (REST, WebSocket,
+# gRPC, SOAP) • Microservices Architecture • Test-Driven Development (TDD) • Object-Oriented Programming (OOP) •
+# Data Structures & Algorithms • HCI • UI/UX
+#         - name: Web Development
+#           list: Django • Flask • React • Angular • Vue • Bootstrap • Tailwind • jQuery • HTML5 • CSS3 • SASS/SCSS • LESS • FastAPI • Ruby
+# on Rails • Groovy on Grails • Gradio • Apache • Nginx • Caddy • Varnish • Tomcat • Traefik • HAProxy
+#         - name: Security & Compliance
+#           list: OWASP Top 10 • NIST • HIPAA • GDPR • PCI DSS • ISO 27001 • SOC 2 • FedRAMP • FISMA • FERPA • GLBA • Cloud Controls Matrix (CCM) • ITIL
+
 
 # footer: >
 #     Designed with <i class="fas fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>

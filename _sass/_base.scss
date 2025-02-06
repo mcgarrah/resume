@@ -190,6 +190,7 @@ p {
     margin-bottom: 2px;
     display: flex;
   }
+  .category-title,
   .job-title,
   .degree,
   .cert-title{
@@ -258,20 +259,57 @@ p {
     margin-bottom: 15px;
     overflow: hidden;
   }
+
+  .category-title {
+    color: $text-color;
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .sub-category-title {
+    font-size: 14px;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-style: italic;
+    color: darken($text-color, 10%);
+  }
+
+  .sub-sub-category-title {
+    font-size: 12px;
+    margin-left: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-style: normal;
+    color: lighten($text-color, 15%);
+  }
+
+  .list {
+    margin-left: 40px;
+    line-height: 1.6;
+    font-size: 12px;
+    color: $text-color-secondary;
+  }
+
   .level-title {
     font-size: 14px;
     margin-top: 0;
     margin-bottom: 12px;
   }
+
   .level-bar {
     height: 12px;
     background: $smoky-white;
   }
+
   .level-bar-inner {
     height: 12px;
     background: lighten($theme-color, 15%);
   }
 }
+
 
 .footer {
   padding-top: 30px;
@@ -285,4 +323,3 @@ p {
     color: $heart;
   }
 }
-
