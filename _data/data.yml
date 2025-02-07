@@ -29,6 +29,7 @@ sidebar:
     #codewars:
     #goodreads: # Number-Username, e.g. 123456-alandoe
     #pdf: http://www.africau.edu/images/default/sample.pdf
+    pdf: /resume/assets/pdf/michael_mcgarrah_professional_resume_2025-02-04-no-picture.pdf
     print: /resume/print    # can be local relative path url or fully qualified external HREF url
 
     languages:
@@ -2171,55 +2172,7 @@ skills:
           - title: Web Development
             list: Django • Flask • React • Angular • Vue • Bootstrap • Tailwind • jQuery • HTML5 • CSS3 • SASS/SCSS • LESS • FastAPI • Ruby on Rails • Groovy on Grails • Gradio • Apache • Nginx • Caddy • Varnish • Tomcat • Traefik • HAProxy
           - title: Security & Compliance
-            list: OWASP Top 10 • NIST • HIPAA • GDPR • PCI DSS • ISO 27001 • SOC 2 • FedRAMP • FISMA • FERPA • GLBA • Cloud Controls Matrix (CCM) • ITIL
-
-
-#     skillsets:
-#       - category: Programming Languages
-#         - name: General
-#           list: Python (1.5, 2.7, 3.x) • Java • C/C++ (Windows/UNIX) • SQL (ISO/IEC portable) • Scala • TypeScript/JavaScript
-# • Shell Scripting (Bash, Zsh, Bourne) • C# • Perl (4/5.005/5.6/5.8/6) • Smalltalk • PHP • Ruby • Base SAS 9 • Groovy • R • MATLAB • Octave • Erlang • Go • Julia • Kotlin • Prolog • Visual Basic •
-# Pascal • FORTRAN • PowerBuilder • Lisp • Scheme • COBOL
-#         - name: IaC
-#           list: Terraform • CloudFormation • Ansible • Chef • Puppet • pyFabric
-#       - category: Platforms, Cloud & DevOps
-#         - name: OS Platforms
-#           list: Linux (Ubuntu, Debian, Red Hat Enterprise, CentOS) • UNIX (Sun Solaris, AIX, HP-UX, FreeBSD,
-# OpenBSD, NetBSD, Ultrix, SunOS) • Mac OS X (System 6.x – X) • Microsoft Windows (NT 3.1 - current) • VMware ESXi
-#         - name: Cloud Platforms
-#           list: AWS - S3, EKS (Kubernetes), Athena, QuickSight, EMR/vEMR, CloudFormation, SageMaker, MWAA
-# (Airflow), Lambda, Step Functions, EventBridge, CloudFront, IAM, with Kubernetes (EKS, Istio, Calico, Cilium, ArgoCD,
-# etc...) and Hadoop on EC2, EMR, vEMR. Azure - varied integration for SSO and key management services. GCP - Apigee
-# and Compute resources. Misc - Rackspace, IBM Cloud, and other hosting services
-#         - name: CI/CD & Automation & Collaboration
-#           list: ArgoCD • GitLab CI/CD Pipelines • Jenkins • Git • Gitlab Pipelines • GitHub &
-# GitHub Actions • Gitea • Helm • Docker & Rancher • Terraform • Ansible • Maven • Ant • Makefile • Maven • SVN & CVS &
-# RCS • Perforce • SourceSafe • Jira • Redmine • Asana • Bugzilla • CircleCI • Travis CI • Confluence
-#         - name: Serverless
-#           list: Lambda • Step Function • EventBridge • API Gateway • Athena • CloudFront • CloudWatch • DynamoDB •
-# SQS • Aurora Serverless
-#       - category: Databases & Data Management
-#         - name: SQL Databases
-#           list: PostgreSQL • MySQL • Microsoft SQL Server • Oracle • Sybase • IBM DB/2 • UniData • SQLite • HyperSQL • Informix • Ingres • Teradata
-#         - name: NoSQL Databases
-#           list: MongoDB • Cassandra • DynamoDB • Redis • CouchDB • HBase • Neo4j • InfluxDB • CockroachDB
-#         - name: Data Science Libraries
-#           list: Pandas • Polars • Matplotlib • Seaborn • Spark • Scikit-learn • NumPy • PyTorch • SciPy • Keras • TensorFlow • NLTK • OpenCV • XGBoost
-#         - name: Data Analytics Tools
-#           list: Jupyter • Zeppelin (for Hadoop) • DataIKU • Snowflake • Hadoop • TensorFlow • Airflow • Alteryx • Tableau • PowerBI • Qlik • Splunk • ELK Stack • New Relic • Nagios
-#         - name: Data Science Domains
-#           list: Machine Learning • Deep Learning • Natural Language Processing (NLP) • Computer Vision • Speech Recognition
-#       - category: Software Development
-#         - name: Development Practices
-#           list: Agile • Software Development Lifecycle • Full Stack Development • APIs (REST, WebSocket,
-# gRPC, SOAP) • Microservices Architecture • Test-Driven Development (TDD) • Object-Oriented Programming (OOP) •
-# Data Structures & Algorithms • HCI • UI/UX
-#         - name: Web Development
-#           list: Django • Flask • React • Angular • Vue • Bootstrap • Tailwind • jQuery • HTML5 • CSS3 • SASS/SCSS • LESS • FastAPI • Ruby
-# on Rails • Groovy on Grails • Gradio • Apache • Nginx • Caddy • Varnish • Tomcat • Traefik • HAProxy
-#         - name: Security & Compliance
-#           list: OWASP Top 10 • NIST • HIPAA • GDPR • PCI DSS • ISO 27001 • SOC 2 • FedRAMP • FISMA • FERPA • GLBA • Cloud Controls Matrix (CCM) • ITIL
-
+            list: OWASP Top 10 • NIST • HIPAA • GDPR • PCI DSS • ISO 27001 • SOC 2 • FedRAMP • FISMA • FERPA • GLBA • Cloud Controls Matrix (CCM) • NSA ESF • ITIL
 
 # footer: >
 #     Designed with <i class="fas fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>

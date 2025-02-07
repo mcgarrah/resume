@@ -5,6 +5,7 @@ Here is a todo list for my resume website.
 ## MUST DO
 
 - [ ] Fix credentialurl be used in Certification as a link ... currently unused?
+  - [ ] Fix involves adding `credentialname` field... and shorten them up.
 - [ ] Add ETAAC link for 2009 report to Congress - https://www.irs.gov/pub/irs-prior/p3415--2009.pdf
 - [ ] Add SOC 2 Compliance work from Envestnet to work section
 - [ ] Add Credly certification profile https://www.credly.com/users/michael-mcgarrah
