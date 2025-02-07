@@ -1881,13 +1881,14 @@ certifications:
           start: Nov 2024
           end: Nov 2027
           organization: International Information System Security Certification Consortium (ISC2)
+          credentialname: Credly
           credentialurl: https://www.credly.com/badges/83a74f6a-26c8-4f36-8128-0c61787f29a3
         - name: ITIL Foundation in IT Service Management v2011 (2016)
           start: 2016
           organization: AXELOS Global Best Practice
           credentialid: 02354900-01-E6V6
-          credentialurl: https://www.axelos.com/successful-candidates-register
           credentialname: Axelos
+          credentialurl: https://www.axelos.com/successful-candidates-register
         - name: Foundation Certificate in IT-Service Management (2006)
           start: 2006
           organization: itSMF EXIN
@@ -1896,12 +1897,14 @@ certifications:
           end: 2020
           organization: Amazon
           credentialid: ZMS5T5T11N1E1XK5
+          credentialname: Credly
           credentialurl: https://www.credly.com/badges/5bac3ade-ac20-4e20-b248-b2501e3a8583
         - name: AWS Certified Solutions Architect - Associate
           start: 2017
           end: 2020
           organization: Amazon
           credentialid: QD3RGLB1KNQQQ295
+          credentialname: Credly
           credentialurl: https://www.credly.com/badges/c6097740-cabc-476e-90b1-dc7f0005c834
         - name: USPS Analytics University Bronze Certification for Delivery Operations
           start: 2018
@@ -1915,31 +1918,37 @@ certifications:
           start: 2012
           organization: SAS Institute
           credentialid: BP029145v9
+          credentialname: Credly
           credentialurl: https://www.credly.com/badges/ea83b320-25ff-4238-bba9-2935fa2e4c71
         - name: SAS Certified Clinical Trials Programmer Using SAS 9
           start: 2012
           organization: SAS Institute
           credentialid: CTP000286v9
+          credentialname: Credly
           credentialurl: https://www.credly.com/badges/ddb5bf65-42d5-4621-8e19-c9c17f00d1c4
         - name: SAS Certified Data Integration Developer for SAS 9
           start: 2012
           organization: SAS Institute
           credentialid: DID000615v9
+          credentialname: Credly
           credentialurl: https://www.credly.com/badges/581608f5-0e72-4e0e-9868-de2457cadc1b
         - name: SAS Certified BI Content Developer for SAS 9
           start: 2012
           organization: SAS Institute
           credentialid: BICD000693v9
+          credentialname: Credly
           credentialurl: https://www.credly.com/badges/b6e14e27-41a2-4217-ae80-3218c3d3bdf8
         - name: SAS Certified Platform Administrator for SAS 9
           start: 2012
           organization: SAS Institute
           credentialid: PA000207v9
+          credentialname: Credly
           credentialurl: https://www.credly.com/badges/aebc3edd-575e-4476-8b01-5a05bc93c36d
         - name: SAS Certified Statistical Business Analyst Using SAS 9 - Regression and Modeling
           start: 2013
           organization: SAS Institute
           credentialid: SBARM000177v9
+          credentialname: Credly
           credentialurl: https://www.credly.com/badges/668b5383-f67e-499d-8140-a598eb930430
         - name: Solaris Certified Systems Administrator - Solaris 8 (2003)
           start: 2003
