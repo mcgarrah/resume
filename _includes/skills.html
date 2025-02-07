@@ -25,6 +25,34 @@
     </div><!--//item-->
     {% endfor %}
 
+    <!-- Skillsets Loop -->
+    {% if skills.skillsets %}
+      {% for skillset in skills.skillsets %}
+      <div class="item">
+        <h3 class="category-title">{{ skillset.categories }}</h3>
+
+        {% if skillset.sub_categories %}
+          {% for sub_category in skillset.sub_categories %}
+          <h4 class="sub-category-title">{{ sub_category.title }}</h4>
+          <p class="list">{{ sub_category.list | newline_to_br }}</p>
+
+          {% if sub_category.sub_sub_categories %}
+            <div class="sub-sub-categories">
+              {% for sub_sub_category in sub_category.sub_sub_categories %}
+              <h5 class="sub-sub-category-title">{{ sub_sub_category.title }}</h5>
+              <p class="list">{{ sub_sub_category.list | newline_to_br }}</p>
+              {% endfor %}
+            </div>
+          {% endif %} <!-- End of Sub Sub Categories Loop -->
+
+          {% endfor %}
+        {% endif %} <!-- End of Sub Categories Loop -->
+        
+      </div><!--//item-->
+      {% endfor %}
+    {% endif %} <!-- End of Skillsets Loop -->
+
+
   </div>
 
 </section><!--//skills-section-->
