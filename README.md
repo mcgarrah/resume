@@ -4,31 +4,37 @@ Here is a todo list for my resume website.
 
 ## MUST DO
 
-- [ ] Fix credentialurl be used in Certification as a link ... currently unused?
-  - [ ] Fix involves adding `credentialname` field... and shorten them up.
+- [x] Fix credentialurl be used in Certification as a link ... currently unused?
+  - [x] Fix involves adding `credentialname` field... and shorten them up.
+  - [x] Add Credly SAS cert entries to Resume
+  - [x] Add Credly AWS cert entries
+- [x] Review Jekyll and Ruby Github Actions upgrades to latest (mcgarrah.org main site failed on Ubuntu 24.04 LTS updates)
 - [ ] Add ETAAC link for 2009 report to Congress - https://www.irs.gov/pub/irs-prior/p3415--2009.pdf
 - [ ] Add SOC 2 Compliance work from Envestnet to work section
-- [ ] Add Credly certification profile https://www.credly.com/users/michael-mcgarrah
-- [x] Add credly SAS cert entries to Resume
 - [ ] Use Indeed Profile as PDF short form resume https://profile.indeed.com/p/jm-pfv4s18 ???
-- [ ] Add all the LinkedIn projects to Resume as new section
-- [ ] https://www.youtube.com/@MichaelMcGarrah/playlists for below projects
-  - [ ] AI for Robotics https://www.youtube.com/watch?v=KFo8ECjZyg8&list=PLG_DpV4CFj63n9GYGOhZV1fKbdO_CHNoa
-  - [ ] Computation Photography https://www.youtube.com/watch?v=WZPtuNnaqVc&list=PLG_DpV4CFj60wdkJuM2cWBC-uyKEhbYNL
-  - [ ] Phonetic Transcriptions https://www.youtube.com/watch?v=WsvWZScw7Tk&list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe
-  - [ ] Pull from the custom resume to Accompany Health that I wrote with 4 projects and summaries
+- [ ] Add some coming projects to add
+  - [ ] Github - URL Redirector (TF HCL)
+  - [ ] Github - ADP-AI Automated Document Processing with AI (TF HCL)
+- [x] Add all the LinkedIn projects to Resume as new section
+  - [x] Added all the existing projects
+  - [x] https://www.youtube.com/@MichaelMcGarrah/playlists for below projects
+    - [x] AI for Robotics https://www.youtube.com/watch?v=KFo8ECjZyg8&list=PLG_DpV4CFj63n9GYGOhZV1fKbdO_CHNoa
+    - [x] Computation Photography https://www.youtube.com/watch?v=WZPtuNnaqVc&list=PLG_DpV4CFj60wdkJuM2cWBC-uyKEhbYNL
+    - [x] Phonetic Transcriptions https://www.youtube.com/watch?v=WsvWZScw7Tk&list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe
+    - [x] Pull from the custom resume to Accompany Health that I wrote with 4 projects and summaries
 - [ ] Update the PDF version of resume to match web print version
 - [ ] Write a single entry for 1990-2005 with a summary of work titles and skills... to shorten up the resume. Point to long resume.
 - [ ] Add the PDF version from [Google Docs Resume](https://docs.google.com/document/d/1YuYyPKpCZNMarkZHMHJ7_-Tm3dAJ_BvS9kl7iwIFDYQ/edit?usp=sharing)
-  - [ ] In data.yaml under section "#pdf: http://www.africau.edu/images/default/sample.pdf"
+  - [x] In data.yaml under section "#pdf: http://www.africau.edu/images/default/sample.pdf"
   - [ ] https://stackoverflow.com/questions/55380596/create-a-pdf-out-of-a-complete-jekyll-page-with-toc
   - [ ] https://github.com/abemedia/jekyll-pdf
   - [ ] Add Jekyll-PDF plugin as project below...
 - [ ] Fix the print version to be linear without sidebar - crazy looking when printed out
 - [ ] Use the "ChatGPT optimizations" section below list to customize resume for AI/ML version in https://www.mcgarrah.org/aiml-resume/
 - [ ] Fix light-gray job headers
-    Fix the CSS or SASS for the job headers being a light gray... they wash out badly
-- [ ] Add a HR between each job or other method to delinate between the jobs... or make the sub-sections in job details smaller.
+  - [x] ~Fix~ Hacked the CSS or SASS for the job headers being a light gray... they wash out badly
+  - [ ] Fix the CSS to be better and consistent while reducing gray areas
+  - [ ] Add a HR between each job or other method to delinate between the jobs... or make the sub-sections in job details smaller.
 - [x] Use Indeed.com resume reviewer to clean up grammar and spelling
 - [ ] ATS (Applicant Tracking Systems) score and data fields review
 - [ ] Major hiring websites review for terms:
@@ -53,6 +59,7 @@ Here is a todo list for my resume website.
 ## WANT TO DO
 
 - [ ] My personal [Kaggle Homepage](https://www.kaggle.com/mcgarrah) is anemic and needs some of my older work added
+- [ ] Add Credly certification profile https://www.credly.com/users/michael-mcgarrah
 - [ ] Create a plain text resume from Jekyll https://www.indeed.com/career-advice/resumes-cover-letters/text-resume
 - [ ] Update this to include an image for the university under the date \<div\> section
 - [ ] https://www.linkedin.com/pulse/using-chatgpt-write-cover-notes-thomas-redstone-zvghf/
