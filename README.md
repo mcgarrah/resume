@@ -8,6 +8,8 @@ Here is a todo list for my resume website.
   - [x] Fix involves adding `credentialname` field... and shorten them up.
   - [x] Add Credly SAS cert entries to Resume
   - [x] Add Credly AWS cert entries
+- [ ] Wrap section has a 60px around the whole thing in CSS _base.scss above line 177
+- [ ] Major section.section.xxx have a 60px vertical margin set that is too big in CSS _base.scss line 177
 - [x] Review Jekyll and Ruby Github Actions upgrades to latest (mcgarrah.org main site failed on Ubuntu 24.04 LTS updates)
 - [ ] Add ETAAC link for 2009 report to Congress - https://www.irs.gov/pub/irs-prior/p3415--2009.pdf
 - [ ] Add SOC 2 Compliance work from Envestnet to work section
