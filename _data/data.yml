@@ -2034,7 +2034,7 @@ projects:
           using modern tools such as Bootstrap5 and dynamic rendering in the pages. Forgive me if
           the demo site is down... free tier hosting.
            - code: [https://github.com/mcgarrah/legendary_quick_quiz](https://github.com/mcgarrah/legendary_quick_quiz){:target="_blank"}
-           - demo: [Koyeb Demo Website](https://plain-gaby-mcgarrah-a35e7264.koyeb.app){:target="_blank"}
+           - demo: [Demo Website](https://quiz.mcgarrah.org/){:target="_blank"}
 
       - title: AWS Quicksight Demonstration (Terraform Automation)
         link: https://github.com/mcgarrah/quicksight_demo
