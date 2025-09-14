@@ -59,6 +59,12 @@ career-profile:
 education:
     title: Education
     info:
+      - degree: Masters of Business in Business Administration
+        university: University of North Carolina Wilmington
+        time: 2025 - present
+        gpa: 4.00
+        details: |
+          I am currently pursuing an Executive MBA program with a focus in Corporate Entrepreneurship.
       - degree: Masters of Science in Computer Science
         university: Georgia Institute of Technology
         time: 2014 - 2019
