@@ -2,11 +2,11 @@
 
 # Site Settings
 title: McGarrah Resume
-url: 'http://mcgarrah.github.io/resume'
+url: 'https://mcgarrah.org'
+baseurl: "/resume"
 
-#change it according to your repository name
-# disabling since we are using a custom domain
-baseurl: '/resume'
+# Canonical URL configuration for SEO
+canonical_url: "https://mcgarrah.org/resume"
 
 description: A beautiful Jekyll theme for creating a Resume
 # Style will be applied only after restarting the build or serve. Just choose one of the options.
