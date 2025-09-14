@@ -1,14 +1,15 @@
-# Cache
-.DS_Store
-.bundle
-.jekyll-cache
+_site/
+.sass-cache/
+.jekyll-cache/
 .jekyll-metadata
-.sass-cache
+vendor/
+.bundle/
 Gemfile.lock
-_site
-*.gem
-bin
-vendor
+bin/
 
-# For Weird WSLv2 issue
-*Zone.Identifier
+# Static dependencies (now using CDN)
+assets/plugins/jquery*
+assets/plugins/bootstrap/
+assets/plugins/font-awesome/
+node_modules/
+package-lock.json

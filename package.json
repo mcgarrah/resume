@@ -1,0 +1,22 @@
+{
+  "name": "mcgarrah-resume",
+  "version": "1.0.0",
+  "description": "Jekyll resume site dependency tracking",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "bootstrap": "^3.4.1",
+    "@fortawesome/fontawesome-free": "^6.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "update-deps": "echo 'Dependencies tracked for security monitoring only'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcgarrah/resume"
+  },
+  "keywords": ["jekyll", "resume", "dependencies"],
+  "author": "Michael McGarrah",
+  "license": "MIT"
+}
