@@ -35,3 +35,22 @@ port: 4000
 #host: 0.0.0.0
 host: 127.0.0.1
 safe: false
+
+# Jekyll Plugins
+plugins:
+  - jekyll-pandoc-exports
+
+# Pandoc Exports Plugin Configuration
+pandoc_exports:
+  enabled: true
+  pdf_options:
+    variable: 'geometry:margin=0.75in'
+  unicode_cleanup: true
+  inject_downloads: true
+  download_class: 'pandoc-downloads no-print'
+  title_cleanup:
+    - '<title>.*?</title>'
+    - '<h1[^>]*>.*?McGarrah Resume.*?</h1>'
+  image_path_fixes:
+    - pattern: 'src="/resume/assets/images/'
+      replacement: 'src="{{site.dest}}/assets/images/'

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title | default: site.title }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.2; margin: 0.5in; }
+        h1 { font-size: 18pt; margin-bottom: 0.2in; }
+        h2 { font-size: 14pt; margin-top: 0.2in; margin-bottom: 0.1in; border-bottom: 1px solid #ccc; }
+        h3 { font-size: 12pt; margin-top: 0.15in; margin-bottom: 0.05in; }
+        h4 { font-size: 11pt; font-weight: bold; margin-top: 0.1in; margin-bottom: 0.05in; }
+        p { margin-top: 0.05in; margin-bottom: 0.05in; }
+        ul { margin-top: 0.05in; margin-bottom: 0.05in; }
+        li { margin-bottom: 0.02in; }
+        .contact-info { text-align: center; margin-bottom: 0.2in; }
+        .meta { font-style: italic; color: #666; }
+        .section { margin-bottom: 0.15in; }
+        .item { margin-bottom: 0.1in; }
+        .sidebar-inline { display: flex; gap: 1in; margin-bottom: 0.2in; }
+        .sidebar-section { flex: 1; }
+        .level-bar { display: none; }
+        .fa-stack, .fas { display: none; }
+    </style>
+</head>
+<body>
+    {{ content }}
+</body>
+</html>

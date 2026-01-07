@@ -1,0 +1,35 @@
+{% assign sidebar = site.data.data.sidebar %}
+<div class="contact-section">
+  <h3>Contact Information</h3>
+  <div class="contact-grid">
+    {% if sidebar.email %}
+    <div class="contact-item">
+      <strong>Email:</strong> <a href="mailto:{{ sidebar.email }}">{{ sidebar.email }}</a>
+    </div>
+    {% endif %}
+    
+    {% if sidebar.phone %}
+    <div class="contact-item">
+      <strong>Phone:</strong> <a href="tel:{{ sidebar.phone }}">{{ sidebar.phone }}</a>
+    </div>
+    {% endif %}
+    
+    {% if sidebar.website %}
+    <div class="contact-item">
+      <strong>Website:</strong> <a href="https://{{ sidebar.website }}" target="_blank">{{ sidebar.website }}</a>
+    </div>
+    {% endif %}
+    
+    {% if sidebar.linkedin %}
+    <div class="contact-item">
+      <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/{{ sidebar.linkedin }}" target="_blank">linkedin.com/in/{{ sidebar.linkedin }}</a>
+    </div>
+    {% endif %}
+    
+    {% if sidebar.github %}
+    <div class="contact-item">
+      <strong>GitHub:</strong> <a href="https://github.com/{{ sidebar.github }}" target="_blank">github.com/{{ sidebar.github }}</a>
+    </div>
+    {% endif %}
+  </div>
+</div>

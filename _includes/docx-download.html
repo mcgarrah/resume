@@ -1,0 +1,19 @@
+{% if page.docx == true or page.pdf == true %}
+<div class="download-links" style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 5px;">
+  <p><strong>📄 Download Options:</strong></p>
+  <ul style="margin: 5px 0; padding-left: 20px;">
+    {% if page.docx == true %}
+    <li><a href="{{ site.baseurl }}/{{ page.path | replace: '.md', '.docx' }}" 
+           style="color: #007bff; text-decoration: none; font-weight: bold;">
+        Word Document (.docx)
+      </a></li>
+    {% endif %}
+    {% if page.pdf == true %}
+    <li><a href="{{ site.baseurl }}/{{ page.path | replace: '.md', '.pdf' }}" 
+           style="color: #007bff; text-decoration: none; font-weight: bold;">
+        PDF Document (.pdf)
+      </a></li>
+    {% endif %}
+  </ul>
+</div>
+{% endif %}

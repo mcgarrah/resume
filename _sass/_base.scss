@@ -323,3 +323,10 @@ p {
     color: $heart;
   }
 }
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
