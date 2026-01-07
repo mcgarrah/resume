@@ -2153,7 +2153,7 @@ skills:
       - categories: Platforms & DevOps
         sub_categories:
           - title: OS Platforms
-            list: Linux (Ubuntu, Debian, Red Hat Enterprise, CentOS) • UNIX (Sun Solaris, AIX, HP-UX, FreeBSD, OpenBSD, NetBSD, Ultrix, SunOS) • Mac OS X (System 6.x – X) • Microsoft Windows (NT 3.1 - current) • VMware ESXi
+            list: Linux (Ubuntu, Debian, Red Hat Enterprise, CentOS) • UNIX (Sun Solaris, AIX, HP-UX, FreeBSD, OpenBSD, NetBSD, Ultrix, SunOS) • Mac OS X (System 6.x – X) • Microsoft Windows (NT 3.1 - current) • VMware ESXi  • Proxmox VE
           - title: Cloud Platforms
             sub_sub_categories:
                 - title: Amazon Web Services (AWS)
