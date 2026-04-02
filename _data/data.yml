@@ -143,9 +143,11 @@ experiences:
         time: Apr 2019 - Oct 2021
         company: Blue Cross and Blue Shield of NC, Raleigh-Durham NC (Remote)
         summary: |
-          Building a data science platform incorporating a data‐warehouse, data‐lake and data‐execution environment 
+          Building a data science platform incorporating a data-warehouse, data-lake and data-execution environment 
           using containerized cloud-first technologies (AWS & Kubernetes) to support our mission of data driven 
-          decision to provide for a value‐based healthcare approach. A public example includes the media example below:
+          decisions incorporating machine learning as appropriate to provide for a value-based healthcare approach.
+          
+          A public example includes the media example below:
             - <a href="https://www.bluecrossnc.com/medicare-guided-selling-landing-page" target="_blank">Medicare Guided Selling</a>
         details: |
           **Cloud-First Platform (AWS)**
