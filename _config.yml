@@ -8,7 +8,7 @@ baseurl: "/resume"
 # Canonical URL configuration for SEO
 canonical_url: "https://mcgarrah.org/resume"
 
-description: A beautiful Jekyll theme for creating a Resume
+description: "Professional resume of Michael McGarrah — Cloud Architect and Software Engineer with 25+ years in enterprise infrastructure, machine learning, and system administration."
 # Style will be applied only after restarting the build or serve. Just choose one of the options.
 theme_skin: ceramic # blue turquoise green berry orange ceramic burgundy darkred dark (dark needs work)
 chrome_mobile_color: #use hex colors (ex:#1976d2) or leave empty if you don't want a color for chrome mobile searchbar
