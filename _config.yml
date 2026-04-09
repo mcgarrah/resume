@@ -42,6 +42,20 @@ pandoc_exports:
   image_path_fixes:
     - pattern: 'src="/resume/assets/'
       replacement: 'src="{{site.dest}}/assets/'
+  title_cleanup:
+    - '<img class="avatar"[^>]*/?>'
+    - '<li class="phone"><i class="fas fa-passport">.*?</li>'
+    - '<li class="timezone"[^>]*>.*?</li>'
+    - '<li class="website"[^>]*>.*?</li>'
+    - '<li class="linkedin"[^>]*>.*?</li>'
+    - '<li class="github"[^>]*>.*?</li>'
+    - '<li class="gitlab"[^>]*>.*?</li>'
+    - '<li class="discord"[^>]*>.*?</li>'
+    - '<li class="stack-overflow"[^>]*>.*?</li>'
+    - '<li class="pdf"[^>]*>.*?</li>'
+    - '<li class="docx"[^>]*>.*?</li>'
+    - '<li class="print"[^>]*>.*?</li>'
+    - '<div class="languages-container[^"]*"[^>]*>.*?</div>'
 
 encoding: "utf-8"
 compress_html: # - http://jch.penibelst.de/
