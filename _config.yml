@@ -56,6 +56,15 @@ pandoc_exports:
     - '<li class="docx"[^>]*>.*?</li>'
     - '<li class="print"[^>]*>.*?</li>'
     - '<div class="languages-container[^"]*"[^>]*>.*?</div>'
+    - '<span class="fa-stack[^"]*">.*?</span>'
+  template:
+    css: >
+      .wrapper { display: block; padding: 0; margin: 0; }
+      .sidebar-wrapper { display: block; padding: 0; }
+      .main-wrapper { display: block; padding: 0; }
+      .section { margin-bottom: 10px; }
+      .section-title { font-size: 24px; font-weight: bold; text-transform: uppercase;
+        border-bottom: 2px solid #333; padding-bottom: 4px; margin-bottom: 10px; }
 
 encoding: "utf-8"
 compress_html: # - http://jch.penibelst.de/
