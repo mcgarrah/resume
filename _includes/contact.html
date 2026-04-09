@@ -103,6 +103,12 @@
     </li>
     {% endif %}
 
+    {% if sidebar.docx %}
+    <li class="docx"><i class="fas fa-file-word"></i>
+      <a href="{{ sidebar.docx }}" target="_blank">Word Resume</a>
+    </li>
+    {% endif %}
+
     {% if sidebar.print %}
     <li class="print"><i class="fas fa-print"></i>
       <a href="{{ sidebar.print }}" target="_blank">Print Resume</a>

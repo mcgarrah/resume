@@ -27,6 +27,21 @@ compress-site: yes
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-pandoc-exports
+
+# Pandoc Exports - automatic PDF and DOCX generation
+pandoc_exports:
+  enabled: true
+  output_dir: 'downloads'
+  collections: ['pages']
+  incremental: true
+  unicode_cleanup: true
+  inject_downloads: false
+  pdf_options:
+    variable: 'geometry:margin=0.75in'
+  image_path_fixes:
+    - pattern: 'src="/resume/assets/'
+      replacement: 'src="{{site.dest}}/assets/'
 
 encoding: "utf-8"
 compress_html: # - http://jch.penibelst.de/
