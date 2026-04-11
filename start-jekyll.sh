@@ -1,15 +1,20 @@
-# Setting up on Ubuntu 22.04 LTS
+#!/bin/bash
+
+# Setting up on Ubuntu 22.04 LTS / 24.04 LTS
 #
 # sudo apt -y install make build-essential ruby ruby-dev
-# echo "" >> $HOME/.bashrc
-# echo "# Ruby Jekyll Gems" >> $HOME/.bashrc
-# echo "if [ ! -d $HOME/gems ]; then" >> $HOME/.bashrc
-# echo "  mkdir $HOME/gems" >> $HOME/.bashrc"
-# echo "fi" >> $HOME/.bashrc"
-# echo "export GEM_HOME=$HOME/gems" >> $HOME/.bashrc
-# echo "export PATH=$HOME/gems/bin:$PATH" >> $HOME/.bashrc
-# source $HOME/.bashrc
+
+# Update ~/.bashrc and ~/.zshrc with this:
+#
+# # Ruby Jekyll Gems
+# if [ ! -d $HOME/.gems ]; then
+#   mkdir $HOME/.gems
+# fi
+# export GEM_HOME=$HOME/.gems
+# export PATH=$HOME/.gems/bin:$PATH
+
 # gem install jekyll bundler
+# bundle install
 
 # VS Code Extension
 #
@@ -19,5 +24,15 @@
 # Version: 1.7.0
 # Publisher: Dedsec727
 # VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=Dedsec727.jekyll-run
+#
+# File -> Preferences -> Settings (Ctrl+,)
+#  Scroll to "Jekyll Run - Configuration"
+#  Or set in .vscode/settings.json per workspace
 
-bundle exec jekyll serve --trace
+# Jekyll serve flags:
+#   --trace         Show full Ruby backtrace on errors
+#   --livereload    Auto-refresh browser on file save
+#   --incremental   Only rebuild changed pages (faster, but restart
+#                   if edits to _includes/ or _layouts/ seem stale)
+
+bundle exec jekyll serve --trace --livereload --incremental
