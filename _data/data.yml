@@ -104,7 +104,9 @@ experiences:
           included in the architecture allowing for flexible integration between on-premise 
           and cloud services. An automation first attitude pervades this work. 
           Containerized cloud-first technologies (AWS & Kubernetes) to support new 
-          initiatives are current focus areas.
+          initiatives are current focus areas. Led SOC 1 and SOC 2 compliance across 
+          the majority of product lines, serving as primary technical liaison to external 
+          auditors and expanding scope for 2026.
             - <a href="https://upswot.com/upswot-signs-a-new-multi-year-and-multi-million-dollar-deal-with-envestnet-yodlee/" target="_blank">Envestnet upSWOT</a>
             - <a href="https://newsroom.envestnet.com/2022-10-24-Envestnet-Data-Analytics-Unveils-New-Vision-at-Money-20-20" target="_blank">Envestnet Data & Analytics</a>
         details: |
@@ -114,6 +116,10 @@ experiences:
           and Tamarac along with our clients. Some resources of the system include EKS with integrations for vEMR
           (Hadoop), Airflow (MWAA) and custom workflows. This system utilizes containerized microservices
           managed on a service-mesh deployed from managed CICD pipelines with IaC managed infrastructure.
+          Implemented scale-to-zero workload patterns on UPA EKS clusters — a technique brought directly from
+          BCBSNC where the same pattern was used for GPU-enabled spot instance nodes running ML model training.
+          Scale-to-zero kept the platform within budget by eliminating idle compute costs, making the UPA
+          infrastructure financially viable on available budgets.
 
           **Small and Medium Business Portal (SMB Portal)**
 
@@ -134,11 +140,59 @@ experiences:
           data scientists to do evaluations of the data and promoting as production models continues to be an
           interesting and difficult process that we are continuously refining.
 
+          **Data Science / AI / ML Platform (SageMaker)**
+
+          Managed the enterprise Data Science and AI/ML infrastructure from initial deployment through account
+          migration. Maintained IaC-managed SageMaker environments via GitLab, migrating AI/ML resources from
+          a shared account to a dedicated DataScience-SharedServices-Dev account. Created SageMaker VPC endpoints
+          across all 4 UPA/Microservices-Accounting accounts (Dev/QA/UAT/Prod) to enable Lambda-to-SageMaker
+          batch transform API connectivity for ML inference pipelines. Provisioned network access from SageMaker
+          notebook environments to internal services (GitLab, Nexus, Harbor) for ML development workflows.
+          Operated a dedicated Data Science EKS cluster (`datascience_shared_prod_01`) supporting ML workloads.
+
           **Data Marketplace** 
 
           External vendor web-application with internal compute and storage for a
           data management platform in the financial services space. Integration with the internal system via managed
           processes and managing security concerns were the primary concerns and issues with implementation.
+
+          **SOC 1 & SOC 2 Compliance (2022–2026)**
+
+          Led a four-year progression in SOC compliance scope that culminated in enterprise-wide
+          ownership of the compliance initiative:
+
+          *2022–2023 — Ad-hoc Evidence:* Provided SOC evidence as an SME in isolation without full
+          audit context, while focused on infrastructure build-out, automation tooling, and extensive
+          documentation to shore up gaps left by departing personnel. Security and compliance background
+          from NC DOR (IRS SafeGuard) and SAS Institute (FDA CFR Part 11) had not yet been surfaced to
+          leadership — the immediate priority was stabilizing infrastructure and consolidating inconsistent
+          practices across teams.
+
+          *2024 — First Full Audit:* Primary infrastructure evidence provider for the inaugural Envestnet
+          Payments SOC 2 Type 1 audit, completing 25+ compliance tasks covering availability, security,
+          change management, data processing, and confidentiality controls. First end-to-end audit
+          engagement where the security background became visible to leadership.
+
+          *2025 — Eight Simultaneous Audits:* Led infrastructure compliance evidence collection for 8
+          simultaneous SOC 1/SOC 2 Type 2 audits across every platform in the portfolio: Revenue Manager,
+          Wealth Manager, BillFin, Payments, Tamarac, UMP, ERS, and WDP. Completed 40+ individual evidence
+          tasks. Automated evidence collection from multiple sources, replacing manual processes with
+          repeatable tooling that reduced preparation effort and improved consistency across product areas.
+          Established standardized evidence practices that brought previously inconsistent product teams
+          into alignment — a direct result of both the automation and the new operational controls
+          introduced during the 2025 cycle. Validated controls and provided direct responses to external
+          auditors as the primary technical liaison.
+
+          Served as subject matter expert across multiple audit domains including development workflow and SDLC
+          practices, CI/CD pipeline controls, authentication and authorization architecture, operating system
+          hardening and configuration management, DevOps operational practices, and infrastructure security
+          controls. This breadth of expertise — spanning application security, platform engineering, and operational
+          compliance — made the role a natural extension of the security and compliance work from earlier career
+          positions at NC DOR (IRS SafeGuard) and SAS Institute (FDA CFR Part 11).
+
+          Expanding scope for 2026 to cover all product areas with increased leadership over the compliance
+          process, including defining the audit preparation timeline, managing auditor relationships, and driving
+          remediation of control gaps identified in the 2025 cycle.
 
       - role: Principal Data & Analytics Platform Engineer
         time: Apr 2019 - Oct 2021
