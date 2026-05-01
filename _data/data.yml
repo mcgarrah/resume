@@ -2309,6 +2309,67 @@ projects:
            - demo: [https://lgas.phonemes.org](https://lgas.phonemes.org){:target="_blank"}
            - pub: [article](https://github.com/mcgarrah/LG-FAVE/blob/7c592cf6c75b8c6feee08c0fe9b79b17dd699404/Young_McGarrah_2021.pdf){:target="_blank"}
 
+      - title: oneworldsync — Published Python Library for 1WorldSync Content1 API
+        link: https://github.com/mcgarrah/oneworldsync_python
+        tagline: >
+          Built a Python client library from scratch for the 1WorldSync Content1 REST API when the
+          only vendor-provided tooling was a Java SDK and PDF documentation. Provides a Pythonic
+          interface and CLI for searching and fetching product content data — specifications, images,
+          marketing copy, and logistics information. Published to PyPI with GitHub Actions CI/CD,
+          trusted publishing, and Read the Docs integration.
+           - code: [https://github.com/mcgarrah/oneworldsync_python](https://github.com/mcgarrah/oneworldsync_python){:target="_blank"}
+           - pypi: [PyPI](https://pypi.org/project/oneworldsync/){:target="_blank"}
+           - docs: [Read the Docs](https://oneworldsync-python.readthedocs.io/){:target="_blank"}
+           - article: [Introduction](https://mcgarrah.org/oneworldsync-python-module/){:target="_blank"}
+
+      # - title: Food Nutrition API — FastAPI Service for Unified Food Intelligence Data
+      #   link: https://github.com/mcgarrah/nutrition_api
+      #   tagline: >
+      #     A FastAPI service providing unified food intelligence data by aggregating multiple
+      #     sources — GS1 GPC product taxonomy, USDA FoodData Central nutrient data, and Open
+      #     Food Facts crowdsourced metadata — into a single canonical API. Uses the gs1-gpc
+      #     and usda-fdc Python libraries as data layers with an async SQLite backend and
+      #     corrected schema preserving many-to-many attribute relationships. Article in progress.
+      #      - code: [https://github.com/mcgarrah/nutrition_api](https://github.com/mcgarrah/nutrition_api){:target="_blank"}
+
+      - title: gs1-gpc — Published Python Library for GS1 Global Product Classification
+        link: https://github.com/mcgarrah/gs1_gpc_python
+        tagline: >
+          A Python library and CLI for importing GS1 Global Product Classification (GPC) taxonomy
+          data into SQLite or PostgreSQL. Corrects the many-to-many relationship modeling between
+          bricks and attribute types that other implementations get wrong — using junction tables
+          instead of single foreign keys that silently lose data. Supports downloading the latest
+          GPC XML from GS1, SQL export for migration, and serves as the data layer for the
+          Nutrition API project. Published to PyPI with automated CI/CD and Read the Docs.
+           - code: [https://github.com/mcgarrah/gs1_gpc_python](https://github.com/mcgarrah/gs1_gpc_python){:target="_blank"}
+           - pypi: [PyPI](https://pypi.org/project/gs1-gpc/){:target="_blank"}
+           - docs: [Read the Docs](https://gs1-gpc.readthedocs.io/){:target="_blank"}
+
+      - title: usda-fdc — Published Python Library for USDA Food Data Central API
+        link: https://github.com/mcgarrah/usda_fdc_python
+        tagline: >
+          A comprehensive Python client for the USDA Food Data Central API with object-oriented
+          data models, nutrient analysis with dietary reference intake comparisons, recipe analysis
+          with ingredient parsing, and Django integration for local database caching. Includes a
+          CLI for quick data access and an analysis tool for nutrient comparison and HTML report
+          generation. Published to PyPI with Read the Docs documentation.
+           - code: [https://github.com/mcgarrah/usda_fdc_python](https://github.com/mcgarrah/usda_fdc_python){:target="_blank"}
+           - pypi: [PyPI](https://pypi.org/project/usda-fdc/){:target="_blank"}
+           - docs: [Read the Docs](https://usda-fdc.readthedocs.io/){:target="_blank"}
+
+      - title: git-timesheet — Published Python CLI for Git-Based Time Tracking
+        link: https://github.com/mcgarrah/git_timesheet_python
+        tagline: >
+          A Python CLI tool that generates timesheets from git commit history — leveraging
+          timestamps already embedded in your workflow instead of requiring manual time tracking.
+          Supports multiple repositories, configurable work session gap detection, and output
+          in multiple formats. Built to solve a real problem tracking hours across multi-repo
+          freelance projects. Published to PyPI with Read the Docs documentation.
+           - code: [https://github.com/mcgarrah/git_timesheet_python](https://github.com/mcgarrah/git_timesheet_python){:target="_blank"}
+           - pypi: [PyPI](https://pypi.org/project/git-timesheet/){:target="_blank"}
+           - docs: [Read the Docs](https://git-timesheet.readthedocs.io/){:target="_blank"}
+           - article: [Introduction](https://mcgarrah.org/generate-git-timesheets-python-module/){:target="_blank"}
+
       - title: Certification Timed Multiple Choice Quiz WebApp (Full Stack Development)
         link: https://github.com/mcgarrah/legendary_quick_quiz
         tagline: >
