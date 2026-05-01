@@ -59,6 +59,21 @@ Logo images used in the resume's experience and education sections.
 | USPS | https://about.usps.com/newsroom/media-resources/ |
 | BD Biosciences | https://www.bd.com/en-us/about-bd/news-and-media |
 
+## Action Items
+
+- [ ] Download UNCW logo from https://www.uncw.edu/marketing/brand.html
+- [ ] Replace `georgia_institute_of_technology.jpg` (2.2KB, low-res) with official SVG from https://brand.gatech.edu/our-brand/logos
+- [ ] Replace `north_carolina_state_university_logo.jpg` with official SVG from https://brand.ncsu.edu/downloads/
+- [ ] Download UNC Chapel Hill logo for NC LIVE role from https://identity.unc.edu/brand-resources/
+- [ ] Delete `envestnet_logo.jpg` — duplicate of `envestnet_logo.png`, JPG is lower quality
+- [ ] Review small JPGs (2–4KB) for quality issues — likely low-res LinkedIn thumbnails:
+  - `envestnet_logo.jpg` (2.2K) — delete, use PNG
+  - `georgia_institute_of_technology.jpg` (2.2K) — replace with SVG
+  - `bdbiosciences_logo.jpg` (2.6K) — check quality
+  - `ganymede_software_netiq_logo.jpg` (2.6K) — check quality
+  - `nc_department_of_revenue_logo.jpg` (2.4K) — check quality
+  - `usps_logo.jpg` (2.9K) — check quality
+
 ## Lessons Learned
 
 ### Clearbit Logo API — Defunct
