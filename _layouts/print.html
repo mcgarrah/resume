@@ -91,6 +91,32 @@
       margin-right: 4px;
       color: #666;
     }
+    /* Experience and education item separation for print */
+    .experiences-section .item,
+    .educations-section .item {
+      padding-top: 16px;
+      border-top: 1px solid #ddd;
+    }
+    .experiences-section .item:first-child,
+    .educations-section .item:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+    /* Bolder, larger job titles and degree names for print */
+    .main-wrapper .job-title,
+    .main-wrapper .degree {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .main-wrapper .company,
+    .main-wrapper .university {
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+    }
+    .main-wrapper .time {
+      font-weight: 600;
+    }
   </style>
   <body>
     <div class="wrapper">
