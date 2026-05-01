@@ -13,11 +13,90 @@
     }
     .wrapper {
       max-width: unset !important;
+      display: block !important;
+      background: #fff !important;
+    }
+    /* Hide the sidebar in print layout */
+    .sidebar-wrapper {
+      display: none !important;
+    }
+    /* Full-width main content */
+    .main-wrapper {
+      grid-column: unset !important;
+      width: 100% !important;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 60px !important;
+    }
+    /* Print header styles */
+    .print-header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 60px 10px 60px;
+      border-bottom: 2px solid #333;
+      margin-bottom: 10px;
+    }
+    .print-header-main {
+      margin-bottom: 8px;
+    }
+    .print-name {
+      font-size: 28px;
+      font-weight: 900;
+      margin: 0 0 4px 0;
+      color: #333;
+    }
+    .print-tagline {
+      font-size: 16px;
+      font-weight: 400;
+      margin: 0 0 8px 0;
+      color: #666;
+    }
+    .print-contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      font-size: 13px;
+    }
+    .print-contact-list li {
+      white-space: nowrap;
+    }
+    .print-contact-list a {
+      color: #333;
+      text-decoration: none;
+    }
+    .print-contact-list .fas,
+    .print-contact-list .fab {
+      margin-right: 4px;
+      color: #666;
+    }
+    /* Print links section at bottom */
+    .print-links-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 24px;
+      font-size: 12px;
+    }
+    .print-links-list a {
+      color: #333;
+      text-decoration: none;
+    }
+    .print-links-list .fas,
+    .print-links-list .fab {
+      margin-right: 4px;
+      color: #666;
     }
   </style>
   <body>
     <div class="wrapper">
       {% include sidebar.html %}
+
+      {% include print-header.html %}
 
       <div class="main-wrapper">
         {{ content }}

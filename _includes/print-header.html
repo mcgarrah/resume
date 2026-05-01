@@ -1,0 +1,26 @@
+{% assign sidebar = site.data.data.sidebar %}
+<div class="print-header">
+  <div class="print-header-main">
+    <h1 class="print-name">{{ sidebar.name }}</h1>
+    <h3 class="print-tagline">{{ sidebar.tagline }}</h3>
+  </div>
+  <div class="print-contact">
+    <ul class="print-contact-list">
+      {% if sidebar.email %}
+      <li><i class="fas fa-envelope"></i> <a href="mailto:{{ sidebar.email }}">{{ sidebar.email }}</a></li>
+      {% endif %}
+      {% if sidebar.phone %}
+      <li><i class="fas fa-phone"></i> <a href="tel:{{ sidebar.phone }}">{{ sidebar.phone }}</a></li>
+      {% endif %}
+      {% if sidebar.website %}
+      <li><i class="fas fa-globe-americas"></i> <a href="https://{{ sidebar.website | remove: 'www.' }}">www.{{ sidebar.website | remove: 'www.' }}</a></li>
+      {% endif %}
+      {% if sidebar.linkedin %}
+      <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/{{ sidebar.linkedin }}">linkedin.com/in/{{ sidebar.linkedin }}</a></li>
+      {% endif %}
+      {% if sidebar.github %}
+      <li><i class="fab fa-github"></i> <a href="https://github.com/{{ sidebar.github }}">github.com/{{ sidebar.github }}</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
