@@ -50,9 +50,7 @@
       <div class="details">
         {{ graduation.summary | markdownify }}
         {% if graduation.details %}
-          <details>
           {{ graduation.details | markdownify }}
-          </details>
         {% endif %}
       </div><!--//details-->
       {% elsif graduation.details %}

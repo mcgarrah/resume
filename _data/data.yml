@@ -9,7 +9,7 @@ sidebar:
 
     # Profile information
     name: Michael McGarrah
-    tagline: Cloud Architect / Data Scientist / Technical Leader
+    tagline: Engineering Leader | Enterprise Architecture · AI/ML · Cloud Platforms
     avatar: mcgarrah-profile-100x100.png  # a 100x100 picture inside /assets/images/ folder
 
     # Sidebar links
@@ -52,31 +52,59 @@ sidebar:
 career-profile:
     title: Career Profile
     summary: |
-      With over three decades of IT experience, my background includes work in data science & analytics, 
-      cloud computing, development, database & multi-platform platform management, security 
-      and compliance, networking, and R&D. That diverse experience makes me rapidly effective 
-      in your business.
+      Technology leader with 30+ years bridging enterprise architecture, AI/ML, and cloud
+      platforms. Career spans engineering leadership (IT Director, Development Manager),
+      enterprise architecture (statewide technology standards for North Carolina state
+      government), and hands-on platform engineering (AWS, EKS, production ML models).
+      Security and compliance depth includes passing IRS SafeGuard audits, leading SOC 1/SOC 2
+      compliance across eight simultaneous audits, and serving on a Congressional subcommittee
+      (ETAAC) reporting to Congress on technology and security policy. Currently completing an
+      Executive MBA at UNC Wilmington, deliberately complementing technical depth with business
+      strategy and organizational leadership.
 
 education:
     title: Education
     info:
-      - degree: Masters of Business in Business Administration
+      - degree: Executive Masters of Business Administration
         university: University of North Carolina Wilmington
         time: 2025 - present
         gpa: 4.00
-        details: |
-          Currently pursuing an Executive MBA program with a focus on Corporate Entrepreneurship.
-          Applying advanced business strategy, leadership, and finance principles to drive corporate innovation.
-          Expected Graduation: Fall 2026
+        summary: |
+          Pursuing an Executive MBA with a focus on Corporate Entrepreneurship, deliberately
+          complementing 30+ years of technical depth with business strategy, finance, and
+          organizational leadership. Applying coursework directly to technology adoption
+          decisions, ROI analysis for platform investments, and organizational change management
+          for AI/ML initiatives. Expected Graduation: Fall 2026
       - degree: Masters of Science in Computer Science
         university: Georgia Institute of Technology
         time: 2014 - 2019
         gpa: 3.63
+        summary: |
+          Completed a five-year graduate program while working full-time — a deliberate
+          investment in AI/ML depth that required sustained discipline across evenings,
+          weekends, and years of compressed personal time. Specialization in Interactive
+          Intelligence with coursework spanning machine learning, perception systems,
+          natural language processing, computer vision, and knowledge-based AI. A cross-domain
+          research collaboration with a PhD candidate in sociolinguistics produced a
+          peer-reviewed publication in the Nordic Journal of Linguistics (2021) and a
+          conference presentation at NWAV 46 — demonstrating how applied CS and ML skills
+          serve as a force multiplier for domain experts in other fields.
         details: |
-          Beginning the Fall of 2014 while working full-time, I completed my Machine Learning 
-          focused curriculum in the Spring of 2019. My focus area was Interactive Intelligence,
-          Machine Learning and Perception Systems. While in school, I have pursued guided independent
-          study research projects and worked to present papers at conferences to extend my academic credentials.
+          The most significant outcome was the research collaboration with Nathan J. Young,
+          a PhD candidate in sociolinguistics. Young had built phonetic dictionaries for
+          Swedish and Danish but lacked the software engineering capability to operationalize
+          them. I generalized the FAVE forced alignment toolkit to handle non-English
+          language features through a configuration-driven architecture, built the processing
+          pipeline, and created a web interface for the research community. The result: a CS
+          engineer publishing in a linguistics journal because the cross-domain bridge created
+          research capability that neither discipline could achieve alone.
+
+          This pattern — bringing engineering rigor and platform thinking to accelerate
+          domain experts — is the same model that drives successful AI/ML organizations.
+          Data scientists, researchers, and business analysts have domain knowledge; platform
+          engineers build the infrastructure that makes that knowledge operational. The
+          Georgia Tech research was an early proof point for a career spent bridging those
+          disciplines.
             - [NWAV 46](https://en.wikipedia.org/wiki/New_Ways_of_Analyzing_Variation){:target="_blank"} [Conference Presentation](https://dept.english.wisc.edu/nwav46/?page_id=57){:target="_blank"}
               "155. Introducing NordFA:Forced alignment of Nordic languages. Nathan J. Young & Michael McGarrah"
             - [Abstract: Forced alignment for Nordic languages: Rapidly constructing a high-quality prototype.](https://www.cambridge.org/core/journals/nordic-journal-of-linguistics/article/forced-alignment-for-nordic-languages-rapidly-constructing-a-highquality-prototype/FDE14A3666650127DB7D74E83EC09438){:target="_blank"} [(PDF)](https://github.com/mcgarrah/LG-FAVE/blob/7c592cf6c75b8c6feee08c0fe9b79b17dd699404/Young_McGarrah_2021.pdf){:target="_blank"}
@@ -85,9 +113,10 @@ education:
         university: North Carolina State University
         time: 1990 - 2011
         gpa: 3.42
-        details: |
-          I completed my Bachelor of Science in Computer Science May of 2011 graduating with Honors
+        summary: |
+          Completed a Bachelor of Science in Computer Science graduating with Honors
           while working full-time and raising a family.
+        details: |
             - Member [Association for Computing Machinery (ACM)](https://www.acm.org/){:target="_blank"}
             - Member [Institute of Electrical and Electronics Engineers (IEEE)](http://ieee.org/){:target="_blank"}
             - Member [Association of Information Technology Professionals (AITP)](https://rtp-aitp.org){:target="_blank"} [(archive)](https://web.archive.org/web/20170403035521/https://www.aitp.org/){:target="_blank"}
@@ -99,17 +128,36 @@ experiences:
         time: Oct 2021 - Present
         company: Envestnet, Inc., Emerald Isle NC (Remote)
         summary: |
-          Building large scale cloud platforms for financial services and data science 
-          initiatives. A combination of AWS cloud and data center infrastructures are 
-          included in the architecture allowing for flexible integration between on-premise 
-          and cloud services. An automation first attitude pervades this work. 
-          Containerized cloud-first technologies (AWS & Kubernetes) to support new 
-          initiatives are current focus areas. Led SOC 1 and SOC 2 compliance across 
-          the majority of product lines, serving as primary technical liaison to external 
-          auditors and expanding scope for 2026.
+          Leading cloud platform architecture across 20+ AWS accounts spanning every billing
+          and data platform in the enterprise. Recovered a critical cross-enterprise project
+          under pressure, earning executive sponsorship that enabled every subsequent initiative.
+          Led SOC 1/SOC 2 compliance from a single inaugural audit to eight simultaneous audits
+          across all products, automating evidence collection and serving as primary technical
+          liaison to external auditors. Delivered the first AI/ML production workload on the
+          Billing platform (AWS Bedrock). Drove measurable cost optimization through EKS
+          right-sizing, scale-to-zero workloads, and Karpenter migration.
             - <a href="https://upswot.com/upswot-signs-a-new-multi-year-and-multi-million-dollar-deal-with-envestnet-yodlee/" target="_blank">Envestnet upSWOT</a>
             - <a href="https://newsroom.envestnet.com/2022-10-24-Envestnet-Data-Analytics-Unveils-New-Vision-at-Money-20-20" target="_blank">Envestnet Data & Analytics</a>
         details: |
+          **ACE/IMPACT Project Recovery & Executive Sponsorship**
+
+          Recovered a critical cross-enterprise integration project in three weeks of intensive
+          work after the prior owner's departure — touching every product team and technology
+          stack in the enterprise. The recovery earned executive sponsorship and established the
+          cross-enterprise access and trust that enabled every subsequent initiative. Observability
+          systems (New Relic) built during the recovery became a company-wide standard.
+
+          **Data Lake Initiative — Cross-Enterprise Data Integration (Year 1)**
+
+          Led an organizational influence campaign to extract data from every product group into the
+          central data lake — achieving over 90% coverage across the enterprise within the first year.
+          Approximately one-third of teams collaborated willingly, one-third required demonstrated
+          value from early wins to convert, and one-third required escalation with constructive
+          proposals to management. This was not an engineering project — it was an organizational
+          influence campaign executed without positional authority, navigating politics and building
+          trust across teams with no reporting relationship. Simultaneously served as the dedicated
+          SRE resource for the entire EDI portfolio (15+ AWS accounts across four product lines).
+
           **Unified Portfolio Accounting (UPA)**
 
           UPA is a portfolio accounting platform using bleeding-edge cloud-native technologies for a highly scalable service to maintain, balance, adjust, and validate financial data from custodian platforms and trusted connections to existing platforms like UMP
@@ -131,30 +179,49 @@ experiences:
           migration. IaC (Infrastructure as Code) and conversion from on-premise and alternate cloud vendors was a major
           hurdle to implementation and bringing the product to a managed state.
 
-          **Data Science Initiatives (DSI)**
+          **Data Science / AI / ML Platform**
 
-          Multiple internal projects with data engineering and management using
-          a variety of methods including serverless machine learning (Lambda/Step) development and SageMaker
-          with container deployment mechanisms. These projects include finding the data in the enterprise and
-          providing repeatable data feeds which are a considerable challenge. Providing cloud compute platforms for
-          data scientists to do evaluations of the data and promoting as production models continues to be an
-          interesting and difficult process that we are continuously refining.
+          Delivered the first AI/ML production workload on the Billing platform (AWS Bedrock Data
+          Automation), evaluating multiple approaches and selecting the winner through POC. Built and
+          operated the enterprise SageMaker platform from initial deployment through account migration,
+          creating VPC endpoints across all 4 environments for ML inference pipelines. Managed
+          IaC-managed SageMaker environments via GitLab, provisioned network access from notebook
+          environments to internal services (GitLab, Nexus, Harbor), and operated a dedicated Data
+          Science EKS cluster. Multiple internal data science projects using serverless ML
+          (Lambda/Step Functions) and SageMaker with container deployment mechanisms.
 
-          **Data Science / AI / ML Platform (SageMaker)**
-
-          Managed the enterprise Data Science and AI/ML infrastructure from initial deployment through account
-          migration. Maintained IaC-managed SageMaker environments via GitLab, migrating AI/ML resources from
-          a shared account to a dedicated DataScience-SharedServices-Dev account. Created SageMaker VPC endpoints
-          across all 4 UPA/Microservices-Accounting accounts (Dev/QA/UAT/Prod) to enable Lambda-to-SageMaker
-          batch transform API connectivity for ML inference pipelines. Provisioned network access from SageMaker
-          notebook environments to internal services (GitLab, Nexus, Harbor) for ML development workflows.
-          Operated a dedicated Data Science EKS cluster (`datascience_shared_prod_01`) supporting ML workloads.
-
-          **Data Marketplace** 
+          **Data Marketplace**
 
           External vendor web-application with internal compute and storage for a
           data management platform in the financial services space. Integration with the internal system via managed
           processes and managing security concerns were the primary concerns and issues with implementation.
+
+          **EKS Platform Operations & Migrations (2023–2026)**
+
+          Led complex EKS upgrades across multiple platforms (Microservices-Accounting, Payments,
+          DataLake) through versions 1.28–1.33. The DataLake EKS 1.32 upgrade was the most complex
+          to date — navigating aws-auth ConfigMap deprecation, external-dns migration, and
+          coordinated Airflow helm chart upgrades requiring custom container image rebuilds.
+          Migrated Revenue Manager Tableau BI workload from IBM data center to AWS. Decommissioned
+          unused AWS accounts (Neo4J, upSWOT) to reduce account sprawl and costs.
+
+          **Security Hardening (2025–2026)**
+
+          Enforced IMDSv2 across Payments and SalesOps compute resources, eliminating instance
+          metadata v1 attack surface as part of company-wide security hardening. Remediated
+          high-severity Wiz CSPM findings across Billing & Payments accounts (KMS excessive
+          access, service account privilege issues). Restricted Revenue Manager security groups
+          to specific IP ranges, adding defense-in-depth network segmentation. Implemented WAF
+          configurations and CrowdStrike Falcon sensor upgrades across EKS clusters.
+
+          **Cost Optimization**
+
+          Multiple cost optimization wins across the tenure: scale-to-zero EKS workloads on UPA
+          clusters (pattern brought from BCBSNC GPU scheduling, made the platform financially
+          viable), Cluster Autoscaler fix eliminating orphaned EC2 instances, EKS node right-sizing
+          from 4xlarge to 2xlarge across all environments, KubeCost implementation for granular
+          cost visibility, Karpenter migration from Cluster Autoscaler, and decommissioning of
+          unused AWS accounts (Neo4J, upSWOT).
 
           **SOC 1 & SOC 2 Compliance (2022–2026)**
 
@@ -198,11 +265,21 @@ experiences:
         time: Apr 2019 - Oct 2021
         company: Blue Cross and Blue Shield of NC, Raleigh-Durham NC (Remote)
         summary: |
-          Building a data science platform incorporating a data-warehouse, data-lake and data-execution environment 
-          using containerized cloud-first technologies (AWS & Kubernetes) to support our mission of data driven 
-          decisions incorporating machine learning as appropriate to provide for a value-based healthcare approach.
-          
-          A public example includes the media example below:
+          Architected and led development of the enterprise data science platform — multi-account
+          AWS infrastructure (EKS, EMR, RDS, Lambda), containerized ML execution environment, and
+          CI/CD pipelines — powering production deep learning models processing claims data from
+          all NC members, emergency rooms, and hospitals under near-real-time requirements.
+          Operated with director-equivalent authority: conducted performance reviews, drove salary
+          increases, executed performance improvement plans, led hiring, and dotted-line reported
+          to the SVP. Managed cost controls across the EKS platform and the team of platform
+          engineers building it — spot-instance and GPU-enabled node groups with scale-to-zero
+          scheduling, activity-based cost tracking, and remediation workflows for developers and
+          data scientists provisioning AWS resources. Delivered the Medicare Guided Selling system
+          as a fast-track serverless deployment (Lambda, API Gateway, DynamoDB) to meet an
+          SVP-driven timeline before the full platform was ready. Built the CarePath ML framework
+          that produced award-winning models for Complex Case Management (ISSIP Excellence in
+          Service Innovation Award), Hospital-to-Home transitions, and cardiovascular/diabetes
+          risk prediction.
             - <a href="https://www.bluecrossnc.com/medicare-guided-selling-landing-page" target="_blank">Medicare Guided Selling</a>
         details: |
           **Cloud-First Platform (AWS)**
@@ -236,22 +313,16 @@ experiences:
 
           **Medicare Guided Selling Tool (MGS)**
 
-          The Plan Finder Tool offers an easy way for members to use
-          their claims data to recommend a plan that best fits their needs. This is for members who are moving from
-          a Blue Cross NC commercial plan to a Blue Cross NC Medicare plan. The public accessible interface for
-          the recommendation engine can be found at [MGS Landing](https://www.bluecrossnc.com/medicare-guided-selling-landing-page).
-          My involvement was to implement
-          the initial recommendation system in May 2019 before our AWS platform was ready for general use. I
-          quickly created a fully integrated and managed Serverless Framework (SLS) implementation using an AWS
-          API-Gateway backed with Lambda functions written in Python3 providing a REST API for WebUI
-          developers which pulled content from a DAX/DynamoDB datastore populated by a custom built
-          containerized event-driven ETL process also written in Python 3.6. This implementation has been live on
-          the above public URL since June 2019 and will be decommissioned 3Q2021 in favor of the new CICD
-          Pipeline and ETL processes implemented in 2Q2020. I have been heavily involved in transitioning the
-          above and building out the cross-account CICD Pipeline (Jenkins) and data engineering tooling (ETL) to
-          support broader development and data engineering practices across the company. As a first-stage developer
-          of a public accessed service, I was in a unique position both as an infrastructure implementer and consumer
-          of both the development and data engineering services the platform team provided to the enterprise.
+          Delivered as a fast-track project to meet an SVP-driven timeline — the AWS platform was
+          not yet ready for general use, so I designed and shipped a complete serverless system in
+          weeks. Built a fully integrated Serverless Framework (SLS) implementation using AWS
+          API Gateway backed with Lambda functions in Python3, providing a REST API for WebUI
+          developers pulling content from a DAX/DynamoDB datastore populated by a custom
+          containerized event-driven ETL process. This public-facing production system went live
+          in June 2019 and served NC Medicare members through 3Q2021. The rapid delivery
+          demonstrated the ability to ship production systems under executive pressure while the
+          broader platform was still being built — and positioned me as both infrastructure
+          architect and first consumer of the platform services the team provided to the enterprise.
 
           **Drug Lookup and Calculation (DLC)**
 
@@ -300,10 +371,13 @@ experiences:
         time: Nov 2017 - Apr 2019
         company: United States Postal Service, Raleigh NC
         summary: |
-          As part of the Advanced Analytics Group in Enterprise Analytics Program of the USPS,
-          Engaged in advanced analytics with multiple platforms. Primary focus on a SAS 9.4 and SAS Viya in-memory 
-          cluster with linkage to Hadoop Datalake inching up on 1Pb of data. Exploring machine learning and big data. 
-          We work with Tb not Gb of data in a high security environment.
+          Administered a 25-node SAS Viya in-memory analytics cluster (26TB RAM) with connectivity
+          to a 50+ node Hadoop data lake approaching 1PB, operating on a closed network under
+          NIST 800-53 high security controls with DEA data hosted. Worked directly with the USPS
+          Chief Data Scientist and his team of data scientists, providing platform engineering
+          and machine learning infrastructure support. Stabilized platform operations, built
+          CISO-compliant administration automation (Python Fabric, Ansible), and constructed a
+          complete Hadoop development platform replicating production for upgrade planning.
         details: |
           **Advanced Visual Analytics - SAS Viya**
 
@@ -368,10 +442,20 @@ experiences:
         time: Jul 2016 - Sep 2017
         company: American Kennel Club, Raleigh-Durham, North Carolina Area
         summary: |
-            Oversee the design and execution of the cloud computing strategy including the cloud adoptions plans, 
-            cloud application design, and cloud management and monitoring. Provide expertise in the definition, design, 
-            implementation, adoption and adherence to enterprise architecture strategies, processes and standards. This 
-            role at AKC was focused on expertise in the Amazon cloud technologies.
+            Served as cloud evangelist bringing AWS into an organization that was entirely
+            data-center and vendor-hosted, overcoming significant resistance from data center
+            engineers who feared cloud adoption would eliminate their roles. Coached the existing
+            engineering team through the transition — demonstrating that cloud is infrastructure
+            with automation built in, not a replacement for engineers, and that upskilling into
+            scripting, IaC, and automation was the path to staying relevant. That investment in
+            people was as critical to the migration's success as the technical architecture.
+            Built the AWS platform from nothing to a fully functional managed environment hosting
+            AKC's primary website and marketplace. Completed zero-downtime migration of akc.org
+            in six weeks and marketplace.akc.org in two weeks, reducing hosting costs from
+            $30,000/month to under $5,000/month while improving uptime and response times.
+            Designed and implemented a complex three-way Active Directory synchronization across
+            AWS, the on-premises AKC data center, and Office 365. Led application modernization
+            from legacy ColdFusion and Perl to a MEAN stack with end-to-end CI/CD.
         details: |
           **Cloud Services and Architecture**
 
@@ -475,13 +559,18 @@ experiences:
         time: May 2015 - Jul 2016
         company: North Carolina Department of Information Technology, Raleigh NC
         summary: |
-            Accountable for developing, maintaining and overseeing the execution of formalized technology, application, 
-            platform, and systems integration strategies. Conduct enterprise-wide analysis, collaboratively establish 
-            technology road maps, champion critical changes and negotiate statewide standards and policies in the form 
-            of Enterprise Architecture. Ensure the successful development and effective execution of IT strategies. 
-            Systematic management of enterprise IT standards, policies and strategies for a portfolio of technology 
-            platforms, products, and practices. Initial focus on converged technologies to include software defined 
-            networks (SDN) and software defined infrastructures (SDI).
+            Led enterprise-wide technology strategy for North Carolina state government in a
+            dynamic environment with four direct-manager transitions, including a period of six
+            months reporting directly to the State CIO (future Secretary of IT). Authored the
+            Request for Information (RFI) for statewide data center network modernization and
+            co-authored the Request for Proposals (RFP) with the State Risk Officer for a
+            security standards rewrite based on NIST and DoD frameworks. Evaluated and responded
+            to RFCs, policy and controls requests, and led program management for cloud technology
+            adoption across Azure, OpenShift, and direct AWS engagement. Leveraged deep
+            cross-agency relationships built over years as a state employee (NC DOR, UNC System,
+            Community Colleges) and worked closely with the CISO on compliance and security
+            initiatives — cross-domain knowledge from IRS audit and security background proved
+            essential for moving programs and projects forward across organizational boundaries.
         details: |
           **Architecture**
 
@@ -561,13 +650,19 @@ experiences:
         time: Apr 2013 - Jul 2015
         company: Measurement Incorporated, Durham, NC
         summary: |
-            Systems Administration for Linux and Windows on Cloud platforms. Implement integration of Active Directory 
-            with UNIX authentication & authorization. Provide support for PostgreSQL, MySQL, & SQLServer database 
-            environments. Systems programming with optimization of low-level machine learning support libraries such 
-            as CBlas, LPSolve, Shogun and others. Expand network topology. Implement virtualization with VMware ESXi, 
-            AWS, KVM, & Xen. Implemented a AWS clone using the Eucalyptus 3.4 platform compiled from source with 
-            iSCSI shared storage on FreeNAS. AWS Services cloned included: EC2, EBS, IAM, S3, AMI, Autoscaling, 
-            Elastic Load Balancer, and Cloudwatch with a local Ceph & RiakCS S3 test.
+            Originally hired to build data center infrastructure for an ML moonshot project —
+            automated essay assessment for school system end-of-year exams — and rapidly pivoted
+            to an AWS-hosted solution. Built a custom scalable compute and monitoring platform
+            with a team of engineers that scaled to thousands of first-generation spot EC2
+            instances for ML scoring workloads, then scaled down. Owned all costs and cost
+            controls across the platform (FinOps before the term existed). Scope expanded from
+            systems administrator to systems programmer to cloud architect to machine learning
+            engineer: optimized low-level ML libraries (CBlas, LPSolve, Shogun), ported the ML
+            Toolkit to native Windows, and contributed patches back to open source communities.
+            Also built a private cloud platform (Eucalyptus 3.4 replicating AWS services) with
+            iSCSI shared storage for on-premises workloads. Concurrent with Georgia Tech MS
+            coursework in machine learning — SVP Dr. Kirk Ridge provided the recommendation
+            letter and support that enabled entry into the OMSCS program.
         details: |
           **AI Technologies**
 
@@ -761,11 +856,17 @@ experiences:
         time: Aug 2011 - Mar 2013
         company: SAS Institute, Inc., Cary, NC
         summary: |
-            Systems administration for Windows, Solaris, AIX and Linux for SAS Solutions OnDemand with a focus on 
-            validated systems for the pharmaceutical industry. SAS Drug Development (SDD), Clinical Data Integration Studio (CDI) 
-            and SAS Clinical Standards Toolkit are my primary product focus. SAS Retail and Fraud are a secondary 
-            focus area. Provided customers with automation solutions and POC extensions as necessary. Certification 
-            in several SAS product lines.
+            Administered validated systems for the pharmaceutical industry under FDA CFR Part 11
+            compliance — not standard systems administration but validated systems administration
+            where every action is auditable, every installation documented, and every change
+            request traceable for federal audit. Designed multi-tier SAS architectures for 80+
+            customers in unique configurations, including the first production Disaster Recovery
+            capable multi-tier SSO system for a clinical trial customer (7 servers + 8
+            load-balanced terminal servers). Automation-first approach using Puppet, scripting,
+            and SAS product customization to ensure consistency across validated environments.
+            Rapidly completed all six available SAS certifications: Platform Administrator, Base
+            Programmer, Clinical Trials, Data Integration, BI Content Developer, and Statistical
+            Business Analyst.
         details: |
           **Disaster Recovery Implementation**
 
@@ -882,11 +983,18 @@ experiences:
         time: Mar 2007 - Aug 2011
         company: NC Department of Revenue, Raleigh NC
         summary: |
-            Review compliance to required state and federal policies. Review
-            security requirements and adherence for the agency. Provide risk
-            assessments. Respond and document security incidents. Document security
-            procedures.  NIST, FISMA, FIPS, and ISO are some standards I actively
-            reviewed during my tenure.
+            Grew from firewall administrator to policy and controls leader over four years,
+            rapidly expanding security scope from IC work to contributor on nationwide projects
+            and multi-state initiatives. Skip-level reported to the Secretary of Revenue for
+            half the tenure, taking direction from the top tier of the organization. Part of
+            the five-person team that passed the IRS SafeGuard audit — a seven-month preparation
+            producing a 1,300-page report covering all IT infrastructure, with no noteworthy
+            findings (acknowledged by IRS auditors as a significant achievement). Loaned to the
+            IRS for Congressional subcommittee work (ETAAC) developing third-party tax preparer
+            security standards based on NIST 800-53 controls adapted to IRS Publication 1075.
+            Integrated security reviews into every step of the SDLC, reducing rework costs and
+            improving PCI and IRS compliance. Applied NIST 800-53, FISMA, FIPS 140-2, PCI-DSS,
+            and ISO/IEC 27002 frameworks.
         details: |
           **Project Management**
 
@@ -1114,10 +1222,16 @@ experiences:
         time: Mar 2006 - Mar 2007
         company: BD Biosciences, Durham, NC
         summary: |
-            Provide for all IT services at the BD Treyburn manufacturing plant located in Durham NC. Skills utilized 
-            include Microsoft Windows admin, Lotus Notes admin (email), Oracle DBA (8.x and 9i), Microsoft SQL Server 2000 DBA, 
-            Sun Solaris 8 and UNIX admin, network admin (Nortel and Cisco devices), system programmer and some work with 
-            Allen & Bradley ControlLogix PLC. Some work in Project Management and Six Sigma.
+            IT Director for the BD Treyburn manufacturing plant — sole IT leader managing all
+            IT services, budgets, and one direct report with dotted-line reporting to the BD CIO
+            and direct reporting to the plant manager. Owned costs and financials for all IT
+            operations. Navigated a complex environment spanning an MES implementation, Genesis
+            SAP deployment, phone system and network replacement, and medical device standards
+            compliance. Led the Windows NT domain to Active Directory migration and SMS 2003
+            deployment. Integrated Allen & Bradley ControlLogix PLCs with manufacturing floor
+            automation systems. Trained in BD Project Management Mastery (PMM) and Six Sigma.
+            Built on the multi-site management experience from NC LIVE to lead a manufacturing
+            plant IT operation in a regulated industry.
         details: |
           **System Programming**
 
@@ -1203,8 +1317,14 @@ experiences:
         time: Jan 2005 - Mar 2006
         company: NC Community College System, Raleigh NC
         summary: |
-            Sun Solaris and IBM AIX systems administrator, UNIX programming in Perl and shell, and write technical 
-            documentation for colleges on system tasks. Network and OS support for colleges.
+            Administered Sun Solaris and IBM AIX systems for all 58 North Carolina community
+            colleges. Took initiative on outreach and training — drove to college locations to
+            troubleshoot onsite, coached local administrators on standardized deployments, and
+            worked with leadership on improving implementations across the system. Outages of
+            these platforms impacted payroll, student records, registration, and other critical
+            campus operations. Built Perl and shell automation that reduced manual effort for
+            all 58 local administrators. Led the Solaris 9 upgrade project across 58
+            heterogeneous college systems while maintaining services to all users and students.
         details: |
           **UNIX Systems Programming and Administration**
 
@@ -1313,8 +1433,11 @@ experiences:
         time: May 2004 - Jan 2005
         company: Hosted Solutions (Springboard Hosting), Raleigh, NC
         summary: |
-          A senior UNIX & Windows systems and network administrator with an emphasis on storage
-          technologies. I also provided guidance to off-shift personnel in three separate operation centers.
+          Senior off-shift supervisor across three operation centers (Charlotte, North Raleigh,
+          and Cary). Provided senior-level UNIX and Windows systems administration, enterprise
+          storage management (BakBone NetVault with robotic tape for 200+ customers), and
+          network troubleshooting. Kept operations running during off-hours, reducing escalations
+          to daytime engineering staff.
         details: |
           **UNIX Systems Administrator**
 
@@ -1407,10 +1530,20 @@ experiences:
         time: Jun 2002 - May 2004
         company: NetIQ, Inc. (Ganymede Software, Inc.), Morrisville, NC
         summary: |
-          Brought a broad background in UNIX and Windows programming and administration to the 
-          new UNIX agent services for the flagship AppManager product.  Managed the lab and was 
-          the primary systems administrator and quality engineer for the UNIX services and also 
-          maintained and extended network testing facilities.
+          Pulled in as the cross-platform resource when NetIQ needed to go from zero UNIX
+          capability to full UNIX product releases in under six months — one of the few
+          engineers on staff with both Windows development depth and UNIX/Linux low-level
+          systems programming. Leveraged database expertise from Intersolv ODBC driver
+          development for Oracle and cross-database integration work. Built a cloud-like lab
+          automation service before cloud computing existed — the LabManager system used
+          API-driven VM provisioning (VMware ESX), network boot (PXE for Intel, HP-UX Ignite,
+          Sun Solaris OpenBoot, IBM AIX Netboot) to fully automate nightly build-and-test
+          cycles across multiple OS platforms on the same hardware. Made limited hardware do
+          an order of magnitude more work: daytime development environments reverted
+          automatically to build/test configurations overnight, ran full regression suites,
+          and restored to development state by morning. Managed the UNIX lab and served as
+          primary systems administrator and quality engineer for the UNIX agent services of
+          the flagship AppManager product.
         details: |
           **Systems Integration (Windows NT/UNIX)**
 
@@ -1463,10 +1596,13 @@ experiences:
         time: Nov 2000 - Jun 2002
         company: North Carolina State University, Raleigh, NC
         summary: |
-          Programmer and administrator for College of Engineering financial systems. Also secondary 
-          duties in Solaris and Windows NT systems administration. Participated in NCSU open source 
-          initiatives and became Red Hat certified (RHCE). Provide technical assistance for upgrades 
-          of Engineering server room network infrastructure.
+          Returned to the College of Engineering to take back over the financial applications
+          and services after the NC LIVE engagement. Programmer and administrator for
+          financial systems including Sybase database administration and Peoplesoft integration.
+          Participated in NCSU open source initiatives (Realm Linux distribution) and earned
+          Red Hat Certified Engineer (RHCE) certification. Built cross-platform source control
+          (CVS with Kerberos/GSSAPI) and web infrastructure integrated with campus Kerberos,
+          AFS, and WRAP authentication.
         details: |
           **Systems Programming (UNIX)**
 
@@ -1523,11 +1659,13 @@ experiences:
         time: Feb 2000 - Oct 2001
         company: Interpath Communications, Raleigh, NC
         summary: |
-          Senior weekend operations technician for Network Operations Center. Supported a diverse 
-          server and network environment including Cisco network equipment, Solaris and Windows NT. 
-          Worked with following products: Veritas NetBackup 3.1.1, SAP R/3, BMC Patrol, Remedy, and 
-          HP OpenView. Provided first line diagnostics for Cisco devices, network connectivity and 
-          Windows/UNIX servers.
+          Senior off-shift engineer in the Network Operations Center, leveraging a diverse
+          skillset to cover multiple roles that would normally require separate staff:
+          networking (Cisco diagnostics), UNIX and Windows systems administration, programming
+          (process automation, monitoring extensions), and backup management (SAP on Sun
+          StorEDGE robotics, Veritas NetBackup). Reduced off-hours escalations to daytime
+          engineering staff. Mentored junior engineers on diagnostics and procedures. Part-time
+          role held concurrently with NCSU Systems Programmer II position.
         details: |
           **Weekend Supervisor**
 
@@ -1606,12 +1744,20 @@ experiences:
         time: Jan 1999 - Nov 2000
         company: North Carolina State University, Raleigh, NC
         summary: |
-          Managed development and primary architect of NC LIVE web services. Implemented statewide 
-          remote access and authentication system used by all North Carolina public libraries, 
-          community colleges, and both public and independent universities. Managed Cisco 4700 using 
-          Distributed Director product to provide load balancing and redundancy of service. 
-          Provide senior level guidance to UNIX systems administrators. Acting Operations Manager 
-          for NC LIVE server sites.
+          Recruited by NCSU leadership for NC LIVE — a statewide digital library platform
+          serving all North Carolina public libraries, community colleges, and public and
+          independent universities. Served as Interim Operations Manager across sites at NC
+          State University, UNC Chapel Hill, and the State Library of North Carolina. Wore a
+          suit during the day as a manager handling budgets, public-private funding controls
+          (working with a financial auditor and accountant), purchasing, and committee meetings,
+          then programmed the system at night. Recruited, hired, and trained student programmers.
+          Tripled the number of service providers in twelve months through automation and
+          platform redesign. Designed and built a distributed authorization system that
+          predated OIDC by a decade — presented at EDUCAUSE 1999 and NCLA conferences.
+          Applied the internetworking knowledge from Interpath to design NC LIVE's first
+          internet-facing public service with high availability using Cisco 4700 Distributed
+          Director load balancers — the first production deployment of that Cisco product,
+          documented in Cisco's own manual with NC LIVE's configuration.
         details: |
           **Acting Operations Manager**
 
@@ -1676,10 +1822,14 @@ experiences:
         time: Jun 1998 - Jan 1999
         company: North Carolina State University, Raleigh, NC
         summary: |
-          Rapidly migrate College of Engineering financial services from failing hardware to new platform.
-          Migrated and maintained financial applications. Assisted with integration of Windows NT
-          into NCSU UNIX campus-computing environment. Provide assistance on network infrastructure 
-          upgrades for labs.
+          First role at NCSU Engineering — rapid crisis response migrating College of
+          Engineering financial services from failing hardware (undiagnosed SCSI controller
+          corruption) to a new Sybase 11 platform while maintaining service continuity.
+          Built cross-platform financial applications (PowerBuilder, Perl, Java) and integrated
+          Windows NT into the NCSU UNIX campus environment. Also designed a device and process
+          tracking application for Industrial Engineering's Ergonomics Lab used in a NIOSH
+          study. Performance here led to being recruited by NCSU leadership for the NC LIVE
+          initiative.
         details: |
           **Database Administration (Sybase 4.9.2 and 11)**
 
@@ -1735,13 +1885,16 @@ experiences:
         time: Jun 1994 - Jun 1998
         company: Ziff-Davis Publishing, Raleigh, NC
         summary: |
-          Provided consulting services for internal project development for magazines.
-          Developed industry standard benchmarks for public distribution.
-          These benchmarks included: 
-          - PC Bench©
-          - Jmark
-          - Winstone® 
-          - WinBench©
+          Grew from junior developer to working across nearly every product area — Winstone,
+          WinBench, PC Bench, and JMark — industry-standard benchmarks distributed with PC
+          Magazine and used across the hardware industry for product evaluation, competitive
+          analysis, and purchase decisions. Worked under NDA with Microsoft, Intel, and other
+          vendors against bleeding-edge hardware and software before market release. Learned
+          standards for hardware and software testing along with very low-level system
+          programming (disk subsystems, FPU, memory, graphics, video, CD-ROM). Designed the
+          JMark Java VM benchmark with cross-platform server-side results collection — an
+          early jump into online technology. Received the Ziff-Davis Editorial Excellence
+          Award (1996).
         details: |
           **Winstone® Version: 95, 96, 32, 97, 98**
 
@@ -1815,9 +1968,13 @@ experiences:
         time: Jan 1998 - May 1998
         company: Interpath Communications, Raleigh, NC
         summary: |
-          Help desk and networking administration for the NOC. Technical writer for SOP on 
-          first and second line support.  Provided assistance in multiple areas of operations 
-          as needed. Contract ended with a company buyout by CP&L / Progress Energy.
+          First engagement at Interpath — took the role to learn the newly emerging Internet
+          from the ground floor. Experience at NCSU had shown the promise of the Internet as
+          a student, and this was an opportunity to get paid to learn it. The networking and
+          ISP operations knowledge gained here directly informed the Cisco load balancer
+          architecture designed for NC LIVE the following year. Wrote help desk SOPs for first
+          and second line support while handling customer calls for dialup, ISDN, and DSL
+          connectivity. Contract ended with the CP&L / Progress Energy acquisition.
         details: |
           **Customer Support**
 
@@ -1852,9 +2009,16 @@ experiences:
         time: Jul 1992 - Jun 1994
         company: Pioneer Software, Inc (Q+E Software / Intersolv / Merant / Data Direct / Serena), Raleigh, NC
         summary: |
-          OEM services and international support manager. Supported over 30 commercial DBMS. 
-          Worked, on an as needed basis, for development, quality assurance and technical-writing 
-          departments.
+          First professional role — hired part-time as an NC State student and grew into a
+          permanent position as Technical Services Manager. OEM and international support
+          manager serving as primary contact for 130+ OEM customers including IBM, Microsoft,
+          Borland, WordPerfect, Lotus, Computer Associates, and Powersoft — OEM royalties
+          comprised over half the company's revenue. Managed international technical support
+          staff of fifteen across multiple countries. The ODBC driver development and SQL
+          migration work across 30+ commercial DBMS platforms built database expertise into
+          my DNA — learning every quirk of cross-database migration between Oracle, Sybase,
+          DB/2, Informix, Ingres, SQL Server, and others. That foundation carried forward
+          through every subsequent role involving data platforms.
         details: |
           **OEM Manager**
 
@@ -1917,7 +2081,10 @@ experiences:
         time: Aug 1990 - Jun 1992
         company: North Carolina State University, Raleigh, NC
         summary: |
-          As a teaching assistant I taught engineering computing course work.
+          One of several overlapping part-time student roles at NCSU — always willing to learn
+          more by working in different environments simultaneously. Taught engineering computing
+          courses: Introduction to EOS (UNIX), Introduction to Programming in Pascal, Fortran,
+          and C++.
         details: |
           Taught course work in:          
           - E115: Introduction to EOS (UNIX)   
@@ -1928,13 +2095,15 @@ experiences:
         time: Aug 1990 - Mar 1992
         company: North Carolina State University, Raleigh, NC
         summary: |
-          Maintain hardware inventory under service by Library Systems.  Hardware services
-          for IBM and Macintosh systems. Software support for IBM, Macintosh and UNIX software packages.
+          Concurrent student role — hardware services and software support for IBM, Macintosh,
+          and UNIX systems across the NCSU library system.
       - role: Computer Operator for Computer Science Department (part-time)
         time: Aug 1990 - Jan 1991
         company: North Carolina State University, Raleigh, NC
         summary: |
-          Assist users with basic usage of computing lab systems
+          First campus job — provided UNIX lab support for students on weekends and overnight
+          shifts. The beginning of a pattern of overlapping roles and continuous learning that
+          defined the early career.
         details: |
           Provide basic support for UNIX systems. Assist users in login, printing, and basic 
           environment support for computing course work. Worked weekends and over-night shifts.
@@ -2088,7 +2257,8 @@ certifications:
 projects:
     title: Projects
     intro: >
-      These are some of my projects that show my versitiliy.
+      Selected projects demonstrating breadth across cloud architecture, machine learning,
+      full-stack development, and systems engineering.
     assignments:
 
       - title: Certification Timed Multiple Choice Quiz WebApp (Full Stack Development)
