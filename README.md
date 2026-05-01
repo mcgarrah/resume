@@ -4,6 +4,7 @@ Here is a todo list for my resume website.
 
 ## MUST DO
 
+- [ ] Fix company and university logos — see [assets/images/company-logos/README.md](assets/images/company-logos/README.md) for inventory, missing logos, and action items
 - [ ] Wrap section has a 60px around the whole thing in CSS _base.scss above line 177
 - [ ] Major section.section.xxx have a 60px vertical margin set that is too big in CSS _base.scss line 177
 - [ ] Use Indeed Profile as PDF short form resume https://profile.indeed.com/p/jm-pfv4s18 ???
