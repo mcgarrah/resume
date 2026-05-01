@@ -2262,6 +2262,53 @@ projects:
       full-stack development, and systems engineering.
     assignments:
 
+      - title: Jekyll-Pandoc-Exports — Published Ruby Gem for Automated Document Generation
+        link: https://github.com/mcgarrah/jekyll-pandoc-exports
+        tagline: >
+          Designed, built, and published a Jekyll plugin as a Ruby gem that automatically generates
+          PDF and DOCX exports from Jekyll pages using Pandoc. The plugin hooks into Jekyll's build
+          lifecycle, supports incremental builds, Unicode cleanup, configurable Pandoc options, and
+          works across Jekyll 3.x and 4.x. Built a complete release automation pipeline — GitHub
+          Actions CI/CD, RubyGems trusted publishing, Read the Docs integration, and a single-command
+          release script replacing 13 manual steps. Integrated into my resume site to generate
+          downloadable PDF and Word versions on every build. Three-part blog series documents the
+          infrastructure, plugin architecture, and real-world integration bugs.
+           - code: [https://github.com/mcgarrah/jekyll-pandoc-exports](https://github.com/mcgarrah/jekyll-pandoc-exports){:target="_blank"}
+           - gem: [RubyGems](https://rubygems.org/gems/jekyll-pandoc-exports){:target="_blank"}
+           - docs: [Read the Docs](https://jekyll-pandoc-exports.readthedocs.io/en/latest/){:target="_blank"}
+           - article: [Part 1: Release Automation](https://mcgarrah.org/ruby-gem-release-automation/){:target="_blank"}
+           - article: [Part 2: Plugin Architecture](https://mcgarrah.org/jekyll-pandoc-exports-plugin/){:target="_blank"}
+           - article: [Part 3: Integration & Debugging](https://mcgarrah.org/jekyll-pandoc-exports-resume-integration/){:target="_blank"}
+
+      - title: QuickSight Vanity URL Redirect — Terraform Registry Module (Serverless Edge Architecture)
+        link: https://mcgarrah.org/quicksight-vanity-urls-serverless-edge-redirects/
+        tagline: >
+          Designed and published a reusable Terraform module that eliminates QuickSight login friction
+          across multi-account AWS environments. A single CloudFront distribution with a dynamically
+          generated CloudFront Function handles hostname-based 301 redirects — zero origin servers,
+          zero maintenance, under $0.06/month in production. Supports multiple vanity domains per
+          deployment, ACM certificate validation, Route 53 dual-stack records, and optional access
+          logging with a bring-your-own-bucket pattern. Published to the Terraform Registry and
+          running in enterprise production for over a year.
+           - code: [https://github.com/mcgarrah/terraform-aws-quicksight-redirect](https://github.com/mcgarrah/terraform-aws-quicksight-redirect){:target="_blank"}
+           - registry: [Terraform Registry](https://registry.terraform.io/modules/mcgarrah/quicksight-redirect/aws/latest){:target="_blank"}
+           - article: [Case Study](https://mcgarrah.org/quicksight-vanity-urls-serverless-edge-redirects/){:target="_blank"}
+
+      - title: Phonetic Transcriptions (Acoustic Modeling) in 2017,2021
+        link: https://www.youtube.com/playlist?list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe
+        tagline: >
+          My academic partner and I automated identifying the sounds of a non-English language,
+          found the temporal boundary markers or segmentations, and fully automated output of
+          segmentation results in a linguistically useful format. My part was generalizing the 
+          code to handle the language features and separate those into a configuration file. My 
+          partner created the non-English language dictionaries. The heavy lift was building the 
+          dictionaries for Swedish and Danish but he needed a platform to use them. I also built
+          a website to present an interface.
+           - code: [https://github.com/mcgarrah/LG-FAVE](https://github.com/mcgarrah/LG-FAVE){:target="_blank"}
+           - video: [Presentation](https://www.youtube.com/playlist?list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe){:target="_blank"}
+           - demo: [https://lgas.phonemes.org](https://lgas.phonemes.org){:target="_blank"}
+           - pub: [article](https://github.com/mcgarrah/LG-FAVE/blob/7c592cf6c75b8c6feee08c0fe9b79b17dd699404/Young_McGarrah_2021.pdf){:target="_blank"}
+
       - title: Certification Timed Multiple Choice Quiz WebApp (Full Stack Development)
         link: https://github.com/mcgarrah/legendary_quick_quiz
         tagline: >
@@ -2280,30 +2327,6 @@ projects:
           to Terraform where possible. Also, updating the Python Lambda layers and code to more current 
           versions of libraries and runtimes is in scope as well.
            - code: [https://github.com/mcgarrah/quicksight_demo](https://github.com/mcgarrah/quicksight_demo){:target="_blank"}
-
-      # - title: AWS CloudFront based URL Redirecter (Terraform Automation)
-      #   link: https://github.com/mcgarrah/cloudfront_url_redirector_demo
-      #   tagline: >
-      #     A simple serverless url redirector using AWS CloudFront Deployment (CFD), CloudFront Function (CFF), 
-      #     ACM wildcard certificate, and Route 53 records all provisioned with Terraform. It uses all
-      #     serverless components for a light weight solution. I needed this quickly for a project and
-      #     decided to automate it for future use. I hope you find it useful.
-      #      - code: [https://github.com/mcgarrah/cloudfront_url_redirector_demo](https://github.com/mcgarrah/cloudfront_url_redirector_demo){:target="_blank"}
-
-      - title: Phonetic Transcriptions (Acoustic Modeling) in 2017,2021
-        link: https://www.youtube.com/playlist?list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe
-        tagline: >
-          My academic partner and I automated identifying the sounds of a non-English language,
-          found the temporal boundary markers or segmentations, and fully automated output of
-          segmentation results in a linguistically useful format. My part was generalizing the 
-          code to handle the language features and separate those into a configuration file. My 
-          partner created the non-English language dictionaries. The heavy lift was building the 
-          dictionaries for Swedish and Danish but he needed a platform to use them. I also built
-          a website to present an interface.
-           - code: [https://github.com/mcgarrah/LG-FAVE](https://github.com/mcgarrah/LG-FAVE){:target="_blank"}
-           - video: [Presentation](https://www.youtube.com/playlist?list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe){:target="_blank"}
-           - demo: [https://lgas.phonemes.org](https://lgas.phonemes.org){:target="_blank"}
-           - pub: [article](https://github.com/mcgarrah/LG-FAVE/blob/7c592cf6c75b8c6feee08c0fe9b79b17dd699404/Young_McGarrah_2021.pdf){:target="_blank"}
 
       - title: Photosynth Point Clouds Extraction and Visualization (2016)
         link: https://youtu.be/WZPtuNnaqVc
