@@ -74,7 +74,7 @@ education:
           complementing 30+ years of technical depth with business strategy, finance, and
           organizational leadership. Applying coursework directly to technology adoption
           decisions, ROI analysis for platform investments, and organizational change management
-          for AI/ML initiatives. Expected Graduation: Fall 2026
+          for AI/ML initiatives. EMBA Candidate — Expected Graduation: Spring 2027
       - degree: Masters of Science in Computer Science
         university: Georgia Institute of Technology
         time: 2014 - 2019
@@ -129,23 +129,64 @@ experiences:
         company: Envestnet, Inc., Emerald Isle NC (Remote)
         summary: |
           Leading cloud platform architecture across 20+ AWS accounts spanning every billing
-          and data platform in the enterprise. Recovered a critical cross-enterprise project
-          under pressure, earning executive sponsorship that enabled every subsequent initiative.
-          Led SOC 1/SOC 2 compliance from a single inaugural audit to eight simultaneous audits
-          across all products, automating evidence collection and serving as primary technical
-          liaison to external auditors. Delivered the first AI/ML production workload on the
-          Billing platform (AWS Bedrock). Drove measurable cost optimization through EKS
-          right-sizing, scale-to-zero workloads, and Karpenter migration.
+          and data platform in the enterprise. Recovered a critical cross-enterprise data
+          engineering project under pressure, then served as technical advisor to the engineering
+          team on AWS data pipeline architecture — accelerating delivery by leveraging prior
+          BCBSNC experience with similar patterns. Founded and led the cross-team EKS Working
+          Group, driving Kubernetes architecture decisions and building an enterprise community
+          of practice through influence rather than mandate. Built the observability framework
+          (New Relic with Confluence-linked runbooks and Terraform-provisioned dashboards) that
+          became a company-wide standard. Led SOC 1/SOC 2 compliance from a single inaugural
+          audit to eight simultaneous audits across all products, automating evidence collection
+          and serving as primary technical liaison to external auditors. Delivered the first
+          AI/ML production workload on the Billing platform (AWS Bedrock Data Automation). Drove
+          measurable cost optimization through EKS right-sizing, scale-to-zero workloads, and
+          Karpenter migration.
             - <a href="https://upswot.com/upswot-signs-a-new-multi-year-and-multi-million-dollar-deal-with-envestnet-yodlee/" target="_blank">Envestnet upSWOT</a>
             - <a href="https://newsroom.envestnet.com/2022-10-24-Envestnet-Data-Analytics-Unveils-New-Vision-at-Money-20-20" target="_blank">Envestnet Data & Analytics</a>
         details: |
-          **ACE/IMPACT Project Recovery & Executive Sponsorship**
+          **ACE/IMPACT — Data Strategy Recovery, Technical Advisory & Enterprise Observability**
 
-          Recovered a critical cross-enterprise integration project in three weeks of intensive
-          work after the prior owner's departure — touching every product team and technology
-          stack in the enterprise. The recovery earned executive sponsorship and established the
-          cross-enterprise access and trust that enabled every subsequent initiative. Observability
-          systems (New Relic) built during the recovery became a company-wide standard.
+          Recovered a critical cross-enterprise data engineering project (ACE/IMPACT) in three
+          weeks of intensive work after the prior owner's departure — touching every product team
+          and technology stack in the enterprise. ACE (Automated Custodian Extract) processed
+          custodian data from Pershing and Schwab through raw → standardized → curated pipeline
+          stages. IMPACT provided market data and ESG data products with an API gateway layer
+          serving WDP, Finance, and RevOps consumers. Together they formed the core of
+          Envestnet's Data Strategy initiative and were significant precursors to the Unified
+          Portfolio Accounting (UPA) system.
+
+          The recovery earned executive sponsorship and established the cross-enterprise access
+          and trust that enabled every subsequent initiative. But the contribution went beyond
+          infrastructure recovery — served as technical advisor to the engineering team on AWS
+          data pipeline implementation, fast-tracking their adoption of Airflow DAGs, EMR jobs,
+          S3 data lake patterns, Glue crawlers, Lambda, and Step Functions. These were unfamiliar
+          AWS services for the software engineers; prior experience building similar pipelines at
+          BCBSNC (where the same Airflow/EMR/S3 patterns powered the CarePath ML framework)
+          allowed me to accelerate the team's delivery and shape their architectural decisions
+          rather than just provisioning infrastructure underneath them.
+
+          Built the observability framework during the ACE/IMPACT recovery that became a
+          company-wide standard: New Relic dashboards provisioned via Terraform with every
+          monitored metric linked to a Confluence workbook documenting the metric's meaning,
+          expected ranges, response procedures, and escalation paths. This was not just
+          monitoring — it was operational documentation as code, giving on-call staff actionable
+          runbooks directly from the alerting surface. ACE/IMPACT was the first project to
+          incorporate this technique, and the pattern was subsequently adopted across the
+          enterprise as the standard for new observability deployments.
+
+          The legacy ACE/IMPACT pipelines (Lambda, Step Functions, EC2-based EMR, DMS —
+          deployed via CloudFormation SAM in 2022) continue running in DataLake us-east-1
+          under ongoing operational support. Continue maintaining these legacy workloads with
+          the Data Strategy team while simultaneously building the replacement platform:
+          containerized EMR on EKS in the DataLake us-east-2 clusters. The technology gap
+          between the legacy EC2-based EMR (2022 vintage) and the virtual EMR-on-EKS
+          implementation (2026) is substantial — moving from standalone EC2 clusters with
+          CloudFormation lifecycle management to Spark workloads running as native Kubernetes
+          pods with shared compute, Karpenter-managed scaling, and unified observability.
+          The EMR-on-EKS implementation is a major milestone in the Data Strategy migration,
+          enabling the decommissioning of the legacy us-east-1 infrastructure and completing
+          a four-year arc from emergency project recovery to modern containerized platform.
 
           **Data Lake Initiative — Cross-Enterprise Data Integration (Year 1)**
 
@@ -160,13 +201,33 @@ experiences:
 
           **Unified Portfolio Accounting (UPA)**
 
-          UPA is a portfolio accounting platform using bleeding-edge cloud-native technologies for a highly scalable service to maintain, balance, adjust, and validate financial data from custodian platforms and trusted connections to existing platforms like UMP
-          and Tamarac along with our clients. Some resources of the system include EKS with integrations for vEMR
-          (Hadoop), Airflow (MWAA) and custom workflows. This system utilizes containerized microservices
-          managed on a service-mesh deployed from managed CICD pipelines with IaC managed infrastructure.
-          Implemented scale-to-zero workload patterns on UPA EKS clusters — a technique brought directly from
-          BCBSNC where the same pattern was used for GPU-enabled spot instance nodes running ML model training.
-          Scale-to-zero kept the platform within budget by eliminating idle compute costs, making the UPA
+          UPA is a portfolio accounting platform using cloud-native technologies for a highly
+          scalable service to maintain, balance, adjust, and validate financial data from
+          custodian platforms and trusted connections to existing platforms like UMP and Tamarac.
+          The system includes EKS with integrations for vEMR (Hadoop), Airflow (MWAA), and
+          custom workflows — containerized microservices managed on a service mesh deployed from
+          managed CI/CD pipelines with IaC-managed infrastructure.
+
+          Implemented KEDA (Kubernetes Event-Driven Autoscaling) for workload management on the
+          UPA EKS clusters — enabling event-driven scaling of processing workloads based on queue
+          depth, schedule, and custom metrics rather than static replica counts. This was a major
+          piece of the platform build-out that allowed the system to handle variable custodian
+          data volumes efficiently.
+
+          Replaced the default AWS VPC CNI with Calico to resolve IP address exhaustion issues
+          during large scaling events. The AWS CNI's IP warm pool and refresh rates could not
+          keep pace with rapid node scaling — pods would fail to schedule because the CNI
+          couldn't allocate IPs fast enough from the VPC subnet. Calico's overlay networking
+          eliminated the dependency on VPC IP allocation entirely, decoupling pod networking
+          from subnet capacity and enabling the aggressive scaling patterns the platform required.
+
+          Implemented scale-to-zero workload patterns using a split node group architecture:
+          spot-instance node groups for worker processes (data engineering and batch workloads)
+          managed by a smaller classic EC2 on-demand node group running the orchestration layer.
+          This technique was brought directly from BCBSNC where the same pattern was used for
+          GPU-enabled spot instance nodes running ML model training — spot for the expensive
+          compute, on-demand for the control plane that manages it. Scale-to-zero kept the UPA
+          platform within budget by eliminating idle compute costs during off-hours, making the
           infrastructure financially viable on available budgets.
 
           **Small and Medium Business Portal (SMB Portal)**
@@ -198,12 +259,86 @@ experiences:
 
           **EKS Platform Operations & Migrations (2023–2026)**
 
-          Led complex EKS upgrades across multiple platforms (Microservices-Accounting, Payments,
-          DataLake) through versions 1.28–1.33. The DataLake EKS 1.32 upgrade was the most complex
+          Led complex EKS upgrades across multiple platforms (Microservices-Accounting, MDS, UMP,
+          Payments, DataLake) through versions 1.28–1.33. The DataLake EKS 1.32 upgrade was the most complex
           to date — navigating aws-auth ConfigMap deprecation, external-dns migration, and
           coordinated Airflow helm chart upgrades requiring custom container image rebuilds.
-          Migrated Revenue Manager Tableau BI workload from IBM data center to AWS. Decommissioned
-          unused AWS accounts (Neo4J, upSWOT) to reduce account sprawl and costs.
+
+          **EKS Working Group — Cross-Team Technical Leadership (2022–2024)**
+
+          Founded and led the enterprise EKS Working Group — a bi-weekly cross-team forum
+          that brought together Platform Engineering, COE, UMP PRO, TAMPRO, DnA/Yodlee, and
+          DevOps teams around shared Kubernetes standards and architecture decisions. Led by
+          influence rather than mandate, modeled on the "birds of a feather" sessions from
+          RFC and standards work earlier in career: every session had a valuable agenda item
+          that gave people a reason to show up.
+
+          Drove enterprise-wide architecture decisions through the working group: Calico CNI
+          adoption (replacing AWS VPC CNI), Istio service mesh implementation, ArgoCD
+          centralization and Okta integration, KEDA event-driven autoscaling, Karpenter
+          adoption, Kubecost implementation, and OPA Gatekeeper policy enforcement. Authored
+          technical documentation on each feature area and coordinated EKS version upgrades
+          from v1.22 through v1.30+ across the enterprise, managing breaking changes including
+          Dockershim removal, PodSecurityPolicy deprecation, and ContainerD migration.
+
+          The working group succeeded in its mission — the enterprise went from fledgling
+          Kubernetes knowledge to multiple groups of experts who communicate actively. As the
+          community matured and self-organized, the need for the formal working group
+          diminished, which was the intended outcome: build the community, transfer the
+          knowledge, and let the organization sustain it independently.
+
+          **AWS QuickSight — Revenue Manager BI Platform (2024–2026)**
+
+          Led the full-lifecycle migration of Revenue Manager's BI platform from self-hosted
+          Tableau on EC2 to AWS QuickSight — from initial Terraform POC through production
+          deployment serving external financial services clients. QuickSight was not a
+          well-integrated managed service at the time — Terraform support was incomplete,
+          federated authentication was undocumented, and multi-tenant isolation required
+          custom tooling that didn't exist. Built the solutions for each gap:
+
+          Implemented Okta SSO federated authentication with Admin/Author/Reader role
+          mappings. Built GitLab CI/CD automation for cross-account, cross-region QuickSight
+          asset promotion — parameterized deployment pipelines enabling multi-client
+          onboarding with namespace-based tenant isolation. Created IP-restricted client
+          instances for external access. Designed custom vanity URLs (rmanalytics.redi2.com)
+          using the same CloudFront Function redirect pattern later published as a Terraform
+          Registry module. Built cost and usage dashboards for internal visibility.
+
+          The migration eliminated hundreds of thousands of dollars annually in Tableau
+          licensing costs while gaining tighter integration with the AWS data infrastructure
+          (S3, Glue, Athena). The platform now serves multiple environments (Dev/UAT/Prod)
+          across regions (us-east-1, eu-west-2 for UK clients).
+
+          In 2026, extending the platform with QuickSight embedded analytics — implementing
+          the GenerateEmbedUrlForRegisteredUser API to enable white-label dashboard embedding
+          directly into the Revenue Manager product UI (Quick Suite). This required IAM policy
+          changes across Dev and Prod, permission model debugging for the embedded context,
+          and coordination with the product team on the integration surface. The embedded
+          analytics capability transforms QuickSight from a standalone BI tool into a native
+          component of the Revenue Manager product experience. Additional 2026 work includes
+          Snowflake OAuth connectivity research for expanded data source integration.
+
+          **EMR on EKS — DataLake Modernization (2026)**
+
+          Architecting EMR on EKS infrastructure for DataLake platform modernization — migrating
+          legacy provisioned EMR Spark workloads (ACE custodian data normalization, Impact market
+          data pipelines) from dedicated EC2-based EMR clusters in us-east-1 to containerized
+          virtual clusters on the DataLake EKS platform in us-east-2. Implementing Karpenter-based
+          dynamic node scaling with on-demand nodes for Spark drivers and spot instances for
+          executors, Airflow-integrated job submission, scoped IAM execution roles with per-stage
+          S3 bucket access (landing → raw → standardized → curated), EFS shared storage for EMR
+          pods, CloudWatch log groups for Spark job monitoring, and dedicated namespaces with pod
+          templates per environment.
+
+          This completes a four-year arc: advised on the original ACE/Impact pipeline
+          implementation (2022), provided operational support for the legacy us-east-1 workloads
+          (2022–present), upgraded the DataLake EKS clusters through versions 1.29 → 1.31 → 1.32
+          → 1.33, and now building the EMR on EKS infrastructure that containerizes the last
+          remaining legacy workloads onto the modern platform. The technology distance between
+          the 2022 EC2-based EMR (CloudFormation-managed, static cluster sizing, dedicated
+          hardware) and the 2026 EMR on EKS (Kubernetes-native Spark, Karpenter spot scaling,
+          shared cluster infrastructure, unified observability) represents a full generation of
+          data platform architecture.
 
           **Security Hardening (2025–2026)**
 
@@ -216,12 +351,25 @@ experiences:
 
           **Cost Optimization**
 
-          Multiple cost optimization wins across the tenure: scale-to-zero EKS workloads on UPA
-          clusters (pattern brought from BCBSNC GPU scheduling, made the platform financially
-          viable), Cluster Autoscaler fix eliminating orphaned EC2 instances, EKS node right-sizing
-          from 4xlarge to 2xlarge across all environments, KubeCost implementation for granular
-          cost visibility, Karpenter migration from Cluster Autoscaler, and decommissioning of
-          unused AWS accounts (Neo4J, upSWOT).
+          Cost optimization was a sustained initiative across the tenure, with the largest
+          wins coming from the UPA platform architecture decisions described above:
+          scale-to-zero with spot-instance worker node groups, KEDA event-driven autoscaling
+          replacing static replica counts, and Calico CNI eliminating subnet IP exhaustion
+          during scaling events. Additional wins included Cluster Autoscaler fix eliminating
+          orphaned EC2 instances that accumulated silently, EKS node right-sizing from
+          4xlarge to 2xlarge across all environments, KubeCost implementation for granular
+          per-namespace cost visibility, Karpenter migration from Cluster Autoscaler for
+          more efficient bin-packing and spot instance management, and decommissioning of
+          unused AWS accounts (Neo4J, upSWOT) to reduce account sprawl and costs.
+
+          Migrating legacy RDS clusters and EC2-hosted databases to AWS Aurora Serverless v2
+          instances — eliminating the cost of provisioned capacity that sits idle during
+          off-peak hours. Built a custom Terraform module to manage the complexity of the
+          migration: the module handles both existing RDS clusters and new Aurora Serverless
+          clusters under a single interface, validating parameters and enforcing configuration
+          consistency as workloads are migrated incrementally. The unified module reduces the
+          risk of misconfiguration during migration and provides a repeatable pattern for
+          each database workload moved to serverless.
 
           **SOC 1 & SOC 2 Compliance (2022–2026)**
 
@@ -240,26 +388,34 @@ experiences:
           change management, data processing, and confidentiality controls. First end-to-end audit
           engagement where the security background became visible to leadership.
 
-          *2025 — Eight Simultaneous Audits:* Led infrastructure compliance evidence collection for 8
-          simultaneous SOC 1/SOC 2 Type 2 audits across every platform in the portfolio: Revenue Manager,
-          Wealth Manager, BillFin, Payments, Tamarac, UMP, ERS, and WDP. Completed 40+ individual evidence
-          tasks. Automated evidence collection from multiple sources, replacing manual processes with
-          repeatable tooling that reduced preparation effort and improved consistency across product areas.
-          Established standardized evidence practices that brought previously inconsistent product teams
-          into alignment — a direct result of both the automation and the new operational controls
-          introduced during the 2025 cycle. Validated controls and provided direct responses to external
-          auditors as the primary technical liaison.
+          *2025 — Eight Simultaneous Audits + Vendor Transition:* Led infrastructure compliance
+          evidence collection for 8 simultaneous SOC 1/SOC 2 Type 2 audits across every platform
+          in the portfolio: Revenue Manager, Wealth Manager, BillFin, Payments, Tamarac, UMP,
+          ERS, and WDP. Completed 40+ individual evidence tasks. Navigated a mid-cycle audit
+          vendor transition — half of the 2025 audits were conducted under the incoming vendor's
+          processes and evidence requirements, requiring adaptation to new auditor expectations,
+          evidence formatting standards, and communication protocols while maintaining continuity
+          across the audits still running under the outgoing vendor. Automated evidence collection
+          from multiple sources, replacing manual processes with repeatable tooling that reduced
+          preparation effort and improved consistency across product areas. Established
+          standardized evidence practices that brought previously inconsistent product teams into
+          alignment — a direct result of both the automation and the new operational controls
+          introduced during the 2025 cycle. Validated controls and provided direct responses to
+          external auditors as the primary technical liaison.
 
-          Served as subject matter expert across multiple audit domains including development workflow and SDLC
-          practices, CI/CD pipeline controls, authentication and authorization architecture, operating system
-          hardening and configuration management, DevOps operational practices, and infrastructure security
-          controls. This breadth of expertise — spanning application security, platform engineering, and operational
-          compliance — made the role a natural extension of the security and compliance work from earlier career
-          positions at NC DOR (IRS SafeGuard) and SAS Institute (FDA CFR Part 11).
+          Served as subject matter expert across multiple audit domains including development
+          workflow and SDLC practices, CI/CD pipeline controls, authentication and authorization
+          architecture, operating system hardening and configuration management, DevOps
+          operational practices, and infrastructure security controls. This breadth of expertise
+          — spanning application security, platform engineering, and operational compliance —
+          made the role a natural extension of the security and compliance work from earlier
+          career positions at NC DOR (IRS SafeGuard) and SAS Institute (FDA CFR Part 11).
 
-          Expanding scope for 2026 to cover all product areas with increased leadership over the compliance
-          process, including defining the audit preparation timeline, managing auditor relationships, and driving
-          remediation of control gaps identified in the 2025 cycle.
+          *2026 — Full Vendor Migration + Expanded Scope:* All audits now conducted under the
+          new audit vendor with fully adapted processes. Expanding scope to cover all product
+          areas with increased leadership over the compliance process, including defining the
+          audit preparation timeline, managing auditor relationships, and driving remediation
+          of control gaps identified in the 2025 cycle.
 
       - role: Principal Data & Analytics Platform Engineer
         time: Apr 2019 - Oct 2021
@@ -285,13 +441,13 @@ experiences:
           **Cloud-First Platform (AWS)**
 
           Built a complete multi-account AWS platform managed via
-          CloudFormation (CF) stacks from the ground up. All aspects of the platform from VPC to IAM/Policy
+          CloudFormation stacks from the ground up. All aspects of the platform from VPC to IAM/Policy
           moving towards the higher-level components like shared RDS clusters, EKS clusters, EMR and associated
           dependent services like S3, ACM PCA, EFS with CSI integration to EKS, Route53 integration with
-          enterprise Infoblox and other services as necessary were all managed via CF stacks. This had overhead but
-          allowed for a highly consistent and managed cross-account environment working together. This
-          implementation included writing Lambda functions and CF Custom Resources for several services when
-          CF did not offer a mechanism to manage a service completely.
+          enterprise Infoblox and other services as necessary were all managed via CloudFormation stacks. This
+          had overhead but allowed for a highly consistent and managed cross-account environment working
+          together. This implementation included writing Lambda functions and CloudFormation Custom Resources
+          for several services when CloudFormation did not offer a mechanism to manage a service completely.
 
           **Containerized Development (Kubernetes)**
 
@@ -374,70 +530,101 @@ experiences:
           Administered a 25-node SAS Viya in-memory analytics cluster (26TB RAM) with connectivity
           to a 50+ node Hadoop data lake approaching 1PB, operating on a closed network under
           NIST 800-53 high security controls with DEA data hosted. Worked directly with the USPS
-          Chief Data Scientist and his team of data scientists, providing platform engineering
-          and machine learning infrastructure support. Stabilized platform operations, built
-          CISO-compliant administration automation (Python Fabric, Ansible), and constructed a
-          complete Hadoop development platform replicating production for upgrade planning.
+          Chief Data Scientist and his team of data scientists, providing platform engineering,
+          data engineering, and machine learning infrastructure support — including building
+          custom data acquisition modules that gave the data science team access to production-
+          quality geospatial and operational datasets they couldn't obtain from existing sources.
+          Stabilized platform operations, built CISO-compliant administration automation (Python
+          Fabric, Ansible), and constructed a complete Hadoop development platform replicating
+          production for upgrade planning.
         details: |
-          **Advanced Visual Analytics - SAS Viya**
+          **Advanced Visual Analytics — SAS Viya**
 
-          Stabilize SAS analytics platforms for data scientists group.
-          Administer, document and configure the in-memory clustered
-          analytics platform across a 25-node cluster with 26Tb of RAM and
+          Stabilized the SAS analytics platforms for the data scientists group.
+          Administered, documented, and configured the in-memory clustered
+          analytics platform across a 25-node cluster with 26TB of RAM and
           remote connectivity to a 50+ node Hadoop DataLake. Limited
-          documentation from initial installation was a priority to remedy
+          documentation from the initial installation was a priority to remedy
           immediately. Stabilization of services and a plan for platform
-          upgrade became the next concern. Technology stack includes
+          upgrade became the next concern. Technology stack included
           Ansible 2.2.1/2.3.2 automation for platform installation and
-          configuration with a custom quickly built Python Fabric 1.14.x
-          extension for system administration automation and management
-          to provide a standardized method for administration tasks. A
-          combination of R and Python 2.7/3.6 are used extensively for
-          scientific computing by data scientists and support for those
-          provided. A heterogeneous Linux platform including RHEL, SUSE
-          and CentOS comprises the base OS platform. Integration with
-          multiple LDAP & Kerberos directory services for authentication
-          and authorization. SAS Visual Analytics (VA) proof of concepts
-          and demos.
+          configuration with a custom Python Fabric 1.14.x extension for
+          system administration automation and management, providing a
+          standardized method for administration tasks. R and Python
+          2.7/3.6 were used extensively for scientific computing by data
+          scientists, with platform support provided for both. A heterogeneous
+          Linux platform including RHEL, SUSE, and CentOS comprised the
+          base OS. Integrated with multiple LDAP and Kerberos directory
+          services for authentication and authorization. Built SAS Visual
+          Analytics (VA) proof of concepts and demos for the data science
+          team.
 
-          **Analytics Programming Platform - SAS 94M5** 
+          **Analytics Programming Platform — SAS 9.4M5**
 
-          Stabilize platform and provide administration run books and 
-          best-practices to UNIX sysadmin staff. Configure programming
-          platform for remote connectivity to Hadoop DataLake, TeraData,
-          and Oracle. Reverse engineer and document installation.
-          Technology includes R and Python integration with scientific and
-          machine learning libraries support. Provide a plan for upgrade of
-          services.
+          Stabilized the SAS 9.4 programming platform and produced
+          administration run books and best-practices documentation for
+          UNIX sysadmin staff. Configured the programming platform for
+          remote connectivity to the Hadoop DataLake, TeraData, and
+          Oracle. Reverse-engineered and documented the existing
+          installation. Integrated R and Python with scientific and machine
+          learning libraries. Produced an upgrade plan for the platform.
 
-          **Python Fabric: A Framework for Admin Automation @ USPS** 
+          **Python Fabric — Admin Automation Framework @ USPS**
 
-          A CISO compliant method for system administration automation at
-          the USPS. Provide a demonstration of services to system
-          administrators and extend for multiple services.
+          Built a CISO-compliant system administration automation
+          framework using Python Fabric at the USPS. Demonstrated the
+          framework to system administrators and extended it for multiple
+          services, providing a standardized and auditable method for
+          administration tasks in the high-security environment.
 
-          **Hadoop & SAS Integration – HIVE / HDFS** 
+          **Hadoop & SAS Integration — HIVE / HDFS**
 
-          HIVE and HDFS integration with multiple LDAPS authentication
-          providers for HortonWorks Hadoop and SAS Platforms.
-          Integration methods include customized PAM/SSSD with work
-          towards Kerberos integration.
+          Implemented HIVE and HDFS integration with multiple LDAPS
+          authentication providers for HortonWorks Hadoop and SAS
+          Platforms. Integration methods included customized PAM/SSSD
+          with work towards Kerberos integration.
 
-          **Hadoop Development Platform** 
+          **Hadoop Development Platform**
 
-          Built a complete Hadoop DataLake Platform using HortonWorks
-          Ambari to provide a replication of the production USPS DataLake
-          as a test environment for the preparation of an upgrade plan for the
-          multiple interdependent production services. Platform incorporated
-          the USPS CISO standards and utilized a beta local USPS IaaS
-          Cloud (early adopter) offering based on the VMware vRealize
-          Suite. A custom combination of Linux based OpenLDAP &
+          Built a complete Hadoop DataLake platform using HortonWorks
+          Ambari to replicate the production USPS DataLake as a test
+          environment for preparing an upgrade plan across multiple
+          interdependent production services. The platform incorporated
+          USPS CISO standards and utilized a beta local USPS IaaS Cloud
+          (early adopter) offering based on the VMware vRealize Suite.
+          Created a custom combination of Linux-based OpenLDAP and
           Microsoft AD for authentication and authorization to replicate
-          production Hadoop DataLake complexities was created. The base
-          OS for Hadoop used RedHat Linux 7.4 with USPS OS extension.
-          Implemented a NFS Server to provide both a system level
-          distributed shared file system for HA and creation of a shared
-          home directory for PAM/LDAP based UNIX accounts.
+          production Hadoop DataLake complexities. The base OS used
+          RedHat Linux 7.4 with USPS OS extensions. Implemented an NFS
+          server to provide both a system-level distributed shared file
+          system for HA and a shared home directory for PAM/LDAP-based
+          UNIX accounts.
+
+          **Data Science Engineering Support**
+
+          Served as the bridge between the data science team and the data
+          they needed for logistics and delivery optimization models. The
+          existing GIS data available on the platform was insufficient
+          resolution for models that depended on precise geographic
+          coordinate placement — summarized data points rather than
+          actual state and county boundary polygons. Built a Python module
+          to extract high-resolution boundary data from ArcGIS via API,
+          transform it into formats consumable by SAS and Viya, and load
+          it into the analytics platform for the data scientists. This gave
+          the logistics modeling team production-quality geospatial data
+          that their models required but that no existing internal source
+          could provide at sufficient resolution.
+
+          This was representative of a broader pattern in the role —
+          identifying data gaps that blocked data science work, then
+          building the acquisition and transformation pipelines to fill
+          them. Multiple similar studies were conducted to source,
+          transform, and deliver operational datasets that the data
+          scientists needed but couldn't access through standard channels.
+          The role was not just platform administration — it was data
+          engineering in direct service of the Chief Data Scientist's team,
+          ensuring they had the right data at the right resolution to build
+          models that informed USPS delivery operations.
       - role: Cloud Architect
         time: Jul 2016 - Sep 2017
         company: American Kennel Club, Raleigh-Durham, North Carolina Area
@@ -459,18 +646,16 @@ experiences:
         details: |
           **Cloud Services and Architecture**
 
-          Oversee the design and execution of the cloud computing strategy
-          including the cloud adoptions plans, cloud application design, and
-          cloud management and monitoring. Provide expertise in the
-          definition, design, implementation, adoption and adherence to
-          enterprise architecture strategies, processes and standards. This
-          role at AKC is currently focused on expertise in the Amazon cloud
-          technologies.
+          Oversaw the design and execution of the cloud computing strategy
+          including cloud adoption plans, cloud application design, and
+          cloud management and monitoring. Provided expertise in the
+          definition, design, implementation, adoption, and adherence to
+          enterprise architecture strategies, processes, and standards.
 
-          Rebuild and redesign the primary www.akc.org website to use
+          Rebuilt and redesigned the primary www.akc.org website to use
           Amazon Web Services in a rapid migration from a hosted vendor
           environment. A lack of existing documentation, standards, and
-          procedures for this rapid migration impeded earlier efforts at a
+          procedures for this rapid migration had impeded earlier efforts at a
           seamless transition. No customer impact for the migration I led and
           completed in a break-neck six-week period. A similar exercise for
           a large consumer transaction website marketplace.akc.org was
@@ -478,83 +663,84 @@ experiences:
           assisting in the effort. Again, done with no customer impact for
           these transitions.
 
-          Reduction in overall website costs from approximately $30,000
-          USD per month to less than $5,000 USD. Plans for additional
-          reduction in cost to bring total under $3500 per month. Improved
+          Reduced overall website costs from approximately $30,000
+          USD per month to less than $5,000 USD with plans for additional
+          reduction to bring total under $3,500 per month. Improved
           uptime, reduced TTFB (time to first byte), and reduced variability
-          of web page responses all contribute to a better user experience.
-          Continued improvements for caching, database optimization and
-          deep application monitoring continue to be implemented for
+          of web page responses. Continued improvements for caching,
+          database optimization, and deep application monitoring further
           improved user experience.
 
-          End-to-end CI/CD implemented for the primary website with
-          additional integration testing frameworks being provided to
-          improve the developer effectiveness and increase the rate of
-          deployments.
+          Implemented end-to-end CI/CD for the primary website with
+          additional integration testing frameworks to improve developer
+          effectiveness and increase the rate of deployments.
 
-          Application Modernization from legacy ColdFusion, PERL, and
-          Java applications to move to a MEAN development stack and
-          utilize AWS for the new environments. Design and
-          implementation of the new infrastructure proceeds. Varied
-          solutions for the legacy migration include Amazon EMR, ELK log
-          management, ElastiCache, CloudFront, Beanstalk and various other
-          AWS services. Impediments include a monolithic Oracle database
-          structure and legacy desktop applications accessing the same data
-          in real-time.
+          Led application modernization from legacy ColdFusion, Perl, and
+          Java applications to a MEAN development stack utilizing AWS
+          for the new environments. Solutions for the legacy migration
+          included Amazon EMR, ELK log management, ElastiCache,
+          CloudFront, Beanstalk, and various other AWS services.
+          Impediments included a monolithic Oracle database structure and
+          legacy desktop applications accessing the same data in real-time.
 
           **Programmer**
 
-          Build an Amazon EMR implementation for use by the Application
-          Modernization effort. ELK log management for use by individual
-          application monitoring and management.
+          Built an Amazon EMR implementation for the Application
+          Modernization effort. Implemented ELK log management for
+          individual application monitoring and management.
           
-          Evaluate website architecture and develop plans for implementing
-          opcache with php-fpm to accelerate processing of dynamic PHP
-          content. Redis and Memcache implementations are not optimized
-          for short span session content.
+          Evaluated website architecture and developed plans for
+          implementing opcache with php-fpm to accelerate processing of
+          dynamic PHP content. Redis and Memcache implementations were
+          not optimized for short-span session content.
           
-          Rewrote sections of the PHP based Expression Engine 2.9.3
-          (CMS) to be fully compliant with PHP 5.6 enabled with warning as
-          errors. Reduced load times on scripts noticeably.
+          Rewrote sections of the PHP-based Expression Engine 2.9.3
+          (CMS) to be fully compliant with PHP 5.6 enabled with warnings
+          as errors. Reduced load times on scripts noticeably.
           
-          Varnish Caching server implementation requires a re-write of the
-          HTTP session and redirection rules. Current design allows for
-          replay of session actions for invalid responses.
+          Redesigned the Varnish caching server implementation, rewriting
+          HTTP session and redirection rules. The existing design allowed
+          for replay of session actions for invalid responses.
           
-          Redirection/Rewrite Rule proliferation includes six locations for a
-          rule to be enacted with the possibility of looping redirections.
-          Building a separation of the rule's evaluation with logging into an
-          ELK implementation to assist in understanding the scope of the
-          challenge. Current implementation has over twenty-six thousand
-          (26,000) rules.
+          Addressed redirection/rewrite rule proliferation — six locations
+          for a rule to be enacted with the possibility of looping redirections.
+          Built a separation of rule evaluation with logging into an ELK
+          implementation to understand the scope of the challenge. The
+          existing implementation had over twenty-six thousand (26,000)
+          rules.
 
-          Designing a method for domain root flattening that does not
-          include the AWS Route 53 but remains highly available.
+          Designed a method for domain root flattening that did not
+          include AWS Route 53 but remained highly available.
 
           **Software Architecture**
 
-          Recent Hybrid Cloud work with Azure/Amazon integration with a
-          software architecture for our new service-based software platform
-          using a micro-services implementation and a serverless POC
-          implementation. Everything is in the context of merging Amazon to
-          a local data center network hosting multiple data sources including
-          Oracle and MongoDB. The intelligent load balancer transition and
-          rules implementation across multiple isolated networks.
+          Led Hybrid Cloud work with Azure/Amazon integration, designing
+          a software architecture for a new service-based platform using a
+          microservices implementation and a serverless POC. Merged
+          Amazon to a local data center network hosting multiple data
+          sources including Oracle and MongoDB. Managed both a local
+          MongoDB instance in the data center and implemented a MongoDB
+          Atlas managed service that reduced engineering overhead, costs,
+          and increased availability — Atlas instances could be rebuilt
+          rapidly for engineering evaluations and investigations where the
+          local and EC2-based instances were significantly heavier to
+          provision for testing. Managed the intelligent load balancer
+          transition and rules implementation across multiple isolated
+          networks.
           
-          Provide architecture and implementation of a modernization of the
-          interactive web application platform to use a MEAN (Javascript)
-          based development stack and DevOps workflow pipeline
-          supporting this platform development with multiple dev
-          workflows.
+          Provided architecture and implementation for modernizing the
+          interactive web application platform to a MEAN (JavaScript)
+          development stack with a DevOps workflow pipeline supporting
+          multiple development workflows.
           
-          Design a Hybrid Headless Wordpress implementation for future
-          merged and integrated public facing websites redesign to include a
-          highly scalable AWS Service based implementation
+          Designed a Hybrid Headless WordPress implementation for future
+          merged and integrated public-facing websites, including a highly
+          scalable AWS service-based implementation.
           
-          Deploy updated and enhanced Gitlab, Phabricator, SONAR,
+          Deployed updated and enhanced GitLab, Phabricator, SONAR,
           Ansible, and Jenkins platforms in AWS for existing development
-          with extensions using AWS specific tools for IaC CloudInit and
-          CloudFormation
+          with extensions using AWS-specific tools for IaC (CloudInit and
+          CloudFormation).
       - role: Enterprise Architect for Strategic Initiatives
         time: May 2015 - Jul 2016
         company: North Carolina Department of Information Technology, Raleigh NC
@@ -642,10 +828,9 @@ experiences:
 
           As part of the evaluation during the Network Modernization
           program, clear issues with the existing security policy and
-          statewide architectural standards emerged. In cooperation with the
-          State Risk Officer, we are releasing a Request for Proposals (RFP)
-          for a rewrite of the security standards with an emphasis on
-          modernized practices based on NIST and DoD standards.
+          statewide architectural standards emerged, leading to the RFP
+          for security standards rewrite described in the Architecture
+          section above.
       - role: Senior Systems Programmer & Administrator (AI Technologies)
         time: Apr 2013 - Jul 2015
         company: Measurement Incorporated, Durham, NC
@@ -679,10 +864,16 @@ experiences:
           (MLT) to both a 64-bit Cygwin environment and native Linux
           packaging.
 
-          Analytics Server – Build an analytics server providing Octave, R,
-          Shiny, and rStudio server, SAGE Notebook / IPython Notebook,
-          and MySQL for the AI researchers. Developed an interactive
-          interface and shared environment for use between applications.
+          Analytics Server – Built a shared analytics server providing Octave,
+          R, Shiny, rStudio Server, SAGE Notebook / IPython Notebook,
+          and MySQL for the AI researchers. This was an early data
+          engineering platform built to supplant the existing SAS installation
+          and provide a shared environment for the data science and machine
+          learning teams — predating formal fluency in AI/ML practices but
+          applying the tools, utilities, and platform patterns learned along
+          the way to support the machine learning work. Developed an
+          interactive interface and shared environment for use between
+          applications.
 
           **Cloud Computing**
 
@@ -864,9 +1055,10 @@ experiences:
             capable multi-tier SSO system for a clinical trial customer (7 servers + 8
             load-balanced terminal servers). Automation-first approach using Puppet, scripting,
             and SAS product customization to ensure consistency across validated environments.
-            Rapidly completed all six available SAS certifications: Platform Administrator, Base
-            Programmer, Clinical Trials, Data Integration, BI Content Developer, and Statistical
-            Business Analyst.
+            Completed all six available SAS certifications in six consecutive months — one per
+            month, the fastest anyone had accomplished this in any division at SAS: Platform
+            Administrator, Base Programmer, Clinical Trials, Data Integration, BI Content
+            Developer, and Statistical Business Analyst.
         details: |
           **Disaster Recovery Implementation**
 
@@ -916,7 +1108,9 @@ experiences:
 
           **Certification**
 
-          Rapidly completed certifications in all areas of SAS Solutions:
+          Completed all six available SAS certifications in six consecutive
+          months — one per month, the fastest anyone had accomplished
+          this in any division at SAS:
           - SAS Certified Platform Administrator for SAS 9
           - SAS Certified Base Programmer for SAS 9
           - SAS Certified Clinical Trials Programming Using SAS 9
@@ -1144,8 +1338,12 @@ experiences:
           Standards), and other varied standards as appropriate. Frequently
           reference Department of Defense (DoD) standards with moderate
           level controls. Apply new standards, policy and statues as
-          appropriate. Work with NC Attorney General Offices as
-          necessary.
+          appropriate. Designated as the primary liaison to the NC Attorney
+          General's Office — a role that carried significant additional
+          workload but was essential for moving security and compliance
+          matters forward. A well-rounded background in legal language
+          and the ability to translate between technical and legal
+          requirements made the liaison role effective.
 
           *ITIL*
 
@@ -1209,6 +1407,15 @@ experiences:
 
           Review and respond to NC ITS Foundstone scans and alerts.
           Manage local WebSense URL monitoring system.
+
+          Maintained on-call status with a cellular modem and laptop for
+          immediate rapid response to emerging security incidents.
+          Actively monitored hundreds of security feeds on emerging
+          threats and vulnerabilities, providing early warning and risk
+          assessment for the agency. This was challenging but fulfilling
+          work that required constant vigilance and the ability to
+          distinguish signal from noise across a high volume of threat
+          intelligence sources.
       - role: Congressional Subcommittee Member
         time: Mar 2009 - Mar 2011
         company: ETAAC Security Subcommittee, Washington DC
@@ -1226,13 +1433,15 @@ experiences:
             IT Director for the BD Treyburn manufacturing plant — sole IT leader managing all
             IT services, budgets, and one direct report with dotted-line reporting to the BD CIO
             and direct reporting to the plant manager. Owned costs and financials for all IT
-            operations. Navigated a complex environment spanning an MES implementation, Genesis
-            SAP deployment, phone system and network replacement, and medical device standards
-            compliance. Led the Windows NT domain to Active Directory migration and SMS 2003
-            deployment. Integrated Allen & Bradley ControlLogix PLCs with manufacturing floor
-            automation systems. Trained in BD Project Management Mastery (PMM) and Six Sigma.
-            Built on the multi-site management experience from NC LIVE to lead a manufacturing
-            plant IT operation in a regulated industry.
+            operations. Navigated a complex environment spanning an Apriso MES implementation
+            with custom Oracle/SAP integrations, Genesis SAP deployment, phone system and network
+            replacement, and medical device standards compliance. Led the Windows NT domain to
+            Active Directory migration and SMS 2003 deployment. Integrated Allen & Bradley
+            ControlLogix PLCs with manufacturing floor automation systems. Leveraged Lotus Notes
+            and Domino experience from Ziff-Davis to manage BD's email and collaboration
+            platform for 200+ users. Trained in BD Project Management Mastery (PMM) and Six
+            Sigma. Built on the multi-site management experience from NC LIVE to lead a
+            manufacturing plant IT operation in a regulated industry.
         details: |
           **System Programming**
 
@@ -1285,11 +1494,13 @@ experiences:
 
           **Oracle Database Administrator**
 
-          MES (Manufacturing Execution System) are running both on Oracle
-          8 and 9i. Web interface includes Crystal Reports and custom
-          Apriso software. A re-implementation of the backup system was
-          done to improve restoration time and reliability. Further
-          integration with control systems required PLC programming.
+          Apriso MES (Manufacturing Execution System) running on Oracle
+          8 and 9i with custom extensions integrating to Oracle and SAP
+          (Genesis) for manufacturing data flow. Web interface includes
+          Crystal Reports and custom Apriso software. A re-implementation
+          of the backup system was done to improve restoration time and
+          reliability. Further integration with control systems required PLC
+          programming.
 
           **Lotus Notes Administrator (Email)**
 
@@ -1823,14 +2034,15 @@ experiences:
         time: Jun 1998 - Jan 1999
         company: North Carolina State University, Raleigh, NC
         summary: |
-          First role at NCSU Engineering — rapid crisis response migrating College of
-          Engineering financial services from failing hardware (undiagnosed SCSI controller
-          corruption) to a new Sybase 11 platform while maintaining service continuity.
-          Built cross-platform financial applications (PowerBuilder, Perl, Java) and integrated
-          Windows NT into the NCSU UNIX campus environment. Also designed a device and process
-          tracking application for Industrial Engineering's Ergonomics Lab used in a NIOSH
-          study. Performance here led to being recruited by NCSU leadership for the NC LIVE
-          initiative.
+          First professional role at NCSU after years of federal work-study student
+          positions across campus (Teaching Assistant, Library Systems, Computer Operator).
+          Rapid crisis response migrating College of Engineering financial services from
+          failing hardware (undiagnosed SCSI controller corruption) to a new Sybase 11
+          platform while maintaining service continuity. Built cross-platform financial
+          applications (PowerBuilder, Perl, Java) and integrated Windows NT into the NCSU
+          UNIX campus environment. Also designed a device and process tracking application
+          for Industrial Engineering's Ergonomics Lab used in a NIOSH study. Performance
+          here led to being recruited by NCSU leadership for the NC LIVE initiative.
         details: |
           **Database Administration (Sybase 4.9.2 and 11)**
 
@@ -1970,12 +2182,13 @@ experiences:
         company: Interpath Communications, Raleigh, NC
         summary: |
           First engagement at Interpath — took the role to learn the newly emerging Internet
-          from the ground floor. Experience at NCSU had shown the promise of the Internet as
-          a student, and this was an opportunity to get paid to learn it. The networking and
-          ISP operations knowledge gained here directly informed the Cisco load balancer
-          architecture designed for NC LIVE the following year. Wrote help desk SOPs for first
-          and second line support while handling customer calls for dialup, ISDN, and DSL
-          connectivity. Contract ended with the CP&L / Progress Energy acquisition.
+          from the ground floor, held concurrently with the Ziff-Davis position. Experience
+          at NCSU had shown the promise of the Internet as a student, and this was an
+          opportunity to get paid to learn it. The networking and ISP operations knowledge
+          gained here directly informed the Cisco load balancer architecture designed for NC
+          LIVE the following year. Wrote help desk SOPs for first and second line support
+          while handling customer calls for dialup, ISDN, and DSL connectivity. Contract
+          ended with the CP&L / Progress Energy acquisition.
         details: |
           **Customer Support**
 
@@ -2082,10 +2295,10 @@ experiences:
         time: Aug 1990 - Jun 1992
         company: North Carolina State University, Raleigh, NC
         summary: |
-          One of several overlapping part-time student roles at NCSU — always willing to learn
-          more by working in different environments simultaneously. Taught engineering computing
-          courses: Introduction to EOS (UNIX), Introduction to Programming in Pascal, Fortran,
-          and C++.
+          Federal work-study position — one of several overlapping part-time student roles
+          at NCSU that fully funded the college experience without outside assistance. Taught
+          engineering computing courses: Introduction to EOS (UNIX), Introduction to
+          Programming in Pascal, Fortran, and C++.
         details: |
           Taught course work in:          
           - E115: Introduction to EOS (UNIX)   
@@ -2096,8 +2309,9 @@ experiences:
         time: Aug 1990 - Mar 1992
         company: North Carolina State University, Raleigh, NC
         summary: |
-          Concurrent student role — hardware services and software support for IBM, Macintosh,
-          and UNIX systems across the NCSU library system.
+          Federal work-study position held concurrently with the Teaching Assistant role —
+          hardware services and software support for IBM, Macintosh, and UNIX systems across
+          the NCSU library system.
       - role: Computer Operator for Computer Science Department (part-time)
         time: Aug 1990 - Jan 1991
         company: North Carolina State University, Raleigh, NC
@@ -2380,13 +2594,17 @@ projects:
            - code: [https://github.com/mcgarrah/legendary_quick_quiz](https://github.com/mcgarrah/legendary_quick_quiz){:target="_blank"}
            - demo: [Demo Website](https://quiz.mcgarrah.org/){:target="_blank"}
 
-      - title: AWS Quicksight Demonstration (Terraform Automation)
+      - title: AWS QuickSight Federated Integration (Terraform Automation)
         link: https://github.com/mcgarrah/quicksight_demo
         tagline: >
-          The goal of this repository is to automate as much as possible, from the varied AWS posts
-          on Federated QuickSight integration, the manual steps in Terraform and convert the CloudFormation 
-          to Terraform where possible. Also, updating the Python Lambda layers and code to more current 
-          versions of libraries and runtimes is in scope as well.
+          Terraform automation for AWS QuickSight federated integration — converting scattered
+          AWS blog posts and CloudFormation examples into reproducible Terraform configurations.
+          Covers Okta SSO federation, IAM role mappings, namespace-based multi-tenant isolation,
+          and Python Lambda layers for QuickSight API automation. Built as a reference
+          implementation alongside the enterprise QuickSight migration at Envestnet, where the
+          same patterns were applied to production deployments serving external financial
+          services clients. Companion to the QuickSight Vanity URL Redirect module (above)
+          which handles the custom domain routing layer.
            - code: [https://github.com/mcgarrah/quicksight_demo](https://github.com/mcgarrah/quicksight_demo){:target="_blank"}
 
       - title: Photosynth Point Clouds Extraction and Visualization (2016)
@@ -2461,7 +2679,7 @@ skills:
           - title: General
             list: Python (1.5, 2.7, 3.x) • Java • C/C++ (Windows/UNIX) • SQL (ISO/IEC portable) • Scala • TypeScript/JavaScript • Shell Scripting (Bash, Zsh, Bourne) • C# • Perl (4/5.005/5.6/5.8/6) • Smalltalk • PHP • Ruby • Base SAS 9 • Groovy • R • MATLAB • Octave • Erlang • Go • Julia • Kotlin • Prolog • Visual Basic • Pascal • FORTRAN • PowerBuilder • Lisp • Scheme • COBOL
           - title: IaC
-            list: Terraform • CloudFormation • Ansible • Chef • Puppet • pyFabric
+            list: Terraform • OpenTofu • CloudFormation • Ansible • Chef • Puppet • pyFabric
       - categories: Platforms & DevOps
         sub_categories:
           - title: OS Platforms
@@ -2469,7 +2687,7 @@ skills:
           - title: Cloud Platforms
             sub_sub_categories:
                 - title: Amazon Web Services (AWS)
-                  list: S3 • EKS (Kubernetes) • Athena • QuickSight • Hadoop on EC2 • EMR • vEMR • CloudFormation • SageMaker • MWAA (Airflow) • Lambda • Step Functions • EventBridge • CloudFront • IAM • with Kubernetes (EKS, Istio, Calico, Cilium, ArgoCD, etc...)
+                  list: S3 • EKS (Kubernetes) • Athena • QuickSight • Hadoop on EC2 • EMR • EMR on EKS (vEMR) • CloudFormation • SageMaker • Bedrock • Bedrock Data Automation • MWAA (Airflow) • Lambda • Step Functions • EventBridge • CloudFront • IAM • with Kubernetes (EKS, KEDA, Karpenter, Calico, Istio, Cilium, ArgoCD, etc...)
                 - title: Google Cloud Platform (GCP)
                   list: Kubernetes • BigQuery • App Engine • Apigee • Google Compute Engine (GCE) 
                 - title: Microsoft Azure
@@ -2477,7 +2695,7 @@ skills:
                 - title: Misc
                   list: Rackspace • IBM Cloud • Alibaba • SalesForce • Oracle Cloud (OCI) • DigitalOcean • Heroku • Koyeb • including on-premises hybrid solutions and colocation
           - title: CI/CD & Automation & Collaboration
-            list: ArgoCD • GitLab CI/CD Pipelines • Jenkins • Git • Gitlab Pipelines • GitHub & GitHub Actions • Gitea • Helm • Docker & Rancher • Terraform • Ansible • Maven • Ant • Makefile • Maven • SVN & CVS & RCS • Perforce • SourceSafe • Jira • Redmine • Asana • Bugzilla • CircleCI • Travis CI • Confluence
+            list: ArgoCD • GitLab CI/CD Pipelines • Jenkins • CruiseControl • CruiseControl.Net • Git • Gitlab Pipelines • GitHub & GitHub Actions • Gitea • Helm • Docker & Rancher • Terraform • OpenTofu • Ansible • Ansible Tower • Maven • Ant • Makefile • Maven • SVN & CVS & RCS • Perforce • PVCS • SourceSafe • MOVEit Automation • Jira • Redmine • Asana • Bugzilla • CircleCI • Travis CI • Confluence
           - title: Serverless
             list: Lambda • Step Function • EventBridge • API Gateway • Athena • CloudFront • CloudWatch • DynamoDB • SQS • Aurora Serverless
       - categories: Databases
@@ -2491,7 +2709,7 @@ skills:
           - title: Data Science Libraries
             list: Pandas • Polars • Matplotlib • Seaborn • Spark • Scikit-learn • NumPy • PyTorch • SciPy • Keras • TensorFlow • NLTK • OpenCV • XGBoost
           - title: Data Analytics Tools
-            list: Jupyter • Zeppelin (for Hadoop) • DataIKU • Snowflake • Hadoop • TensorFlow • Airflow • Alteryx • Tableau • PowerBI • Qlik • Splunk • ELK Stack • New Relic • Nagios
+            list: Jupyter • Zeppelin (for Hadoop) • DataIKU • Snowflake • Hadoop • TensorFlow • Airflow • Alteryx • Tableau • PowerBI • Qlik • Qlik Open Lakehouse • FiveTran • DataHub • Splunk • ELK Stack • New Relic • Nagios
           - title: Data Science Domains
             list: Machine Learning • Deep Learning • Natural Language Processing (NLP) • Computer Vision • Speech Recognition
       - categories: Software Development
