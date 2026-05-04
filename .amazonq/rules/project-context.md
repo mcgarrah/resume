@@ -62,6 +62,9 @@ When editing entries:
 - **`.ruby-version`** in repo root — ensures rbenv selects the correct Ruby
 - **Gemfile**: jekyll, github-pages, jekyll-sitemap, jekyll-seo-tag, jekyll-pandoc-exports
 - **Pandoc exports**: Automatic PDF and DOCX generation from the print layout
+  (see `pandoc-exports.md` for regex patterns, dependency details, and formatting workflow)
+- **Pandoc** 3.9+ via Homebrew (macOS) or apt (CI) — converts HTML to DOCX/PDF
+- **LaTeX** (texlive) — required for PDF only, installed in CI but optional locally
 - **SASS/SCSS** for styling with theme skins (`_sass/skins/`)
 - **GitHub Actions** CI/CD deploys on push to `main`
 
@@ -76,6 +79,8 @@ resume/
 │   ├── experiences.html        # Interactive (collapsible details)
 │   ├── experiences-print.html  # Print (fully expanded)
 │   ├── career-profile.html     # Career summary section
+│   ├── print-header.html        # Name/tagline/contact for print layout (stripped from Pandoc)
+│   ├── print-links.html         # Profile URLs + canonical URL footer (bottom of print)
 │   ├── sidebar.html            # Name, tagline, contact, links
 │   ├── certifications.html     # Certification list
 │   ├── projects.html           # Selected projects
@@ -124,6 +129,15 @@ System Ruby 2.6 will fail on `permitted_classes` — always use rbenv Ruby 3.3.
 | `mcgarrah.github.io/_drafts/PERSONA-RESUME.md` | Cross-reference between resume and LinkedIn, proposed rewrites |
 | `mcgarrah.github.io/_drafts/PERSONA-SVP.md` | SVP positioning strategy that drives resume content |
 | `mcgarrah.github.io/_drafts/ENVESTNET-RESUME.md` | Consolidated Envestnet work history sourced from Jira reviews |
+
+## When Modifying PDF/DOCX Output
+
+See `pandoc-exports.md` for the full reference. Key points:
+- The `title_cleanup` patterns in `_config.yml` strip HTML elements before Pandoc conversion
+- Changes to print-layout includes affect the browser view, DOCX, and PDF simultaneously
+- Test regex patterns against `_site/print.html` before committing
+- DOCX generates locally (Pandoc only); PDF requires LaTeX (CI has it, local may not)
+- Force regeneration after config changes: `rm -rf _site/downloads/ && bundle exec jekyll build`
 
 ## When Editing data.yml
 
