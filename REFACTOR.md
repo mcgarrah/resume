@@ -52,12 +52,12 @@ Use `prefers-color-scheme` media query with CSS custom properties. No JavaScript
 
 Replace the sidebar with a compact header block:
 
-```
+```text
 ┌─────────────────────────────────────────────────┐
 │  [Avatar]  Michael McGarrah                     │
-│            Engineering Leader | Architect | PE   │
-│            📧 email  🔗 linkedin  🐙 github     │
-│            📄 PDF    📝 DOCX     🖨️ Print       │
+│            Engineering Leader | Architect | PE  │
+│            📧 email  🔗 linkedin  🐙 github    │
+│            📄 PDF    📝 DOCX     🖨️ Print      │
 └─────────────────────────────────────────────────┘
 │                                                 │
 │  Career Profile                                 │
@@ -70,6 +70,7 @@ Replace the sidebar with a compact header block:
 ```
 
 Benefits:
+
 - Full width for content (resume text is dense — it needs the space)
 - Contact info is above the fold, not buried in a narrow column
 - Mobile-friendly without a breakpoint that collapses the sidebar
@@ -78,6 +79,7 @@ Benefits:
 ### 4. AI/Machine-Friendly View
 
 The `/resume/machine/` view provides:
+
 - **JSON-LD structured data** using [Schema.org Resume](https://schema.org/Person) vocabulary
 - **Semantic HTML5** — `<article>`, `<section>`, `<header>`, `<time datetime="...">`, `<address>`
 - **Microdata attributes** on all content elements
@@ -85,6 +87,7 @@ The `/resume/machine/` view provides:
 - **`<meta name="robots" content="index, follow">` with structured data hints**
 
 This makes the resume trivially parseable by:
+
 - LinkedIn profile importers
 - ATS systems (Greenhouse, Lever, Workday)
 - AI recruiting agents (Claude, GPT-based HR tools)
@@ -103,6 +106,7 @@ Target: **zero `title_cleanup` patterns** (or at most 1-2 for edge cases).
 ### 6. Preserve Assets
 
 All files under `assets/` carry forward:
+
 - `assets/images/` — Avatar, company logos (used in future experience section enhancement)
 - `assets/pdf/` — Static PDF snapshots (historical)
 - `assets/css/main.scss` — Rebuilt from scratch but same path
