@@ -43,7 +43,8 @@ pandoc_exports:
     - pattern: 'src="/resume/assets/'
       replacement: 'src="{{site.dest}}/assets/'
   title_cleanup:
-    - '<div class="print-header">[\s\S]*?</ul>\s*</div>\s*</div>'
+    - '<title>[^<]*</title>'
+    - '<div class="sidebar-wrapper">.*?</div><!--//sidebar-wrapper-->'
     - '<img class="avatar"[^>]*/?>'
     - '<li class="phone"><i class="fas fa-passport">.*?</li>'
     - '<li class="timezone"[^>]*>.*?</li>'

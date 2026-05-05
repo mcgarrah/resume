@@ -1,15 +1,28 @@
+# Jekyll build output
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+
+# Ruby / Bundler
 vendor/
 .bundle/
 Gemfile.lock
 bin/
+*.gem
+
+# Python virtual environment
+.venv/
+
+# Node.js
+node_modules/
+package-lock.json
 
 # Static dependencies (now using CDN)
 assets/plugins/jquery*
 assets/plugins/bootstrap/
 assets/plugins/font-awesome/
-node_modules/
-package-lock.json
+
+# OS artifacts
+.DS_Store
+*Zone.Identifier
