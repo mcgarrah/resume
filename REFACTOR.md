@@ -103,7 +103,72 @@ The current `title_cleanup` has 16 regex patterns because the HTML mixes present
 
 Target: **zero `title_cleanup` patterns** (or at most 1-2 for edge cases).
 
-### 6. Preserve Assets
+### 6. Interactive Features (Search + AI Agent)
+
+The site adds purposeful interactivity beyond the static resume presentation:
+
+#### In-Browser Search
+
+Client-side search over resume content, built at deploy time:
+
+- **Pagefind** (recommended) — Rust-based static search indexer. Runs during GitHub Actions build, ships a ~100KB WASM bundle. Zero runtime dependencies, works offline, indexes all three views.
+- Alternative: Build-time JSON index from `_data/data.yml` + vanilla JS fuzzy matcher (~50 lines).
+- Search UI lives in the brief view header area — excluded from print and machine views.
+
+#### AI Agent Integration
+
+An external AI agent provides conversational interaction with the resume for recruiters and interested parties:
+
+- **Chat widget** — Floating button → chat panel on the brief view. Small JS component that calls an external API. The resume site stays static; intelligence lives elsewhere.
+- **Knowledge base** — The `/resume/machine/` JSON-LD view serves dual purpose: SEO structured data AND the agent's grounding context. Optionally extended with blog content from mcgarrah.org.
+- **Hosting options** (to be decided):
+  - AWS Lambda + API Gateway (leverages existing AWS accounts and EKS expertise)
+  - Cloudflare Workers (edge-deployed, minimal cold start)
+  - Third-party widget (Chatbase, CustomGPT, or similar — fastest to prototype)
+- **Graceful degradation** — Chat widget is non-essential. Site is fully functional without it. Widget loads asynchronously and doesn't block page render.
+
+#### JavaScript Principle (Revised)
+
+> **No JavaScript for presentation.** Layout, styling, and content rendering are pure HTML/CSS. JavaScript is reserved for *interactive features* (search, AI chat) that provide genuine user value and degrade gracefully when disabled.
+
+#### Open Questions
+
+- Where should the AI agent be hosted? (AWS Lambda, third-party, edge worker)
+- Should the agent know blog content from mcgarrah.org in addition to resume data?
+- Privacy boundary — what level of detail should the agent discuss about current role?
+- Interaction model — chat bubble on brief view, dedicated `/resume/ask/` page, or both?
+
+### Future: Project Nexus (Strategic Fit Engine)
+
+A more ambitious system — **Project Nexus** — is planned as a later evolution that builds on this refactor's foundation. Nexus transforms the resume + blog into a hybrid-cloud intelligence gateway for executive-level candidate evaluation. Key architectural elements:
+
+- **Hybrid search**: MiniSearch (in-browser, fuzzy, custom tokenization for technical terms) + Mark.js for DOM-aware highlighting and expanding collapsed sections. This supersedes the simpler Pagefind approach in Phase 5.
+- **Cross-site intelligence**: Jekyll generates `nexus-index.json` manifests for both the resume and blog. A TypeScript orchestrator merges them in-browser for unified search across both sites.
+- **Edge layer**: Proxmox cluster with NVIDIA P620 GPUs for local embedding generation and semantic cross-linking via Tailscale Funnel.
+- **Multi-cloud LLM orchestration**: AWS Bedrock (Claude) for strategic reasoning, Google Gemini for deep-context analysis. Governance proxy on DigitalOcean with hard budget caps.
+- **Circuit breaker pattern**: Graceful degradation — if cloud/edge services fail, falls back to local keyword search. The static site always works.
+- **Executive value layer**: Strategic fit analysis (T-shirt sizing across 5 pillars), 90-day onboarding plan generation from job descriptions.
+
+**Impact on this refactor:** The current phases (1–6) build the foundation that Nexus requires:
+
+| Refactor Output | Nexus Dependency |
+|---|---|
+| `/resume/machine/` JSON-LD | Becomes part of the `nexus-index.json` manifest |
+| Single-column semantic HTML | Clean DOM for Mark.js highlighting and section expansion |
+| `_data/data.yml` as single source | Jekyll generates both human views and machine manifests from same data |
+| `assets/js/` directory structure | Houses the TypeScript orchestrator and MiniSearch client |
+| Shared webroot with blog | Enables cross-site index merging under one domain |
+| Chat widget architecture (Phase 6) | Evolves into the Nexus governance proxy + LLM orchestration layer |
+
+**We are NOT implementing Nexus now.** But the refactor should avoid decisions that would conflict with it — specifically:
+- Don't couple search to a tool (like Pagefind) that can't be replaced by MiniSearch later
+- Keep the machine view's structured data format extensible for manifest generation
+- Ensure the JS loading pattern supports a future TypeScript orchestrator
+- Maintain the shared-domain architecture between resume and blog
+
+See `Project_Nexus_Summary.md` for the full architectural plan (also promoted to `mcgarrah.github.io/_drafts/PROJECT-NEXUS.md` as the canonical reference).
+
+### 7. Preserve Assets
 
 All files under `assets/` carry forward:
 
@@ -116,12 +181,14 @@ The `assets/plugins/` directory (Bootstrap, Font Awesome, jQuery) is removed —
 
 ## Constraints
 
-1. **`baseurl: /resume`** — Blog nav links to `/resume/`, About page links to `/resume/print`.
-2. **`_data/data.yml`** — Single content source, unchanged.
-3. **Pandoc PDF/DOCX** — `jekyll-pandoc-exports` continues to generate `/resume/downloads/print.pdf` and `.docx`.
-4. **Local dev** — `bundle exec jekyll serve` at `http://localhost:4000/resume/`.
-5. **GitHub Actions** — Existing deployment workflow (or simplified version).
-6. **Ruby 3.3.11** via rbenv — `.ruby-version` stays.
+1. **`baseurl: /resume`** — Blog nav links to `/resume/`, About page links to `/resume/print`. The resume deploys as a subpath of mcgarrah.github.io, not at the webroot.
+2. **Shared webroot** — Both sites serve from the same GitHub Pages domain (mcgarrah.org). The blog owns the webroot (`/`) and provides shared resources like `favicon.ico`, `site.webmanifest`, `robots.txt`, and site-level indexes. The resume lives at `/resume/` and inherits those shared resources. They are nested and work together — not isolated deployments.
+3. **Asset path separation** — Blog serves its own assets from `/assets/`; resume serves `/resume/assets/` from this repo. Resume asset references must use `{{ site.baseurl }}/assets/...`. Shared webroot resources (favicons, manifests) are referenced with absolute paths from the blog's root.
+4. **`_data/data.yml`** — Single content source, unchanged.
+5. **Pandoc PDF/DOCX** — `jekyll-pandoc-exports` continues to generate `/resume/downloads/print.pdf` and `.docx`.
+6. **Local dev** — `bundle exec jekyll serve` at `http://localhost:4000/resume/`.
+7. **GitHub Actions** — Existing deployment workflow (or simplified version).
+8. **Ruby 3.3.11** via rbenv — `.ruby-version` stays.
 
 ## Integration with mcgarrah.github.io
 
@@ -132,6 +199,7 @@ The `assets/plugins/` directory (Bootstrap, Font Awesome, jQuery) is removed —
 | PDF download link | `/resume/downloads/print.pdf` | Stable |
 | DOCX download link | `/resume/downloads/print.docx` | Stable |
 | New: machine-readable | `/resume/machine/` | New URL, no existing links |
+| New: AI chat interface | `/resume/ask/` | New URL, optional dedicated page |
 
 ## Technology Choices
 
@@ -158,6 +226,8 @@ The `assets/plugins/` directory (Bootstrap, Font Awesome, jQuery) is removed —
 - JSON-LD structured data (machine view)
 - `<details>`/`<summary>` for brief view (native HTML, no JS)
 - `@media print` stylesheet (browser print = clean output)
+- Pagefind static search (build-time indexing, WASM client)
+- AI chat widget (external agent, async-loaded JS)
 
 ## Proposed File Structure
 
@@ -187,19 +257,25 @@ resume/
 ├── _sass/
 │   ├── _variables.scss         # Colors (light + dark), fonts, spacing
 │   └── _layout.scss            # All styles (~200 lines target)
-├── assets/
+├── assets/                     # Repo-relative: /assets → serves at /resume/assets/
 │   ├── css/main.scss           # SCSS entry point
 │   ├── images/                 # Avatar, company logos (preserved)
+│   ├── js/
+│   │   ├── search.js           # Pagefind initialization (async)
+│   │   └── chat-widget.js      # AI agent chat widget (async, lazy-loaded)
 │   ├── pdf/                    # Historical PDF snapshots (preserved)
 │   └── icons.svg               # SVG sprite file
 ├── _config.yml                 # Simplified config
 ├── index.html                  # /resume/ (brief view)
 ├── print.html                  # /resume/print/ (print view)
 ├── machine.html                # /resume/machine/ (AI/robot view)
+├── ask.html                    # /resume/ask/ (AI chat page, Phase 6)
 ├── Gemfile                     # Minimal deps (no github-pages)
 ├── .ruby-version               # 3.3.11
 └── .github/workflows/jekyll.yml
 ```
+
+**Note on asset paths:** The blog (mcgarrah.github.io) owns the webroot and provides shared resources (favicon, site.webmanifest, robots.txt, sitemap index). The resume site is nested at `/resume/` within the same domain and inherits those shared webroot resources. The resume's `assets/` directory serves at `/resume/assets/` — separate from the blog's `/assets/` but coexisting on the same domain. Resume-specific asset references use `{{ site.baseurl }}/assets/...`; shared resources use absolute paths from root.
 
 ## Refactoring Phases
 
@@ -231,6 +307,25 @@ resume/
 - Remove `assets/plugins/` directory
 - Remove legacy files (`compress.html`, `_sass/skins/`, etc.)
 
+### Phase 5 — In-Browser Search
+- Add Pagefind indexing step to GitHub Actions build pipeline (interim solution)
+- Add search UI component to brief view header (excluded from print/machine views)
+- Build-time index covers all three views for comprehensive results
+- Test search relevance across career profile, experiences, skills, certifications
+- Ensure search widget respects light/dark mode CSS custom properties
+- **Note:** Pagefind is a pragmatic first step. Project Nexus will later replace it with MiniSearch + Mark.js for custom tokenization (technical terms like "K8s"/"Kubernetes"), fuzzy matching, and DOM-aware highlighting that expands collapsed `<details>` sections. Design the search UI container and JS loading pattern to be swappable.
+
+### Phase 6 — AI Agent Integration
+- Select hosting platform (AWS Lambda + API Gateway, Cloudflare Workers, or third-party)
+- Build agent knowledge base from `/resume/machine/` JSON-LD output
+- Evaluate whether to include mcgarrah.org blog content as additional context
+- Define privacy boundaries and response guardrails
+- Implement chat widget component (floating button → panel)
+- Async/lazy-load the widget JS — must not impact page load performance
+- Add `/resume/ask/` dedicated page as alternative interaction surface (optional)
+- Test conversational quality: recruiter questions, role inquiries, skill deep-dives
+- Monitor usage and iterate on agent prompt engineering
+
 ## Local Development
 
 ```bash
@@ -241,6 +336,7 @@ bundle exec jekyll serve
 # Brief: http://localhost:4000/resume/
 # Print: http://localhost:4000/resume/print/
 # Machine: http://localhost:4000/resume/machine/
+# Ask (Phase 6): http://localhost:4000/resume/ask/
 ```
 
 Side-by-side comparison with current site:
@@ -256,7 +352,8 @@ git checkout refactor && bundle exec jekyll serve --port 4000
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
-| 2025-07-XX | Created `refactor` branch | Explore ground-up rebuild without risking main |
+| 2026-05-05 | Created `refactor` branch | Explore ground-up rebuild without risking main |
+| 2026-05-05 | Create PROJECT-NEXUS.md | Promote to _drafts convenience file for reference |
 | | Drop sidebar → compact header | Full-width content, better mobile, simpler Pandoc |
 | | Light/dark via `prefers-color-scheme` | OS-aware, zero JS, CSS custom properties |
 | | Add `/resume/machine/` view | AI agents and ATS systems need structured data |
@@ -267,3 +364,10 @@ git checkout refactor && bundle exec jekyll serve --port 4000
 | | Preserve `assets/images/` and `assets/pdf/` | Company logos and historical PDFs stay |
 | | Drop `assets/plugins/` | Bootstrap/jQuery/FA local copies no longer needed |
 | | Three views from one data source | Brief (recruiters), Print (ATS/PDF), Machine (AI) |
+| | Add in-browser search (Pagefind) | Static-site best practice, build-time index, ~100KB WASM client |
+| | Add AI agent chat widget | Conversational resume interaction for recruiters, external service |
+| | JS principle: no JS for presentation | Layout/styling pure CSS; JS reserved for interactive features that degrade gracefully |
+| | `/resume/machine/` serves dual purpose | SEO structured data AND AI agent knowledge base |
+| | Acknowledge Project Nexus as future state | Refactor builds the foundation; avoid decisions that conflict with Nexus architecture |
+| | Pagefind as interim search (swappable) | Pragmatic first step; Nexus replaces with MiniSearch + Mark.js for custom tokenization |
+| | Keep search/chat JS loading pattern generic | Future TypeScript orchestrator needs the same entry points |
