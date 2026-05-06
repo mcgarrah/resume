@@ -73,6 +73,12 @@
     </li>
     {% endif %}
 
+    {% if sidebar.signal %}
+    <li class="signal"><i class="fas fa-shield-halved"></i>
+      <a href="https://signal.me/#eu/mcgarrah.01" target="_blank">{{ sidebar.signal }}</a>
+    </li>
+    {% endif %}
+
     {% if sidebar.discord %}
     <li class="discord"><i class="fab fa-discord"></i>
       <a href="https://discord.com/users/{{ sidebar.discord }}" target="_blank">{{ sidebar.discord }}</a>
@@ -82,6 +88,12 @@
     {% if sidebar.stack-overflow %}
     <li class="stack-overflow"><i class="fab fa-stack-overflow"></i>
       <a href="https://stackoverflow.com/users/{{ sidebar.stack-overflow }}" target="_blank">{{ sidebar.stack-overflow }}</a>
+    </li>
+    {% endif %}
+
+    {% if sidebar.kaggle %}
+    <li class="kaggle"><i class="fab fa-kaggle"></i>
+      <a href="https://www.kaggle.com/{{ sidebar.kaggle }}" target="_blank">{{ sidebar.kaggle }}</a>
     </li>
     {% endif %}
 

@@ -24,8 +24,14 @@
       {% if sidebar.stack-overflow %}
       <li><i class="fab fa-stack-overflow"></i> <strong>Stack Overflow:</strong> <a href="https://stackoverflow.com/users/{{ sidebar.stack-overflow }}">stackoverflow.com/users/{{ sidebar.stack-overflow }}</a></li>
       {% endif %}
+      {% if sidebar.kaggle %}
+      <li><i class="fab fa-kaggle"></i> <strong>Kaggle:</strong> <a href="https://www.kaggle.com/{{ sidebar.kaggle }}">kaggle.com/{{ sidebar.kaggle }}</a></li>
+      {% endif %}
       {% if sidebar.discord %}
       <li><i class="fab fa-discord"></i> <strong>Discord:</strong> <a href="https://discord.com/users/{{ sidebar.discord }}">{{ sidebar.discord }}</a></li>
+      {% endif %}
+      {% if sidebar.signal %}
+      <li><i class="fas fa-shield-halved"></i> <strong>Signal:</strong> <a href="https://signal.me/#eu/mcgarrah.01">@{{ sidebar.signal }}</a></li>
       {% endif %}
       {% if sidebar.pdf %}
       <li><i class="fas fa-file-pdf"></i> <strong>PDF Resume:</strong> <a href="{{ sidebar.pdf }}">{{ sidebar.pdf }}</a></li>
