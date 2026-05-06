@@ -189,6 +189,7 @@ The `assets/plugins/` directory (Bootstrap, Font Awesome, jQuery) is removed —
 6. **Local dev** — `bundle exec jekyll serve` at `http://localhost:4000/resume/`.
 7. **GitHub Actions** — Existing deployment workflow (or simplified version).
 8. **Ruby 3.3.11** via rbenv — `.ruby-version` stays.
+9. **Ruby >= 3.2 requires Jekyll >= 4.3.2** — Ruby 3.2 removed `Object#tainted?` from the standard library. Liquid 4.x (used by Jekyll < 4.3.2) calls this method at runtime, causing `undefined method 'tainted?'` crashes. This means Jekyll 3.x, 4.0–4.2, and 4.3.0–4.3.1 are all incompatible with our Ruby floor. The `jekyll-pandoc-exports` gemspec enforces `jekyll >= 4.3.2` to prevent silent installation of broken combinations.
 
 ## Integration with mcgarrah.github.io
 
@@ -196,9 +197,9 @@ The `assets/plugins/` directory (Bootstrap, Font Awesome, jQuery) is removed —
 |----------------|-----------|--------|
 | Navigation sidebar icon | `/resume/` | Stable |
 | About page "full print version" | `/resume/print` | Stable |
-| PDF download link | `/resume/downloads/print.pdf` | Stable |
-| DOCX download link | `/resume/downloads/print.docx` | Stable |
-| New: machine-readable | `/resume/machine/` | New URL, no existing links |
+| PDF download link | `/resume/downloads/McGarrah-Resume.pdf` | Updated (Phase 2) |
+| DOCX download link | `/resume/downloads/McGarrah-Resume.docx` | Updated (Phase 2) |
+| New: machine-readable | `/resume/machine/` | Implemented (Phase 3) |
 | New: AI chat interface | `/resume/ask/` | New URL, optional dedicated page |
 
 ## Technology Choices
@@ -308,21 +309,58 @@ resume/
 - Simplify `_config.yml` pandoc_exports section
 - Test PDF and DOCX output
 
-#### Plugin CLI Extension (jekyll-pandoc-exports)
+#### Export File Naming (Complete — plugin 0.2.0)
 
-Extend the plugin with a `Jekyll::Command` to enable standalone export without a full site build:
+The generated exports use a professional filename via `export_filename` front matter:
 
-- `bundle exec jekyll export` — generate PDF/DOCX directly, skip full `jekyll build`
-- `--pdf-only` / `--docx-only` — selective output format
-- `--target=resume` — parameterized target for future reuse (MBA papers, blog post exports)
-- `--dry-run` — print the exact pandoc shell command without executing (invaluable for debugging LaTeX template issues)
-- Pre-export validation: verify `_data/data.yml` matches expected structural schema before calling Pandoc (catch missing fields, malformed dates, broken YAML references early)
+- **Result**: `McGarrah-Resume.pdf` and `McGarrah-Resume.docx`
+- **Mechanism**: `export_filename: McGarrah-Resume` in `print.html` front matter
+- **Plugin support**: `jekyll-pandoc-exports` 0.2.0 reads `export_filename` from front matter in both generator and CLI modes
+- **Status**: ✅ Complete — both `jekyll build` and `jekyll export` produce correctly named files
+
+#### Plugin CLI Extension (jekyll-pandoc-exports 0.2.0)
+
+The plugin now includes a `Jekyll::Command` for standalone export:
+
+- `bundle exec jekyll export` — generate PDF/DOCX from pre-built HTML (requires `jekyll build` first)
+- `--format pdf|docx|both` — selective output format
+- `--target=print` — export a specific page by filename
+- `--dry-run` — print the exact pandoc shell command without executing
+- `--validate` — check `_data/data.yml` schema before export (required sections, fields, structure)
+- `--output DIR` — override the output directory
+- **Status**: ✅ Complete — all flags tested and working
+
+#### Plugin Future Enhancements (tracked for jekyll-pandoc-exports)
+
+These items should be addressed in a future plugin release:
+
+1. **Formalize `export_filename` as a documented feature** — Currently works via front matter (`export_filename: McGarrah-Resume`) in both the inline generator and CLI paths, but needs proper documentation, tests, and inclusion in the plugin's README/configuration reference. Should be promoted from "happens to work" to "first-class supported feature" with examples.
+
+2. **`--verbose` / logging level for `jekyll export` CLI** — The export command currently requires `quiet: false` in the Jekyll configuration load to produce any output. Jekyll's global logger level conflicts with command-level verbosity settings (known Jekyll issue — commands inherit the site config's logging level). The fix should:
+   - Add a `--verbose` flag specific to the export command
+   - Set logger level independently of `Jekyll.configuration()` quiet setting
+   - Avoid conflicting with Jekyll's own `--trace` flag (which handles exceptions, not verbosity)
+   - Consider using `$stdout.puts` for critical CLI feedback instead of relying solely on `Jekyll.logger`
+
+3. **Config-level filename mapping** — Support a `pandoc_exports.filename_map` config option as an alternative to per-page front matter, e.g.:
+   ```yaml
+   pandoc_exports:
+     filename_map:
+       print: McGarrah-Resume
+       cv: McGarrah-CV
+   ```
 
 ### Phase 3 — Machine View
 - New `_layouts/machine.html` — semantic HTML + JSON-LD
 - Schema.org Person/Organization/EducationalOrganization markup
 - Validate with Google's Rich Results Test
 - Validate parseable by common ATS systems
+- **Status**: ✅ Implementation complete and locally validated
+  - Layout, JSON-LD, and semantic HTML all rendering correctly
+  - 7 sections, 66 articles, 110 itemscope attributes, 278 itemprop attributes
+  - 2 valid JSON-LD blocks (WebPage + Person with 17 credentials, 27 occupations)
+  - Heading hierarchy clean, no accessibility issues
+  - Pending: Google Rich Results Test (requires live URL), ATS system testing
 
 ### Phase 4 — Polish and Cleanup
 - Light/dark mode testing across browsers
@@ -403,3 +441,9 @@ git checkout refactor && bundle exec jekyll serve --port 4000
 | 2026-05-06 | Add pre-export YAML schema validation | Catch structural errors in data.yml before Pandoc fails cryptically |
 | 2026-05-06 | Add `jekyll doctor` + `html-proofer` to CI | Quality gates: config smells and link integrity checks |
 | 2026-05-06 | Modern UI: hand-rolled CSS first, Open Props fallback | Avoid Node.js dependency; Tailwind standalone CLI as last resort |
+| 2026-05-06 | Export filenames: `McGarrah-Resume.pdf/.docx` | Professional naming; blocked on plugin support for custom output filenames |
+| 2026-05-06 | Phase 3 machine view implemented | Semantic HTML5 + JSON-LD at `/resume/machine/`; 7 sections, 66 articles, 110 itemscope attributes |
+| 2026-05-06 | Phase 2 complete with plugin 0.2.0 | Custom filenames via `export_filename` front matter; CLI export command with --dry-run, --validate, --format |
+| 2026-05-06 | Drop `github-pages` gem | Conflicts with Jekyll 4.x; replaced with explicit `jekyll ~> 4.4` dependency |
+| 2026-05-06 | Add `html-proofer` to CI | Link integrity checking in GitHub Actions workflow |
+| 2026-05-06 | Phase 3 locally validated | JSON-LD valid, heading hierarchy clean, microdata complete; pending Google Rich Results Test on live URL |

@@ -31,8 +31,8 @@ sidebar:
     #codewars:
     #goodreads: # Number-Username, e.g. 123456-alandoe
     #pdf: http://www.africau.edu/images/default/sample.pdf
-    pdf: /resume/downloads/print.pdf
-    docx: /resume/downloads/print.docx
+    pdf: /resume/downloads/McGarrah-Resume.pdf
+    docx: /resume/downloads/McGarrah-Resume.docx
     print: /resume/print    # can be local relative path url or fully qualified external HREF url
 
     languages:
