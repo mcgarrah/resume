@@ -1,169 +1,290 @@
----
-#Add "layout: compress" here to compress the html code
----
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--><html lang="en"><!--<![endif]-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
 
-{% include head.html %}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  {% seo %}
+
   <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
-      padding: 0 !important;
+      font-family: "Inter", -apple-system, "Segoe UI", "Roboto", sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
     }
-    .wrapper {
-      max-width: unset !important;
-      display: block !important;
-      background: #fff !important;
-    }
-    /* Hide the sidebar in print layout */
-    .sidebar-wrapper {
-      display: none !important;
-    }
-    /* Full-width main content */
-    .main-wrapper {
-      grid-column: unset !important;
-      width: 100% !important;
+
+    .print-resume {
       max-width: 900px;
       margin: 0 auto;
-      padding: 30px 60px !important;
+      padding: 30px 60px;
     }
-    /* Print header styles */
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.3;
+      margin-top: 0;
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    p { margin-top: 0; margin-bottom: 8px; }
+
+    /* Print Header */
     .print-header {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 30px 60px 10px 60px;
       border-bottom: 2px solid #333;
-      margin-bottom: 10px;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
     }
-    .print-header-main {
-      margin-bottom: 8px;
-    }
-    .print-name {
+
+    .print-header__name {
       font-size: 28px;
       font-weight: 900;
       margin: 0 0 4px 0;
       color: #333;
     }
-    .print-tagline {
-      font-size: 16px;
+
+    .print-header__tagline {
+      font-size: 15px;
       font-weight: 400;
-      margin: 0 0 8px 0;
-      color: #666;
+      margin: 0 0 10px 0;
+      color: #555;
     }
-    .print-contact-list {
+
+    .print-header__contact {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
       flex-wrap: wrap;
-      gap: 6px 20px;
-      font-size: 13px;
+      gap: 4px 20px;
+      font-size: 12px;
     }
-    .print-contact-list li {
+
+    .print-header__contact li {
       white-space: nowrap;
     }
-    .print-contact-list a {
+
+    .print-header__contact a {
       color: #333;
-      text-decoration: none;
     }
-    .print-contact-list .fas,
-    .print-contact-list .fab {
-      margin-right: 4px;
+
+    /* Sections */
+    .section {
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      border-bottom: 2px solid #333;
+      padding-bottom: 4px;
+      margin-bottom: 14px;
+    }
+
+    /* Items (experience, education, certs) */
+    .item {
+      margin-bottom: 20px;
+      padding-top: 12px;
+      border-top: 1px solid #ddd;
+    }
+
+    .item:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .upper-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .job-title, .degree, .cert-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #333;
+      margin: 0;
+    }
+
+    .time {
+      font-size: 13px;
+      font-weight: 600;
+      color: #666;
+      white-space: nowrap;
+    }
+
+    .gpa {
+      font-size: 13px;
       color: #666;
     }
-    /* Print links section at bottom */
+
+    .company, .university, .cert-org {
+      font-size: 13px;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .cert-url {
+      font-size: 12px;
+    }
+
+    .second-upper-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .details {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    .details p { margin-bottom: 6px; }
+    .details ul, .details ol { padding-left: 20px; margin-bottom: 6px; }
+    .details li { margin-bottom: 3px; }
+    .details img { max-width: 100%; height: auto; }
+
+    /* Projects */
+    .project-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .project-tagline {
+      font-size: 13px;
+      color: #555;
+    }
+
+    /* Publications */
+    .publication-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .publication-authors {
+      font-size: 12px;
+      font-style: italic;
+      color: #666;
+    }
+
+    .publication-conference {
+      font-size: 12px;
+      color: #555;
+    }
+
+    /* Skills */
+    .skillset {
+      columns: 2;
+      column-gap: 24px;
+    }
+
+    .skillset .item {
+      break-inside: avoid;
+      margin-bottom: 8px;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .skillset .category-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin: 0 0 2px 0;
+    }
+
+    .skillset .sub-category-title {
+      font-size: 12px;
+      font-weight: 600;
+      font-style: italic;
+      margin: 4px 0 2px 12px;
+      color: #555;
+    }
+
+    .skillset .sub-sub-category-title {
+      font-size: 11px;
+      color: #666;
+      margin: 2px 0 2px 24px;
+    }
+
+    .skillset .list {
+      font-size: 11px;
+      line-height: 1.4;
+      color: #555;
+      margin-left: 24px;
+    }
+
+    /* OSS */
+    .oss-section .item {
+      margin-bottom: 6px;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    /* Print Links footer */
+    .print-links-section {
+      margin-top: 24px;
+    }
+
     .print-links-list {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
       flex-wrap: wrap;
-      gap: 4px 24px;
+      gap: 4px 20px;
       font-size: 12px;
     }
-    .print-links-list a {
-      color: #333;
-      text-decoration: none;
-    }
-    .print-links-list .fas,
-    .print-links-list .fab {
-      margin-right: 4px;
-      color: #666;
-    }
-    /* Experience and education item separation for print */
-    .experiences-section .item,
-    .educations-section .item {
-      padding-top: 16px;
-      border-top: 1px solid #ddd;
-    }
-    .experiences-section .item:first-child,
-    .educations-section .item:first-child {
-      border-top: none;
-      padding-top: 0;
-    }
-    /* Bolder, larger job titles and degree names for print */
-    .main-wrapper .job-title,
-    .main-wrapper .degree {
-      font-size: 18px;
-      font-weight: 700;
-    }
-    .main-wrapper .company,
-    .main-wrapper .university {
-      font-size: 14px;
-      font-weight: 500;
+
+    .print-links-list a { color: #333; }
+
+    .print-links-note {
+      margin-top: 12px;
+      font-size: 11px;
       color: #555;
     }
-    .main-wrapper .time {
-      font-weight: 600;
-    }
-    /* Skills two-column layout for print */
-    .skillset {
-      column-count: 2;
-      column-gap: 20px;
-    }
-    .skillset .item {
-      margin-bottom: 6px;
-      break-inside: avoid;
-    }
-    .skillset .category-title {
-      font-size: 10pt;
-      margin-bottom: 2px;
-    }
-    .skillset .list {
-      font-size: 8.5pt;
-      line-height: 1.3;
-    }
-    /* Certification layout fix for print */
+
+    /* Certifications */
     .certifications-section .item {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
-    .certifications-section .second-upper-row {
-      display: block;
-      overflow: visible;
-    }
-    .certifications-section .cert-org {
-      margin-bottom: 2px;
-    }
-    .certifications-section .cert-url {
-      position: static;
-      display: inline;
-      font-size: 12px;
-    }
-    .certifications-section .cert-url a {
-      color: #555;
+
+    @media print {
+      body { padding: 0; }
+      .print-resume { padding: 0 40px; max-width: none; }
     }
   </style>
-  <body>
-    <div class="wrapper">
-      {% include sidebar.html %}
+</head>
 
-      {% include print-header.html %}
-
-      <div class="main-wrapper">
-        {{ content }}
-      </div>
-    </div>
-    {% include scripts.html %}
-  </body>
+<body>
+  <div class="print-resume">
+    {% include print-header.html %}
+    {{ content }}
+    {% include print-links.html %}
+  </div>
+</body>
 </html>

@@ -1,0 +1,195 @@
+---
+layout: machine
+permalink: /machine/
+---
+
+{% assign d = site.data.data %}
+
+<header itemscope itemtype="https://schema.org/Person">
+  <h1 itemprop="name">{{ d.sidebar.name }}</h1>
+  <p itemprop="jobTitle">{{ d.sidebar.tagline }}</p>
+
+  <address>
+    <ul>
+      <li>Email: <a href="mailto:{{ d.sidebar.email }}" itemprop="email">{{ d.sidebar.email }}</a></li>
+      <li>Phone: <span itemprop="telephone">{{ d.sidebar.phone }}</span></li>
+      <li>Website: <a href="https://{{ d.sidebar.website }}" itemprop="url">{{ d.sidebar.website }}</a></li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/{{ d.sidebar.linkedin }}" itemprop="sameAs">linkedin.com/in/{{ d.sidebar.linkedin }}</a></li>
+      <li>GitHub: <a href="https://github.com/{{ d.sidebar.github }}" itemprop="sameAs">github.com/{{ d.sidebar.github }}</a></li>
+      <li>GitLab: <a href="https://gitlab.com/{{ d.sidebar.gitlab }}" itemprop="sameAs">gitlab.com/{{ d.sidebar.gitlab }}</a></li>
+      <li>Location: <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="addressCountry">United States</span></span></li>
+      <li>Citizenship: {{ d.sidebar.citizenship }}</li>
+    </ul>
+  </address>
+</header>
+
+<main>
+
+  <!-- Career Profile -->
+  <section id="career-profile">
+    <h2>{{ d.career-profile.title }}</h2>
+    <p>{{ d.career-profile.summary | markdownify | strip_html }}</p>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <h2>{{ d.education.title }}</h2>
+    {% for edu in d.education.info %}
+    <article itemscope itemtype="https://schema.org/EducationalOccupationalCredential">
+      <h3 itemprop="name">{{ edu.degree }}</h3>
+      <p class="meta">
+        <span itemprop="recognizedBy" itemscope itemtype="https://schema.org/EducationalOrganization">
+          <span itemprop="name">{{ edu.university }}</span>
+        </span>
+        | <time>{{ edu.time }}</time>
+        {% if edu.gpa %}| GPA: {{ edu.gpa }}{% endif %}
+      </p>
+      {% if edu.summary %}
+      <p itemprop="description">{{ edu.summary | markdownify | strip_html }}</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <h2>{{ d.experiences.title }}</h2>
+    {% for job in d.experiences.info %}
+    <article itemscope itemtype="https://schema.org/OrganizationRole">
+      <h3 itemprop="roleName">{{ job.role }}</h3>
+      <p class="meta">
+        <span itemprop="memberOf" itemscope itemtype="https://schema.org/Organization">
+          <span itemprop="name">{{ job.company }}</span>
+        </span>
+        | <time itemprop="startDate">{{ job.time }}</time>
+      </p>
+      {% if job.summary %}
+      <p itemprop="description">{{ job.summary | markdownify | strip_html | truncate: 500 }}</p>
+      {% endif %}
+      {% if job.details %}
+      <div class="details">{{ job.details | markdownify }}</div>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </section>
+
+  <!-- Certifications -->
+  {% if d.certifications %}
+  <section id="certifications">
+    <h2>{{ d.certifications.title }}</h2>
+    {% for cert in d.certifications.list %}
+    <article itemscope itemtype="https://schema.org/EducationalOccupationalCredential">
+      <h3 itemprop="name">{{ cert.name }}</h3>
+      <p class="meta">
+        <span itemprop="recognizedBy" itemscope itemtype="https://schema.org/Organization">
+          <span itemprop="name">{{ cert.organization }}</span>
+        </span>
+        | <time itemprop="dateCreated">{{ cert.start }}</time>
+        {% if cert.end %} – <time>{{ cert.end }}</time>{% endif %}
+      </p>
+      {% if cert.credentialurl %}
+      <p><a href="{{ cert.credentialurl }}" itemprop="url">Verify credential</a></p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- Projects -->
+  {% if d.projects %}
+  <section id="projects">
+    <h2>{{ d.projects.title }}</h2>
+    {% if d.projects.intro %}
+    <p>{{ d.projects.intro }}</p>
+    {% endif %}
+    {% for project in d.projects.assignments %}
+    <article itemscope itemtype="https://schema.org/CreativeWork">
+      <h3 itemprop="name">
+        {% if project.link %}<a href="{{ project.link }}" itemprop="url">{{ project.title }}</a>
+        {% else %}{{ project.title }}{% endif %}
+      </h3>
+      {% if project.tagline %}
+      <p itemprop="description">{{ project.tagline | strip_html }}</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- Publications -->
+  {% if d.publications %}
+  <section id="publications">
+    <h2>{{ d.publications.title }}</h2>
+    {% for paper in d.publications.papers %}
+    <article itemscope itemtype="https://schema.org/ScholarlyArticle">
+      <h3 itemprop="name">
+        {% if paper.link %}<a href="{{ paper.link }}" itemprop="url">{{ paper.title }}</a>
+        {% else %}{{ paper.title }}{% endif %}
+      </h3>
+      <p class="meta">
+        <span itemprop="author">{{ paper.authors }}</span>
+        {% if paper.conference %}| <span itemprop="isPartOf">{{ paper.conference }}</span>{% endif %}
+      </p>
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- Skills -->
+  {% if d.skills %}
+  <section id="skills">
+    <h2>{{ d.skills.title | replace: '&amp;', '&' }}</h2>
+    {% for skillset in d.skills.skillsets %}
+    <article>
+      <h3>{{ skillset.categories }}</h3>
+      {% for sub in skillset.sub_categories %}
+      <div>
+        <strong>{{ sub.title }}:</strong>
+        {% if sub.list %}
+        <span>{{ sub.list }}</span>
+        {% endif %}
+        {% if sub.sub_sub_categories %}
+        <ul>
+          {% for subsub in sub.sub_sub_categories %}
+          <li><strong>{{ subsub.title }}:</strong> {{ subsub.list }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- OSS Contributions -->
+  {% if d.oss %}
+  <section id="oss-contributions">
+    <h2>{{ d.oss.title }}</h2>
+    {% if d.oss.intro %}
+    <p>{{ d.oss.intro }}</p>
+    {% endif %}
+    {% for contribution in d.oss.contributions %}
+    <article itemscope itemtype="https://schema.org/SoftwareSourceCode">
+      <h3 itemprop="name">
+        {% if contribution.link %}<a href="{{ contribution.link }}" itemprop="url">{{ contribution.title }}</a>
+        {% else %}{{ contribution.title }}{% endif %}
+      </h3>
+      {% if contribution.tagline %}
+      <p itemprop="description">{{ contribution.tagline }}</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+</main>
+
+<footer>
+  <p>This page is optimized for machine consumption. For human-readable versions:</p>
+  <ul>
+    <li><a href="{{ site.baseurl }}/">Brief view</a> (concise, scannable)</li>
+    <li><a href="{{ site.baseurl }}/print">Print view</a> (fully expanded, PDF/DOCX export)</li>
+  </ul>
+  <p>Last generated: {{ site.time | date: "%Y-%m-%d" }}</p>
+</footer>

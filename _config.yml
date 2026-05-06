@@ -9,20 +9,10 @@ baseurl: "/resume"
 canonical_url: "https://mcgarrah.org/resume"
 
 description: "Engineering Leader bridging enterprise architecture, AI/ML, and cloud platforms with 30+ years in technology leadership, security, and hands-on engineering."
-# Style will be applied only after restarting the build or serve. Just choose one of the options.
-theme_skin: ceramic # blue turquoise green berry orange ceramic burgundy darkred dark (dark needs work)
-chrome_mobile_color: #use hex colors (ex:#1976d2) or leave empty if you don't want a color for chrome mobile searchbar
-
-# Google Analytics
-google_analytics: G-F90DVB199P
-
 # Sass/SCSS
 sass:
   sass_dir: _sass
-  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
-
-# Build settings
-compress-site: yes
+  style: compressed
 
 plugins:
   - jekyll-sitemap
@@ -42,28 +32,10 @@ pandoc_exports:
   image_path_fixes:
     - pattern: 'src="/resume/assets/'
       replacement: 'src="{{site.dest}}/assets/'
-  title_cleanup:
-    - '<title>[^<]*</title>'
-    - '<div class="sidebar-wrapper">.*?</div><!--//sidebar-wrapper-->'
-    - '<img class="avatar"[^>]*/?>'
-    - '<li class="phone"><i class="fas fa-passport">.*?</li>'
-    - '<li class="timezone"[^>]*>.*?</li>'
-    - '<li class="website"[^>]*>.*?</li>'
-    - '<li class="linkedin"[^>]*>.*?</li>'
-    - '<li class="github"[^>]*>.*?</li>'
-    - '<li class="gitlab"[^>]*>.*?</li>'
-    - '<li class="discord"[^>]*>.*?</li>'
-    - '<li class="stack-overflow"[^>]*>.*?</li>'
-    - '<li class="pdf"[^>]*>.*?</li>'
-    - '<li class="docx"[^>]*>.*?</li>'
-    - '<li class="print"[^>]*>.*?</li>'
-    - '<div class="languages-container[^"]*"[^>]*>.*?</div>'
-    - '<span class="fa-stack[^"]*">.*?</span>'
+  title_cleanup: []
   template:
     css: >
-      .wrapper { display: block; padding: 0; margin: 0; }
-      .sidebar-wrapper { display: block; padding: 0; }
-      .main-wrapper { display: block; padding: 0; }
+      .print-resume { padding: 0; margin: 0; }
       .section { margin-bottom: 10px; }
       .section-title { font-size: 24px; font-weight: bold; text-transform: uppercase;
         border-bottom: 2px solid #333; padding-bottom: 4px; margin-bottom: 10px; }
@@ -73,10 +45,6 @@ pandoc_exports:
       .skillset .list { font-size: 8.5pt; line-height: 1.3; }
 
 encoding: "utf-8"
-compress_html: # - http://jch.penibelst.de/
-  clippings: all
-  ignore:
-    envs: development
 
 # Development Settings
 port: 4000

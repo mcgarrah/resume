@@ -1,10 +1,7 @@
 {% assign certifications = site.data.data.certifications %}
 {% if certifications %}
 <section class="section certifications-section">
-  <h2 class="section-title">
-    <svg class="icon"><use href="#icon-award"/></svg>
-    {{ certifications.title }}
-  </h2>
+  <h2 class="section-title">{{ certifications.title }}</h2>
 
   {% for cert in certifications.list %}
   <div class="item">
@@ -21,7 +18,7 @@
         </div>
         {% if cert.credentialurl %}
         <div class="cert-url">
-          <a href="//{{ cert.credentialurl }}" target="_blank" rel="noreferrer nofollow noopener">{{ cert.credentialname }}</a>
+          <a href="//{{ cert.credentialurl }}" target="_blank">{{ cert.credentialname }}</a>
         </div>
         {% endif %}
       </div>

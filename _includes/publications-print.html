@@ -1,10 +1,7 @@
 {% assign publications = site.data.data.publications %}
 {% if publications %}
 <section class="section publications-section">
-  <h2 class="section-title">
-    <svg class="icon"><use href="#icon-file-text"/></svg>
-    {{ publications.title }}
-  </h2>
+  <h2 class="section-title">{{ publications.title }}</h2>
 
   {% if publications.intro %}
   <div class="intro">

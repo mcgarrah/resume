@@ -3,24 +3,21 @@ layout: print
 permalink: /print
 pdf: true
 docx: true
+export_filename: McGarrah-Resume
 ---
 
-{% include career-profile.html %}
+{% include career-profile-print.html %}
 
-{% unless site.data.data.sidebar.education %}
-  {% include education-print.html %}
-{% endunless %}
+{% include education-print.html %}
 
 {% include experiences-print.html %}
 
-{% include certifications.html %}
+{% include certifications-print.html %}
 
-{% include projects.html %}
+{% include projects-print.html %}
 
-{% include oss-contributions.html %}
+{% include oss-contributions-print.html %}
 
-{% include publications.html %}
+{% include publications-print.html %}
 
-{% include skills.html %}
-
-{% include print-links.html %}
+{% include skills-print.html %}

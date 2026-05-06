@@ -1,10 +1,7 @@
 {% assign oss = site.data.data.oss %}
 {% if oss %}
 <section class="section oss-section">
-  <h2 class="section-title">
-    <svg class="icon"><use href="#icon-package"/></svg>
-    {{ oss.title }}
-  </h2>
+  <h2 class="section-title">{{ oss.title }}</h2>
 
   {% if oss.intro %}
   <div class="intro">
