@@ -1,0 +1,104 @@
+{% assign sidebar = site.data.data.sidebar %}
+<header class="resume-header">
+
+  {% if sidebar.avatar %}
+  <img class="resume-header__avatar" 
+       src="{{ site.baseurl }}/assets/images/{{ sidebar.avatar }}" 
+       alt="{{ sidebar.name }}" />
+  {% endif %}
+
+  <div class="resume-header__info">
+    {% if sidebar.name %}
+    <h1 class="resume-header__name">{{ sidebar.name }}</h1>
+    {% endif %}
+
+    {% if sidebar.tagline %}
+    <p class="resume-header__tagline">{{ sidebar.tagline }}</p>
+    {% endif %}
+
+    <ul class="resume-header__contact">
+      {% if sidebar.email %}
+      <li>
+        <svg class="icon"><use href="#icon-email"/></svg>
+        <a href="mailto:{{ sidebar.email }}">{{ sidebar.email }}</a>
+      </li>
+      {% endif %}
+      {% if sidebar.phone %}
+      <li>
+        <svg class="icon"><use href="#icon-phone"/></svg>
+        <a href="tel:{{ sidebar.phone }}">{{ sidebar.phone }}</a>
+      </li>
+      {% endif %}
+      {% if sidebar.website %}
+      <li>
+        <svg class="icon"><use href="#icon-globe"/></svg>
+        <a href="https://{{ sidebar.website | remove: 'www.' }}" target="_blank">{{ sidebar.website }}</a>
+      </li>
+      {% endif %}
+      {% if sidebar.linkedin %}
+      <li>
+        <svg class="icon"><use href="#icon-linkedin"/></svg>
+        <a href="https://linkedin.com/in/{{ sidebar.linkedin }}" target="_blank">{{ sidebar.linkedin }}</a>
+      </li>
+      {% endif %}
+      {% if sidebar.github %}
+      <li>
+        <svg class="icon"><use href="#icon-github"/></svg>
+        <a href="https://github.com/{{ sidebar.github }}" target="_blank">{{ sidebar.github }}</a>
+      </li>
+      {% endif %}
+      {% if sidebar.gitlab %}
+      <li>
+        <svg class="icon"><use href="#icon-gitlab"/></svg>
+        <a href="https://gitlab.com/{{ sidebar.gitlab }}" target="_blank">{{ sidebar.gitlab }}</a>
+      </li>
+      {% endif %}
+      {% if sidebar.kaggle %}
+      <li>
+        <svg class="icon"><use href="#icon-kaggle"/></svg>
+        <a href="https://www.kaggle.com/{{ sidebar.kaggle }}" target="_blank">{{ sidebar.kaggle }}</a>
+      </li>
+      {% endif %}
+      {% if sidebar.signal %}
+      <li>
+        <svg class="icon"><use href="#icon-shield"/></svg>
+        <a href="https://signal.me/#eu/{{ sidebar.signal }}" target="_blank">@{{ sidebar.signal }}</a>
+      </li>
+      {% endif %}
+      {% if sidebar.stack-overflow %}
+      <li>
+        <svg class="icon"><use href="#icon-stackoverflow"/></svg>
+        <a href="https://stackoverflow.com/users/{{ sidebar.stack-overflow }}" target="_blank">Stack Overflow</a>
+      </li>
+      {% endif %}
+      {% if sidebar.discord %}
+      <li>
+        <svg class="icon"><use href="#icon-discord"/></svg>
+        <a href="https://discord.com/users/{{ sidebar.discord }}" target="_blank">Discord</a>
+      </li>
+      {% endif %}
+    </ul>
+
+    <ul class="resume-header__downloads">
+      {% if sidebar.pdf %}
+      <li>
+        <svg class="icon"><use href="#icon-pdf"/></svg>
+        <a href="{{ sidebar.pdf }}" target="_blank">PDF</a>
+      </li>
+      {% endif %}
+      {% if sidebar.docx %}
+      <li>
+        <svg class="icon"><use href="#icon-file-word"/></svg>
+        <a href="{{ sidebar.docx }}" target="_blank">DOCX</a>
+      </li>
+      {% endif %}
+      {% if sidebar.print %}
+      <li>
+        <svg class="icon"><use href="#icon-printer"/></svg>
+        <a href="{{ sidebar.print }}" target="_blank">Print</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+
+</header>

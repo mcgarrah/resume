@@ -1,0 +1,68 @@
+// Resume — Design Tokens (CSS Custom Properties)
+// Light mode is default; dark mode via prefers-color-scheme
+
+:root {
+  // Colors — Ceramic palette carried forward
+  --color-bg: #ffffff;
+  --color-surface: #f8f9fa;
+  --color-text: #3F4650;
+  --color-text-secondary: #545E6C;
+  --color-text-muted: #97AAC3;
+  --color-accent: #4B6A78;
+  --color-accent-hover: #3a5563;
+  --color-border: #e8e8e8;
+  --color-link: #3a5563;
+  --color-link-hover: #2a4049;
+
+  // Typography
+  --font-body: "Inter", -apple-system, "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  --font-heading: "Inter", -apple-system, "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+
+  // Fluid type scale (clamp: min, preferred, max)
+  --text-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.8rem);
+  --text-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);
+  --text-base: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
+  --text-lg: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-xl: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --text-2xl: clamp(1.375rem, 1.2rem + 0.75vw, 1.75rem);
+  --text-3xl: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
+
+  // Spacing scale
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  // Layout
+  --max-width: 52rem;
+  --content-padding: clamp(1rem, 3vw, 3rem);
+
+  // Borders & Shadows
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  // Icons
+  --icon-size: 1.25em;
+  --icon-size-sm: 1em;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1a1a2e;
+    --color-surface: #16213e;
+    --color-text: #e0e0e0;
+    --color-text-secondary: #b0b8c4;
+    --color-text-muted: #7a8899;
+    --color-accent: #7fb3c8;
+    --color-accent-hover: #9fcadb;
+    --color-border: #2a3a4e;
+    --color-link: #7fb3c8;
+    --color-link-hover: #9fcadb;
+  }
+}

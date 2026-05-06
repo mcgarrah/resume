@@ -1,0 +1,42 @@
+{% assign education = site.data.data.education %}
+{% if education %}
+<section class="section educations-section">
+  <h2 class="section-title">
+    <svg class="icon"><use href="#icon-graduation"/></svg>
+    {{ education.title }}
+  </h2>
+
+  {% for graduation in education.info %}
+  <div class="item">
+    <div class="meta">
+      <div class="upper-row">
+        <h3 class="degree">{{ graduation.degree }}</h3>
+        <div class="time">{{ graduation.time }}</div>
+      </div>
+      <div class="second-upper-row">
+        <div class="university">{{ graduation.university }}</div>
+        {% if graduation.gpa %}
+        <div class="gpa">GPA: {{ graduation.gpa }}</div>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if graduation.summary %}
+    <div class="details">
+      {{ graduation.summary | markdownify }}
+      {% if graduation.details %}
+      <details>
+        <summary>Show details</summary>
+        {{ graduation.details | markdownify }}
+      </details>
+      {% endif %}
+    </div>
+    {% elsif graduation.details %}
+    <div class="details">
+      {{ graduation.details | markdownify }}
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</section>
+{% endif %}

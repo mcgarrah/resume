@@ -1,0 +1,30 @@
+{% assign projects = site.data.data.projects %}
+{% if projects %}
+<section class="section projects-section">
+  <h2 class="section-title">
+    <svg class="icon"><use href="#icon-archive"/></svg>
+    {{ projects.title }}
+  </h2>
+
+  {% if projects.intro %}
+  <div class="intro">
+    <p>{{ projects.intro }}</p>
+  </div>
+  {% endif %}
+
+  {% for project in projects.assignments %}
+  <div class="item">
+    <div class="project-title">
+      {% if project.link %}
+      <a href="{{ project.link }}" target="_blank">{{ project.title }}</a>
+      {% else %}
+      {{ project.title }}
+      {% endif %}
+    </div>
+    {% if project.tagline %}
+    <div class="project-tagline">{{ project.tagline | markdownify }}</div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
