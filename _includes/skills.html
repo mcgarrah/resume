@@ -1,31 +1,12 @@
 {% assign skills = site.data.data.skills %}
 {% if skills %}
-<section class="skills-section section">
-
+<section class="section skills-section">
   <h2 class="section-title">
-    <span class="fa-stack fa-xs">
-      <i class="fas fa-circle fa-stack-2x"></i>
-      <i class="fas fa-wrench fa-stack-1x fa-inverse"></i>
-    </span>
+    <svg class="icon"><use href="#icon-wrench"/></svg>
     {{ skills.title }}
   </h2>
 
   <div class="skillset">
-
-    {% for skill in skills.toolset %}
-    <div class="item">
-
-      <h3 class="level-title">{{ skill.name }}</h3>
-
-      <div class="level-bar">
-        <div class="level-bar-inner" data-level="{{ skill.level }}">
-        </div>
-      </div><!--//level-bar-->
-
-    </div><!--//item-->
-    {% endfor %}
-
-    <!-- Skillsets Loop -->
     {% if skills.skillsets %}
       {% for skillset in skills.skillsets %}
       <div class="item">
@@ -37,23 +18,17 @@
           <p class="list">{{ sub_category.list | newline_to_br }}</p>
 
           {% if sub_category.sub_sub_categories %}
-            <div class="sub-sub-categories">
-              {% for sub_sub_category in sub_category.sub_sub_categories %}
-              <h5 class="sub-sub-category-title">{{ sub_sub_category.title }}</h5>
-              <p class="list">{{ sub_sub_category.list | newline_to_br }}</p>
-              {% endfor %}
-            </div>
-          {% endif %} <!-- End of Sub Sub Categories Loop -->
+            {% for sub_sub_category in sub_category.sub_sub_categories %}
+            <h5 class="sub-sub-category-title">{{ sub_sub_category.title }}</h5>
+            <p class="list">{{ sub_sub_category.list | newline_to_br }}</p>
+            {% endfor %}
+          {% endif %}
 
           {% endfor %}
-        {% endif %} <!-- End of Sub Categories Loop -->
-        
-      </div><!--//item-->
+        {% endif %}
+      </div>
       {% endfor %}
-    {% endif %} <!-- End of Skillsets Loop -->
-
-
+    {% endif %}
   </div>
-
-</section><!--//skills-section-->
+</section>
 {% endif %}

@@ -1,48 +1,35 @@
-{% assign certifications = site.data.data.certifications %} {% if certifications %}
+{% assign certifications = site.data.data.certifications %}
+{% if certifications %}
 <section class="section certifications-section">
   <h2 class="section-title">
-    <span class="fa-stack fa-xs">
-      <i class="fas fa-circle fa-stack-2x"></i>
-      <i class="fas fa-graduation-cap fa-stack-1x fa-inverse"></i>
-    </span>
+    <svg class="icon"><use href="#icon-award"/></svg>
     {{ certifications.title }}
   </h2>
 
-  {% for certifications in certifications.list %}
+  {% for cert in certifications.list %}
   <div class="item">
     <div class="meta">
       <div class="upper-row">
-        <h3 class="cert-title">{{ certifications.name }}</h3>
+        <h3 class="cert-title">{{ cert.name }}</h3>
         <div class="time">
-          {{ certifications.start }} {% if certifications.end %} - {{
-          certifications.end }} {% endif %}
+          {{ cert.start }}{% if cert.end %} - {{ cert.end }}{% endif %}
         </div>
       </div>
-      <!--//upper-row-->
-
       <div class="second-upper-row">
         <div class="cert-org">
-          {{ certifications.organization }} {% if certifications.credentialid %}
-          ({{ certifications.credentialid }}) {% endif %}
+          {{ cert.organization }}{% if cert.credentialid %} ({{ cert.credentialid }}){% endif %}
         </div>
-        {% if certifications.credentialurl %}
+        {% if cert.credentialurl %}
         <div class="cert-url">
-          <a
-            href="//{{ certifications.credentialurl }}"
-            target="_blank"
-            rel="noreferrer nofollow noopener"
-            >{{ certifications.credentialname }}</a
-          >
+          <a href="//{{ cert.credentialurl }}" target="_blank" rel="noreferrer nofollow noopener">{{ cert.credentialname }}</a>
         </div>
         {% endif %}
       </div>
     </div>
-    <!--//meta-->
-
-    <div class="details">{{ certifications.details | markdownify }}</div>
+    {% if cert.details %}
+    <div class="details">{{ cert.details | markdownify }}</div>
+    {% endif %}
   </div>
-  <!--//item-->
   {% endfor %}
 </section>
-<!--//section-->
 {% endif %}
