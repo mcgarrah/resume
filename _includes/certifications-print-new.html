@@ -1,0 +1,32 @@
+{% assign certifications = site.data.data.certifications %}
+{% if certifications %}
+<section class="section certifications-section">
+  <h2 class="section-title">{{ certifications.title }}</h2>
+
+  {% for cert in certifications.list %}
+  <div class="item">
+    <div class="meta">
+      <div class="upper-row">
+        <h3 class="cert-title">{{ cert.name }}</h3>
+        <div class="time">
+          {{ cert.start }}{% if cert.end %} - {{ cert.end }}{% endif %}
+        </div>
+      </div>
+      <div class="second-upper-row">
+        <div class="cert-org">
+          {{ cert.organization }}{% if cert.credentialid %} ({{ cert.credentialid }}){% endif %}
+        </div>
+        {% if cert.credentialurl %}
+        <div class="cert-url">
+          <a href="//{{ cert.credentialurl }}" target="_blank">{{ cert.credentialname }}</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% if cert.details %}
+    <div class="details">{{ cert.details | markdownify }}</div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</section>
+{% endif %}

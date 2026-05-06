@@ -1,0 +1,30 @@
+{% assign sidebar = site.data.data.sidebar %}
+<section class="section print-links-section">
+  <h2 class="section-title">Profiles &amp; Links</h2>
+  <ul class="print-links-list">
+    {% if sidebar.website %}
+    <li><strong>Website:</strong> <a href="https://{{ sidebar.website | remove: 'www.' }}">www.{{ sidebar.website | remove: 'www.' }}</a></li>
+    {% endif %}
+    {% if sidebar.linkedin %}
+    <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/{{ sidebar.linkedin }}">linkedin.com/in/{{ sidebar.linkedin }}</a></li>
+    {% endif %}
+    {% if sidebar.github %}
+    <li><strong>GitHub:</strong> <a href="https://github.com/{{ sidebar.github }}">github.com/{{ sidebar.github }}</a></li>
+    {% endif %}
+    {% if sidebar.gitlab %}
+    <li><strong>GitLab:</strong> <a href="https://gitlab.com/{{ sidebar.gitlab }}">gitlab.com/{{ sidebar.gitlab }}</a></li>
+    {% endif %}
+    {% if sidebar.kaggle %}
+    <li><strong>Kaggle:</strong> <a href="https://www.kaggle.com/{{ sidebar.kaggle }}">kaggle.com/{{ sidebar.kaggle }}</a></li>
+    {% endif %}
+    {% if sidebar.stack-overflow %}
+    <li><strong>Stack Overflow:</strong> <a href="https://stackoverflow.com/users/{{ sidebar.stack-overflow }}">stackoverflow.com/users/{{ sidebar.stack-overflow }}</a></li>
+    {% endif %}
+    {% if sidebar.signal %}
+    <li><strong>Signal:</strong> <a href="https://signal.me/#eu/{{ sidebar.signal }}">@{{ sidebar.signal }}</a></li>
+    {% endif %}
+  </ul>
+  <p class="print-links-note">
+    Full interactive resume: <a href="https://mcgarrah.org/resume/">https://mcgarrah.org/resume/</a>
+  </p>
+</section>

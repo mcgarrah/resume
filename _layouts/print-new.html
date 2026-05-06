@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  {% seo %}
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", -apple-system, "Segoe UI", "Roboto", sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .print-resume {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 60px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.3;
+      margin-top: 0;
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    p { margin-top: 0; margin-bottom: 8px; }
+
+    /* Print Header */
+    .print-header {
+      border-bottom: 2px solid #333;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .print-header__name {
+      font-size: 28px;
+      font-weight: 900;
+      margin: 0 0 4px 0;
+      color: #333;
+    }
+
+    .print-header__tagline {
+      font-size: 15px;
+      font-weight: 400;
+      margin: 0 0 10px 0;
+      color: #555;
+    }
+
+    .print-header__contact {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 20px;
+      font-size: 12px;
+    }
+
+    .print-header__contact li {
+      white-space: nowrap;
+    }
+
+    .print-header__contact a {
+      color: #333;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      border-bottom: 2px solid #333;
+      padding-bottom: 4px;
+      margin-bottom: 14px;
+    }
+
+    /* Items (experience, education, certs) */
+    .item {
+      margin-bottom: 20px;
+      padding-top: 12px;
+      border-top: 1px solid #ddd;
+    }
+
+    .item:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .upper-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .job-title, .degree, .cert-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #333;
+      margin: 0;
+    }
+
+    .time {
+      font-size: 13px;
+      font-weight: 600;
+      color: #666;
+      white-space: nowrap;
+    }
+
+    .gpa {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .company, .university, .cert-org {
+      font-size: 13px;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .cert-url {
+      font-size: 12px;
+    }
+
+    .second-upper-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .details {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    .details p { margin-bottom: 6px; }
+    .details ul, .details ol { padding-left: 20px; margin-bottom: 6px; }
+    .details li { margin-bottom: 3px; }
+    .details img { max-width: 100%; height: auto; }
+
+    /* Projects */
+    .project-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .project-tagline {
+      font-size: 13px;
+      color: #555;
+    }
+
+    /* Publications */
+    .publication-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .publication-authors {
+      font-size: 12px;
+      font-style: italic;
+      color: #666;
+    }
+
+    .publication-conference {
+      font-size: 12px;
+      color: #555;
+    }
+
+    /* Skills */
+    .skillset {
+      columns: 2;
+      column-gap: 24px;
+    }
+
+    .skillset .item {
+      break-inside: avoid;
+      margin-bottom: 8px;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .skillset .category-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin: 0 0 2px 0;
+    }
+
+    .skillset .sub-category-title {
+      font-size: 12px;
+      font-weight: 600;
+      font-style: italic;
+      margin: 4px 0 2px 12px;
+      color: #555;
+    }
+
+    .skillset .sub-sub-category-title {
+      font-size: 11px;
+      color: #666;
+      margin: 2px 0 2px 24px;
+    }
+
+    .skillset .list {
+      font-size: 11px;
+      line-height: 1.4;
+      color: #555;
+      margin-left: 24px;
+    }
+
+    /* OSS */
+    .oss-section .item {
+      margin-bottom: 6px;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    /* Print Links footer */
+    .print-links-section {
+      margin-top: 24px;
+    }
+
+    .print-links-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 20px;
+      font-size: 12px;
+    }
+
+    .print-links-list a { color: #333; }
+
+    .print-links-note {
+      margin-top: 12px;
+      font-size: 11px;
+      color: #555;
+    }
+
+    /* Certifications */
+    .certifications-section .item {
+      margin-bottom: 10px;
+    }
+
+    @media print {
+      body { padding: 0; }
+      .print-resume { padding: 0 40px; max-width: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="print-resume">
+    {% include print-header-new.html %}
+    {{ content }}
+    {% include print-links-new.html %}
+  </div>
+</body>
+</html>

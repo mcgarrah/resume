@@ -1,0 +1,22 @@
+{% assign sidebar = site.data.data.sidebar %}
+<header class="print-header">
+  <h1 class="print-header__name">{{ sidebar.name }}</h1>
+  <p class="print-header__tagline">{{ sidebar.tagline }}</p>
+  <ul class="print-header__contact">
+    {% if sidebar.email %}
+    <li><a href="mailto:{{ sidebar.email }}">{{ sidebar.email }}</a></li>
+    {% endif %}
+    {% if sidebar.phone %}
+    <li><a href="tel:{{ sidebar.phone }}">{{ sidebar.phone }}</a></li>
+    {% endif %}
+    {% if sidebar.website %}
+    <li><a href="https://{{ sidebar.website | remove: 'www.' }}">www.{{ sidebar.website | remove: 'www.' }}</a></li>
+    {% endif %}
+    {% if sidebar.linkedin %}
+    <li><a href="https://linkedin.com/in/{{ sidebar.linkedin }}">linkedin.com/in/{{ sidebar.linkedin }}</a></li>
+    {% endif %}
+    {% if sidebar.github %}
+    <li><a href="https://github.com/{{ sidebar.github }}">github.com/{{ sidebar.github }}</a></li>
+    {% endif %}
+  </ul>
+</header>

@@ -1,26 +1,22 @@
 ---
-layout: print
+layout: print-new
 permalink: /print
 pdf: true
 docx: true
 ---
 
-{% include career-profile.html %}
+{% include career-profile-print-new.html %}
 
-{% unless site.data.data.sidebar.education %}
-  {% include education-print.html %}
-{% endunless %}
+{% include education-print-new.html %}
 
-{% include experiences-print.html %}
+{% include experiences-print-new.html %}
 
-{% include certifications.html %}
+{% include certifications-print-new.html %}
 
-{% include projects.html %}
+{% include projects-print-new.html %}
 
-{% include oss-contributions.html %}
+{% include oss-contributions-print-new.html %}
 
-{% include publications.html %}
+{% include publications-print-new.html %}
 
-{% include skills.html %}
-
-{% include print-links.html %}
+{% include skills-print-new.html %}
