@@ -7,7 +7,7 @@ gem "webrick"
 group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-seo-tag"
-  gem "jekyll-pandoc-exports", path: "../jekyll-pandoc-exports"
+  gem "jekyll-pandoc-exports", "~> 0.2.0"
 end
 
 # CI quality gates
