@@ -229,6 +229,22 @@ The `assets/plugins/` directory (Bootstrap, Font Awesome, jQuery) is removed —
 - Pagefind static search (build-time indexing, WASM client)
 - AI chat widget (external agent, async-loaded JS)
 
+### Modern UI Without Node.js
+
+The goal is a clean, modern aesthetic without introducing a Node.js/PostCSS build pipeline. Options evaluated:
+
+| Approach | Pros | Cons | Verdict |
+|----------|------|------|---------|
+| **Tailwind CSS (standalone CLI)** | Utility-first, modern look, no Node required (Rust binary) | Large class strings in HTML, fights Liquid templating, still an external binary | Consider |
+| **Open Props** | CSS custom properties library, modern defaults, zero build step | Less opinionated than Tailwind, requires more manual composition | Strong candidate |
+| **Modern CSS (hand-rolled)** | Full control, zero dependencies, smallest footprint | More upfront design work | Current plan |
+| **Pico CSS** | Classless/minimal-class framework, semantic HTML styling | Opinionated defaults may conflict with resume layout needs | Evaluate |
+| **MVP.css / Water.css** | Classless — just drop in and semantic HTML looks good | Too minimal for a polished resume, limited customization | Too simple |
+
+**Current direction:** Hand-rolled modern CSS with CSS custom properties, CSS Grid, `clamp()` for fluid typography, and modern selectors (`:has()`, `:is()`). The ~200 line target is achievable for a single-purpose resume site and avoids any external tooling. If the design work proves too time-consuming, **Open Props** is the fallback — it's a pure CSS import with no build step that provides well-designed spacing, typography, and color scales as custom properties.
+
+**Tailwind standalone CLI** remains an option if the hand-rolled approach feels too spartan. The [Tailwind standalone binary](https://tailwindcss.com/blog/standalone-cli) is a single Rust executable — no Node.js, no npm. It could be added to the GitHub Actions build without changing the Ruby toolchain. But it adds a binary dependency and the utility-class approach clutters Liquid templates.
+
 ## Proposed File Structure
 
 ```
@@ -286,11 +302,21 @@ resume/
 - SVG sprite with ~12 icons
 - Verify renders at `localhost:4000/resume/`
 
-### Phase 2 — Print View and Pandoc
+### Phase 2 — Print View, Pandoc, and Plugin CLI Extension
 - New `_layouts/print.html` — linear HTML, no sidebar, no icon decorations
 - Restructure so Pandoc needs zero (or minimal) `title_cleanup` patterns
 - Simplify `_config.yml` pandoc_exports section
 - Test PDF and DOCX output
+
+#### Plugin CLI Extension (jekyll-pandoc-exports)
+
+Extend the plugin with a `Jekyll::Command` to enable standalone export without a full site build:
+
+- `bundle exec jekyll export` — generate PDF/DOCX directly, skip full `jekyll build`
+- `--pdf-only` / `--docx-only` — selective output format
+- `--target=resume` — parameterized target for future reuse (MBA papers, blog post exports)
+- `--dry-run` — print the exact pandoc shell command without executing (invaluable for debugging LaTeX template issues)
+- Pre-export validation: verify `_data/data.yml` matches expected structural schema before calling Pandoc (catch missing fields, malformed dates, broken YAML references early)
 
 ### Phase 3 — Machine View
 - New `_layouts/machine.html` — semantic HTML + JSON-LD
@@ -306,6 +332,7 @@ resume/
 - Lighthouse scores (Performance, Accessibility, SEO)
 - Remove `assets/plugins/` directory
 - Remove legacy files (`compress.html`, `_sass/skins/`, etc.)
+- CI quality gates: `jekyll doctor` (configuration smells) + `html-proofer` (link integrity)
 
 ### Phase 5 — In-Browser Search
 - Add Pagefind indexing step to GitHub Actions build pipeline (interim solution)
@@ -371,3 +398,8 @@ git checkout refactor && bundle exec jekyll serve --port 4000
 | | Acknowledge Project Nexus as future state | Refactor builds the foundation; avoid decisions that conflict with Nexus architecture |
 | | Pagefind as interim search (swappable) | Pragmatic first step; Nexus replaces with MiniSearch + Mark.js for custom tokenization |
 | | Keep search/chat JS loading pattern generic | Future TypeScript orchestrator needs the same entry points |
+| 2026-05-06 | Add `jekyll export` CLI command to plugin | Decouple PDF/DOCX generation from full site build for faster iteration |
+| 2026-05-06 | Add `--dry-run` flag to export command | Debug LaTeX/Pandoc issues without executing; print exact shell command |
+| 2026-05-06 | Add pre-export YAML schema validation | Catch structural errors in data.yml before Pandoc fails cryptically |
+| 2026-05-06 | Add `jekyll doctor` + `html-proofer` to CI | Quality gates: config smells and link integrity checks |
+| 2026-05-06 | Modern UI: hand-rolled CSS first, Open Props fallback | Avoid Node.js dependency; Tailwind standalone CLI as last resort |
