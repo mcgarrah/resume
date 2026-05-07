@@ -38,6 +38,24 @@ def latex_escape_text(text):
     if text is None:
         return ""
     text = str(text)
+    # Replace Unicode symbols with placeholders BEFORE escaping
+    # (placeholders won't be affected by special char escaping)
+    placeholders = {
+        '→': '\x00ARROW\x00',
+        '—': '\x00EMDASH\x00',
+        '–': '\x00ENDASH\x00',
+        '\u2019': '\x00RSQUOTE\x00',
+        '\u201C': '\x00LDQUOTE\x00',
+        '\u201D': '\x00RDQUOTE\x00',
+        '©': '\x00COPYRIGHT\x00',
+        '®': '\x00REGISTERED\x00',
+        '°': '\x00DEGREE\x00',
+        '·': '\x00MIDDOT\x00',
+        '•': '\x00BULLET\x00',
+    }
+    for char, placeholder in placeholders.items():
+        text = text.replace(char, placeholder)
+    # Escape LaTeX special characters (order matters)
     chars = {
         '\\': r'\textbackslash{}',
         '&': r'\&',
@@ -53,6 +71,22 @@ def latex_escape_text(text):
     for char, replacement in chars.items():
         text = text.replace(char, replacement)
     text = text.replace(r'\textbackslash\{\}', r'\textbackslash{}')
+    # Replace placeholders with LaTeX equivalents
+    latex_replacements = {
+        '\x00ARROW\x00': r'$\rightarrow$',
+        '\x00EMDASH\x00': '---',
+        '\x00ENDASH\x00': '--',
+        '\x00RSQUOTE\x00': "'",
+        '\x00LDQUOTE\x00': '``',
+        '\x00RDQUOTE\x00': "''",
+        '\x00COPYRIGHT\x00': r'\textcopyright{}',
+        '\x00REGISTERED\x00': r'\textregistered{}',
+        '\x00DEGREE\x00': r'\textdegree{}',
+        '\x00MIDDOT\x00': r'\textperiodcentered{}',
+        '\x00BULLET\x00': r'\textbullet{}',
+    }
+    for placeholder, replacement in latex_replacements.items():
+        text = text.replace(placeholder, replacement)
     return text
 
 
