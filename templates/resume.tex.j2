@@ -127,6 +127,10 @@
 {\small << edu.summary | latex_escape | latex_paragraphs >>}
 <% endif %>
 
+<% if edu.details %>
+{\small << edu.details | latex_escape | latex_paragraphs >>}
+<% endif %>
+
 <% endfor %>
 
 % === EXPERIENCE ===
