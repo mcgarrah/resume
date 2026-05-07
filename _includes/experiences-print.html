@@ -19,6 +19,12 @@
       {% if experience.details %}
       {{ experience.details | markdownify }}
       {% endif %}
+      {% if experience.subsections %}
+      {% for subsection in experience.subsections %}
+      <h4>{{ subsection.title }}</h4>
+      {{ subsection.text | markdownify }}
+      {% endfor %}
+      {% endif %}
     </div>
     {% endif %}
   </div>

@@ -69,6 +69,14 @@ permalink: /machine/
       {% if job.details %}
       <div class="details">{{ job.details | markdownify }}</div>
       {% endif %}
+      {% if job.subsections %}
+      {% for subsection in job.subsections %}
+      <div itemscope itemtype="https://schema.org/CreativeWork">
+        <h4 itemprop="name">{{ subsection.title }}</h4>
+        <div itemprop="description">{{ subsection.text | markdownify }}</div>
+      </div>
+      {% endfor %}
+      {% endif %}
     </article>
     {% endfor %}
   </section>
