@@ -30,6 +30,13 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended texlive-latex-extra
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install WeasyPrint
+        run: |
+          pip install -r requirements.txt
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v6
@@ -39,16 +46,21 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+      - name: Generate styled PDF (WeasyPrint)
+        run: bash bin/generate-pdf.sh
       - name: Verify exports
         run: |
           echo "Checking for generated exports..."
           ls -la _site/downloads/ || echo "No downloads directory"
           if [ -f "_site/downloads/McGarrah-Resume.pdf" ]; then
-            echo "✓ McGarrah-Resume.pdf generated"
-          elif [ -f "_site/downloads/print.pdf" ]; then
-            echo "⚠ Fallback: print.pdf found (rename not applied)"
+            echo "✓ McGarrah-Resume.pdf (Pandoc) generated"
           else
-            echo "✗ No PDF export found"
+            echo "✗ No Pandoc PDF export found"
+          fi
+          if [ -f "_site/downloads/McGarrah-Resume-styled.pdf" ]; then
+            echo "✓ McGarrah-Resume-styled.pdf (WeasyPrint) generated"
+          else
+            echo "✗ No WeasyPrint PDF export found"
           fi
       - name: HTML Proofer
         run: |
