@@ -157,11 +157,13 @@
 % === CERTIFICATIONS ===
 \needspace{6\baselineskip}
 \section{Certifications}
-\begin{itemize}
 <% for cert in certifications.list %>
-  \item \textbf{<< cert.name | latex_escape >>} — << cert.organization | latex_escape >> (<< cert.start >><% if cert.end %> – << cert.end >><% endif %>)
+\needspace{2\baselineskip}
+\noindent\textbf{<< cert.name | latex_escape >>} \hfill {\small\textcolor{subtext}{<< cert.start >><% if cert.end %> -- << cert.end >><% endif %>}}\\
+{\small << cert.organization | latex_escape >><% if cert.credentialid %> (<< cert.credentialid >>)<% endif %><% if cert.credentialurl %> \hfill \href{<< cert.credentialurl >>}{Verify on << cert.credentialname | default("web") >>}<% endif %>}
+\vspace{4pt}
+
 <% endfor %>
-\end{itemize}
 
 % === PROJECTS ===
 \needspace{6\baselineskip}
