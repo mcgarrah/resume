@@ -21,25 +21,23 @@ import yaml
 from jinja2 import Environment, FileSystemLoader
 
 
-def latex_escape(text):
-    """Escape special LaTeX characters in text."""
+def latex_escape_url(url):
+    """Escape a URL for use in LaTeX \\href — only escape %, #, and &."""
+    if url is None:
+        return ""
+    url = str(url)
+    # URLs need minimal escaping — just the chars that break LaTeX
+    url = url.replace('%', r'\%')
+    url = url.replace('#', r'\#')
+    url = url.replace('&', r'\&')
+    return url
+
+
+def latex_escape_text(text):
+    """Escape text for LaTeX (no link processing)."""
     if text is None:
         return ""
     text = str(text)
-    # Remove markdown links — convert [text](url) to text
-    text = re.sub(r'\[([^\]]+)\]\([^)]+\)(\{[^}]*\})?', r'\1', text)
-    # Remove HTML links — convert <a href="...">text</a> to text
-    text = re.sub(r'<a[^>]*>([^<]*)</a>', r'\1', text)
-    # Remove kramdown attributes {:target="_blank"} etc
-    text = re.sub(r'\{:[^}]*\}', '', text)
-    # Remove markdown bold/italic markers
-    text = re.sub(r'\*\*([^*]+)\*\*', r'\1', text)
-    text = re.sub(r'\*([^*]+)\*', r'\1', text)
-    # Remove markdown image syntax ![alt](url)
-    text = re.sub(r'!\[[^\]]*\]\([^)]+\)', '', text)
-    # Remove bullet list markers at start of lines
-    text = re.sub(r'^\s*[-*]\s+', '', text, flags=re.MULTILINE)
-    # Escape LaTeX special characters (order matters)
     chars = {
         '\\': r'\textbackslash{}',
         '&': r'\&',
@@ -54,16 +52,77 @@ def latex_escape(text):
     }
     for char, replacement in chars.items():
         text = text.replace(char, replacement)
-    # Fix the textbackslash that got double-escaped
     text = text.replace(r'\textbackslash\{\}', r'\textbackslash{}')
+    return text
+
+
+def latex_escape(text):
+    """Escape special LaTeX characters, converting markdown links to \\href."""
+    if text is None:
+        return ""
+    text = str(text)
+
+    # Convert markdown links [text](url){:attrs} to \href{url}{text}
+    def md_link_to_href(match):
+        link_text = match.group(1)
+        url = match.group(2)
+        return r'\href{' + latex_escape_url(url) + '}{' + latex_escape_text(link_text) + '}'
+
+    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)(\{[^}]*\})?', md_link_to_href, text)
+
+    # Convert HTML links <a href="url">text</a> to \href{url}{text}
+    def html_link_to_href(match):
+        url = match.group(1)
+        link_text = match.group(2)
+        return r'\href{' + latex_escape_url(url) + '}{' + latex_escape_text(link_text) + '}'
+
+    text = re.sub(r'<a[^>]*href="([^"]*)"[^>]*>([^<]*)</a>', html_link_to_href, text)
+
+    # Remove kramdown attributes {:target="_blank"} etc (already handled above)
+    text = re.sub(r'\{:[^}]*\}', '', text)
+    # Remove markdown bold/italic markers
+    text = re.sub(r'\*\*([^*]+)\*\*', r'\1', text)
+    text = re.sub(r'\*([^*]+)\*', r'\1', text)
+    # Remove markdown image syntax ![alt](url)
+    text = re.sub(r'!\[[^\]]*\]\([^)]+\)', '', text)
+
+    # Convert bullet list lines to LaTeX itemize items
+    lines = text.split('\n')
+    in_list = False
+    result_lines = []
+    for line in lines:
+        stripped = line.lstrip()
+        if re.match(r'^[-*]\s+', stripped):
+            if not in_list:
+                result_lines.append(r'\begin{itemize}')
+                in_list = True
+            item_text = re.sub(r'^[-*]\s+', '', stripped)
+            # Don't double-escape lines that already have \href from link conversion
+            if r'\href{' not in item_text:
+                item_text = latex_escape_text(item_text)
+            result_lines.append(r'  \item ' + item_text)
+        else:
+            if in_list:
+                result_lines.append(r'\end{itemize}')
+                in_list = False
+            # Escape remaining text (but preserve \href already inserted)
+            if r'\href{' not in line:
+                line = latex_escape_text(line)
+            result_lines.append(line)
+    if in_list:
+        result_lines.append(r'\end{itemize}')
+    text = '\n'.join(result_lines)
+
     return text.strip()
 
 
 def latex_paragraphs(text):
-    """Convert multi-paragraph text to LaTeX paragraph breaks."""
+    """Convert multi-paragraph text to LaTeX paragraph breaks.
+    Preserves itemize environments intact."""
     if text is None:
         return ""
-    # Split on double newlines (paragraph breaks)
+    # Don't split inside itemize environments
+    # Just ensure paragraph breaks between non-list blocks
     paragraphs = re.split(r'\n\s*\n', text)
     return '\n\n'.join(p.strip() for p in paragraphs if p.strip())
 
