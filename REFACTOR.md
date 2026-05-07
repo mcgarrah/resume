@@ -372,6 +372,16 @@ These items should be addressed in a future plugin release:
 - Remove legacy files (`compress.html`, `_sass/skins/`, etc.)
 - CI quality gates: `jekyll doctor` (configuration smells) + `html-proofer` (link integrity)
 
+### Phase 4b — Experience Subsections Schema (data model change)
+- Restructure `_data/data.yml` to replace flat `details` markdown blobs with structured `subsections` array
+- Each subsection has explicit `title` and `text` fields instead of relying on `**bold**` markdown
+- Templates render subsection titles as `<h4>` — Pandoc converts to `\paragraph{}` (visually distinct from `<h3>` → `\subsubsection{}`)
+- Machine view wraps subsections as `schema.org/CreativeWork` nested within `OrganizationRole` for ATS compatibility
+- Backward compatible: entries without subsections continue using `summary`/`details` fields
+- Migration scope: 19 jobs, 135 subsections, preserving all 51 markdown links and rich content
+- **Motivation**: Pandoc renders `<h3>` job titles and `<strong>` subsection headings at identical visual weight in PDF — CSS class-based styling is ignored during LaTeX conversion
+- **Spec**: `.kiro/specs/experience-subsections/requirements.md` (in mcgarrah.github.io workspace)
+
 ### Phase 5 — In-Browser Search
 - Add Pagefind indexing step to GitHub Actions build pipeline (interim solution)
 - Add search UI component to brief view header (excluded from print/machine views)
@@ -447,3 +457,5 @@ git checkout refactor && bundle exec jekyll serve --port 4000
 | 2026-05-06 | Drop `github-pages` gem | Conflicts with Jekyll 4.x; replaced with explicit `jekyll ~> 4.4` dependency |
 | 2026-05-06 | Add `html-proofer` to CI | Link integrity checking in GitHub Actions workflow |
 | 2026-05-06 | Phase 3 locally validated | JSON-LD valid, heading hierarchy clean, microdata complete; pending Google Rich Results Test on live URL |
+| 2026-05-06 | Experience subsections schema change | Pandoc can't distinguish `<h3>` job titles from `<strong>` subsection headings in PDF; restructure data.yml with explicit `subsections` array |
+| 2026-05-06 | Schema.org `CreativeWork` for subsections | Subsections in machine view wrapped as nested `CreativeWork` within `OrganizationRole` for ATS keyword indexing and semantic structure |

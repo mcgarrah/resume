@@ -19,10 +19,18 @@
     {% if experience.summary %}
     <div class="details">
       {{ experience.summary | markdownify }}
-      {% if experience.details %}
+      {% if experience.details or experience.subsections %}
       <details>
         <summary>Show details</summary>
+        {% if experience.details %}
         {{ experience.details | markdownify }}
+        {% endif %}
+        {% if experience.subsections %}
+        {% for subsection in experience.subsections %}
+        <h4>{{ subsection.title }}</h4>
+        {{ subsection.text | markdownify }}
+        {% endfor %}
+        {% endif %}
       </details>
       {% endif %}
     </div>
