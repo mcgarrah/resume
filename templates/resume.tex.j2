@@ -168,7 +168,11 @@
 \section{Projects}
 <% for project in projects.assignments %>
 \needspace{3\baselineskip}
+<% if project.link %>
+\textbf{\href{<< project.link >>}{<< project.title | latex_escape >>}}\\
+<% else %>
 \textbf{<< project.title | latex_escape >>}\\
+<% endif %>
 {\small\color{subtext} << project.tagline | latex_escape | latex_paragraphs >>}
 \vspace{4pt}
 
@@ -179,7 +183,11 @@
 \needspace{6\baselineskip}
 \section{Publications}
 <% for pub in publications.papers %>
+<% if pub.link %>
+\textbf{\href{<< pub.link >>}{<< pub.title | latex_escape >>}}. << pub.authors | latex_escape >>. \textit{<< pub.conference | latex_escape >>}.
+<% else %>
 \textbf{<< pub.title | latex_escape >>}. << pub.authors | latex_escape >>. \textit{<< pub.conference | latex_escape >>}.
+<% endif %>
 <% endfor %>
 <% endif %>
 
