@@ -62,6 +62,18 @@ def latex_escape(text):
         return ""
     text = str(text)
 
+    # Convert markdown images ![alt](path) to \includegraphics — MUST be before link conversion
+    def md_image_to_latex(match):
+        alt = match.group(1)
+        path = match.group(2)
+        # Fix baseurl prefix — strip /resume/ to get relative path
+        path = re.sub(r'^/resume/', '', path)
+        return (r'\begin{center}' + '\n'
+                r'\includegraphics[width=0.6\textwidth]{' + path + '}' + '\n'
+                r'\end{center}')
+
+    text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', md_image_to_latex, text)
+
     # Convert markdown links [text](url){:attrs} to \href{url}{text}
     def md_link_to_href(match):
         link_text = match.group(1)
@@ -83,8 +95,6 @@ def latex_escape(text):
     # Remove markdown bold/italic markers
     text = re.sub(r'\*\*([^*]+)\*\*', r'\1', text)
     text = re.sub(r'\*([^*]+)\*', r'\1', text)
-    # Remove markdown image syntax ![alt](url)
-    text = re.sub(r'!\[[^\]]*\]\([^)]+\)', '', text)
 
     # Convert bullet list lines to LaTeX itemize items
     lines = text.split('\n')
@@ -105,8 +115,8 @@ def latex_escape(text):
             if in_list:
                 result_lines.append(r'\end{itemize}')
                 in_list = False
-            # Escape remaining text (but preserve \href already inserted)
-            if r'\href{' not in line:
+            # Escape remaining text (but preserve \href and \includegraphics already inserted)
+            if r'\href{' not in line and r'\includegraphics' not in line and r'\begin{center}' not in line and r'\end{center}' not in line:
                 line = latex_escape_text(line)
             result_lines.append(line)
     if in_list:

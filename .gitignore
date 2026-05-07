@@ -7,8 +7,6 @@ _site/
 # Ruby / Bundler
 vendor/
 .bundle/
-bin/
-!bin/generate-pdf.sh
 *.gem
 
 # Python virtual environment
