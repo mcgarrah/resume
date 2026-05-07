@@ -208,6 +208,7 @@ def main():
 
     # Load and render template
     template = env.get_template('resume.tex.j2')
+    from datetime import date
     rendered = template.render(
         sidebar=data.get('sidebar', {}),
         career_profile=data.get('career-profile', {}),
@@ -217,6 +218,7 @@ def main():
         projects=data.get('projects', {}),
         publications=data.get('publications', {}),
         skills=data.get('skills', {}),
+        generation_date=date.today().strftime('%B %d, %Y'),
     )
 
     # Ensure output directory exists
