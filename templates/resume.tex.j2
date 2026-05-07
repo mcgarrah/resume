@@ -1,0 +1,172 @@
+%% Resume LaTeX Template — Generated from _data/data.yml via Jinja2
+%% Compile with: xelatex or pdflatex
+\documentclass[11pt,letterpaper]{article}
+
+% Packages
+\usepackage[margin=0.7in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{parskip}
+
+% Colors
+\definecolor{accent}{HTML}{4B6A78}
+\definecolor{heading}{HTML}{222222}
+\definecolor{subtext}{HTML}{555555}
+\definecolor{rulecolor}{HTML}{333333}
+
+% Fonts (requires XeLaTeX)
+% Helvetica Neue is available on macOS; falls back to Latin Modern on Linux
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Helvetica Neue}[
+  BoldFont=* Bold,
+  ItalicFont=* Italic,
+  BoldItalicFont=* Bold Italic,
+]
+
+% Hyperlink setup
+\hypersetup{
+  colorlinks=true,
+  linkcolor=accent,
+  urlcolor=accent,
+  pdfauthor={<< sidebar.name >>},
+  pdftitle={<< sidebar.name >> — Resume},
+}
+
+% Section formatting
+\titleformat{\section}
+  {\large\bfseries\color{heading}\MakeTextUppercase}
+  {}{0em}{}
+  [\vspace{-0.5em}{\color{rulecolor}\rule{\linewidth}{1.5pt}}]
+
+\titleformat{\subsection}
+  {\normalsize\bfseries\color{heading}}
+  {}{0em}{}
+
+\titleformat{\subsubsection}
+  {\small\bfseries\itshape\color{subtext}}
+  {}{0em}{}
+
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{8pt}{2pt}
+\titlespacing*{\subsubsection}{0pt}{6pt}{2pt}
+
+% Custom commands
+\newcommand{\jobtitle}[3]{%
+  \subsection[#1]{#1 \hfill \small\textcolor{subtext}{#2}}%
+  \vspace{-2pt}%
+  {\small\textcolor{subtext}{#3}}%
+  \vspace{4pt}%
+}
+
+\newcommand{\edutitle}[4]{%
+  \subsection[#1]{#1 \hfill \small\textcolor{subtext}{#2}}%
+  \vspace{-2pt}%
+  {\small\textcolor{subtext}{#3<< "\\hfill GPA: " if "#4" != "" >>#4}}%
+  \vspace{4pt}%
+}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Reduce list spacing
+\setlist[itemize]{nosep, leftmargin=1.5em, topsep=2pt}
+
+\begin{document}
+
+% === HEADER ===
+\begin{center}
+  {\LARGE\bfseries << sidebar.name >>}\\[4pt]
+  {\normalsize\color{subtext} << sidebar.tagline >>}\\[6pt]
+  {\small
+    << sidebar.email >> \enspace$\cdot$\enspace
+    << sidebar.phone >> \enspace$\cdot$\enspace
+    \href{https://<< sidebar.website >>}{<< sidebar.website >>} \enspace$\cdot$\enspace
+    \href{https://linkedin.com/in/<< sidebar.linkedin >>}{LinkedIn} \enspace$\cdot$\enspace
+    \href{https://github.com/<< sidebar.github >>}{GitHub}
+  }
+\end{center}
+
+\vspace{-4pt}
+
+% === CAREER PROFILE ===
+\section{Career Profile}
+<< career_profile.summary | latex_escape >>
+
+% === EDUCATION ===
+\section{Education}
+<% for edu in education.info %>
+\edutitle{<< edu.degree | latex_escape >>}{<< edu.time >>}{<< edu.university | latex_escape >>}{<< edu.gpa | default("") >>}
+
+<% if edu.summary %>
+{\small << edu.summary | latex_escape | latex_paragraphs >>}
+<% endif %>
+
+<% endfor %>
+
+% === EXPERIENCE ===
+\section{Experience}
+<% for job in experiences.info %>
+\jobtitle{<< job.role | latex_escape >>}{<< job.time >>}{<< job.company | latex_escape >>}
+
+<% if job.summary %>
+{\small << job.summary | latex_escape | latex_paragraphs >>}
+<% endif %>
+
+<% if job.subsections %>
+<% for sub in job.subsections %>
+\subsubsection{<< sub.title | latex_escape >>}
+{\small << sub.text | latex_escape | latex_paragraphs >>}
+
+<% endfor %>
+<% endif %>
+
+<% endfor %>
+
+% === CERTIFICATIONS ===
+\section{Certifications}
+\begin{itemize}
+<% for cert in certifications.list %>
+  \item \textbf{<< cert.name | latex_escape >>} — << cert.organization | latex_escape >> (<< cert.start >><% if cert.end %> – << cert.end >><% endif %>)
+<% endfor %>
+\end{itemize}
+
+% === PROJECTS ===
+\section{Projects}
+<% for project in projects.assignments %>
+\textbf{<< project.title | latex_escape >>}\\
+{\small\color{subtext} << project.tagline | latex_escape | latex_paragraphs >>}
+\vspace{4pt}
+
+<% endfor %>
+
+% === PUBLICATIONS ===
+<% if publications and publications.papers %>
+\section{Publications}
+<% for pub in publications.papers %>
+\textbf{<< pub.title | latex_escape >>}. << pub.authors | latex_escape >>. \textit{<< pub.conference | latex_escape >>}.
+<% endfor %>
+<% endif %>
+
+% === SKILLS ===
+\section{Skills \& Proficiency}
+\begin{multicols}{2}
+<% for skillset in skills.skillsets %>
+\textbf{<< skillset.categories | latex_escape >>}\\
+<% for sub in skillset.sub_categories %>
+\textit{<< sub.title | latex_escape >>}: {\small << sub.list | latex_escape >>}\\
+<% if sub.sub_sub_categories %>
+<% for subsub in sub.sub_sub_categories %>
+\quad\textit{<< subsub.title | latex_escape >>}: {\small << subsub.list | latex_escape >>}\\
+<% endfor %>
+<% endif %>
+<% endfor %>
+\vspace{4pt}
+
+<% endfor %>
+\end{multicols}
+
+\end{document}

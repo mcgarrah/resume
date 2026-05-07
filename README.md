@@ -1,56 +1,115 @@
-# TODO LIST
+# Resume — mcgarrah.org/resume
 
-Here is a todo list for my resume website.
+A Jekyll-based resume site with multiple export formats, deployed at [mcgarrah.org/resume](https://mcgarrah.org/resume).
 
-## MUST DO
+## Architecture
 
-- [ ] Fix company and university logos — see [assets/images/company-logos/README.md](assets/images/company-logos/README.md) for inventory, missing logos, and action items
-- [ ] Wrap section has a 60px around the whole thing in CSS _base.scss above line 177
-- [ ] Major section.section.xxx have a 60px vertical margin set that is too big in CSS _base.scss line 177
-- [ ] Use Indeed Profile as PDF short form resume https://profile.indeed.com/p/jm-pfv4s18 ???
-- [ ] Write a single entry for 1990-2005 with a summary of work titles and skills... to shorten up the resume. Point to long resume.
-- [ ] Use the "ChatGPT optimizations" section below list to customize resume for AI/ML version in https://www.mcgarrah.org/aiml-resume/
-- [ ] ATS (Applicant Tracking Systems) score and data fields review
-- [ ] Major hiring websites review for terms:
-  - LinkedIn Jobs
-  - Indeed
-  - Glassdoor
-  - GovernmentJobs (https://www.governmentjobs.com/careers/northcarolina)
-  - Welcome to the Jungle (was a disappointment)
-  - Dice.com
-  - Monster
-  - ZipRecruiter
-  - Seek
-  - SimplyHired
-  - Career Builder
-  - Zoho
-  - Hired
-- [ ] Review StackOverFlow for technical terms on resume and for their skills listings
-- [ ] Review Microsoft Profile for Skills list in https://jobs.careers.microsoft.com/global/en/profile (microsoft login)
+The resume is a single-source system: all content lives in `_data/data.yml` and is rendered into multiple output formats through different pipelines.
 
-## WANT TO DO
+```
+_data/data.yml (single source of truth)
+    │
+    ├── Jekyll (Ruby) ──────────────────────────────────────────────
+    │   ├── index.html        → Brief view (collapsible details)
+    │   ├── print.html        → Print view (expanded, styled)
+    │   ├── machine.html      → Machine view (Schema.org microdata)
+    │   ├── Pandoc plugin     → McGarrah-Resume.pdf (compact LaTeX)
+    │   │                     → McGarrah-Resume.docx (Word)
+    │   └── WeasyPrint        → McGarrah-Resume-styled.pdf (CSS-faithful)
+    │
+    └── Python (Jinja2 + XeLaTeX) ──────────────────────────────────
+        └── LaTeX template    → McGarrah-Resume-latex.pdf (typeset)
+                              → McGarrah-Resume-latex.tex (source)
+```
 
-- [ ] My personal [Kaggle Homepage](https://www.kaggle.com/mcgarrah) is anemic and needs some of my older work added
-- [ ] Add Credly certification profile https://www.credly.com/users/michael-mcgarrah
-- [ ] Create a plain text resume from Jekyll https://www.indeed.com/career-advice/resumes-cover-letters/text-resume
-- [ ] Update this to include an image for the university under the date \<div\> section
-- [ ] Certification section with an image
-    /home/mcgarrah/Github/resume/_includes/certifications.html
-- [ ] Get images of companies and universities
-    /home/mcgarrah/github/resume/assets/images/company-logos/
+## Design Decisions
 
-## ChatGPT optimizations
+### Dual Language Stack (Ruby + Python)
 
-https://www.linkedin.com/posts/meganlieu_sponsored-genai-activity-7213929270962778112-wQyE?utm_source=share&utm_medium=member_android
+The project deliberately uses both Ruby and Python:
 
-𝗽𝗿𝗼𝗺𝗽𝘁𝘀 𝘁𝗼 𝗼𝗽𝘁𝗶𝗺𝗶𝘇𝗲 𝘆𝗼𝘂𝗿 𝗿𝗲𝘀𝘂𝗺𝗲 𝘄𝗶𝘁𝗵 𝗔𝗜:
+- **Ruby/Jekyll** — Site generation, Liquid templates, Pandoc plugin integration. Jekyll is the established static site generator and handles HTML views, SEO, sitemaps, and the primary build pipeline.
 
-1️⃣ Give me a list of skills and keywords I should include in my resume if I am targeting [target role]
+- **Python/Jinja2** — LaTeX template rendering and WeasyPrint PDF generation. Python was chosen for the export pipeline because:
+  - Jinja2 handles LaTeX templating cleanly with custom delimiters (`<< >>`) that don't conflict with LaTeX's `{ }` syntax
+  - WeasyPrint (Python) renders CSS faithfully for the styled PDF — something Pandoc's LaTeX backend cannot do
+  - PyYAML reads the same `_data/data.yml` that Jekyll uses
+  - The Python tooling runs post-build as a separate pipeline, not entangled with Jekyll's internals
 
-2️⃣ Write me a professional summary that summarizes the experiences in the attached resume. Include metrics, my total years of experience and make it 2-3 sentences long [paste in resume]
+This separation means the Jekyll site works independently (Ruby only), and the enhanced PDF exports are an additive layer (Python). Either can be modified without affecting the other.
 
-3️⃣ Rewrite my experiences to be impact-driven by following this format: "Accomplished X as measured by Y by doing Z" [paste in experience bullets]
+### Three PDF Strategies
 
-4️⃣ Tailor my resume to the following job description [paste job description]. Here's my resume [paste in resume]
+Each PDF serves a different purpose:
 
-5️⃣ Please proofread my resume for all spelling and grammatical errors [paste in resume]
+| File | Engine | Strengths | Use Case |
+|------|--------|-----------|----------|
+| `McGarrah-Resume.pdf` | Pandoc → LaTeX | Compact, reliable, auto-generated during Jekyll build | Default download, ATS submission |
+| `McGarrah-Resume-styled.pdf` | WeasyPrint | CSS-faithful (flex, columns, borders render correctly) | Visual review, matches browser print view |
+| `McGarrah-Resume-latex.pdf` | Jinja2 → XeLaTeX | Full typographic control, two-column skills, professional typesetting | High-quality print, LaTeX source available |
+
+The Pandoc PDF is a stop-gap that works within Jekyll's build lifecycle. WeasyPrint may be retired once the LaTeX template matures. The LaTeX pipeline is the long-term solution for publication-quality output.
+
+### Structured Subsections
+
+Experience entries use a `subsections` array (not flat markdown with bold headings) to give Pandoc and LaTeX distinct heading levels. See `.kiro/specs/experience-subsections/` for the full design rationale.
+
+## Prerequisites
+
+### Ruby (Jekyll site)
+
+```bash
+ruby >= 3.2
+bundler
+pandoc
+texlive (pdflatex)
+```
+
+### Python (PDF exports)
+
+```bash
+python >= 3.10
+pip install -r requirements.txt  # weasyprint, jinja2, pyyaml
+xelatex  # for LaTeX PDF compilation (texlive-xetex)
+```
+
+## Build
+
+```bash
+# Full build: site + all exports
+bundle exec jekyll build        # HTML views + Pandoc PDF/DOCX
+bin/generate-pdf.sh             # WeasyPrint styled PDF
+bin/generate-latex.sh           # LaTeX typeset PDF + .tex source
+
+# Development server
+bundle exec jekyll serve --livereload
+```
+
+## Project Structure
+
+```
+_data/data.yml              # All resume content (single source)
+_includes/                  # Jekyll partials (brief + print views)
+_layouts/                   # Page layouts (default, print, machine)
+_sass/                      # Browser stylesheets (CSS variables)
+templates/resume.tex.j2     # Jinja2 LaTeX template
+bin/generate-pdf.sh         # WeasyPrint PDF script
+bin/generate-latex.sh       # LaTeX generation + compilation script
+bin/generate-latex.py       # Python script: YAML → .tex via Jinja2
+_config.yml                 # Jekyll config + Pandoc export CSS
+```
+
+## Deployment
+
+GitHub Actions (`.github/workflows/jekyll.yml`) builds and deploys to GitHub Pages on push to `main`. The workflow:
+1. Builds Jekyll (generates HTML + Pandoc PDF/DOCX)
+2. Runs WeasyPrint for the styled PDF
+3. Deploys `_site/` to GitHub Pages
+
+The LaTeX PDF is generated locally (requires XeLaTeX + fonts) and is not part of the CI pipeline currently.
+
+## Views
+
+- **Brief** (`/resume/`) — Collapsible details, interactive
+- **Print** (`/resume/print`) — Expanded, optimized for browser print/PDF
+- **Machine** (`/resume/machine/`) — Schema.org microdata for ATS/search engines
