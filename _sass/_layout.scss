@@ -202,11 +202,30 @@ p {
 
 // Experience & Education items
 .item {
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-md);
 
   &:last-child {
     margin-bottom: 0;
   }
+}
+
+// Separator between experience entries (Pandoc renders <hr> in PDF/DOCX)
+hr.job-separator {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  height: 0;
+  background: transparent;
+  margin: var(--space-lg) 0;
+}
+
+// Subsection titles in details
+// Block heading with balanced spacing — matches visual weight in PDF
+.details h4 {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--color-text);
+  margin: var(--space-sm) 0 var(--space-xs) 0;
 }
 
 .item .meta {
@@ -239,6 +258,14 @@ p {
 .item .gpa {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
+}
+
+.item .second-upper-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
 }
 
 .item .company,
@@ -377,6 +404,44 @@ details {
 // Certifications
 .certifications-section .item {
   margin-bottom: var(--space-lg);
+}
+
+// Certifications — compact row layout (print template)
+.cert-list {
+  margin: 0;
+}
+
+.cert-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  padding: var(--space-xs) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.cert-name {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.cert-sep {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.cert-org-inline {
+  color: var(--color-text-muted);
+}
+
+.cert-date {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .certifications-section .second-upper-row {

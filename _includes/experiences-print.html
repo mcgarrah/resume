@@ -4,6 +4,7 @@
   <h2 class="section-title">{{ experiences.title }}</h2>
 
   {% for experience in experiences.info %}
+  {% unless forloop.first %}<hr class="job-separator" />{% endunless %}
   <div class="item">
     <div class="meta">
       <div class="upper-row">

@@ -33,38 +33,110 @@ pandoc_exports:
     - pattern: 'src="/resume/assets/'
       replacement: 'src="{{site.dest}}/assets/'
   title_cleanup: []
+  # ─────────────────────────────────────────────────────────────────────
+  # PDF/DOCX Export Stylesheet
+  # ─────────────────────────────────────────────────────────────────────
+  # This CSS is injected into the HTML that Pandoc converts to PDF/DOCX.
+  # It controls the visual appearance of exported documents only — the
+  # browser views use _sass/ stylesheets instead.
+  #
+  # IMPORTANT: Pandoc does NOT render CSS border-top/border-bottom on
+  # divs. Use actual <hr> elements in templates for visible separators.
+  # The hr.job-separator class styles those real HTML elements.
+  #
+  # Typography hierarchy (largest → smallest):
+  #   22pt  — Name (print-header__name)
+  #   14pt  — Section titles: EXPERIENCES, EDUCATION, etc.
+  #   12pt  — Job titles, degrees, cert names (bold)
+  #   9.5pt — Subsection titles within a job (h4, italic + left accent)
+  #   9.5pt — Body text, company names, details content
+  #   9pt   — Dates, contact info, sub-category labels
+  #   8.5pt — Skills list items (dense two-column layout)
+  #
+  # Visual separation strategy:
+  #   • Section titles: uppercase + thick bottom border (2px #333)
+  #   • Job entries: <hr> element (2px solid #555) between each role
+  #   • Subsection titles: italic + left border accent (subordinate)
+  #   • Body text: slightly lighter color (#444) for contrast
+  # ─────────────────────────────────────────────────────────────────────
   template:
     css: >
-      body { font-size: 11pt; line-height: 1.5; }
+      /* === Base === */
+      body { font-size: 11pt; line-height: 1.5; color: #333; }
       .print-resume { padding: 0; margin: 0; }
-      .print-header { border-bottom: 2px solid #333; padding-bottom: 8px; margin-bottom: 16px; }
-      .print-header__name { font-size: 22pt; font-weight: 900; margin: 0 0 2px 0; }
+
+      /* === Header: name, tagline, contact row === */
+      .print-header { border-bottom: 3px solid #222; padding-bottom: 10px; margin-bottom: 18px; }
+      .print-header__name { font-size: 22pt; font-weight: 900; margin: 0 0 2px 0; color: #111; }
       .print-header__tagline { font-size: 11pt; color: #555; margin: 0 0 8px 0; }
       .print-header__contact { list-style: none; padding: 0; margin: 0;
         display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 9pt; }
       .print-header__contact a { color: #333; text-decoration: none; }
-      .section { margin-bottom: 14px; }
-      .section-title { font-size: 13pt; font-weight: 700; text-transform: uppercase;
-        letter-spacing: 0.03em; border-bottom: 2px solid #333;
-        padding-bottom: 3px; margin-bottom: 10px; }
-      .item { margin-bottom: 14px; padding-top: 8px; border-top: 1px solid #ddd; }
-      .item:first-child { border-top: none; padding-top: 0; }
-      .upper-row { display: flex; justify-content: space-between; align-items: baseline; }
-      .job-title, .degree, .cert-title { font-size: 12pt; font-weight: 700; margin: 0; }
-      h4 { font-size: 10pt; font-weight: 600; margin-top: 8px; margin-bottom: 2px; }
-      .time { font-size: 9pt; font-weight: 600; color: #666; }
-      .company, .university, .cert-org { font-size: 9.5pt; color: #555; margin-bottom: 4px; }
+
+      /* === Section titles (EXPERIENCES, EDUCATION, SKILLS, etc.) === */
+      .section { margin-bottom: 16px; }
+      .section-title { font-size: 14pt; font-weight: 700; text-transform: uppercase;
+        letter-spacing: 0.05em; border-bottom: 2px solid #333;
+        padding-bottom: 4px; margin-bottom: 12px; color: #222; }
+
+      /* === Job/education/cert entries — strong visual break between roles === */
+      .item { margin-bottom: 18px; padding-top: 14px; }
+      .item:first-child { padding-top: 0; }
+      hr.job-separator { border: none; border-top: 2px solid #555;
+        margin: 20px 0 16px 0; }
+      .upper-row { display: flex; justify-content: space-between; align-items: baseline;
+        margin-bottom: 1px; }
+      .job-title, .degree, .cert-title { font-size: 12pt; font-weight: 700; margin: 0;
+        color: #111; text-transform: none; }
+      .time { font-size: 9pt; font-weight: 700; color: #444; }
+      .company, .university, .cert-org { font-size: 10pt; color: #333;
+        margin-bottom: 6px; font-weight: 500; }
+
+      /* === Subsection titles (h4) — run-in style with text flowing after === */
+      h4 { font-size: 9.5pt; font-weight: 700; font-style: italic;
+        display: inline; margin: 0; color: #222; }
+      h4 + p { display: inline; }
+
+      /* === Body content (details, summaries, subsection text) === */
       .details { font-size: 9.5pt; line-height: 1.5; color: #444; }
-      .details p { margin-bottom: 4px; }
-      .details ul, .details ol { padding-left: 16px; margin-bottom: 4px; }
+      .details p { margin-bottom: 5px; }
+      .details ul, .details ol { padding-left: 18px; margin-bottom: 5px; }
       .details li { margin-bottom: 2px; }
-      .skillset { column-count: 2; column-gap: 20px; }
+
+      /* === Skills section — two-column dense layout === */
+      .skillset { column-count: 2; column-gap: 24px; }
       .skillset .item { margin-bottom: 6px; break-inside: avoid; padding-top: 0; border-top: none; }
       .skillset .category-title { font-size: 10pt; font-weight: 700; margin-bottom: 2px; }
       .skillset .sub-category-title { font-size: 9pt; font-weight: 600; font-style: italic; margin: 2px 0 1px 10px; }
-      .skillset .list { font-size: 8.5pt; line-height: 1.3; color: #555; margin-left: 10px; }
+      .skillset .list { font-size: 8.5pt; line-height: 1.4; color: #555; margin-left: 10px; }
+
+      /* === Projects/OSS — compact entries === */
       .oss-section .item { margin-bottom: 4px; padding-top: 0; border-top: none; }
-      .print-links-section { margin-top: 16px; border-top: 1px solid #ddd; padding-top: 8px; }
+
+      /* === Certifications — compact horizontal rows === */
+      .cert-list { margin: 0; }
+      .cert-row { display: flex; align-items: baseline; gap: 8px;
+        padding: 3px 0; border-bottom: 1px solid #eee; font-size: 9pt; }
+      .cert-row:last-child { border-bottom: none; }
+      .cert-name { font-weight: 600; color: #222; }
+      .cert-sep { color: #999; font-size: 8pt; }
+      .cert-org-inline { color: #555; }
+      .cert-date { color: #444; font-weight: 600; white-space: nowrap; }
+
+      /* === Projects — bold titles to stand out from descriptions === */
+      .project-title { font-size: 10pt; font-weight: 700; color: #111; margin-bottom: 2px; }
+      .project-title a { color: #111; text-decoration: none; }
+      .project-tagline { font-size: 9pt; color: #444; line-height: 1.4; }
+
+      /* === Publications — academic citation format === */
+      .publication-item { margin-bottom: 8px; }
+      .publication-entry { font-size: 9.5pt; line-height: 1.5; margin: 0; }
+      .publication-title { font-weight: 700; }
+      .publication-title a { color: #111; text-decoration: none; }
+      .publication-venue { font-style: italic; }
+
+      /* === Footer links === */
+      .print-links-section { margin-top: 18px; border-top: 2px solid #333; padding-top: 10px; }
       .print-links-list { list-style: none; padding: 0; margin: 0;
         display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 9pt; }
       .print-links-list a { color: #333; text-decoration: none; }

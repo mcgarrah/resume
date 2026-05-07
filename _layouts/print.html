@@ -100,12 +100,26 @@
 
     /* Items (experience, education, certs) */
     .item {
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+    }
+
+    /* Separator between experience entries */
+    hr.job-separator {
+      border: 0;
+      border-top: 1px solid #ccc;
+      height: 0;
+      margin: 16px 0;
+    }
+
+    /* Items without hr separators (education, etc.) get top border */
+    .educations-section .item,
+    .certifications-section .item {
       padding-top: 12px;
       border-top: 1px solid #ddd;
     }
 
-    .item:first-child {
+    .educations-section .item:first-child,
+    .certifications-section .item:first-child {
       border-top: none;
       padding-top: 0;
     }
@@ -167,6 +181,15 @@
     .details li { margin-bottom: 3px; }
     .details img { max-width: 100%; height: auto; }
 
+    /* Subsection titles within experience entries */
+    .details h4 {
+      font-size: 13px;
+      font-weight: 700;
+      font-style: italic;
+      color: #333;
+      margin: 12px 0 4px 0;
+    }
+
     /* Projects */
     .project-title {
       font-size: 14px;
@@ -178,21 +201,27 @@
       color: #555;
     }
 
-    /* Publications */
+    /* Publications — academic citation format */
+    .publication-item {
+      margin-bottom: 8px;
+    }
+
+    .publication-entry {
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
     .publication-title {
-      font-size: 14px;
-      font-weight: 500;
+      font-weight: 700;
     }
 
-    .publication-authors {
-      font-size: 12px;
+    .publication-title a {
+      color: #333;
+    }
+
+    .publication-venue {
       font-style: italic;
-      color: #666;
-    }
-
-    .publication-conference {
-      font-size: 12px;
-      color: #555;
     }
 
     /* Skills */
@@ -269,6 +298,21 @@
     .certifications-section .item {
       margin-bottom: 10px;
     }
+
+    .cert-list { margin: 0; }
+    .cert-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 4px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 12px;
+    }
+    .cert-row:last-child { border-bottom: none; }
+    .cert-name { font-weight: 600; color: #333; }
+    .cert-sep { color: #999; font-size: 10px; }
+    .cert-org-inline { color: #555; }
+    .cert-date { color: #444; font-weight: 600; white-space: nowrap; }
 
     @media print {
       body { padding: 0; }
