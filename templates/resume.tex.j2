@@ -11,6 +11,9 @@
 \usepackage{xcolor}
 \usepackage{fontspec}
 \usepackage{parskip}
+\usepackage{needspace}  % Prevent orphaned section headers
+\usepackage{fancyhdr}   % Custom headers and footers
+\usepackage{lastpage}   % Total page count
 
 % Colors
 \definecolor{accent}{HTML}{4B6A78}
@@ -55,7 +58,9 @@
 \titlespacing*{\subsubsection}{0pt}{6pt}{2pt}
 
 % Custom commands
+% \needspace ensures headings don't appear orphaned at page bottom
 \newcommand{\jobtitle}[3]{%
+  \needspace{4\baselineskip}%
   \subsection[#1]{#1 \hfill \small\textcolor{subtext}{#2}}%
   \vspace{-2pt}%
   {\small\textcolor{subtext}{#3}}%
@@ -63,19 +68,33 @@
 }
 
 \newcommand{\edutitle}[4]{%
+  \needspace{4\baselineskip}%
   \subsection[#1]{#1 \hfill \small\textcolor{subtext}{#2}}%
   \vspace{-2pt}%
   {\small\textcolor{subtext}{#3<< "\\hfill GPA: " if "#4" != "" >>#4}}%
   \vspace{4pt}%
 }
 
-% Remove page numbers
-\pagestyle{empty}
+% Headers and footers
+\pagestyle{fancy}
+\fancyhf{}  % Clear defaults
+\renewcommand{\headrulewidth}{0pt}  % No header rule on normal pages
+\fancyfoot[L]{\small\color{subtext} << sidebar.name >> — Resume}
+\fancyfoot[R]{\small\color{subtext} Page \thepage\ of \pageref{LastPage}}
+
+% First page: no header, just footer
+\fancypagestyle{firstpage}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[L]{\small\color{subtext} << sidebar.name >> — Resume}%
+  \fancyfoot[R]{\small\color{subtext} Page \thepage\ of \pageref{LastPage}}%
+}
 
 % Reduce list spacing
 \setlist[itemize]{nosep, leftmargin=1.5em, topsep=2pt}
 
 \begin{document}
+\thispagestyle{firstpage}
 
 % === HEADER ===
 \begin{center}
@@ -93,10 +112,12 @@
 \vspace{-4pt}
 
 % === CAREER PROFILE ===
+\needspace{6\baselineskip}
 \section{Career Profile}
 << career_profile.summary | latex_escape >>
 
 % === EDUCATION ===
+\needspace{6\baselineskip}
 \section{Education}
 <% for edu in education.info %>
 \edutitle{<< edu.degree | latex_escape >>}{<< edu.time >>}{<< edu.university | latex_escape >>}{<< edu.gpa | default("") >>}
@@ -108,6 +129,7 @@
 <% endfor %>
 
 % === EXPERIENCE ===
+\needspace{6\baselineskip}
 \section{Experience}
 <% for job in experiences.info %>
 \jobtitle{<< job.role | latex_escape >>}{<< job.time >>}{<< job.company | latex_escape >>}
@@ -118,6 +140,7 @@
 
 <% if job.subsections %>
 <% for sub in job.subsections %>
+\needspace{3\baselineskip}
 \subsubsection{<< sub.title | latex_escape >>}
 {\small << sub.text | latex_escape | latex_paragraphs >>}
 
@@ -127,6 +150,7 @@
 <% endfor %>
 
 % === CERTIFICATIONS ===
+\needspace{6\baselineskip}
 \section{Certifications}
 \begin{itemize}
 <% for cert in certifications.list %>
@@ -135,8 +159,10 @@
 \end{itemize}
 
 % === PROJECTS ===
+\needspace{6\baselineskip}
 \section{Projects}
 <% for project in projects.assignments %>
+\needspace{3\baselineskip}
 \textbf{<< project.title | latex_escape >>}\\
 {\small\color{subtext} << project.tagline | latex_escape | latex_paragraphs >>}
 \vspace{4pt}
@@ -145,6 +171,7 @@
 
 % === PUBLICATIONS ===
 <% if publications and publications.papers %>
+\needspace{6\baselineskip}
 \section{Publications}
 <% for pub in publications.papers %>
 \textbf{<< pub.title | latex_escape >>}. << pub.authors | latex_escape >>. \textit{<< pub.conference | latex_escape >>}.
@@ -152,6 +179,7 @@
 <% endif %>
 
 % === SKILLS ===
+\needspace{6\baselineskip}
 \section{Skills \& Proficiency}
 \begin{multicols}{2}
 <% for skillset in skills.skillsets %>
@@ -168,5 +196,37 @@
 
 <% endfor %>
 \end{multicols}
+
+% === PROFILES & LINKS ===
+\needspace{6\baselineskip}
+\section{Profiles \& Links}
+\begin{multicols}{2}
+\begin{itemize}
+<% if sidebar.website %>
+  \item \textbf{Website:} \href{https://<< sidebar.website >>}{www.<< sidebar.website | replace("www.", "") >>}
+<% endif %>
+<% if sidebar.linkedin %>
+  \item \textbf{LinkedIn:} \href{https://linkedin.com/in/<< sidebar.linkedin >>}{linkedin.com/in/<< sidebar.linkedin >>}
+<% endif %>
+<% if sidebar.github %>
+  \item \textbf{GitHub:} \href{https://github.com/<< sidebar.github >>}{github.com/<< sidebar.github >>}
+<% endif %>
+<% if sidebar.gitlab %>
+  \item \textbf{GitLab:} \href{https://gitlab.com/<< sidebar.gitlab >>}{gitlab.com/<< sidebar.gitlab >>}
+<% endif %>
+<% if sidebar.kaggle %>
+  \item \textbf{Kaggle:} \href{https://www.kaggle.com/<< sidebar.kaggle >>}{kaggle.com/<< sidebar.kaggle >>}
+<% endif %>
+<% if sidebar.get("stack-overflow") %>
+  \item \textbf{Stack Overflow:} \href{https://stackoverflow.com/users/<< sidebar["stack-overflow"] >>}{stackoverflow.com}
+<% endif %>
+<% if sidebar.signal %>
+  \item \textbf{Signal:} @<< sidebar.signal >>
+<% endif %>
+\end{itemize}
+\end{multicols}
+
+\vspace{8pt}
+\noindent\textit{Full interactive resume:} \href{https://mcgarrah.org/resume/}{https://mcgarrah.org/resume/}
 
 \end{document}

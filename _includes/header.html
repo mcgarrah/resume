@@ -92,6 +92,12 @@
         <a href="{{ sidebar.pdf_styled }}" target="_blank">PDF (Styled)</a>
       </li>
       {% endif %}
+      {% if sidebar.pdf_latex %}
+      <li>
+        <svg class="icon"><use href="#icon-pdf"/></svg>
+        <a href="{{ sidebar.pdf_latex }}" target="_blank">PDF (LaTeX)</a>
+      </li>
+      {% endif %}
       {% if sidebar.docx %}
       <li>
         <svg class="icon"><use href="#icon-file-word"/></svg>
