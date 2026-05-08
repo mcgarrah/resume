@@ -202,37 +202,37 @@
 <% endif %>
 
 % === SKILLS ===
-\needspace{6\baselineskip}
+\clearpage
 \section{Skills \& Proficiency}
 \begin{multicols}{2}
 \raggedcolumns
 <% for skillset in skills.skillsets %>
 \begin{minipage}{\columnwidth}
-{\large\bfseries << skillset.categories | latex_escape >>}
-\vspace{3pt}
+{\normalsize\bfseries << skillset.categories | latex_escape >>}
+\vspace{2pt}
 
 <% for sub in skillset.sub_categories %>
-\hspace{0.5em}{\normalsize\itshape << sub.title | latex_escape >>}\\[1pt]
-\hspace{1.5em}{\small\color{subtext} << sub.list | latex_escape >>}
-\vspace{4pt}
+\hspace{0.4em}{\small\itshape << sub.title | latex_escape >>}\\[0pt]
+\hspace{1.2em}{\footnotesize\color{subtext} << sub.list | latex_escape >>}
+\vspace{3pt}
 
 <% if sub.sub_sub_categories %>
 <% for subsub in sub.sub_sub_categories %>
-\hspace{2em}{\small\itshape << subsub.title | latex_escape >>}\\[1pt]
-\hspace{3em}{\footnotesize\color{subtext} << subsub.list | latex_escape >>}
-\vspace{3pt}
+\hspace{1.6em}{\footnotesize\itshape << subsub.title | latex_escape >>}\\[0pt]
+\hspace{2.4em}{\scriptsize\color{subtext} << subsub.list | latex_escape >>}
+\vspace{2pt}
 
 <% endfor %>
 <% endif %>
 <% endfor %>
 \end{minipage}
-\vspace{8pt}
+\vspace{5pt}
 
 <% endfor %>
 \end{multicols}
 
 % === PROFILES & LINKS ===
-\needspace{6\baselineskip}
+\clearpage
 \section{Profiles \& Links}
 \begin{multicols}{2}
 \begin{itemize}
