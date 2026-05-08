@@ -2,7 +2,7 @@
 {% assign certifications = site.data.data.certifications %}
 {% if certifications %}
 <section class="section certifications-section">
-  <h2 class="section-title">{{ certifications.title }}</h2>
+  <h2 class="section-title" id="certifications">{{ certifications.title }}</h2>
 
   {% for cert in certifications.list %}
   <div class="item">

@@ -1,6 +1,14 @@
 #
 # Be aware that even a small syntax error here can lead to failures in output.
 #
+# ANCHOR STABILITY WARNING:
+# The 'anchor' fields on experience and education entries are used for internal
+# linking from the ultra-brief PDF and external documents. Once published, these
+# MUST NOT be changed without updating all referencing documents. External PDFs,
+# LinkedIn posts, and shared links depend on these being stable URLs:
+#   https://mcgarrah.org/resume/print/#anchor-id
+# Convention: {company-slug}-{start-year} (e.g., "envestnet-2021")
+#
 
 sidebar:
     position: left     # position of the sidebar : left or right
@@ -70,6 +78,7 @@ education:
     title: Education
     info:
       - degree: Executive Masters of Business Administration
+        anchor: "edu-uncw-2025"
         university: University of North Carolina Wilmington
         time: 2025 - present
         gpa: 4.00
@@ -80,6 +89,7 @@ education:
           decisions, ROI analysis for platform investments, and organizational change management
           for AI/ML initiatives. EMBA Candidate — Expected Graduation: Spring 2027
       - degree: Masters of Science in Computer Science
+        anchor: "edu-gatech-2014"
         university: Georgia Institute of Technology
         time: 2014 - 2019
         gpa: 3.63
@@ -113,6 +123,7 @@ education:
             - [Abstract: Forced alignment for Nordic languages: Rapidly constructing a high-quality prototype.](https://www.cambridge.org/core/journals/nordic-journal-of-linguistics/article/forced-alignment-for-nordic-languages-rapidly-constructing-a-highquality-prototype/FDE14A3666650127DB7D74E83EC09438){:target="_blank"} [(PDF)](https://github.com/mcgarrah/LG-FAVE/blob/7c592cf6c75b8c6feee08c0fe9b79b17dd699404/Young_McGarrah_2021.pdf){:target="_blank"}
             - [LG-FAVE Software Repository](https://github.com/mcgarrah/LG-FAVE){:target="_blank"}
       - degree: Bachelor of Science in Computer Science
+        anchor: "edu-ncsu-1990"
         university: North Carolina State University
         time: 1990 - 2011
         gpa: 3.42
@@ -128,6 +139,7 @@ experiences:
     title: Experiences
     info:
       - role: Lead Principal Engineer (Cloud & ML Focus)
+        anchor: "envestnet-2021"
         time: Oct 2021 - Present
         company: Envestnet, Inc., Emerald Isle NC (Remote)
         summary: |
@@ -409,6 +421,7 @@ experiences:
               of control gaps identified in the 2025 cycle.
 
       - role: Principal Data & Analytics Platform Engineer
+        anchor: "bcbsnc-2019"
         time: Apr 2019 - Oct 2021
         company: Blue Cross and Blue Shield of NC, Raleigh-Durham NC (Remote)
         summary: |
@@ -510,6 +523,7 @@ experiences:
               instantiated via resource taint/toleration, scalable and highly available scoring access for the daily public
               model releases and secure access to managed internal only datastores for the model generation.
       - role: Data Engineer
+        anchor: "usps-2017"
         time: Nov 2017 - Apr 2019
         company: United States Postal Service, Raleigh NC
         summary: |
@@ -607,6 +621,7 @@ experiences:
               ensuring they had the right data at the right resolution to build
               models that informed USPS delivery operations.
       - role: Cloud Architect
+        anchor: "akc-2016"
         time: Jul 2016 - Sep 2017
         company: American Kennel Club, Raleigh-Durham, North Carolina Area
         summary: |
@@ -721,6 +736,7 @@ experiences:
               with extensions using AWS-specific tools for IaC (CloudInit and
               CloudFormation).
       - role: Enterprise Architect for Strategic Initiatives
+        anchor: "ncdit-2015"
         time: May 2015 - Jul 2016
         company: North Carolina Department of Information Technology, Raleigh NC
         summary: |
@@ -809,6 +825,7 @@ experiences:
               for security standards rewrite described in the Architecture
               section above.
       - role: Senior Systems Programmer & Administrator (AI Technologies)
+        anchor: "measurement-inc-2013"
         time: Apr 2013 - Jul 2015
         company: Measurement Incorporated, Durham, NC
         summary: |
@@ -1013,6 +1030,7 @@ experiences:
               web service and distributed AWS processing platform. Technology
               investigation of Hadoop for use in model building.
       - role: Systems Administrator
+        anchor: "sas-2011"
         time: Aug 2011 - Mar 2013
         company: SAS Institute, Inc., Cary, NC
         summary: |
@@ -1135,6 +1153,7 @@ experiences:
               infrastructure as provided by customers. Database administration
               tasks as required for Oracle, MySQL and PostgreSQL.
       - role: Application and Network Security Specialist
+        anchor: "ncdor-2007"
         time: Mar 2007 - Aug 2011
         company: NC Department of Revenue, Raleigh NC
         summary: |
@@ -1374,6 +1393,7 @@ experiences:
               distinguish signal from noise across a high volume of threat
               intelligence sources.
       - role: Congressional Subcommittee Member
+        anchor: "etaac-2009"
         time: Mar 2009 - Mar 2011
         company: ETAAC Security Subcommittee, Washington DC
         summary: |
@@ -1384,6 +1404,7 @@ experiences:
             The final Congressional report applied these controls as a baseline for this industry.
             [2009 ETAAC Annual Report to Congress](https://www.irs.gov/pub/irs-prior/p3415--2009.pdf){:target="_blank"}
       - role: Consultant (part-time as needed)
+        anchor: "freeman-dds-1998"
         time: Jan 1998 - Feb 2011
         company: Dr. Donn B. Freeman, DDS, Raleigh, NC
         summary: |
@@ -1394,6 +1415,7 @@ experiences:
             practice sale. Long-running engagement held concurrently with full-time positions
             at NC DOR, SAS Institute, BD Biosciences, NC Community College System, and others.
       - role: Consultant (part-time as needed)
+        anchor: "vr-aids-2001"
         time: Jun 2001 - Jun 2008
         company: Virtual Reality Aids, Inc.
         summary: |
@@ -1403,6 +1425,7 @@ experiences:
             support. Part-time engagement held concurrently with full-time positions at NetIQ,
             Hosted Solutions, NC Community College System, and BD Biosciences.
       - role: IT Engineer (IT Director)
+        anchor: "bd-2006"
         time: Mar 2006 - Mar 2007
         company: BD Biosciences, Durham, NC
         summary: |
@@ -1494,6 +1517,7 @@ experiences:
               Includes monthly patching, software installation, and common
               application support.
       - role: Systems Programmer
+        anchor: "ncccs-2005"
         time: Jan 2005 - Mar 2006
         company: NC Community College System, Raleigh NC
         summary: |
@@ -1603,6 +1627,7 @@ experiences:
               Group at NC Community College System. Targeted solutions for
               a Colleague UniData environment.
       - role: Systems Engineer
+        anchor: "hosted-solutions-2004"
         time: May 2004 - Jan 2005
         company: Hosted Solutions (Springboard Hosting), Raleigh, NC
         summary: |
@@ -1690,6 +1715,7 @@ experiences:
               deployments of new software, upgrades to infrastructure, and
               customer deployments.
       - role: UNIX Engineer
+        anchor: "netiq-2002"
         time: Jun 2002 - May 2004
         company: NetIQ, Inc. (Ganymede Software, Inc.), Morrisville, NC
         summary: |
@@ -1751,6 +1777,7 @@ experiences:
               Built automated testing facilities for new products. This included
               network setup and service setup and documentation.
       - role: Systems Programmer II
+        anchor: "ncsu-2000"
         time: Nov 2000 - Jun 2002
         company: North Carolina State University, Raleigh, NC
         summary: |
@@ -1807,6 +1834,7 @@ experiences:
               the College of Engineering. Prototyped and managed a CVS server
               with Kerberos (GSSAPI) and SSH authentication.
       - role: Senior Operations Technician in NOC (part-time 32+ hrs week)
+        anchor: "interpath-2000"
         time: Feb 2000 - Oct 2001
         company: Interpath Communications, Raleigh, NC
         summary: |
@@ -1885,6 +1913,7 @@ experiences:
               DNS and email servers. Assists customers with change requests in
               their DNS records
       - role: Development Manager / Operations Manager
+        anchor: "ncsu-nclive-1999"
         time: Jan 1999 - Nov 2000
         company: North Carolina State University, Raleigh, NC
         summary: |
@@ -1957,6 +1986,7 @@ experiences:
               that reduced cost and increased flexibility and scalability of the
               NCLIVE platform.
       - role: Application Analyst Programmer
+        anchor: "ncsu-1998"
         time: Jun 1998 - Jan 1999
         company: North Carolina State University, Raleigh, NC
         summary: |
@@ -2015,6 +2045,7 @@ experiences:
               Peoplesoft. Implemented a data export mechanism for Peoplesoft
               data into the existing Sybase formats.
       - role: Benchmark Developer (System Programmer)
+        anchor: "ziff-davis-1994"
         time: Jun 1994 - Jun 1998
         company: Ziff-Davis Publishing, Raleigh, NC
         summary: |
@@ -2090,6 +2121,7 @@ experiences:
               Setup data management tool and front-end for Windows NT Server
               running IIS 4.0 and SQL Server 6.5.
       - role: Operations Technician / Technical Writer (part-time)
+        anchor: "interpath-1998"
         time: Jan 1998 - May 1998
         company: Interpath Communications, Raleigh, NC
         summary: |
@@ -2124,6 +2156,7 @@ experiences:
               utilities so that technicians could easily perform preliminary
               troubleshooting while the customer was on the phone.
       - role: Consultant (full-time)
+        anchor: "db-basics-1994"
         time: Apr 1994 - Jun 1994
         company: DB Basics, Inc., Morrisville, NC
         summary: |
@@ -2131,6 +2164,7 @@ experiences:
           database to an Oracle 7 server. Redesigned and ported existing applications to use 
           the new Oracle system.
       - role: Technical Services Manager
+        anchor: "pioneer-software-1992"
         time: Jul 1992 - Jun 1994
         company: Pioneer Software, Inc (Q+E Software / Intersolv / Merant / Data Direct / Serena), Raleigh, NC
         summary: |
@@ -2187,6 +2221,7 @@ experiences:
               Front line support work for basic database and simple
               programming question
       - role: Computer Consultant (part-time)
+        anchor: "roemer-weather-1992"
         time: Mar 1992 - Jul 1992
         company: Roemer Weather, Inc, Raleigh, NC
         summary: |
@@ -2198,6 +2233,7 @@ experiences:
           Wrote a data conversion utility in C to convert raw meteorological
           data to usable format.
       - role: Teaching Assistant for Computer Science Department (part-time)
+        anchor: "ncsu-ta-1990"
         time: Aug 1990 - Jun 1992
         company: North Carolina State University, Raleigh, NC
         summary: |
@@ -2212,6 +2248,7 @@ experiences:
           - CSC112: Introduction to Programming (FORTRAN)   
           - CSC114: Introduction to Programming (C++)
       - role: Consultant for Library Systems at D.H. Hill Library (part-time)
+        anchor: "ncsu-library-1990"
         time: Aug 1990 - Mar 1992
         company: North Carolina State University, Raleigh, NC
         summary: |
@@ -2219,6 +2256,7 @@ experiences:
           hardware services and software support for IBM, Macintosh, and UNIX systems across
           the NCSU library system.
       - role: Computer Operator for Computer Science Department (part-time)
+        anchor: "ncsu-operator-1990"
         time: Aug 1990 - Jan 1991
         company: North Carolina State University, Raleigh, NC
         summary: |
