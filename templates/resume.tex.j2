@@ -24,13 +24,21 @@
 \definecolor{rulecolor}{HTML}{333333}
 
 % Fonts (requires XeLaTeX)
-% Helvetica Neue is available on macOS; falls back to Latin Modern on Linux
+% Helvetica Neue on macOS; TeX Gyre Heros (Helvetica clone) on Linux/CI
 \defaultfontfeatures{Ligatures=TeX}
-\setmainfont{Helvetica Neue}[
-  BoldFont=* Bold,
-  ItalicFont=* Italic,
-  BoldItalicFont=* Bold Italic,
-]
+\IfFontExistsTF{Helvetica Neue}{%
+  \setmainfont{Helvetica Neue}[
+    BoldFont=* Bold,
+    ItalicFont=* Italic,
+    BoldItalicFont=* Bold Italic,
+  ]
+}{%
+  \setmainfont{TeX Gyre Heros}[
+    BoldFont=* Bold,
+    ItalicFont=* Italic,
+    BoldItalicFont=* Bold Italic,
+  ]
+}
 
 % Hyperlink setup
 \hypersetup{
@@ -171,9 +179,9 @@
 <% for project in projects.assignments %>
 \needspace{3\baselineskip}
 <% if project.link %>
-\textbf{\href{<< project.link >>}{<< project.title | latex_escape >>}}\\
+\noindent\textbf{\href{<< project.link >>}{<< project.title | latex_escape >>}}<% if project.time %> \hfill {\small\textcolor{subtext}{<< project.time >>}}<% endif %>\\
 <% else %>
-\textbf{<< project.title | latex_escape >>}\\
+\noindent\textbf{<< project.title | latex_escape >>}<% if project.time %> \hfill {\small\textcolor{subtext}{<< project.time >>}}<% endif %>\\
 <% endif %>
 {\small\color{subtext} << project.tagline | latex_escape | latex_paragraphs >>}
 \vspace{4pt}

@@ -2,8 +2,15 @@
 # Start Jekyll development server for resume site
 #
 # Usage:
-#   ./jekyll-start.sh          # Start with default flags (livereload, incremental)
-#   ./jekyll-start.sh --clean  # Hard clean cache before starting (fixes macOS FSEvents staleness)
+#   ./jekyll-start.sh          # Build all exports, then start with livereload
+#   ./jekyll-start.sh --clean  # Hard clean cache before building and starting
+#
+# What happens on start:
+#   1. Prerequisite checks (ruby, bundle, python3, venv, pandoc, xelatex)
+#   2. Full jekyll build (generates Pandoc PDF/DOCX)
+#   3. WeasyPrint styled PDF (if available)
+#   4. XeLaTeX typeset PDF (if available)
+#   5. Jekyll serve with --livereload --incremental
 #
 # Default flags: --trace --livereload --incremental
 # Port: 4000 (configured in _config.yml)
@@ -13,9 +20,12 @@
 # Prerequisites:
 #   - Ruby 3.3+ via rbenv (see .ruby-version)
 #   - bundle install completed
+#   - Python 3.10+ with .venv (for PDF exports)
+#   - pandoc (for Pandoc PDF/DOCX during Jekyll build)
+#   - xelatex (for LaTeX PDF — MacTeX on macOS, texlive-xetex on Ubuntu)
 #   - On macOS: launch VS Code from terminal, not Dock/Spotlight
 #
-# See mcgarrah.github.io/.amazonq/rules/ruby-environment.md for full setup guide.
+# See README.md "Prerequisites" section for full install instructions.
 #
 # =============================================================================
 # Jekyll serve flags:
@@ -29,6 +39,7 @@ set -e
 
 PORT=4000
 CLEAN=false
+WARNINGS=()
 
 for arg in "$@"; do
     case "$arg" in
@@ -49,19 +60,146 @@ for arg in "$@"; do
     esac
 done
 
-# Check if port is already in use
+# =============================================================================
+# Prerequisite checks
+# =============================================================================
+
+echo "Checking prerequisites..."
+echo ""
+
+# --- Ruby / Jekyll ---
+if ! command -v ruby &> /dev/null; then
+    echo "ERROR: ruby not found. Install via rbenv:"
+    echo "  brew install rbenv ruby-build   # macOS"
+    echo "  # See README.md for WSL2/Ubuntu instructions"
+    exit 1
+fi
+
+RUBY_VERSION=$(ruby -e "puts RUBY_VERSION")
+RUBY_MAJOR=$(echo "$RUBY_VERSION" | cut -d. -f1)
+RUBY_MINOR=$(echo "$RUBY_VERSION" | cut -d. -f2)
+if [ "$RUBY_MAJOR" -lt 3 ] || { [ "$RUBY_MAJOR" -eq 3 ] && [ "$RUBY_MINOR" -lt 2 ]; }; then
+    echo "ERROR: Ruby >= 3.2 required (found $RUBY_VERSION)"
+    echo "  rbenv install 3.3.11 && rbenv local 3.3.11"
+    exit 1
+fi
+echo "  ✓ ruby $RUBY_VERSION"
+
+if ! command -v bundle &> /dev/null; then
+    echo "ERROR: bundler not found. Run: gem install bundler"
+    exit 1
+fi
+echo "  ✓ bundler $(bundle --version | awk '{print $NF}')"
+
+if [ ! -f "Gemfile.lock" ]; then
+    echo "ERROR: Gemfile.lock not found. Run: bundle install"
+    exit 1
+fi
+
+# --- Pandoc (required for Jekyll build PDF/DOCX) ---
+if ! command -v pandoc &> /dev/null; then
+    echo "  ✗ pandoc not found — Jekyll build will skip PDF/DOCX exports"
+    echo "    Install: brew install pandoc  (macOS)"
+    echo "             sudo apt install pandoc  (Ubuntu)"
+    WARNINGS+=("pandoc missing — no Pandoc PDF/DOCX")
+else
+    echo "  ✓ pandoc $(pandoc --version | head -1 | awk '{print $2}')"
+fi
+
+# --- Python 3 ---
+if ! command -v python3 &> /dev/null; then
+    echo "  ✗ python3 not found — PDF export pipeline unavailable"
+    echo "    Install: brew install python  (macOS)"
+    echo "             sudo apt install python3 python3-venv  (Ubuntu)"
+    WARNINGS+=("python3 missing — no WeasyPrint or LaTeX PDF")
+else
+    PY_VERSION=$(python3 --version | awk '{print $2}')
+    echo "  ✓ python3 $PY_VERSION"
+
+    # --- Python venv ---
+    if [ ! -f ".venv/bin/activate" ]; then
+        echo "  ✗ .venv not found — Python PDF exports unavailable"
+        echo "    Create it:"
+        echo "      python3 -m venv .venv"
+        echo "      source .venv/bin/activate"
+        echo "      pip install -r requirements.txt"
+        WARNINGS+=(".venv missing — no WeasyPrint or LaTeX PDF")
+    else
+        # Activate and check packages
+        source .venv/bin/activate
+
+        if ! python3 -c "import weasyprint" 2>/dev/null; then
+            echo "  ✗ weasyprint not installed in .venv"
+            echo "    Fix: source .venv/bin/activate && pip install -r requirements.txt"
+            WARNINGS+=("weasyprint missing in .venv")
+        else
+            echo "  ✓ weasyprint $(python3 -c 'import weasyprint; print(weasyprint.__version__)')"
+        fi
+
+        if ! python3 -c "import jinja2" 2>/dev/null; then
+            echo "  ✗ jinja2 not installed in .venv"
+            echo "    Fix: source .venv/bin/activate && pip install -r requirements.txt"
+            WARNINGS+=("jinja2 missing in .venv — no LaTeX PDF")
+        else
+            echo "  ✓ jinja2 $(python3 -c 'import jinja2; print(jinja2.__version__)')"
+        fi
+    fi
+fi
+
+# --- XeLaTeX ---
+if ! command -v xelatex &> /dev/null; then
+    echo "  ✗ xelatex not found — LaTeX PDF compilation unavailable"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "    Install: brew install --cask mactex"
+        echo "         or: brew install --cask basictex && sudo tlmgr install collection-xetex"
+    else
+        echo "    Install: sudo apt install texlive-xetex texlive-fonts-recommended texlive-latex-extra"
+    fi
+    WARNINGS+=("xelatex missing — .tex will generate but no LaTeX PDF")
+else
+    echo "  ✓ xelatex $(xelatex --version | head -1 | sed 's/.*Version //' | awk '{print $1}')"
+fi
+
+# --- pdflatex (used by Pandoc) ---
+if command -v pandoc &> /dev/null && ! command -v pdflatex &> /dev/null; then
+    echo "  ✗ pdflatex not found — Pandoc PDF export will fail"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "    Install: brew install --cask basictex"
+    else
+        echo "    Install: sudo apt install texlive-latex-base texlive-fonts-recommended"
+    fi
+    WARNINGS+=("pdflatex missing — Pandoc PDF will fail")
+elif command -v pdflatex &> /dev/null; then
+    echo "  ✓ pdflatex $(pdflatex --version | head -1 | sed 's/.*Version //' | awk '{print $1}')"
+fi
+
+echo ""
+
+# Print summary of warnings
+if [ ${#WARNINGS[@]} -gt 0 ]; then
+    echo "⚠ Setup warnings (non-fatal — Jekyll site will still build):"
+    for w in "${WARNINGS[@]}"; do
+        echo "  • $w"
+    done
+    echo ""
+    echo "  See README.md 'Prerequisites' for install instructions."
+    echo ""
+fi
+
+# =============================================================================
+# Port check
+# =============================================================================
+
 check_port() {
     local pid=""
     local process=""
 
     if command -v lsof &>/dev/null; then
-        # macOS and most Linux
         pid=$(lsof -i :"$PORT" -sTCP:LISTEN -P -n -t 2>/dev/null | head -1)
         if [ -n "$pid" ]; then
             process=$(ps -p "$pid" -o comm= 2>/dev/null || echo "unknown")
         fi
     elif command -v ss &>/dev/null; then
-        # Linux without lsof (some minimal WSL2 installs)
         pid=$(ss -tlnp "sport = :$PORT" 2>/dev/null | grep -oP 'pid=\K[0-9]+' | head -1)
         if [ -n "$pid" ]; then
             process=$(ps -p "$pid" -o comm= 2>/dev/null || echo "unknown")
@@ -81,7 +219,10 @@ check_port() {
 
 check_port
 
-# Optional hard clean before starting
+# =============================================================================
+# Clean (optional)
+# =============================================================================
+
 if [ "$CLEAN" = true ]; then
     echo "Hard cleaning before start..."
     bundle exec jekyll clean
@@ -91,8 +232,66 @@ if [ "$CLEAN" = true ]; then
     echo ""
 fi
 
+# =============================================================================
+# Build
+# =============================================================================
+
+echo "Running initial build..."
+bundle exec jekyll build --quiet
+echo "  ✓ Jekyll build complete (HTML + Pandoc PDF/DOCX)"
+
+# --- WeasyPrint styled PDF ---
+if [ -f ".venv/bin/activate" ]; then
+    # Ensure venv is active (may already be from prereq checks)
+    source .venv/bin/activate 2>/dev/null || true
+
+    if command -v weasyprint &> /dev/null && [ -f "_site/print.html" ]; then
+        echo "Generating styled PDF (WeasyPrint)..."
+        if bin/generate-pdf.sh 2>&1 | grep -q "Generated:"; then
+            echo "  ✓ McGarrah-Resume-styled.pdf"
+        else
+            echo "  ✗ WeasyPrint failed — run 'bin/generate-pdf.sh' manually to debug"
+        fi
+    fi
+
+    # --- LaTeX PDF ---
+    if [ -f "bin/generate-latex.py" ] && python3 -c "import jinja2, yaml" 2>/dev/null; then
+        echo "Generating LaTeX PDF..."
+        if python3 bin/generate-latex.py --output "_site/downloads/McGarrah-Resume-latex.tex" 2>&1 | grep -q "Generated:"; then
+            echo "  ✓ McGarrah-Resume-latex.tex"
+
+            if command -v xelatex &> /dev/null; then
+                xelatex -interaction=nonstopmode -output-directory="_site/downloads" \
+                    "_site/downloads/McGarrah-Resume-latex.tex" > /dev/null 2>&1 || true
+                xelatex -interaction=nonstopmode -output-directory="_site/downloads" \
+                    "_site/downloads/McGarrah-Resume-latex.tex" > /dev/null 2>&1 || true
+                rm -f _site/downloads/*.aux _site/downloads/*.log _site/downloads/*.out
+
+                if [ -f "_site/downloads/McGarrah-Resume-latex.pdf" ]; then
+                    echo "  ✓ McGarrah-Resume-latex.pdf"
+                else
+                    echo "  ✗ XeLaTeX compilation failed"
+                    echo "    Debug: xelatex -interaction=nonstopmode _site/downloads/McGarrah-Resume-latex.tex"
+                fi
+            else
+                echo "  ⚠ .tex generated but xelatex not available for PDF compilation"
+            fi
+        else
+            echo "  ✗ LaTeX template rendering failed"
+            echo "    Debug: python3 bin/generate-latex.py --output /tmp/test.tex"
+        fi
+    fi
+fi
+
+echo ""
+
+# =============================================================================
+# Serve
+# =============================================================================
+
 echo "Starting Jekyll on port $PORT..."
 echo "  Preview: http://localhost:$PORT/resume/"
 echo "  Print:   http://localhost:$PORT/resume/print/"
+echo "  Machine: http://localhost:$PORT/resume/machine/"
 echo ""
 bundle exec jekyll serve --trace --livereload --incremental

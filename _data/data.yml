@@ -109,8 +109,7 @@ education:
           engineers build the infrastructure that makes that knowledge operational. The
           Georgia Tech research was an early proof point for a career spent bridging those
           disciplines.
-            - [NWAV 46](https://en.wikipedia.org/wiki/New_Ways_of_Analyzing_Variation){:target="_blank"} [Conference Presentation](https://dept.english.wisc.edu/nwav46/?page_id=57){:target="_blank"}
-              "155. Introducing NordFA:Forced alignment of Nordic languages. Nathan J. Young & Michael McGarrah"
+            - [NWAV 46](https://en.wikipedia.org/wiki/New_Ways_of_Analyzing_Variation){:target="_blank"} [Conference Presentation](https://dept.english.wisc.edu/nwav46/?page_id=57){:target="_blank"} "155. Introducing NordFA:Forced alignment of Nordic languages. Nathan J. Young & Michael McGarrah"
             - [Abstract: Forced alignment for Nordic languages: Rapidly constructing a high-quality prototype.](https://www.cambridge.org/core/journals/nordic-journal-of-linguistics/article/forced-alignment-for-nordic-languages-rapidly-constructing-a-highquality-prototype/FDE14A3666650127DB7D74E83EC09438){:target="_blank"} [(PDF)](https://github.com/mcgarrah/LG-FAVE/blob/7c592cf6c75b8c6feee08c0fe9b79b17dd699404/Young_McGarrah_2021.pdf){:target="_blank"}
             - [LG-FAVE Software Repository](https://github.com/mcgarrah/LG-FAVE){:target="_blank"}
       - degree: Bachelor of Science in Computer Science
@@ -2384,6 +2383,7 @@ projects:
 
       - title: QuickSight Vanity URL Redirect — Terraform Registry Module (Serverless Edge Architecture)
         link: https://mcgarrah.org/quicksight-vanity-urls-serverless-edge-redirects/
+        time: 2024 - 2026
         tagline: >
           Designed and published a reusable Terraform module that eliminates QuickSight login friction
           across multi-account AWS environments. A single CloudFront distribution with a dynamically
@@ -2398,6 +2398,7 @@ projects:
 
       - title: Phonetic Transcriptions (Acoustic Modeling) in 2017,2021
         link: https://www.youtube.com/playlist?list=PLG_DpV4CFj61_ltukKYaYQNipEFOLMqBe
+        time: 2017 - 2021
         tagline: >
           My academic partner and I automated identifying the sounds of a non-English language,
           found the temporal boundary markers or segmentations, and fully automated output of
@@ -2413,6 +2414,7 @@ projects:
 
       - title: Jekyll-Pandoc-Exports — Published Ruby Gem for Automated Document Generation
         link: https://github.com/mcgarrah/jekyll-pandoc-exports
+        time: 2025
         tagline: >
           Designed, built, and published a Jekyll plugin as a Ruby gem that automatically generates
           PDF and DOCX exports from Jekyll pages using Pandoc. The plugin hooks into Jekyll's build
@@ -2441,6 +2443,7 @@ projects:
 
       - title: gs1-gpc — Published Python Library for GS1 Global Product Classification
         link: https://github.com/mcgarrah/gs1_gpc_python
+        time: 2025
         tagline: >
           A Python library and CLI for importing GS1 Global Product Classification (GPC) taxonomy
           data into SQLite or PostgreSQL. Corrects the many-to-many relationship modeling between
@@ -2454,6 +2457,7 @@ projects:
 
       - title: usda-fdc — Published Python Library for USDA Food Data Central API
         link: https://github.com/mcgarrah/usda_fdc_python
+        time: 2025
         tagline: >
           A comprehensive Python client for the USDA Food Data Central API with object-oriented
           data models, nutrient analysis with dietary reference intake comparisons, recipe analysis
@@ -2466,6 +2470,7 @@ projects:
 
       - title: git-timesheet — Published Python CLI for Git-Based Time Tracking
         link: https://github.com/mcgarrah/git_timesheet_python
+        time: 2025 - 2026
         tagline: >
           A Python CLI tool that generates timesheets from git commit history — leveraging
           timestamps already embedded in your workflow instead of requiring manual time tracking.
@@ -2479,6 +2484,7 @@ projects:
 
       - title: oneworldsync — Published Python Library for 1WorldSync Content1 API
         link: https://github.com/mcgarrah/oneworldsync_python
+        time: 2025
         tagline: >
           Built a Python client library from scratch for the 1WorldSync Content1 REST API when the
           only vendor-provided tooling was a Java SDK and PDF documentation. Provides a Pythonic
@@ -2492,6 +2498,7 @@ projects:
 
       - title: Certification Timed Multiple Choice Quiz WebApp (Full Stack Development)
         link: https://github.com/mcgarrah/legendary_quick_quiz
+        time: 2024
         tagline: >
           This application is a fully-fledged, dynamic quiz platform built on the lightweight Flask 
           web framework for Python. The code demonstrates both front-end and back-end development 
@@ -2502,6 +2509,7 @@ projects:
 
       - title: AWS QuickSight Federated Integration (Terraform Automation)
         link: https://github.com/mcgarrah/quicksight_demo
+        time: 2024 - 2025
         tagline: >
           Terraform automation for AWS QuickSight federated integration — converting scattered
           AWS blog posts and CloudFormation examples into reproducible Terraform configurations.
@@ -2515,6 +2523,7 @@ projects:
 
       - title: Photosynth Point Clouds Extraction and Visualization (2016)
         link: https://youtu.be/WZPtuNnaqVc
+        time: 2016
         tagline: >
           Extraction and visualization of point cloud data from the Microsoft Photosynth web service.
           Exporting the data into common formats for further analysis and processing.
@@ -2524,6 +2533,7 @@ projects:
 
       - title: Artificial Intelligence for Robotics (2015)
         link: https://goo.gl/QmKfW3
+        time: 2015
         tagline: >
           The goal for the final project in CS6475 AI for Robotics was to create a robotic platform to investigate 
           computer vision technology. The platform included an Arduino with sensors and motors and a Raspberry Pi 2 
@@ -2533,12 +2543,14 @@ projects:
 
       - title: “Senior Design - NetApp iSCSI with RDMA/TOE” (Fall 2010 Capstone Project)
         link: https://sdc.csc.ncsu.edu/projects/2010/fall#3
+        time: 2010
         tagline: >
           Develop a methodology for 10Gbps iSCSI that utilized RDMA and TOE to reduce primary CPU and 
           memory usage. Document and managed the project as a team leader. The resulting iSER implementation 
           was utilized in a related NetApp Phd project at the University of Bangalore India.
 
       - title: “Ecommerce & J2EE - Kodak Image Mapping (similar to Google Maps)” (Fall 2001 Graduate Class)
+        time: 2001
         tagline: >
           A web application similar to Google Maps but five years earlier and allowed for monetizing the 
           service. Interviewed customer and defined specifications for and delivered a prototype web 

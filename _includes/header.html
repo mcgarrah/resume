@@ -80,10 +80,16 @@
     </ul>
 
     <ul class="resume-header__downloads">
+      {% if sidebar.print %}
+      <li>
+        <svg class="icon"><use href="#icon-printer"/></svg>
+        <a href="{{ sidebar.print }}" target="_blank">Print</a>
+      </li>
+      {% endif %}
       {% if sidebar.pdf %}
       <li>
         <svg class="icon"><use href="#icon-pdf"/></svg>
-        <a href="{{ sidebar.pdf }}" target="_blank">PDF</a>
+        <a href="{{ sidebar.pdf }}" target="_blank">PDF (Pandoc)</a>
       </li>
       {% endif %}
       {% if sidebar.pdf_styled %}
@@ -102,12 +108,6 @@
       <li>
         <svg class="icon"><use href="#icon-file-word"/></svg>
         <a href="{{ sidebar.docx }}" target="_blank">DOCX</a>
-      </li>
-      {% endif %}
-      {% if sidebar.print %}
-      <li>
-        <svg class="icon"><use href="#icon-printer"/></svg>
-        <a href="{{ sidebar.print }}" target="_blank">Print</a>
       </li>
       {% endif %}
     </ul>

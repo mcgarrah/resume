@@ -116,6 +116,9 @@ permalink: /machine/
         {% if project.link %}<a href="{{ project.link }}" itemprop="url">{{ project.title }}</a>
         {% else %}{{ project.title }}{% endif %}
       </h3>
+      {% if project.time %}
+      <p class="meta"><time itemprop="dateCreated">{{ project.time }}</time></p>
+      {% endif %}
       {% if project.tagline %}
       <p itemprop="description">{{ project.tagline | strip_html }}</p>
       {% endif %}

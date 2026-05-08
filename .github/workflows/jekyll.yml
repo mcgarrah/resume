@@ -29,7 +29,7 @@ jobs:
       - name: Install Pandoc and LaTeX
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended texlive-latex-extra
+          sudo apt-get install -y pandoc texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-xetex fonts-texgyre
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -48,6 +48,8 @@ jobs:
           JEKYLL_ENV: production
       - name: Generate styled PDF (WeasyPrint)
         run: bash bin/generate-pdf.sh
+      - name: Generate LaTeX PDF (XeLaTeX)
+        run: bash bin/generate-latex.sh
       - name: Verify exports
         run: |
           echo "Checking for generated exports..."
@@ -61,6 +63,11 @@ jobs:
             echo "✓ McGarrah-Resume-styled.pdf (WeasyPrint) generated"
           else
             echo "✗ No WeasyPrint PDF export found"
+          fi
+          if [ -f "_site/downloads/McGarrah-Resume-latex.pdf" ]; then
+            echo "✓ McGarrah-Resume-latex.pdf (XeLaTeX) generated"
+          else
+            echo "✗ No XeLaTeX PDF export found"
           fi
       - name: HTML Proofer
         run: |

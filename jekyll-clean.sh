@@ -57,6 +57,12 @@ if [ "$HARD" = true ]; then
         echo "_site/ not found, skipping."
     fi
 
+    # Clean LaTeX auxiliary files that may have been left behind
+    for ext in aux log out fls fdb_latexmk synctex.gz; do
+        find . -maxdepth 1 -name "*.${ext}" -delete 2>/dev/null
+        find _site/downloads -name "*.${ext}" -delete 2>/dev/null
+    done
+
     echo "Hard clean complete."
 else
     echo "Soft clean complete. Use -h or --hard to also remove .jekyll-cache."

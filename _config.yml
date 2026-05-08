@@ -143,6 +143,14 @@ pandoc_exports:
 
 encoding: "utf-8"
 
+# Preserve externally-generated files in _site/ during incremental rebuilds.
+# WeasyPrint and XeLaTeX PDFs are generated post-build and must not be wiped
+# when Jekyll regenerates the site during `jekyll serve --incremental`.
+keep_files:
+  - downloads/McGarrah-Resume-styled.pdf
+  - downloads/McGarrah-Resume-latex.pdf
+  - downloads/McGarrah-Resume-latex.tex
+
 # Development Settings
 port: 4000
 #host: 0.0.0.0

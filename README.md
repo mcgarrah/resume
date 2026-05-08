@@ -58,32 +58,124 @@ Experience entries use a `subsections` array (not flat markdown with bold headin
 
 ### Ruby (Jekyll site)
 
+**macOS:**
+
 ```bash
-ruby >= 3.2
-bundler
-pandoc
-texlive (pdflatex)
+# Ruby 3.3.11 via rbenv (see .ruby-version)
+brew install rbenv ruby-build
+rbenv install 3.3.11
+rbenv local 3.3.11
+
+# Bundler + gems
+gem install bundler
+bundle install
+
+# Pandoc (for PDF/DOCX export during Jekyll build)
+brew install pandoc
+
+# BasicTeX or MacTeX (provides pdflatex for Pandoc)
+brew install --cask basictex
+```
+
+> **macOS note:** Always launch VS Code from a terminal (`code .`), not from Dock/Spotlight.
+> GUI-launched VS Code inherits `launchd` PATH which doesn't include rbenv shims.
+> See `.amazonq/rules/ruby-environment.md` for the full rbenv troubleshooting guide.
+
+**WSL2 / Ubuntu 24.04:**
+
+```bash
+# Build dependencies for rbenv/ruby-build
+sudo apt update
+sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev \
+  libyaml-dev libffi-dev libgdbm-dev
+
+# rbenv + ruby-build
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+echo 'eval "$(~/.rbenv/bin/rbenv init - bash)"' >> ~/.bashrc
+source ~/.bashrc
+
+# Ruby 3.3.11
+rbenv install 3.3.11
+rbenv local 3.3.11
+
+# Bundler + gems
+gem install bundler
+bundle install
+
+# Pandoc + LaTeX (for PDF/DOCX export during Jekyll build)
+sudo apt install -y pandoc texlive-latex-base texlive-fonts-recommended
 ```
 
 ### Python (PDF exports)
 
 ```bash
-python >= 3.10
+# Create virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt  # weasyprint, jinja2, pyyaml
-xelatex  # for LaTeX PDF compilation (texlive-xetex)
 ```
+
+### XeLaTeX (typeset LaTeX PDF)
+
+The LaTeX pipeline (`bin/generate-latex.sh`) requires XeLaTeX with Helvetica Neue:
+
+**macOS:**
+
+```bash
+# Full MacTeX (includes XeLaTeX + all fonts) — ~4GB
+brew install --cask mactex
+
+# Or minimal: BasicTeX + XeLaTeX packages
+brew install --cask basictex
+sudo tlmgr update --self
+sudo tlmgr install collection-xetex collection-fontsrecommended \
+  parskip needspace fancyhdr lastpage
+```
+
+Helvetica Neue is bundled with macOS.
+
+**WSL2 / Ubuntu 24.04:**
+
+```bash
+sudo apt install -y texlive-xetex texlive-fonts-recommended texlive-latex-extra \
+  texlive-fonts-extra fonts-texgyre
+```
+
+Helvetica Neue is not available on Linux. The template falls back to TeX Gyre Heros
+(a metric-compatible Helvetica clone). To use the exact same font as macOS, install
+Helvetica Neue manually in `~/.local/share/fonts/` and run `fc-cache -fv`.
 
 ## Build
 
 ```bash
-# Full build: site + all exports
-bundle exec jekyll build        # HTML views + Pandoc PDF/DOCX
-bin/generate-pdf.sh             # WeasyPrint styled PDF
-bin/generate-latex.sh           # LaTeX typeset PDF + .tex source
+# Full build: site + Pandoc exports (PDF/DOCX)
+bundle exec jekyll build
 
-# Development server
-bundle exec jekyll serve --livereload
+# Generate additional PDF formats (requires jekyll build first)
+source .venv/bin/activate
+bin/generate-pdf.sh             # WeasyPrint → McGarrah-Resume-styled.pdf
+bin/generate-latex.sh           # YAML → .tex → McGarrah-Resume-latex.pdf (via XeLaTeX)
+
+# Development server (livereload + incremental)
+./jekyll-start.sh               # http://localhost:4000/resume/
+./jekyll-start.sh --clean       # Hard clean cache before starting
+
+# Clean build artifacts
+./jekyll-clean.sh               # Soft clean (_site/, .jekyll-metadata)
+./jekyll-clean.sh --hard        # Also removes .jekyll-cache
 ```
+
+### Export Scripts
+
+| Script | Input | Output | Engine |
+|--------|-------|--------|--------|
+| `bundle exec jekyll build` | `_data/data.yml` | `McGarrah-Resume.pdf`, `.docx` | Pandoc → LaTeX |
+| `bin/generate-pdf.sh` | `_site/print.html` | `McGarrah-Resume-styled.pdf` | WeasyPrint |
+| `bin/generate-latex.sh` | `_data/data.yml` | `McGarrah-Resume-latex.pdf`, `.tex` | Jinja2 → XeLaTeX |
+
+All outputs land in `_site/downloads/`.
 
 ## Project Structure
 
@@ -113,3 +205,12 @@ The LaTeX PDF is generated locally (requires XeLaTeX + fonts) and is not part of
 - **Brief** (`/resume/`) — Collapsible details, interactive
 - **Print** (`/resume/print`) — Expanded, optimized for browser print/PDF
 - **Machine** (`/resume/machine/`) — Schema.org microdata for ATS/search engines
+
+## Acknowledgments
+
+This project originally started as a fork of [online-cv](https://github.com/sharu725/online-cv)
+by [Sharath Kumar](https://github.com/sharu725), a Jekyll theme based on the
+[Orbit](http://themes.3rdwavemedia.com/) design by Xiaoying Riley at 3rd Wave Media.
+The site has since been completely rewritten — new layouts, new build pipelines, new
+export system, new data schema — and shares no code with the original template. The
+acknowledgment here is for the starting point that got the project off the ground in 2017.
