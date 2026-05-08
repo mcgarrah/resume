@@ -159,6 +159,8 @@ keep_files:
   - downloads/McGarrah-Resume-brief.tex
   - downloads/McGarrah-Resume-long.pdf
   - downloads/McGarrah-Resume-long.tex
+  - downloads/McGarrah-Resume-ultra-brief.pdf
+  - downloads/McGarrah-Resume-ultra-brief.tex
 
 # Development Settings
 port: 4000

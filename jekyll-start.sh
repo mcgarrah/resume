@@ -289,6 +289,31 @@ if [ -f ".venv/bin/activate" ]; then
             echo "  ✗ LaTeX template rendering failed (brief)"
             echo "    Debug: python3 bin/generate-latex.py --template resume-brief.tex.j2 --output /tmp/test.tex"
         fi
+
+        # Ultra-brief version (2 pages)
+        if python3 bin/generate-latex.py --template resume-ultra-brief.tex.j2 --output "_site/downloads/McGarrah-Resume-ultra-brief.tex" 2>&1 | grep -q "Generated:"; then
+            echo "  ✓ McGarrah-Resume-ultra-brief.tex"
+
+            if command -v xelatex &> /dev/null; then
+                xelatex -interaction=nonstopmode -output-directory="_site/downloads" \
+                    "_site/downloads/McGarrah-Resume-ultra-brief.tex" > /dev/null 2>&1 || true
+                xelatex -interaction=nonstopmode -output-directory="_site/downloads" \
+                    "_site/downloads/McGarrah-Resume-ultra-brief.tex" > /dev/null 2>&1 || true
+                rm -f _site/downloads/McGarrah-Resume-ultra-brief.aux _site/downloads/McGarrah-Resume-ultra-brief.log _site/downloads/McGarrah-Resume-ultra-brief.out
+
+                if [ -f "_site/downloads/McGarrah-Resume-ultra-brief.pdf" ]; then
+                    echo "  ✓ McGarrah-Resume-ultra-brief.pdf (ultra-brief, 2 pages)"
+                else
+                    echo "  ✗ XeLaTeX compilation failed (ultra-brief)"
+                    echo "    Debug: xelatex -interaction=nonstopmode _site/downloads/McGarrah-Resume-ultra-brief.tex"
+                fi
+            else
+                echo "  ⚠ .tex generated but xelatex not available for PDF compilation"
+            fi
+        else
+            echo "  ✗ LaTeX template rendering failed (ultra-brief)"
+            echo "    Debug: python3 bin/generate-latex.py --template resume-ultra-brief.tex.j2 --output /tmp/test.tex"
+        fi
     fi
 fi
 
