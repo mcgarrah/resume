@@ -59,6 +59,12 @@
         <a href="https://www.kaggle.com/{{ sidebar.kaggle }}" target="_blank">{{ sidebar.kaggle }}</a>
       </li>
       {% endif %}
+      {% if sidebar.substack %}
+      <li>
+        <svg class="icon"><use href="#icon-pen"/></svg>
+        <a href="https://{{ sidebar.substack }}.substack.com/" target="_blank">Substack</a>
+      </li>
+      {% endif %}
       {% if sidebar.signal %}
       <li>
         <svg class="icon"><use href="#icon-shield"/></svg>

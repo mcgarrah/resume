@@ -17,6 +17,9 @@
     {% if sidebar.kaggle %}
     <li><strong>Kaggle:</strong> <a href="https://www.kaggle.com/{{ sidebar.kaggle }}">kaggle.com/{{ sidebar.kaggle }}</a></li>
     {% endif %}
+    {% if sidebar.substack %}
+    <li><strong>Substack:</strong> <a href="https://{{ sidebar.substack }}.substack.com/">{{ sidebar.substack }}.substack.com</a></li>
+    {% endif %}
     {% if sidebar.stack-overflow %}
     <li><strong>Stack Overflow:</strong> <a href="https://stackoverflow.com/users/{{ sidebar.stack-overflow }}">stackoverflow.com/users/{{ sidebar.stack-overflow }}</a></li>
     {% endif %}

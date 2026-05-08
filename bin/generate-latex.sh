@@ -7,7 +7,7 @@
 set -e
 
 OUTPUT_DIR="_site/downloads"
-TEX_FILE="$OUTPUT_DIR/McGarrah-Resume-latex.tex"
+TEX_FILE="$OUTPUT_DIR/McGarrah-Resume-long.tex"
 
 if [ ! -d "$OUTPUT_DIR" ]; then
   echo "Error: $OUTPUT_DIR not found. Run 'bundle exec jekyll build' first."
@@ -26,8 +26,8 @@ if command -v xelatex &> /dev/null; then
   # Clean up LaTeX auxiliary files
   rm -f "$OUTPUT_DIR"/*.aux "$OUTPUT_DIR"/*.log "$OUTPUT_DIR"/*.out "$OUTPUT_DIR"/missfont.log
   
-  if [ -f "$OUTPUT_DIR/McGarrah-Resume-latex.pdf" ]; then
-    echo "Generated: $OUTPUT_DIR/McGarrah-Resume-latex.pdf"
+  if [ -f "$OUTPUT_DIR/McGarrah-Resume-long.pdf" ]; then
+    echo "Generated: $OUTPUT_DIR/McGarrah-Resume-long.pdf"
   else
     echo "Error: PDF compilation failed. Check the .tex file for errors."
     exit 1

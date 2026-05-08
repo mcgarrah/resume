@@ -26,13 +26,14 @@ sidebar:
     #twitter: '@webjeda'
     signal: mcgarrah.01
     discord: 914581392740995073 # Discord Number not handle
+    substack: mcgarrah
     kaggle: mcgarrah
     stack-overflow: 2452678/michael-mcgarrah # Number/Username, e.g. 123456/alandoe
     #codewars:
     #goodreads: # Number-Username, e.g. 123456-alandoe
     #pdf: http://www.africau.edu/images/default/sample.pdf
     pdf: /resume/downloads/McGarrah-Resume-brief.pdf
-    pdf_latex: /resume/downloads/McGarrah-Resume-latex.pdf
+    pdf_latex: /resume/downloads/McGarrah-Resume-long.pdf
     docx: /resume/downloads/McGarrah-Resume.docx
     print: /resume/print    # can be local relative path url or fully qualified external HREF url
 

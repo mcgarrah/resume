@@ -241,21 +241,21 @@ if [ -f ".venv/bin/activate" ]; then
         echo "Generating LaTeX PDFs..."
 
         # Full version
-        if python3 bin/generate-latex.py --output "_site/downloads/McGarrah-Resume-latex.tex" 2>&1 | grep -q "Generated:"; then
-            echo "  ✓ McGarrah-Resume-latex.tex"
+        if python3 bin/generate-latex.py --output "_site/downloads/McGarrah-Resume-long.tex" 2>&1 | grep -q "Generated:"; then
+            echo "  ✓ McGarrah-Resume-long.tex"
 
             if command -v xelatex &> /dev/null; then
                 xelatex -interaction=nonstopmode -output-directory="_site/downloads" \
-                    "_site/downloads/McGarrah-Resume-latex.tex" > /dev/null 2>&1 || true
+                    "_site/downloads/McGarrah-Resume-long.tex" > /dev/null 2>&1 || true
                 xelatex -interaction=nonstopmode -output-directory="_site/downloads" \
-                    "_site/downloads/McGarrah-Resume-latex.tex" > /dev/null 2>&1 || true
-                rm -f _site/downloads/McGarrah-Resume-latex.aux _site/downloads/McGarrah-Resume-latex.log _site/downloads/McGarrah-Resume-latex.out
+                    "_site/downloads/McGarrah-Resume-long.tex" > /dev/null 2>&1 || true
+                rm -f _site/downloads/McGarrah-Resume-long.aux _site/downloads/McGarrah-Resume-long.log _site/downloads/McGarrah-Resume-long.out
 
-                if [ -f "_site/downloads/McGarrah-Resume-latex.pdf" ]; then
-                    echo "  ✓ McGarrah-Resume-latex.pdf (full)"
+                if [ -f "_site/downloads/McGarrah-Resume-long.pdf" ]; then
+                    echo "  ✓ McGarrah-Resume-long.pdf (full)"
                 else
                     echo "  ✗ XeLaTeX compilation failed (full)"
-                    echo "    Debug: xelatex -interaction=nonstopmode _site/downloads/McGarrah-Resume-latex.tex"
+                    echo "    Debug: xelatex -interaction=nonstopmode _site/downloads/McGarrah-Resume-long.tex"
                 fi
             else
                 echo "  ⚠ .tex generated but xelatex not available for PDF compilation"

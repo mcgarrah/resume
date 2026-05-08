@@ -18,8 +18,8 @@ _data/data.yml (single source of truth)
     │
     └── Python (Jinja2 + XeLaTeX) ──────────────────────────────────
         └── Brief template    → McGarrah-Resume-brief.pdf (5 pages)
-        └── Full template     → McGarrah-Resume-latex.pdf (typeset)
-                              → McGarrah-Resume-latex.tex (source)
+        └── Full template     → McGarrah-Resume-long.pdf (typeset)
+                              → McGarrah-Resume-long.tex (source)
 ```
 
 ## Design Decisions
@@ -44,7 +44,7 @@ Each PDF serves a different purpose:
 | File | Engine | Strengths | Use Case |
 |------|--------|-----------|----------|
 | `McGarrah-Resume-brief.pdf` | Jinja2 → XeLaTeX | 5 pages, summaries only, early career consolidated | Primary download, recruiter-friendly |
-| `McGarrah-Resume-latex.pdf` | Jinja2 → XeLaTeX | Full typographic control, all subsections, 30+ pages | Deep-dive readers, complete history |
+| `McGarrah-Resume-long.pdf` | Jinja2 → XeLaTeX | Full typographic control, all subsections, 30+ pages | Deep-dive readers, complete history |
 | `McGarrah-Resume.pdf` | Pandoc → LaTeX | Auto-generated during Jekyll build, compact | ATS submission, DOCX companion |
 
 The Pandoc PDF is auto-generated as part of the Jekyll build lifecycle. The XeLaTeX PDFs (brief and full) are the primary outputs with professional typesetting.
@@ -155,7 +155,7 @@ bundle exec jekyll build
 # Generate LaTeX PDFs (requires jekyll build first)
 source .venv/bin/activate
 bin/generate-brief.sh           # XeLaTeX → McGarrah-Resume-brief.pdf (5 pages)
-bin/generate-latex.sh           # XeLaTeX → McGarrah-Resume-latex.pdf (full)
+bin/generate-latex.sh           # XeLaTeX → McGarrah-Resume-long.pdf (full)
 
 # Development server (livereload + incremental)
 ./jekyll-start.sh               # http://localhost:4000/resume/
@@ -172,7 +172,7 @@ bin/generate-latex.sh           # XeLaTeX → McGarrah-Resume-latex.pdf (full)
 |--------|-------|--------|--------|
 | `bundle exec jekyll build` | `_data/data.yml` | `McGarrah-Resume.pdf`, `.docx` | Pandoc → LaTeX |
 | `bin/generate-brief.sh` | `_data/data.yml` | `McGarrah-Resume-brief.pdf` | Jinja2 → XeLaTeX |
-| `bin/generate-latex.sh` | `_data/data.yml` | `McGarrah-Resume-latex.pdf`, `.tex` | Jinja2 → XeLaTeX |
+| `bin/generate-latex.sh` | `_data/data.yml` | `McGarrah-Resume-long.pdf`, `.tex` | Jinja2 → XeLaTeX |
 
 All outputs land in `_site/downloads/`.
 

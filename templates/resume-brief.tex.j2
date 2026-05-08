@@ -189,12 +189,13 @@ Programming (NCSU), Teaching Assistant and Library Systems Consultant (NCSU 1990
 \raggedcolumns
 <% for skillset in skills.skillsets %>
 \begin{minipage}{\columnwidth}
-\noindent\textbf{<< skillset.categories | latex_escape >>}\\*
+{\normalsize\bfseries << skillset.categories | latex_escape >>}\par
+\vspace{1pt}
 <% for sub in skillset.sub_categories %>
-\textit{\footnotesize << sub.title | latex_escape >>}: {\footnotesize << sub.list | latex_escape >>}\\*
+\hspace{0.4em}{\scriptsize\itshape << sub.title | latex_escape >>:} {\scriptsize\color{subtext} << sub.list | latex_escape >>}\par
 <% if sub.sub_sub_categories %>
 <% for subsub in sub.sub_sub_categories %>
-\quad\textit{\footnotesize << subsub.title | latex_escape >>}: {\footnotesize << subsub.list | latex_escape >>}\\*
+\hspace{1.4em}{\scriptsize\itshape << subsub.title | latex_escape >>:} {\scriptsize\color{subtext} << subsub.list | latex_escape >>}\par
 <% endfor %>
 <% endif %>
 <% endfor %>

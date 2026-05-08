@@ -64,8 +64,8 @@ jobs:
           else
             echo "✗ No brief PDF export found"
           fi
-          if [ -f "_site/downloads/McGarrah-Resume-latex.pdf" ]; then
-            echo "✓ McGarrah-Resume-latex.pdf (XeLaTeX full) generated"
+          if [ -f "_site/downloads/McGarrah-Resume-long.pdf" ]; then
+            echo "✓ McGarrah-Resume-long.pdf (XeLaTeX full) generated"
           else
             echo "✗ No XeLaTeX PDF export found"
           fi
