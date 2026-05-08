@@ -38,7 +38,8 @@
       "name": "{{ lang.idiom }}"
     }{% unless forloop.last %},{% endunless %}{% endfor %}
   ],
-  "description": "{{ d.career-profile.summary | strip_newlines | replace: '"', '\"' | truncate: 500 }}",
+  "description": "{{ d.career-profile.summary | strip_html | split: '
+' | join: ' ' | replace: '  ', ' ' | replace: '"', '\"' | truncate: 500 }}",
   "alumniOf": [{% for edu in d.education.info %}
     {
       "@type": "EducationalOrganization",
@@ -70,7 +71,8 @@
         "@type": "Country",
         "name": "US"
       },
-      "description": "{{ job.summary | strip_newlines | replace: '"', '\"' | truncate: 300 }}"
+      "description": "{{ job.summary | strip_html | split: '
+' | join: ' ' | replace: '  ', ' ' | replace: '"', '\"' | truncate: 300 }}"
     }{% unless forloop.last %},{% endunless %}{% endfor %}
   ]
 }

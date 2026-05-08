@@ -425,7 +425,6 @@ These items should be addressed in a future plugin release:
 
 ```bash
 cd ~/github/resume
-git checkout refactor
 bundle install
 bundle exec jekyll serve
 # Brief: http://localhost:4000/resume/
@@ -434,20 +433,11 @@ bundle exec jekyll serve
 # Ask (Phase 6): http://localhost:4000/resume/ask/
 ```
 
-Side-by-side comparison with current site:
-```bash
-# Terminal 1 — current
-git checkout main && bundle exec jekyll serve --port 4001
-
-# Terminal 2 — refactor
-git checkout refactor && bundle exec jekyll serve --port 4000
-```
-
 ## Decision Log
 
 | Date | Decision | Rationale |
 |------|----------|-----------|
-| 2026-05-05 | Created `refactor` branch | Explore ground-up rebuild without risking main |
+| 2026-05-05 | Started refactor on `main` | Work committed directly to main; no separate branch needed |
 | 2026-05-05 | Create PROJECT-NEXUS.md | Promote to _drafts convenience file for reference |
 | | Drop sidebar → compact header | Full-width content, better mobile, simpler Pandoc |
 | | Light/dark via `prefers-color-scheme` | OS-aware, zero JS, CSS custom properties |
