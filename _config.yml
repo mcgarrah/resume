@@ -8,6 +8,14 @@ baseurl: "/resume"
 # Canonical URL configuration for SEO
 canonical_url: "https://mcgarrah.org/resume"
 
+# Open Graph social preview image (1200x630)
+# Set via defaults below so jekyll-seo-tag picks it up for all pages
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/og-resume.png
+
 description: "Engineering Leader bridging enterprise architecture, AI/ML, and cloud platforms with 30+ years in technology leadership, security, and hands-on engineering."
 # Sass/SCSS
 sass:

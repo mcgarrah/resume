@@ -10,7 +10,7 @@ sidebar:
     # Profile information
     name: Michael McGarrah
     tagline: Engineering Leader | Enterprise Architecture · AI/ML · Cloud Platforms
-    avatar: mcgarrah-profile-100x100.png  # a 100x100 picture inside /assets/images/ folder
+    avatar: mcgarrah-profile-640x640.png  # profile picture inside /assets/images/ folder
 
     # Sidebar links
     email: mcgarrah@gmail.com
