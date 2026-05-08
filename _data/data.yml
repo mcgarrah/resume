@@ -2382,24 +2382,6 @@ projects:
       full-stack development, and systems engineering.
     assignments:
 
-      - title: Jekyll-Pandoc-Exports — Published Ruby Gem for Automated Document Generation
-        link: https://github.com/mcgarrah/jekyll-pandoc-exports
-        tagline: >
-          Designed, built, and published a Jekyll plugin as a Ruby gem that automatically generates
-          PDF and DOCX exports from Jekyll pages using Pandoc. The plugin hooks into Jekyll's build
-          lifecycle, supports incremental builds, Unicode cleanup, configurable Pandoc options, and
-          works across Jekyll 3.x and 4.x. Built a complete release automation pipeline — GitHub
-          Actions CI/CD, RubyGems trusted publishing, Read the Docs integration, and a single-command
-          release script replacing 13 manual steps. Integrated into my resume site to generate
-          downloadable PDF and Word versions on every build. Three-part blog series documents the
-          infrastructure, plugin architecture, and real-world integration bugs.
-           - code: [https://github.com/mcgarrah/jekyll-pandoc-exports](https://github.com/mcgarrah/jekyll-pandoc-exports){:target="_blank"}
-           - gem: [RubyGems](https://rubygems.org/gems/jekyll-pandoc-exports){:target="_blank"}
-           - docs: [Read the Docs](https://jekyll-pandoc-exports.readthedocs.io/en/latest/){:target="_blank"}
-           - article: [Part 1: Release Automation](https://mcgarrah.org/ruby-gem-release-automation/){:target="_blank"}
-           - article: [Part 2: Plugin Architecture](https://mcgarrah.org/jekyll-pandoc-exports-plugin/){:target="_blank"}
-           - article: [Part 3: Integration & Debugging](https://mcgarrah.org/jekyll-pandoc-exports-resume-integration/){:target="_blank"}
-
       - title: QuickSight Vanity URL Redirect — Terraform Registry Module (Serverless Edge Architecture)
         link: https://mcgarrah.org/quicksight-vanity-urls-serverless-edge-redirects/
         tagline: >
@@ -2411,7 +2393,7 @@ projects:
           logging with a bring-your-own-bucket pattern. Published to the Terraform Registry and
           running in enterprise production for over a year.
            - code: [https://github.com/mcgarrah/terraform-aws-quicksight-redirect](https://github.com/mcgarrah/terraform-aws-quicksight-redirect){:target="_blank"}
-           - registry: [Terraform Registry](https://registry.terraform.io/modules/mcgarrah/quicksight-redirect/aws/latest){:target="_blank"}
+           - package: [Terraform Registry](https://registry.terraform.io/modules/mcgarrah/quicksight-redirect/aws/latest){:target="_blank"}
            - article: [Case Study](https://mcgarrah.org/quicksight-vanity-urls-serverless-edge-redirects/){:target="_blank"}
 
       - title: Phonetic Transcriptions (Acoustic Modeling) in 2017,2021
@@ -2429,18 +2411,23 @@ projects:
            - demo: [https://lgas.phonemes.org](https://lgas.phonemes.org){:target="_blank"}
            - pub: [article](https://github.com/mcgarrah/LG-FAVE/blob/7c592cf6c75b8c6feee08c0fe9b79b17dd699404/Young_McGarrah_2021.pdf){:target="_blank"}
 
-      - title: oneworldsync — Published Python Library for 1WorldSync Content1 API
-        link: https://github.com/mcgarrah/oneworldsync_python
+      - title: Jekyll-Pandoc-Exports — Published Ruby Gem for Automated Document Generation
+        link: https://github.com/mcgarrah/jekyll-pandoc-exports
         tagline: >
-          Built a Python client library from scratch for the 1WorldSync Content1 REST API when the
-          only vendor-provided tooling was a Java SDK and PDF documentation. Provides a Pythonic
-          interface and CLI for searching and fetching product content data — specifications, images,
-          marketing copy, and logistics information. Published to PyPI with GitHub Actions CI/CD,
-          trusted publishing, and Read the Docs integration.
-           - code: [https://github.com/mcgarrah/oneworldsync_python](https://github.com/mcgarrah/oneworldsync_python){:target="_blank"}
-           - pypi: [PyPI](https://pypi.org/project/oneworldsync/){:target="_blank"}
-           - docs: [Read the Docs](https://oneworldsync-python.readthedocs.io/){:target="_blank"}
-           - article: [Introduction](https://mcgarrah.org/oneworldsync-python-module/){:target="_blank"}
+          Designed, built, and published a Jekyll plugin as a Ruby gem that automatically generates
+          PDF and DOCX exports from Jekyll pages using Pandoc. The plugin hooks into Jekyll's build
+          lifecycle, supports incremental builds, Unicode cleanup, configurable Pandoc options, and
+          works across Jekyll 3.x and 4.x. Built a complete release automation pipeline — GitHub
+          Actions CI/CD, RubyGems trusted publishing, Read the Docs integration, and a single-command
+          release script replacing 13 manual steps. Integrated into my resume site to generate
+          downloadable PDF and Word versions on every build. Three-part blog series documents the
+          infrastructure, plugin architecture, and real-world integration bugs.
+           - code: [https://github.com/mcgarrah/jekyll-pandoc-exports](https://github.com/mcgarrah/jekyll-pandoc-exports){:target="_blank"}
+           - package: [RubyGems](https://rubygems.org/gems/jekyll-pandoc-exports){:target="_blank"}
+           - docs: [Read the Docs](https://jekyll-pandoc-exports.readthedocs.io/en/latest/){:target="_blank"}
+           - article: [Part 1: Release Automation](https://mcgarrah.org/ruby-gem-release-automation/){:target="_blank"}
+           - article: [Part 2: Plugin Architecture](https://mcgarrah.org/jekyll-pandoc-exports-plugin/){:target="_blank"}
+           - article: [Part 3: Integration & Debugging](https://mcgarrah.org/jekyll-pandoc-exports-resume-integration/){:target="_blank"}
 
       # - title: Food Nutrition API — FastAPI Service for Unified Food Intelligence Data
       #   link: https://github.com/mcgarrah/nutrition_api
@@ -2462,7 +2449,7 @@ projects:
           GPC XML from GS1, SQL export for migration, and serves as the data layer for the
           Nutrition API project. Published to PyPI with automated CI/CD and Read the Docs.
            - code: [https://github.com/mcgarrah/gs1_gpc_python](https://github.com/mcgarrah/gs1_gpc_python){:target="_blank"}
-           - pypi: [PyPI](https://pypi.org/project/gs1-gpc/){:target="_blank"}
+           - package: [PyPI](https://pypi.org/project/gs1-gpc/){:target="_blank"}
            - docs: [Read the Docs](https://gs1-gpc.readthedocs.io/){:target="_blank"}
 
       - title: usda-fdc — Published Python Library for USDA Food Data Central API
@@ -2474,7 +2461,7 @@ projects:
           CLI for quick data access and an analysis tool for nutrient comparison and HTML report
           generation. Published to PyPI with Read the Docs documentation.
            - code: [https://github.com/mcgarrah/usda_fdc_python](https://github.com/mcgarrah/usda_fdc_python){:target="_blank"}
-           - pypi: [PyPI](https://pypi.org/project/usda-fdc/){:target="_blank"}
+           - package: [PyPI](https://pypi.org/project/usda-fdc/){:target="_blank"}
            - docs: [Read the Docs](https://usda-fdc.readthedocs.io/){:target="_blank"}
 
       - title: git-timesheet — Published Python CLI for Git-Based Time Tracking
@@ -2486,9 +2473,22 @@ projects:
           in multiple formats. Built to solve a real problem tracking hours across multi-repo
           freelance projects. Published to PyPI with Read the Docs documentation.
            - code: [https://github.com/mcgarrah/git_timesheet_python](https://github.com/mcgarrah/git_timesheet_python){:target="_blank"}
-           - pypi: [PyPI](https://pypi.org/project/git-timesheet/){:target="_blank"}
+           - package: [PyPI](https://pypi.org/project/git-timesheet/){:target="_blank"}
            - docs: [Read the Docs](https://git-timesheet.readthedocs.io/){:target="_blank"}
            - article: [Introduction](https://mcgarrah.org/generate-git-timesheets-python-module/){:target="_blank"}
+
+      - title: oneworldsync — Published Python Library for 1WorldSync Content1 API
+        link: https://github.com/mcgarrah/oneworldsync_python
+        tagline: >
+          Built a Python client library from scratch for the 1WorldSync Content1 REST API when the
+          only vendor-provided tooling was a Java SDK and PDF documentation. Provides a Pythonic
+          interface and CLI for searching and fetching product content data — specifications, images,
+          marketing copy, and logistics information. Published to PyPI with GitHub Actions CI/CD,
+          trusted publishing, and Read the Docs integration.
+           - code: [https://github.com/mcgarrah/oneworldsync_python](https://github.com/mcgarrah/oneworldsync_python){:target="_blank"}
+           - package: [PyPI](https://pypi.org/project/oneworldsync/){:target="_blank"}
+           - docs: [Read the Docs](https://oneworldsync-python.readthedocs.io/){:target="_blank"}
+           - article: [Introduction](https://mcgarrah.org/oneworldsync-python-module/){:target="_blank"}
 
       - title: Certification Timed Multiple Choice Quiz WebApp (Full Stack Development)
         link: https://github.com/mcgarrah/legendary_quick_quiz
