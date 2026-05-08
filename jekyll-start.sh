@@ -8,9 +8,8 @@
 # What happens on start:
 #   1. Prerequisite checks (ruby, bundle, python3, venv, pandoc, xelatex)
 #   2. Full jekyll build (generates Pandoc PDF/DOCX)
-#   3. WeasyPrint styled PDF (if available)
-#   4. XeLaTeX typeset PDF (if available)
-#   5. Jekyll serve with --livereload --incremental
+#   3. XeLaTeX typeset PDFs (brief + full, if available)
+#   4. Jekyll serve with --livereload --incremental
 #
 # Default flags: --trace --livereload --incremental
 # Port: 4000 (configured in _config.yml)
@@ -111,7 +110,7 @@ if ! command -v python3 &> /dev/null; then
     echo "  ✗ python3 not found — PDF export pipeline unavailable"
     echo "    Install: brew install python  (macOS)"
     echo "             sudo apt install python3 python3-venv  (Ubuntu)"
-    WARNINGS+=("python3 missing — no WeasyPrint or LaTeX PDF")
+    WARNINGS+=("python3 missing — no LaTeX PDF")
 else
     PY_VERSION=$(python3 --version | awk '{print $2}')
     echo "  ✓ python3 $PY_VERSION"
@@ -123,18 +122,10 @@ else
         echo "      python3 -m venv .venv"
         echo "      source .venv/bin/activate"
         echo "      pip install -r requirements.txt"
-        WARNINGS+=(".venv missing — no WeasyPrint or LaTeX PDF")
+        WARNINGS+=(".venv missing — no LaTeX PDF")
     else
         # Activate and check packages
         source .venv/bin/activate
-
-        if ! python3 -c "import weasyprint" 2>/dev/null; then
-            echo "  ✗ weasyprint not installed in .venv"
-            echo "    Fix: source .venv/bin/activate && pip install -r requirements.txt"
-            WARNINGS+=("weasyprint missing in .venv")
-        else
-            echo "  ✓ weasyprint $(python3 -c 'import weasyprint; print(weasyprint.__version__)')"
-        fi
 
         if ! python3 -c "import jinja2" 2>/dev/null; then
             echo "  ✗ jinja2 not installed in .venv"
@@ -240,19 +231,10 @@ echo "Running initial build..."
 bundle exec jekyll build --quiet
 echo "  ✓ Jekyll build complete (HTML + Pandoc PDF/DOCX)"
 
-# --- WeasyPrint styled PDF ---
+# --- LaTeX PDFs ---
 if [ -f ".venv/bin/activate" ]; then
     # Ensure venv is active (may already be from prereq checks)
     source .venv/bin/activate 2>/dev/null || true
-
-    if command -v weasyprint &> /dev/null && [ -f "_site/print.html" ]; then
-        echo "Generating styled PDF (WeasyPrint)..."
-        if bin/generate-pdf.sh 2>&1 | grep -q "Generated:"; then
-            echo "  ✓ McGarrah-Resume-styled.pdf"
-        else
-            echo "  ✗ WeasyPrint failed — run 'bin/generate-pdf.sh' manually to debug"
-        fi
-    fi
 
     # --- LaTeX PDF (Full) ---
     if [ -f "bin/generate-latex.py" ] && python3 -c "import jinja2, yaml" 2>/dev/null; then

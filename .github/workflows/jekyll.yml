@@ -34,7 +34,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install WeasyPrint
+      - name: Install Python dependencies
         run: |
           pip install -r requirements.txt
       - name: Setup Pages
@@ -46,9 +46,9 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-      - name: Generate styled PDF (WeasyPrint)
-        run: bash bin/generate-pdf.sh
-      - name: Generate LaTeX PDF (XeLaTeX)
+      - name: Generate Brief PDF (XeLaTeX)
+        run: bash bin/generate-brief.sh
+      - name: Generate Full PDF (XeLaTeX)
         run: bash bin/generate-latex.sh
       - name: Verify exports
         run: |
@@ -59,13 +59,13 @@ jobs:
           else
             echo "✗ No Pandoc PDF export found"
           fi
-          if [ -f "_site/downloads/McGarrah-Resume-styled.pdf" ]; then
-            echo "✓ McGarrah-Resume-styled.pdf (WeasyPrint) generated"
+          if [ -f "_site/downloads/McGarrah-Resume-brief.pdf" ]; then
+            echo "✓ McGarrah-Resume-brief.pdf (XeLaTeX brief) generated"
           else
-            echo "✗ No WeasyPrint PDF export found"
+            echo "✗ No brief PDF export found"
           fi
           if [ -f "_site/downloads/McGarrah-Resume-latex.pdf" ]; then
-            echo "✓ McGarrah-Resume-latex.pdf (XeLaTeX) generated"
+            echo "✓ McGarrah-Resume-latex.pdf (XeLaTeX full) generated"
           else
             echo "✗ No XeLaTeX PDF export found"
           fi

@@ -36,7 +36,6 @@ Items organized by the REFACTOR.md phase they belong to, plus standalone improve
 
 ## Export & PDF Quality
 
-- [ ] Evaluate retiring WeasyPrint PDF once LaTeX template matures
 - [ ] Fix `\MakeTextUppercase` undefined control sequence warning in XeLaTeX
 - [ ] Add `--verbose` flag to `jekyll export` CLI (plugin enhancement)
 - [ ] Formalize `export_filename` as documented plugin feature

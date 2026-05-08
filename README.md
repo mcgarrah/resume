@@ -13,12 +13,12 @@ _data/data.yml (single source of truth)
     │   ├── index.html        → Brief view (collapsible details)
     │   ├── print.html        → Print view (expanded, styled)
     │   ├── machine.html      → Machine view (Schema.org microdata)
-    │   ├── Pandoc plugin     → McGarrah-Resume.pdf (compact LaTeX)
-    │   │                     → McGarrah-Resume.docx (Word)
-    │   └── WeasyPrint        → McGarrah-Resume-styled.pdf (CSS-faithful)
+    │   └── Pandoc plugin     → McGarrah-Resume.pdf (compact LaTeX)
+    │                         → McGarrah-Resume.docx (Word)
     │
     └── Python (Jinja2 + XeLaTeX) ──────────────────────────────────
-        └── LaTeX template    → McGarrah-Resume-latex.pdf (typeset)
+        └── Brief template    → McGarrah-Resume-brief.pdf (5 pages)
+        └── Full template     → McGarrah-Resume-latex.pdf (typeset)
                               → McGarrah-Resume-latex.tex (source)
 ```
 
@@ -30,25 +30,24 @@ The project deliberately uses both Ruby and Python:
 
 - **Ruby/Jekyll** — Site generation, Liquid templates, Pandoc plugin integration. Jekyll is the established static site generator and handles HTML views, SEO, sitemaps, and the primary build pipeline.
 
-- **Python/Jinja2** — LaTeX template rendering and WeasyPrint PDF generation. Python was chosen for the export pipeline because:
+- **Python/Jinja2** — LaTeX template rendering for PDF generation. Python was chosen for the export pipeline because:
   - Jinja2 handles LaTeX templating cleanly with custom delimiters (`<< >>`) that don't conflict with LaTeX's `{ }` syntax
-  - WeasyPrint (Python) renders CSS faithfully for the styled PDF — something Pandoc's LaTeX backend cannot do
   - PyYAML reads the same `_data/data.yml` that Jekyll uses
   - The Python tooling runs post-build as a separate pipeline, not entangled with Jekyll's internals
 
 This separation means the Jekyll site works independently (Ruby only), and the enhanced PDF exports are an additive layer (Python). Either can be modified without affecting the other.
 
-### Three PDF Strategies
+### PDF Strategies
 
 Each PDF serves a different purpose:
 
 | File | Engine | Strengths | Use Case |
 |------|--------|-----------|----------|
-| `McGarrah-Resume.pdf` | Pandoc → LaTeX | Compact, reliable, auto-generated during Jekyll build | Default download, ATS submission |
-| `McGarrah-Resume-styled.pdf` | WeasyPrint | CSS-faithful (flex, columns, borders render correctly) | Visual review, matches browser print view |
-| `McGarrah-Resume-latex.pdf` | Jinja2 → XeLaTeX | Full typographic control, two-column skills, professional typesetting | High-quality print, LaTeX source available |
+| `McGarrah-Resume-brief.pdf` | Jinja2 → XeLaTeX | 5 pages, summaries only, early career consolidated | Primary download, recruiter-friendly |
+| `McGarrah-Resume-latex.pdf` | Jinja2 → XeLaTeX | Full typographic control, all subsections, 30+ pages | Deep-dive readers, complete history |
+| `McGarrah-Resume.pdf` | Pandoc → LaTeX | Auto-generated during Jekyll build, compact | ATS submission, DOCX companion |
 
-The Pandoc PDF is a stop-gap that works within Jekyll's build lifecycle. WeasyPrint may be retired once the LaTeX template matures. The LaTeX pipeline is the long-term solution for publication-quality output.
+The Pandoc PDF is auto-generated as part of the Jekyll build lifecycle. The XeLaTeX PDFs (brief and full) are the primary outputs with professional typesetting.
 
 ### Structured Subsections
 
@@ -114,7 +113,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 # Install dependencies
-pip install -r requirements.txt  # weasyprint, jinja2, pyyaml
+pip install -r requirements.txt  # jinja2, pyyaml
 ```
 
 ### XeLaTeX (typeset LaTeX PDF)
@@ -153,10 +152,10 @@ Helvetica Neue manually in `~/.local/share/fonts/` and run `fc-cache -fv`.
 # Full build: site + Pandoc exports (PDF/DOCX)
 bundle exec jekyll build
 
-# Generate additional PDF formats (requires jekyll build first)
+# Generate LaTeX PDFs (requires jekyll build first)
 source .venv/bin/activate
-bin/generate-pdf.sh             # WeasyPrint → McGarrah-Resume-styled.pdf
-bin/generate-latex.sh           # YAML → .tex → McGarrah-Resume-latex.pdf (via XeLaTeX)
+bin/generate-brief.sh           # XeLaTeX → McGarrah-Resume-brief.pdf (5 pages)
+bin/generate-latex.sh           # XeLaTeX → McGarrah-Resume-latex.pdf (full)
 
 # Development server (livereload + incremental)
 ./jekyll-start.sh               # http://localhost:4000/resume/
@@ -172,7 +171,7 @@ bin/generate-latex.sh           # YAML → .tex → McGarrah-Resume-latex.pdf (v
 | Script | Input | Output | Engine |
 |--------|-------|--------|--------|
 | `bundle exec jekyll build` | `_data/data.yml` | `McGarrah-Resume.pdf`, `.docx` | Pandoc → LaTeX |
-| `bin/generate-pdf.sh` | `_site/print.html` | `McGarrah-Resume-styled.pdf` | WeasyPrint |
+| `bin/generate-brief.sh` | `_data/data.yml` | `McGarrah-Resume-brief.pdf` | Jinja2 → XeLaTeX |
 | `bin/generate-latex.sh` | `_data/data.yml` | `McGarrah-Resume-latex.pdf`, `.tex` | Jinja2 → XeLaTeX |
 
 All outputs land in `_site/downloads/`.
@@ -184,9 +183,10 @@ _data/data.yml              # All resume content (single source)
 _includes/                  # Jekyll partials (brief + print views)
 _layouts/                   # Page layouts (default, print, machine)
 _sass/                      # Browser stylesheets (CSS variables)
-templates/resume.tex.j2     # Jinja2 LaTeX template
-bin/generate-pdf.sh         # WeasyPrint PDF script
-bin/generate-latex.sh       # LaTeX generation + compilation script
+templates/resume.tex.j2     # Jinja2 LaTeX template (full)
+templates/resume-brief.tex.j2  # Jinja2 LaTeX template (brief, 5 pages)
+bin/generate-brief.sh       # Brief LaTeX PDF script
+bin/generate-latex.sh       # Full LaTeX generation + compilation script
 bin/generate-latex.py       # Python script: YAML → .tex via Jinja2
 _config.yml                 # Jekyll config + Pandoc export CSS
 ```
@@ -195,10 +195,8 @@ _config.yml                 # Jekyll config + Pandoc export CSS
 
 GitHub Actions (`.github/workflows/jekyll.yml`) builds and deploys to GitHub Pages on push to `main`. The workflow:
 1. Builds Jekyll (generates HTML + Pandoc PDF/DOCX)
-2. Runs WeasyPrint for the styled PDF
+2. Generates brief and full LaTeX PDFs via XeLaTeX
 3. Deploys `_site/` to GitHub Pages
-
-The LaTeX PDF is generated locally (requires XeLaTeX + fonts) and is not part of the CI pipeline currently.
 
 ## Views
 
