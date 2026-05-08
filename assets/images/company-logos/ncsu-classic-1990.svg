@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- NC State University classic logo (early 1990s era)
+     Red square background with white text:
+     "NC STATE" bold, large (Univers font)
+     "UNIVERSITY" lighter weight, smaller, same width
+     Font stack: Univers (official NCSU), Glypha, Roboto, Arial -->
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <!-- NCSU Red background -->
+  <rect width="200" height="200" fill="#CC0000"/>
+  <!-- NC STATE - bold, centered -->
+  <text x="100" y="94" text-anchor="middle"
+        font-family="Univers, Glypha, Roboto, Arial, sans-serif"
+        font-size="31" font-weight="bold" fill="#FFFFFF"
+        letter-spacing="2.5">NC STATE</text>
+  <!-- UNIVERSITY - lighter, smaller, tracked to match width -->
+  <text x="100" y="122" text-anchor="middle"
+        font-family="Univers, Glypha, Roboto, Arial, sans-serif"
+        font-size="19" font-weight="normal" fill="#FFFFFF"
+        letter-spacing="4.8">UNIVERSITY</text>
+</svg>

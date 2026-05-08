@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Company Logo Preview — Resume</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", -apple-system, system-ui, sans-serif;
+      background: #f8f9fa;
+      padding: 40px;
+      color: #333;
+    }
+    h1 { font-size: 24px; margin-bottom: 8px; }
+    .subtitle { color: #666; margin-bottom: 32px; font-size: 14px; }
+    .section-title {
+      font-size: 14px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; color: #666; border-bottom: 2px solid #ddd;
+      padding-bottom: 6px; margin: 32px 0 16px;
+    }
+    .logo-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px;
+    }
+    .logo-card {
+      background: #fff; border: 1px solid #e0e0e0; border-radius: 8px;
+      padding: 20px; display: flex; align-items: center; gap: 16px;
+    }
+    .logo-card:hover { border-color: #4B6A78; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .logo-img-wrap {
+      width: 80px; height: 80px; flex-shrink: 0; display: flex;
+      align-items: center; justify-content: center;
+      background: #fafafa; border-radius: 6px; border: 1px solid #eee;
+    }
+    .logo-img-wrap img { max-width: 72px; max-height: 72px; object-fit: contain; }
+    .logo-info { flex: 1; min-width: 0; }
+    .logo-info .company { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+    .logo-info .role { font-size: 12px; color: #666; }
+    .logo-info .file { font-size: 11px; color: #999; font-family: monospace; margin-top: 4px; }
+    .logo-info .quality { font-size: 11px; margin-top: 2px; }
+    .quality.good { color: #2e7d32; }
+    .quality.ok { color: #f57c00; }
+    .quality.bad { color: #c62828; }
+    .preview-section { margin-top: 48px; }
+    .job-entry {
+      background: #fff; border: 1px solid #e0e0e0; border-radius: 8px;
+      padding: 20px 24px; margin-bottom: 12px; display: flex; align-items: flex-start; gap: 16px;
+    }
+    .job-logo { width: 56px; height: 56px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .job-logo img { max-width: 52px; max-height: 52px; object-fit: contain; }
+    .job-content { flex: 1; }
+    .job-content .job-title { font-size: 14px; font-weight: 700; color: #111; }
+    .job-content .job-company { font-size: 13px; color: #555; margin-top: 2px; }
+    .job-content .job-dates { font-size: 12px; color: #888; margin-top: 2px; }
+    .job-content .job-summary { font-size: 13px; color: #444; margin-top: 8px; line-height: 1.5; }
+    .dark-bg { background: #2c3e50; padding: 24px; border-radius: 8px; margin-top: 16px; }
+    .dark-bg .job-entry { background: #34495e; border-color: #4a6274; }
+    .dark-bg .job-title { color: #ecf0f1; }
+    .dark-bg .job-company { color: #bdc3c7; }
+    .dark-bg .job-dates { color: #95a5a6; }
+    .dark-bg .job-summary { color: #bdc3c7; }
+  </style>
+</head>
+<body>
+
+<h1>Company Logo Preview</h1>
+<p class="subtitle">How logos look at resume scale (48-60px) next to company names. Open this file directly in a browser.</p>
+
+<h2 class="section-title">SVG Logos (High Quality)</h2>
+<div class="logo-grid">
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="georgia-tech.svg" alt="Georgia Tech"></div>
+    <div class="logo-info">
+      <div class="company">Georgia Institute of Technology</div>
+      <div class="role">MS Computer Science</div>
+      <div class="file">georgia_tech_logo.svg (3.5KB)</div>
+      <div class="quality good">SVG — scalable, crisp at any size</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="uncw.svg" alt="UNCW"></div>
+    <div class="logo-info">
+      <div class="company">University of North Carolina Wilmington</div>
+      <div class="role">Executive MBA</div>
+      <div class="file">uncw_logo.svg (7KB)</div>
+      <div class="quality good">SVG — scalable, crisp at any size</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="ncsu-block-s.svg" alt="NC State"></div>
+    <div class="logo-info">
+      <div class="company">NC State University (wordmark — hard to read small)</div>
+      <div class="role">BS Computer Science + multiple roles</div>
+      <div class="file">nc_state_university_logo.svg (3.3KB)</div>
+      <div class="quality ok">SVG — too detailed for 48-60px display</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="ncsu-classic-1990.svg" alt="NC State Classic"></div>
+    <div class="logo-info">
+      <div class="company">NC State University (classic 1990s logo)</div>
+      <div class="role">BS Computer Science — student era</div>
+      <div class="file">nc_state_classic_logo.svg (hand-built)</div>
+      <div class="quality good">SVG — red square, white text, era-appropriate</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="ncsu-block-s.svg" alt="NC State Block S"></div>
+    <div class="logo-info">
+      <div class="company">NC State University (athletic block S)</div>
+      <div class="role">BS Computer Science + multiple roles</div>
+      <div class="file">nc_state_athletic_logo.svg (2.9KB)</div>
+      <div class="quality good">SVG — bold, reads well at any size</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="nc-community-colleges.svg" alt="NCCCS"></div>
+    <div class="logo-info">
+      <div class="company">NC Community College System</div>
+      <div class="role">Systems Programmer</div>
+      <div class="file">nc_community_colleges_logo.svg (14KB)</div>
+      <div class="quality good">SVG — official from nccommunitycolleges.edu</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="nclive-2000.jpg" alt="NC LIVE"></div>
+    <div class="logo-info">
+      <div class="company">NC LIVE (current dogwood logo)</div>
+      <div class="role">Development Manager / Operations Manager</div>
+      <div class="file">nclive_logo.svg (3KB)</div>
+      <div class="quality good">SVG — current branding</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="irs.svg" alt="IRS"></div>
+    <div class="logo-info">
+      <div class="company">Internal Revenue Service</div>
+      <div class="role">ETAAC Congressional Subcommittee</div>
+      <div class="file">irs_logo.svg (2.8KB)</div>
+      <div class="quality good">SVG — US govt public domain</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="usps-eagle.svg" alt="USPS"></div>
+    <div class="logo-info">
+      <div class="company">United States Postal Service (full logo)</div>
+      <div class="role">Data Engineer</div>
+      <div class="file">usps_logo.svg (6.4KB)</div>
+      <div class="quality ok">SVG — eagle too small at resume scale</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="usps-eagle.svg" alt="USPS Eagle"></div>
+    <div class="logo-info">
+      <div class="company">USPS Eagle (cropped — for resume use)</div>
+      <div class="role">Data Engineer</div>
+      <div class="file">usps_eagle_logo.svg (1.5KB)</div>
+      <div class="quality good">SVG — eagle fills the space, reads well</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="sas.svg" alt="SAS"></div>
+    <div class="logo-info">
+      <div class="company">SAS Institute, Inc.</div>
+      <div class="role">Systems Administrator</div>
+      <div class="file">sas_logo.svg (6.2KB)</div>
+      <div class="quality good">SVG — horizontal wordmark</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="akc-shield.png" alt="AKC Shield"></div>
+    <div class="logo-info">
+      <div class="company">American Kennel Club (shield only — for resume)</div>
+      <div class="role">Cloud Architect</div>
+      <div class="file">akc_shield_v2.png (23KB, 284x277)</div>
+      <div class="quality good">PNG — rendered from SVG, cropped to shield</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="akc-shield.png" alt="AKC"></div>
+    <div class="logo-info">
+      <div class="company">American Kennel Club (full logo with text)</div>
+      <div class="role">Cloud Architect</div>
+      <div class="file">american_kennel_club_logo.svg (85KB)</div>
+      <div class="quality ok">SVG — shield too small when text included</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="measurement-inc.svg" alt="MI mark"></div>
+    <div class="logo-info">
+      <div class="company">Measurement Inc ("M" mark only)</div>
+      <div class="role">Senior Systems Programmer (AI)</div>
+      <div class="file">measurement_inc_mark.svg (0.5KB)</div>
+      <div class="quality good">SVG — bold M fills the space</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="measurement-inc.svg" alt="MI full"></div>
+    <div class="logo-info">
+      <div class="company">Measurement Inc (full horizontal logo)</div>
+      <div class="role">Senior Systems Programmer (AI)</div>
+      <div class="file">measurement_incorporated_logo.svg (71KB)</div>
+      <div class="quality ok">SVG — too wide/small at resume scale</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="bd.svg" alt="BD"></div>
+    <div class="logo-info">
+      <div class="company">BD (Becton Dickinson) — modern mark</div>
+      <div class="role">IT Engineer (IT Director)</div>
+      <div class="file">bd_logo.svg (5.7KB)</div>
+      <div class="quality good">SVG — bold blue BD mark</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="bd-wordmark.svg" alt="Becton Dickinson"></div>
+    <div class="logo-info">
+      <div class="company">Becton Dickinson — older wordmark</div>
+      <div class="role">IT Engineer (IT Director) — era-appropriate</div>
+      <div class="file">becton_dickinson_logo.svg (4.3KB)</div>
+      <div class="quality good">SVG — classic Becton Dickinson text</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="ziff-davis-1990.svg" alt="Ziff-Davis ZD"></div>
+    <div class="logo-info">
+      <div class="company">Ziff-Davis Publishing (1990s ZD mark)</div>
+      <div class="role">Benchmark Developer</div>
+      <div class="file">ziff_davis_zd_logo.svg (1KB)</div>
+      <div class="quality good">SVG — classic interlocking ZD</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="ziff-davis-1990.svg" alt="Ziff Davis"></div>
+    <div class="logo-info">
+      <div class="company">Ziff Davis (modern wordmark)</div>
+      <div class="role">Benchmark Developer (alternate)</div>
+      <div class="file">ziff_davis_blue_logo.svg (7KB)</div>
+      <div class="quality good">SVG — modern blue wordmark</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="nc-seal.svg" alt="NC Seal"></div>
+    <div class="logo-info">
+      <div class="company">State of North Carolina (Official Seal)</div>
+      <div class="role">Generic fallback for NC state roles</div>
+      <div class="file">seal_of_north_carolina.svg (460KB)</div>
+      <div class="quality good">SVG — detailed official seal</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">PNG/GIF/JPG Logos (Good Quality)</h2>
+<div class="logo-grid">
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="envestnet.svg" alt="Envestnet"></div>
+    <div class="logo-info">
+      <div class="company">Envestnet, Inc. (SVG)</div>
+      <div class="role">Lead Principal Engineer</div>
+      <div class="file">envestnet_logo.svg (3.5KB)</div>
+      <div class="quality good">SVG — official from envestnet.com</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="envestnet.svg" alt="Envestnet PNG"></div>
+    <div class="logo-info">
+      <div class="company">Envestnet, Inc. (PNG — old)</div>
+      <div class="role">Lead Principal Engineer</div>
+      <div class="file">envestnet_logo.png (30KB)</div>
+      <div class="quality ok">PNG — replaced by SVG above</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="bcbsnc.png" alt="BCBSNC"></div>
+    <div class="logo-info">
+      <div class="company">Blue Cross and Blue Shield of NC</div>
+      <div class="role">Principal Data &amp; Analytics Platform Engineer</div>
+      <div class="file">bluecrossnc_logo.png (30KB, 310x310)</div>
+      <div class="quality good">PNG — official icon, replaces low-res JPG</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="nc-dit.png" alt="NC DIT"></div>
+    <div class="logo-info">
+      <div class="company">NC Dept of Information Technology (mark only)</div>
+      <div class="role">Enterprise Architect for Strategic Initiatives</div>
+      <div class="file">nc_dit_mark.png (4KB, cropped)</div>
+      <div class="quality good">PNG — logo mark without text</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="nc-dit.png" alt="NC DIT full"></div>
+    <div class="logo-info">
+      <div class="company">NC DIT (full — for comparison)</div>
+      <div class="role">Enterprise Architect for Strategic Initiatives</div>
+      <div class="file">nc_dit_logo.png (17KB, 1042x313)</div>
+      <div class="quality ok">PNG — text too small at resume scale</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="nc-dor.png" alt="NC DOR"></div>
+    <div class="logo-info">
+      <div class="company">NC Dept of Revenue (mark only)</div>
+      <div class="role">Application and Network Security Specialist</div>
+      <div class="file">nc_dor_mark.png (3KB, cropped)</div>
+      <div class="quality good">PNG — logo mark without text</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="nc-dor.png" alt="NC DOR full"></div>
+    <div class="logo-info">
+      <div class="company">NC DOR (full — for comparison)</div>
+      <div class="role">Application and Network Security Specialist</div>
+      <div class="file">nc_dor_logo.png (19KB, 1042x313)</div>
+      <div class="quality ok">PNG — text too small at resume scale</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="ncsu-wordmark-2023.png" alt="NC State 2023"></div>
+    <div class="logo-info">
+      <div class="company">NC State University (2023 bold wordmark)</div>
+      <div class="role">Alternative to block S — bolder than old SVG</div>
+      <div class="file">nc_state_wordmark_2023.png (27KB, 590x128)</div>
+      <div class="quality good">PNG — bold, readable at small sizes</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="netiq.png" alt="NetIQ"></div>
+    <div class="logo-info">
+      <div class="company">NetIQ (for Ganymede Software era)</div>
+      <div class="role">UNIX Engineer</div>
+      <div class="file">netiq_logo.png (4.6KB, 395x128)</div>
+      <div class="quality good">PNG — NetIQ wordmark from Wikipedia</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="interpath.png" alt="Interpath"></div>
+    <div class="logo-info">
+      <div class="company">Interpath Communications</div>
+      <div class="role">Operations Technician / NOC</div>
+      <div class="file">interpath_communications_logo.png (114KB)</div>
+      <div class="quality good">PNG — good quality, from archive</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="ziff-davis-publishing_logo.png" alt="Ziff-Davis"></div>
+    <div class="logo-info">
+      <div class="company">Ziff-Davis Publishing (full wordmark)</div>
+      <div class="role">Benchmark Developer (alternate)</div>
+      <div class="file">ziff-davis-publishing_logo.png (48KB)</div>
+      <div class="quality good">PNG — full wordmark</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="nclive-2000.jpg" alt="NC LIVE 2000"></div>
+    <div class="logo-info">
+      <div class="company">NC LIVE (original purple logo, circa 2000)</div>
+      <div class="role">Development Manager — the logo from your era</div>
+      <div class="file">nclive_logo_2000.jpg (10KB, 199x177)</div>
+      <div class="quality good">JPG — from Wayback Machine archive</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="tierpoint.png" alt="TierPoint"></div>
+    <div class="logo-info">
+      <div class="company">TierPoint (acquired Hosted Solutions/Springboard)</div>
+      <div class="role">Systems Engineer — use this for resume</div>
+      <div class="file">tierpoint_logo.png (16KB, 300x300)</div>
+      <div class="quality good">PNG — official from tierpoint.com</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="springboard-hosting-2004.gif" alt="Springboard Hosting"></div>
+    <div class="logo-info">
+      <div class="company">Springboard Managed Hosting (2004 era logo)</div>
+      <div class="role">Systems Engineer — kept for reference</div>
+      <div class="file">springboard_hosting_logo.gif (310x48)</div>
+      <div class="quality bad">GIF — low-res, kept for nostalgia</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="springboard-hosting-2004.gif" alt="Hosted Solutions"></div>
+    <div class="logo-info">
+      <div class="company">Hosted Solutions (same company, later branding)</div>
+      <div class="role">Systems Engineer — kept for reference</div>
+      <div class="file">hosted_solutions_logo.gif (6KB, 350x65)</div>
+      <div class="quality ok">GIF — not logo-shaped</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">JPG Logos (Lower Quality — May Need Replacement)</h2>
+<div class="logo-grid">
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="roemer-weather.jpg" alt="Roemer Weather"></div>
+    <div class="logo-info">
+      <div class="company">Roemer Weather, Inc.</div>
+      <div class="role">Computer Consultant</div>
+      <div class="file">roemer-weather_best_weather_inc_logo.jpg (9KB)</div>
+      <div class="quality ok">JPG — acceptable</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">Superseded (Old vs New Comparison)</h2>
+<div class="logo-grid">
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="georgia_institute_of_technology.jpg" alt="GT old"></div>
+    <div class="logo-info">
+      <div class="company">Georgia Tech (OLD — 2.2KB JPG)</div>
+      <div class="role">Replaced by georgia_tech_logo.svg</div>
+      <div class="file">georgia_institute_of_technology.jpg</div>
+      <div class="quality bad">DELETE — replaced by SVG</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="ncsu-classic-1990.svg" alt="NCSU old"></div>
+    <div class="logo-info">
+      <div class="company">NC State (OLD — 3KB JPG)</div>
+      <div class="role">Replaced by nc_state_university_logo.svg</div>
+      <div class="file">north_carolina_state_university_logo.jpg</div>
+      <div class="quality bad">DELETE — replaced by SVG</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="bluecrossnc_logo.jpg" alt="BCBSNC old"></div>
+    <div class="logo-info">
+      <div class="company">BCBSNC (OLD — 3.9KB JPG)</div>
+      <div class="role">Replaced by bluecrossnc_logo.png</div>
+      <div class="file">bluecrossnc_logo.jpg</div>
+      <div class="quality bad">DELETE — replaced by 310x310 PNG</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="nc_department_of_revenue_logo.jpg" alt="NC DOR old"></div>
+    <div class="logo-info">
+      <div class="company">NC DOR (OLD — 2.4KB JPG)</div>
+      <div class="role">Replaced by nc_dor_logo.png</div>
+      <div class="file">nc_department_of_revenue_logo.jpg</div>
+      <div class="quality bad">DELETE — replaced by official PNG</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="state_of_north_carolina_logo.jpg" alt="NC seal old"></div>
+    <div class="logo-info">
+      <div class="company">NC State Seal (OLD — 6.5KB JPG)</div>
+      <div class="role">Replaced by seal_of_north_carolina.svg + agency logos</div>
+      <div class="file">state_of_north_carolina_logo.jpg</div>
+      <div class="quality bad">DELETE — replaced by SVG seal + agency logos</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="envestnet_logo.jpg" alt="Envestnet old"></div>
+    <div class="logo-info">
+      <div class="company">Envestnet (OLD — 2.2KB JPG)</div>
+      <div class="role">Replaced by envestnet_logo.png</div>
+      <div class="file">envestnet_logo.jpg</div>
+      <div class="quality bad">DELETE — duplicate, use PNG</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="irs.svg" alt="IRS old"></div>
+    <div class="logo-info">
+      <div class="company">IRS (OLD — 4.4KB JPG)</div>
+      <div class="role">Replaced by irs_logo.svg</div>
+      <div class="file">irs_logo.jpg</div>
+      <div class="quality bad">DELETE — replaced by SVG</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="sas.svg" alt="SAS old"></div>
+    <div class="logo-info">
+      <div class="company">SAS (OLD — 3KB JPG)</div>
+      <div class="role">Replaced by sas_logo.svg</div>
+      <div class="file">sas_logo.jpg</div>
+      <div class="quality bad">DELETE — replaced by SVG</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="american_kennel_club_logo.jpg" alt="AKC old"></div>
+    <div class="logo-info">
+      <div class="company">AKC (OLD — 5.8KB JPG)</div>
+      <div class="role">Replaced by american_kennel_club_logo.svg</div>
+      <div class="file">american_kennel_club_logo.jpg</div>
+      <div class="quality bad">DELETE — replaced by SVG</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="measurement_incorporated_logo.jpg" alt="MI old"></div>
+    <div class="logo-info">
+      <div class="company">Measurement Inc (OLD — 2.7KB JPG)</div>
+      <div class="role">Replaced by measurement_incorporated_logo.svg</div>
+      <div class="file">measurement_incorporated_logo.jpg</div>
+      <div class="quality bad">DELETE — replaced by SVG</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="netiq.png" alt="Ganymede old"></div>
+    <div class="logo-info">
+      <div class="company">Ganymede/NetIQ (OLD — 2.6KB JPG)</div>
+      <div class="role">Replaced by netiq_logo.png</div>
+      <div class="file">ganymede_software_netiq_logo.jpg</div>
+      <div class="quality bad">DELETE — replaced by PNG</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="tierpoint.png" alt="Springboard old"></div>
+    <div class="logo-info">
+      <div class="company">Springboard/TierPoint (OLD — 3.4KB JPG)</div>
+      <div class="role">Replaced by hosted_solutions_logo.gif</div>
+      <div class="file">springboardhosting-tierpoint_logo.jpg</div>
+      <div class="quality bad">DELETE — replaced by original Hosted Solutions logo</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="usps_logo.jpg" alt="USPS old"></div>
+    <div class="logo-info">
+      <div class="company">USPS (OLD — 2.9KB JPG)</div>
+      <div class="role">Replaced by usps_logo.svg</div>
+      <div class="file">usps_logo.jpg</div>
+      <div class="quality bad">DELETE — replaced by SVG eagle logo</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="bd.svg" alt="BD old"></div>
+    <div class="logo-info">
+      <div class="company">BD Biosciences (OLD — 2.6KB JPG)</div>
+      <div class="role">Replaced by bd_logo.svg</div>
+      <div class="file">bdbiosciences_logo.jpg</div>
+      <div class="quality bad">DELETE — replaced by SVG</div>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-img-wrap"><img src="nc_community_colleges_logo.jpg" alt="NCCCS old"></div>
+    <div class="logo-info">
+      <div class="company">NC Community Colleges (OLD — 3.3KB JPG)</div>
+      <div class="role">Replaced by nc_community_colleges_logo.svg</div>
+      <div class="file">nc_community_colleges_logo.jpg</div>
+      <div class="quality bad">DELETE — replaced by official SVG</div>
+    </div>
+  </div>
+</div>
+
+<div class="preview-section">
+  <h2 class="section-title">Simulated Resume Layout (Light)</h2>
+  <p class="subtitle" style="margin-bottom: 16px;">How logos appear inline with job entries at 48px</p>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="envestnet.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Lead Principal Engineer (Cloud & ML Focus)</div>
+      <div class="job-company">Envestnet, Inc., Emerald Isle NC (Remote)</div>
+      <div class="job-dates">Oct 2021 – Present</div>
+      <div class="job-summary">Leading cloud platform architecture across 20+ AWS accounts spanning every billing and data platform in the enterprise.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="bcbsnc.png" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Principal Data & Analytics Platform Engineer</div>
+      <div class="job-company">Blue Cross and Blue Shield of NC, Raleigh-Durham NC</div>
+      <div class="job-dates">Apr 2019 – Oct 2021</div>
+      <div class="job-summary">Architected and led development of the enterprise data science platform — multi-account AWS infrastructure.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="usps-eagle.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Data Engineer</div>
+      <div class="job-company">United States Postal Service, Raleigh NC</div>
+      <div class="job-dates">Nov 2017 – Apr 2019</div>
+      <div class="job-summary">Administered a 25-node SAS Viya in-memory analytics cluster (26TB RAM) with connectivity to a 50+ node Hadoop data lake.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="akc-shield.png" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Cloud Architect</div>
+      <div class="job-company">American Kennel Club, Raleigh-Durham NC</div>
+      <div class="job-dates">Jul 2016 – Sep 2017</div>
+      <div class="job-summary">Cloud evangelist bringing AWS into an organization that was entirely data-center and vendor-hosted.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="nc-dit.png" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Enterprise Architect for Strategic Initiatives</div>
+      <div class="job-company">NC Department of Information Technology, Raleigh NC</div>
+      <div class="job-dates">May 2015 – Jul 2016</div>
+      <div class="job-summary">Led enterprise-wide technology strategy for North Carolina state government.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="measurement-inc.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Senior Systems Programmer & Administrator (AI)</div>
+      <div class="job-company">Measurement Incorporated, Durham NC</div>
+      <div class="job-dates">Apr 2013 – Jul 2015</div>
+      <div class="job-summary">Built custom scalable compute platform for ML scoring workloads on AWS spot instances.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="sas.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Systems Administrator</div>
+      <div class="job-company">SAS Institute, Inc., Cary NC</div>
+      <div class="job-dates">Aug 2011 – Mar 2013</div>
+      <div class="job-summary">FDA CFR Part 11 validated systems, multi-tier SAS architectures for 80+ customers.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="nc-dor.png" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Application and Network Security Specialist</div>
+      <div class="job-company">NC Department of Revenue, Raleigh NC</div>
+      <div class="job-dates">Mar 2007 – Aug 2011</div>
+      <div class="job-summary">IRS SafeGuard audit, ETAAC Congressional subcommittee, NIST 800-53 frameworks.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="irs.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Congressional Subcommittee Member</div>
+      <div class="job-company">ETAAC Security Subcommittee, Washington DC</div>
+      <div class="job-dates">Mar 2009 – Mar 2011</div>
+      <div class="job-summary">NIST 800-53 controls adapted to IRS Publication 1075 for third-party tax preparer security standards.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="bd.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">IT Engineer (IT Director)</div>
+      <div class="job-company">BD Biosciences, Durham NC</div>
+      <div class="job-dates">Mar 2006 – Mar 2007</div>
+      <div class="job-summary">Sole IT leader managing all IT services, budgets, and one direct report for the BD Treyburn manufacturing plant.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="nc-community-colleges.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Systems Programmer</div>
+      <div class="job-company">NC Community College System, Raleigh NC</div>
+      <div class="job-dates">Jan 2005 – Mar 2006</div>
+      <div class="job-summary">Administered Sun Solaris and IBM AIX systems for all 58 North Carolina community colleges.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="tierpoint.png" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Systems Engineer</div>
+      <div class="job-company">Hosted Solutions (Springboard Hosting), Raleigh NC</div>
+      <div class="job-dates">May 2004 – Jan 2005</div>
+      <div class="job-summary">Senior off-shift supervisor across three operation centers.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="netiq.png" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">UNIX Engineer</div>
+      <div class="job-company">NetIQ, Inc. (Ganymede Software), Morrisville NC</div>
+      <div class="job-dates">Jun 2002 – May 2004</div>
+      <div class="job-summary">Cross-platform resource for UNIX product releases; built lab automation service before cloud existed.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="nclive-2000.jpg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Development Manager / Operations Manager</div>
+      <div class="job-company">North Carolina State University — NC LIVE</div>
+      <div class="job-dates">Jan 1999 – Nov 2000</div>
+      <div class="job-summary">Statewide digital library platform serving all NC public libraries, community colleges, and universities.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="ncsu-block-s.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Application Analyst Programmer</div>
+      <div class="job-company">North Carolina State University, Raleigh NC</div>
+      <div class="job-dates">Jun 1998 – Jan 1999</div>
+      <div class="job-summary">Financial systems, Sybase database administration, cross-platform development.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="ziff-davis-1990.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Benchmark Developer (System Programmer)</div>
+      <div class="job-company">Ziff-Davis Publishing, Raleigh NC</div>
+      <div class="job-dates">Jun 1994 – Jun 1998</div>
+      <div class="job-summary">Winstone, WinBench, PC Bench, JMark — industry-standard benchmarks distributed with PC Magazine.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="interpath.png" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Operations Technician / Technical Writer</div>
+      <div class="job-company">Interpath Communications, Raleigh NC</div>
+      <div class="job-dates">Jan 1998 – May 1998</div>
+      <div class="job-summary">First engagement at Interpath — networking and ISP operations knowledge.</div>
+    </div>
+  </div>
+</div>
+
+<div class="preview-section">
+  <h2 class="section-title">Education</h2>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="uncw.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Executive Masters of Business Administration</div>
+      <div class="job-company">University of North Carolina Wilmington</div>
+      <div class="job-dates">2025 – present | GPA: 4.0</div>
+      <div class="job-summary">Corporate Entrepreneurship focus — business strategy, finance, organizational leadership.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="georgia-tech.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Masters of Science in Computer Science</div>
+      <div class="job-company">Georgia Institute of Technology</div>
+      <div class="job-dates">2014 – 2019 | GPA: 3.63</div>
+      <div class="job-summary">Specialization in Interactive Intelligence — machine learning, NLP, computer vision, knowledge-based AI.</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="ncsu-classic-1990.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Bachelor of Science in Computer Science</div>
+      <div class="job-company">North Carolina State University</div>
+      <div class="job-dates">1990 – 2011 | GPA: 3.42</div>
+      <div class="job-summary">Graduated with Honors while working full-time and raising a family.</div>
+    </div>
+  </div>
+</div>
+
+<div class="preview-section dark-bg">
+  <h2 class="section-title" style="color: #bdc3c7; border-color: #4a6274;">Dark Mode Preview</h2>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="envestnet.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Lead Principal Engineer (Cloud & ML Focus)</div>
+      <div class="job-company">Envestnet, Inc., Emerald Isle NC (Remote)</div>
+      <div class="job-dates">Oct 2021 – Present</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="bcbsnc.png" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Principal Data & Analytics Platform Engineer</div>
+      <div class="job-company">Blue Cross and Blue Shield of NC</div>
+      <div class="job-dates">Apr 2019 – Oct 2021</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="nc-dit.png" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Enterprise Architect for Strategic Initiatives</div>
+      <div class="job-company">NC Department of Information Technology</div>
+      <div class="job-dates">May 2015 – Jul 2016</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="nc-dor.png" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Application and Network Security Specialist</div>
+      <div class="job-company">NC Department of Revenue</div>
+      <div class="job-dates">Mar 2007 – Aug 2011</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="georgia-tech.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Masters of Science in Computer Science</div>
+      <div class="job-company">Georgia Institute of Technology</div>
+      <div class="job-dates">2014 – 2019</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="nclive-2000.jpg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Development Manager / Operations Manager</div>
+      <div class="job-company">NC LIVE — North Carolina State University</div>
+      <div class="job-dates">Jan 1999 – Nov 2000</div>
+    </div>
+  </div>
+
+  <div class="job-entry">
+    <div class="job-logo"><img src="ziff-davis-1990.svg" alt=""></div>
+    <div class="job-content">
+      <div class="job-title">Benchmark Developer (System Programmer)</div>
+      <div class="job-company">Ziff-Davis Publishing, Raleigh NC</div>
+      <div class="job-dates">Jun 1994 – Jun 1998</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
