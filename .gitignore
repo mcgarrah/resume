@@ -7,6 +7,7 @@ _site/
 # Ruby / Bundler
 vendor/
 .bundle/
+Gemfile.lock
 *.gem
 
 # Python virtual environment
