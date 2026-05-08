@@ -390,6 +390,26 @@ These items should be addressed in a future plugin release:
 - Ensure search widget respects light/dark mode CSS custom properties
 - **Note:** Pagefind is a pragmatic first step. Project Nexus will later replace it with MiniSearch + Mark.js for custom tokenization (technical terms like "K8s"/"Kubernetes"), fuzzy matching, and DOM-aware highlighting that expands collapsed `<details>` sections. Design the search UI container and JS loading pattern to be swappable.
 
+### Phase 5a — Project Dates
+- Add `time` field to project entries in `_data/data.yml` where dates are discoverable
+- Sources: GitHub repository creation dates, article publication dates, conference years
+- Format: match existing convention (e.g., "2024", "Jun 2024", "2022 - 2024")
+- Update all three views + LaTeX template to render project dates (right-aligned, matching experience pattern)
+- Projects without discoverable dates remain undated (field is optional)
+- **Scope**: 13 projects, most have dates in their titles or linked articles already
+
+### Phase 5b — Per-Entry Skills Taxonomy
+- Add optional `skills` array to each experience, education, and project entry in `_data/data.yml`
+- Skills values should match entries in the Skills section for cross-referencing
+- Schema: `skills: ["Python", "AWS EKS", "Terraform", "New Relic"]` — flat list of strings
+- Machine view: render as `schema.org/skills` or `schema.org/knowsAbout` properties
+- Brief/print views: optionally render as a compact tag list below each entry
+- LaTeX template: render as italic comma-separated list after the entry content
+- **Goal**: Enable future semantic mapping — which skills were used at which jobs, for how long
+- **Cross-reference**: Skills in per-entry lists should be a subset of the master Skills section categories
+- **ATS value**: Explicit skill-to-experience mapping improves keyword matching for applicant tracking systems
+- **Scope**: Start with the 5 most recent experience entries as proof of concept, then expand
+
 ### Phase 6 — AI Agent Integration
 - Select hosting platform (AWS Lambda + API Gateway, Cloudflare Workers, or third-party)
 - Build agent knowledge base from `/resume/machine/` JSON-LD output
@@ -459,3 +479,8 @@ git checkout refactor && bundle exec jekyll serve --port 4000
 | 2026-05-06 | Phase 3 locally validated | JSON-LD valid, heading hierarchy clean, microdata complete; pending Google Rich Results Test on live URL |
 | 2026-05-06 | Experience subsections schema change | Pandoc can't distinguish `<h3>` job titles from `<strong>` subsection headings in PDF; restructure data.yml with explicit `subsections` array |
 | 2026-05-06 | Schema.org `CreativeWork` for subsections | Subsections in machine view wrapped as nested `CreativeWork` within `OrganizationRole` for ATS keyword indexing and semantic structure |
+| 2026-05-07 | Add WeasyPrint PDF generation | CSS-faithful PDF rendering; Pandoc/LaTeX can't handle flex/columns |
+| 2026-05-07 | Add Jinja2/XeLaTeX resume pipeline | Full typographic control independent of HTML; Python reads same YAML |
+| 2026-05-07 | Dual language stack (Ruby + Python) | Jekyll for web views, Python for export pipeline; deliberate architecture decision |
+| 2026-05-07 | Plan: Project dates from GitHub/articles | Add `time` field to projects where dates are discoverable |
+| 2026-05-07 | Plan: Per-entry skills taxonomy | Add `skills` array to each experience/education/project for semantic cross-referencing |
