@@ -1,0 +1,413 @@
+---
+layout: null
+permalink: /ultra-brief/
+title: "Michael McGarrah — Resume (Ultra-Brief)"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michael McGarrah — Resume</title>
+  <style>
+    @page { margin: 0.5in 0.6in; size: letter; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", -apple-system, system-ui, sans-serif;
+      font-size: 11px;
+      line-height: 1.4;
+      color: #222;
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.5in 0.6in;
+    }
+
+    /* Header */
+    .header { border-bottom: 2px solid #222; padding-bottom: 8px; margin-bottom: 14px; }
+    .header h1 { font-size: 22px; font-weight: 900; margin-bottom: 2px; }
+    .header .tagline { font-size: 11px; color: #444; margin-bottom: 6px; }
+    .header .contact { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 9px; color: #555; }
+    .header .contact a { color: #333; text-decoration: none; }
+
+    /* Section titles */
+    .section-title {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; border-bottom: 1px solid #999;
+      padding-bottom: 3px; margin: 12px 0 8px; color: #333;
+    }
+
+    /* Job entries — ultra compact */
+    .entry {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 4px 0; border-bottom: 1px solid #f0f0f0;
+    }
+    .entry:last-child { border-bottom: none; }
+    .entry-logo {
+      width: 32px; height: 32px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .entry-logo img { max-width: 28px; max-height: 28px; object-fit: contain; }
+    .entry-content { flex: 1; min-width: 0; }
+    .entry-top { display: flex; justify-content: space-between; align-items: baseline; }
+    .entry-title { font-size: 11px; font-weight: 700; color: #111; }
+    .entry-time { font-size: 9px; font-weight: 600; color: #555; white-space: nowrap; }
+    .entry-company { font-size: 9.5px; color: #444; }
+    .entry-summary { font-size: 9.5px; color: #555; margin-top: 1px; }
+
+    /* Education — slightly different */
+    .edu-entry { display: flex; align-items: flex-start; gap: 10px; padding: 4px 0; }
+    .edu-content { flex: 1; }
+    .edu-top { display: flex; justify-content: space-between; align-items: baseline; }
+    .edu-degree { font-size: 11px; font-weight: 700; color: #111; }
+    .edu-school { font-size: 9.5px; color: #444; }
+    .edu-time { font-size: 9px; font-weight: 600; color: #555; }
+
+    /* Skills — dense two-column */
+    .skills-grid { column-count: 2; column-gap: 20px; }
+    .skill-category { break-inside: avoid; margin-bottom: 4px; }
+    .skill-label { font-size: 9.5px; font-weight: 700; color: #333; }
+    .skill-list { font-size: 9px; color: #555; line-height: 1.3; }
+
+    /* Certifications — compact */
+    .cert-row { font-size: 9.5px; padding: 2px 0; display: flex; gap: 6px; }
+    .cert-name { font-weight: 600; color: #222; }
+    .cert-org { color: #555; }
+    .cert-date { color: #666; font-size: 9px; }
+
+    /* Page break */
+    .page-break { page-break-before: always; }
+
+    /* Print adjustments */
+    @media print {
+      body { padding: 0; }
+      .entry { padding: 3px 0; }
+    }
+  </style>
+</head>
+<body>
+
+{% assign d = site.data.data %}
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 1: Header + Education + Key Experience (the wow pieces)
+     ═══════════════════════════════════════════════════════════ -->
+
+<header class="header">
+  <h1>{{ d.sidebar.name }}</h1>
+  <div class="tagline">{{ d.sidebar.tagline }}</div>
+  <div class="contact">
+    <span>{{ d.sidebar.email }}</span>
+    <span>{{ d.sidebar.phone }}</span>
+    <span>{{ d.sidebar.website }}</span>
+    <span>linkedin.com/in/{{ d.sidebar.linkedin }}</span>
+    <span>github.com/{{ d.sidebar.github }}</span>
+  </div>
+</header>
+
+<!-- Career Profile — one paragraph -->
+<div class="section-title">Profile</div>
+<p style="font-size: 10px; color: #333; line-height: 1.5; margin-bottom: 4px;">
+Technology leader with 30+ years bridging enterprise architecture, AI/ML, and cloud platforms.
+Career spans engineering leadership, enterprise architecture (statewide standards for NC state government),
+and hands-on platform engineering (AWS, EKS, production ML models). Security depth includes IRS SafeGuard audits,
+SOC 1/SOC 2 compliance across eight simultaneous audits, and Congressional subcommittee work (ETAAC).
+Currently completing an Executive MBA at UNC Wilmington.
+</p>
+
+<!-- Education -->
+<div class="section-title">Education</div>
+
+<div class="edu-entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/uncw.svg" alt=""></div>
+  <div class="edu-content">
+    <div class="edu-top">
+      <span class="edu-degree">Executive MBA — Corporate Entrepreneurship</span>
+      <span class="edu-time">2025 – present</span>
+    </div>
+    <div class="edu-school">University of North Carolina Wilmington | GPA: 4.0</div>
+  </div>
+</div>
+
+<div class="edu-entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/georgia-tech.svg" alt=""></div>
+  <div class="edu-content">
+    <div class="edu-top">
+      <span class="edu-degree">MS Computer Science — Interactive Intelligence (AI/ML)</span>
+      <span class="edu-time">2014 – 2019</span>
+    </div>
+    <div class="edu-school">Georgia Institute of Technology | GPA: 3.63</div>
+  </div>
+</div>
+
+<div class="edu-entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/ncsu-classic-1990.svg" alt=""></div>
+  <div class="edu-content">
+    <div class="edu-top">
+      <span class="edu-degree">BS Computer Science — Honors</span>
+      <span class="edu-time">1990 – 2011</span>
+    </div>
+    <div class="edu-school">North Carolina State University | GPA: 3.42</div>
+  </div>
+</div>
+
+<!-- Key Experience (page 1 — most impactful roles) -->
+<div class="section-title">Experience</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/envestnet.svg" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Lead Principal Engineer (Cloud & ML Focus)</span>
+      <span class="entry-time">Oct 2021 – Present</span>
+    </div>
+    <div class="entry-company">Envestnet, Inc., Emerald Isle NC (Remote)</div>
+    <div class="entry-summary">Cloud platform architecture across 20+ AWS accounts. Founded EKS Working Group. Led SOC 1/SOC 2 compliance for 8 simultaneous audits. Built enterprise observability framework.</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/bcbsnc.png" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Principal Data & Analytics Platform Engineer</span>
+      <span class="entry-time">Apr 2019 – Oct 2021</span>
+    </div>
+    <div class="entry-company">Blue Cross and Blue Shield of NC, Raleigh-Durham NC (Remote)</div>
+    <div class="entry-summary">Architected enterprise data science platform (EKS, EMR, SageMaker). Production deep learning models processing claims data for all NC members. Director-equivalent authority.</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/usps-eagle.svg" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Data Engineer</span>
+      <span class="entry-time">Nov 2017 – Apr 2019</span>
+    </div>
+    <div class="entry-company">United States Postal Service, Raleigh NC</div>
+    <div class="entry-summary">Administered 25-node SAS Viya cluster (26TB RAM) connected to 50+ node Hadoop data lake. NIST 800-53 high security. Built data acquisition modules for Chief Data Scientist's team.</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/akc-shield.png" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Cloud Architect</span>
+      <span class="entry-time">Jul 2016 – Sep 2017</span>
+    </div>
+    <div class="entry-company">American Kennel Club, Raleigh-Durham NC</div>
+    <div class="entry-summary">AWS cloud evangelist. Migrated www.akc.org in 6 weeks with zero customer impact. Reduced hosting costs from $30K/mo to under $5K. End-to-end CI/CD implementation.</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/nc-dit.png" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Enterprise Architect for Strategic Initiatives</span>
+      <span class="entry-time">May 2015 – Jul 2016</span>
+    </div>
+    <div class="entry-company">NC Department of Information Technology, Raleigh NC</div>
+    <div class="entry-summary">Led enterprise-wide technology strategy for NC state government. Authored RFI for statewide data center network modernization. Co-authored security standards RFP with State Risk Officer.</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/measurement-inc.svg" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Senior Systems Programmer & Administrator (AI)</span>
+      <span class="entry-time">Apr 2013 – Jul 2015</span>
+    </div>
+    <div class="entry-company">Measurement Incorporated, Durham NC</div>
+    <div class="entry-summary">Built scalable AWS compute platform for ML scoring workloads (thousands of spot instances). Owned all costs and FinOps. Custom MIT Star Cluster for distributed AI computing.</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/sas.svg" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Systems Administrator</span>
+      <span class="entry-time">Aug 2011 – Mar 2013</span>
+    </div>
+    <div class="entry-company">SAS Institute, Inc., Cary NC</div>
+    <div class="entry-summary">FDA CFR Part 11 validated systems for pharmaceutical clinical trials. Multi-tier SAS architectures for 80+ customers. All 6 SAS certifications in 6 consecutive months.</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/nc-dor.png" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Application and Network Security Specialist</span>
+      <span class="entry-time">Mar 2007 – Aug 2011</span>
+    </div>
+    <div class="entry-company">NC Department of Revenue, Raleigh NC</div>
+    <div class="entry-summary">Passed IRS SafeGuard audit (1,300-page report, no noteworthy findings). Congressional subcommittee (ETAAC) on security standards. NIST 800-53, PCI-DSS, FISMA frameworks.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 2: Remaining experience + Skills + Certifications
+     ═══════════════════════════════════════════════════════════ -->
+<div class="page-break"></div>
+
+<div class="section-title">Experience (continued)</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/irs.svg" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Congressional Subcommittee Member</span>
+      <span class="entry-time">Mar 2009 – Mar 2011</span>
+    </div>
+    <div class="entry-company">ETAAC Security Subcommittee, Washington DC</div>
+    <div class="entry-summary">NIST 800-53 controls adapted to IRS Publication 1075 for third-party tax preparer security standards. Congressional report applied these as baseline.</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/bd.svg" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">IT Engineer (IT Director)</span>
+      <span class="entry-time">Mar 2006 – Mar 2007</span>
+    </div>
+    <div class="entry-company">BD Biosciences, Durham NC</div>
+    <div class="entry-summary">Sole IT leader for manufacturing plant. Managed all IT services, budgets, one direct report. Apriso MES, Oracle, SAP integration, medical device compliance.</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/nc-community-colleges.svg" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Systems Programmer</span>
+      <span class="entry-time">Jan 2005 – Mar 2006</span>
+    </div>
+    <div class="entry-company">NC Community College System, Raleigh NC</div>
+    <div class="entry-summary">Administered Sun Solaris and IBM AIX for all 58 NC community colleges. Built automation reducing manual effort across 58 local administrators.</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/tierpoint.png" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Systems Engineer</span>
+      <span class="entry-time">May 2004 – Jan 2005</span>
+    </div>
+    <div class="entry-company">Hosted Solutions (Springboard Hosting), Raleigh NC</div>
+    <div class="entry-summary">Senior off-shift supervisor across three operation centers. Enterprise storage (BakBone NetVault, 200+ customers). UNIX/Windows systems administration.</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/netiq.png" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">UNIX Engineer</span>
+      <span class="entry-time">Jun 2002 – May 2004</span>
+    </div>
+    <div class="entry-company">NetIQ, Inc. (Ganymede Software), Morrisville NC</div>
+    <div class="entry-summary">Cross-platform UNIX/Windows integration. Built API-driven lab automation (VM provisioning) before cloud computing existed. Automated build and regression testing.</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/ncsu-block-s.svg" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Development Manager / Operations Manager — NC LIVE</span>
+      <span class="entry-time">Jan 1999 – Nov 2000</span>
+    </div>
+    <div class="entry-company">North Carolina State University, Raleigh NC</div>
+    <div class="entry-summary">Statewide digital library serving all NC public libraries, community colleges, and universities. Managed budgets, staff, multi-site operations (NCSU, UNC-CH, State Library).</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/ncsu-block-s.svg" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Application Analyst Programmer / Systems Programmer</span>
+      <span class="entry-time">Jun 1998 – Jun 2002</span>
+    </div>
+    <div class="entry-company">North Carolina State University, Raleigh NC</div>
+    <div class="entry-summary">Financial systems (Sybase/Peoplesoft), cross-platform development, web infrastructure with campus Kerberos/AFS integration.</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/ziff-davis-1990.svg" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Benchmark Developer (System Programmer)</span>
+      <span class="entry-time">Jun 1994 – Jun 1998</span>
+    </div>
+    <div class="entry-company">Ziff-Davis Publishing, Raleigh NC</div>
+    <div class="entry-summary">Winstone, WinBench, PC Bench, JMark — industry-standard benchmarks in PC Magazine. Worked under NDA with Microsoft, Intel on pre-release hardware/software.</div>
+  </div>
+</div>
+
+<div class="entry">
+  <div class="entry-logo"><img src="{{ site.baseurl }}/assets/images/company-logos/interpath.png" alt=""></div>
+  <div class="entry-content">
+    <div class="entry-top">
+      <span class="entry-title">Senior Operations Technician / NOC</span>
+      <span class="entry-time">1998 – 2001</span>
+    </div>
+    <div class="entry-company">Interpath Communications, Raleigh NC</div>
+    <div class="entry-summary">Network operations, UNIX/Windows administration, enterprise backup management. Reduced off-hours escalations to daytime engineering.</div>
+  </div>
+</div>
+
+<!-- Key Skills -->
+<div class="section-title">Skills</div>
+<div class="skills-grid">
+  <div class="skill-category">
+    <span class="skill-label">Cloud & Infrastructure:</span>
+    <span class="skill-list">AWS (EKS, EMR, SageMaker, Lambda, CloudFormation), Terraform, Kubernetes, Docker, Karpenter, KEDA, Calico, Istio, ArgoCD</span>
+  </div>
+  <div class="skill-category">
+    <span class="skill-label">AI/ML & Data:</span>
+    <span class="skill-list">Python, PyTorch, TensorFlow, Pandas, Spark, Airflow, SageMaker, Bedrock, Jupyter, NLP, Computer Vision</span>
+  </div>
+  <div class="skill-category">
+    <span class="skill-label">Security & Compliance:</span>
+    <span class="skill-list">SOC 1/2, NIST 800-53, IRS SafeGuard, PCI-DSS, HIPAA, FedRAMP, OWASP, ISO 27001</span>
+  </div>
+  <div class="skill-category">
+    <span class="skill-label">Languages:</span>
+    <span class="skill-list">Python, Java, C/C++, SQL, TypeScript, Shell, Terraform/HCL, Ruby, Go, Perl, Scala</span>
+  </div>
+  <div class="skill-category">
+    <span class="skill-label">Databases:</span>
+    <span class="skill-list">PostgreSQL, MySQL, SQL Server, Oracle, DynamoDB, Redis, MongoDB, Snowflake, Aurora Serverless</span>
+  </div>
+  <div class="skill-category">
+    <span class="skill-label">Observability & DevOps:</span>
+    <span class="skill-list">New Relic, GitLab CI/CD, GitHub Actions, Jenkins, Helm, ELK, Prometheus, Nagios</span>
+  </div>
+</div>
+
+<!-- Key Certifications -->
+<div class="section-title">Certifications</div>
+<div class="cert-row"><span class="cert-name">ISC2 Certified in Cybersecurity (CC)</span> <span class="cert-org">— ISC2</span> <span class="cert-date">2024</span></div>
+<div class="cert-row"><span class="cert-name">AWS Certified SysOps Administrator</span> <span class="cert-org">— Amazon</span> <span class="cert-date">2017</span></div>
+<div class="cert-row"><span class="cert-name">AWS Certified Solutions Architect</span> <span class="cert-org">— Amazon</span> <span class="cert-date">2017</span></div>
+<div class="cert-row"><span class="cert-name">ITIL Foundation v2011</span> <span class="cert-org">— AXELOS</span> <span class="cert-date">2016</span></div>
+<div class="cert-row"><span class="cert-name">6× SAS Certified (Platform Admin, Base, Clinical, DI, BI, Stats)</span> <span class="cert-org">— SAS Institute</span> <span class="cert-date">2012–2013</span></div>
+<div class="cert-row"><span class="cert-name">Red Hat Certified Engineer (RHCE)</span> <span class="cert-org">— Red Hat</span> <span class="cert-date">2001</span></div>
+
+<!-- Publication -->
+<div class="section-title">Publication</div>
+<p style="font-size: 9.5px; color: #333;">
+<strong>Forced alignment for Nordic languages: Rapidly constructing a high-quality prototype.</strong>
+Young, N.J. & McGarrah, M. <em>Nordic Journal of Linguistics</em>, 2021.
+</p>
+
+</body>
+</html>
