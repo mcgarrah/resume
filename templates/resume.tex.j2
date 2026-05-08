@@ -151,6 +151,10 @@
 {\small << job.summary | latex_escape | latex_paragraphs >>}
 <% endif %>
 
+<% if job.details %>
+{\small << job.details | latex_escape | latex_paragraphs >>}
+<% endif %>
+
 <% if job.subsections %>
 <% for sub in job.subsections %>
 \needspace{3\baselineskip}
@@ -176,6 +180,10 @@
 % === PROJECTS ===
 \needspace{6\baselineskip}
 \section{Projects}
+<% if projects.intro %>
+{\small << projects.intro | latex_escape | latex_paragraphs >>}
+\vspace{4pt}
+<% endif %>
 <% for project in projects.assignments %>
 \needspace{3\baselineskip}
 <% if project.link %>
