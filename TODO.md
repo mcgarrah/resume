@@ -1,124 +1,65 @@
-# Resume Project Status & TODO
+# Resume Project — TODO
 
-## Current Status
-- **Branch**: `feature/jekyll-pandoc-exports`
-- **Status**: Clean working tree, up to date with origin
-- **Recent Progress**: Successfully integrated jekyll-pandoc-exports plugin for automated DOCX/PDF generation
+Items organized by the REFACTOR.md phase they belong to, plus standalone improvements.
 
-## Recent Accomplishments ✅
-- [x] Integrated jekyll-pandoc-exports plugin for automated document exports
-- [x] Fixed credentialurl usage in Certifications with credentialname field
-- [x] Added Credly SAS and AWS certification entries
-- [x] Reviewed Jekyll and Ruby GitHub Actions upgrades
-- [x] Added LinkedIn projects to Resume
-- [x] Updated GPA in education template
-- [x] Fixed light-gray job headers (hacked CSS)
-- [x] Used Indeed.com resume reviewer for grammar/spelling
-- [x] Copied work details from legacy resume
+## Phase 5 — In-Browser Search
 
-## High Priority TODO Items 🔥
+- [ ] Add Pagefind indexing step to GitHub Actions build pipeline
+- [ ] Add search UI component to brief view header (excluded from print/machine)
+- [ ] Test search relevance across career profile, experiences, skills, certifications
+- [ ] Ensure search widget respects light/dark mode CSS custom properties
+- [ ] Design search container to be swappable for future MiniSearch (Project Nexus)
 
-### CSS & Layout Issues
-- [ ] **Fix wrap section 60px margin** - Remove excessive padding around whole site in CSS _base.scss above line 177
-- [ ] **Fix major section vertical margins** - Reduce 60px vertical margin in CSS _base.scss line 177
-- [ ] **Improve job header styling** - Fix CSS properly (currently hacked) and add HR between jobs for better delineation
-- [ ] **Fix print version** - Make linear layout without sidebar for better printing
+## Phase 5b — Per-Entry Skills Taxonomy
 
-### Content Updates
-- [ ] **Add ETAAC link** - Include 2009 Congressional report link: https://www.irs.gov/pub/irs-prior/p3415--2009.pdf
-- [ ] **Add SOC 2 Compliance work** - Include Envestnet SOC 2 compliance experience in work section
-- [ ] **Consolidate 1990-2005 work** - Write single entry summarizing early career to shorten resume
+- [ ] Add optional `skills` array to experience, education, and project entries
+- [ ] Start with 5 most recent experience entries as proof of concept
+- [ ] Machine view: render as `schema.org/skills` or `knowsAbout`
+- [ ] Brief/print views: compact tag list below each entry
+- [ ] LaTeX template: italic comma-separated list after entry content
 
-### PDF & Export Features
-- [ ] **Update PDF version** - Sync PDF with current web print version
-- [ ] **Test jekyll-pandoc-exports** - Verify DOCX/PDF generation is working properly
-- [ ] **Configure PDF styling** - Optimize CSS for PDF export format
+## Phase 6 — AI Agent Integration
 
-### Technical Improvements
-- [ ] **ATS optimization** - Review for Applicant Tracking Systems compatibility
-- [ ] **Create AI/ML specialized version** - Use ChatGPT optimizations for https://www.mcgarrah.org/aiml-resume/
+- [ ] Select hosting platform (AWS Lambda, Cloudflare Workers, or third-party)
+- [ ] Build agent knowledge base from `/resume/machine/` JSON-LD
+- [ ] Evaluate including mcgarrah.org blog content as additional context
+- [ ] Define privacy boundaries and response guardrails
+- [ ] Implement chat widget (floating button → panel, async/lazy-loaded)
+- [ ] Add `/resume/ask/` dedicated page (optional)
 
-## Medium Priority TODO Items 📋
+## Content
 
-### Content Enhancements
-- [ ] Add coming projects:
-  - [ ] Github - URL Redirector (TF HCL)
-  - [ ] Github - ADP-AI Automated Document Processing with AI (TF HCL)
-- [ ] Create plain text resume version for Indeed
-- [ ] Add company/university images to assets/images/company-logos/
+- [ ] Consolidate 1990–2005 early career into fewer entries (shorten resume length)
+- [ ] Add company/university logo images to experience and education sections
+- [ ] Add ADP-AI Automated Document Processing project entry (when public)
+- [ ] Create cover letter templates (ChatGPT-assisted, tailored per role)
 
-### Website Features
-- [ ] Add certification section with images
-- [ ] Update to include university images under date sections
-- [ ] Create Jekyll-PDF plugin project entry
+## Export & PDF Quality
 
-### Job Market Research
-- [ ] Review major hiring websites for keyword optimization:
-  - LinkedIn Jobs, Indeed, Glassdoor, GovernmentJobs
-  - Dice.com, Monster, ZipRecruiter, etc.
-- [ ] Review StackOverflow for technical terms
-- [ ] Review Microsoft Profile skills list
+- [ ] Evaluate retiring WeasyPrint PDF once LaTeX template matures
+- [ ] Fix `\MakeTextUppercase` undefined control sequence warning in XeLaTeX
+- [ ] Add `--verbose` flag to `jekyll export` CLI (plugin enhancement)
+- [ ] Formalize `export_filename` as documented plugin feature
 
-## Low Priority TODO Items 📝
+## CI & Automation
 
-### Personal Branding
-- [ ] Update Kaggle Homepage with older work
-- [ ] Add Credly certification profile integration
-- [ ] Create cover letter templates using ChatGPT prompts
+- [ ] Add Lighthouse CI to GitHub Actions (performance, accessibility, SEO scores)
+- [ ] Add `html-proofer` external link checking (currently `--disable-external`)
+- [ ] Consider adding LaTeX PDF to CI artifact upload for PR review
 
-### Documentation & Process
-- [ ] Document local Jekyll VSCode setup
-- [ ] Create comprehensive installation guide
-- [ ] Add performance monitoring for site builds
+## SEO & Discoverability
 
-## ChatGPT Resume Optimization Prompts 🤖
+- [ ] Validate machine view with Google Rich Results Test (requires live URL)
+- [ ] Test parsability with common ATS systems (Greenhouse, Lever, Workday)
+- [ ] Review job board keyword optimization (LinkedIn, Indeed, Dice)
+- [ ] Verify structured data indexing in Google Search Console
 
-Use these prompts to optimize resume with AI:
+## Low Priority / Future
 
-1. **Skills & Keywords**: "Give me a list of skills and keywords I should include in my resume if I am targeting [target role]"
-
-2. **Professional Summary**: "Write me a professional summary that summarizes the experiences in the attached resume. Include metrics, my total years of experience and make it 2-3 sentences long [paste in resume]"
-
-3. **Impact-Driven Experiences**: "Rewrite my experiences to be impact-driven by following this format: 'Accomplished X as measured by Y by doing Z' [paste in experience bullets]"
-
-4. **Job Tailoring**: "Tailor my resume to the following job description [paste job description]. Here's my resume [paste in resume]"
-
-5. **Proofreading**: "Please proofread my resume for all spelling and grammatical errors [paste in resume]"
-
-## Technical Context
-
-### Jekyll-Pandoc-Exports Integration
-- **Plugin Status**: Successfully configured in `_config.yml`
-- **Features Available**: 
-  - Automatic DOCX/PDF generation
-  - Unicode cleanup for LaTeX compatibility
-  - Download link injection
-  - Custom CSS for print styling
-- **Configuration**: 0.75in margins, title cleanup patterns configured
-
-### Current Infrastructure
-- **Hosting**: GitHub Pages with custom domain
-- **Build**: GitHub Actions with Jekyll
-- **Analytics**: Google Analytics (G-F90DVB199P)
-- **Theme**: Custom ceramic theme with responsive design
-
-## Next Steps Recommendation
-
-1. **Immediate (This Week)**:
-   - Fix CSS margin issues for better visual presentation
-   - Test PDF/DOCX export functionality
-   - Add SOC 2 compliance work to Envestnet section
-
-2. **Short Term (Next 2 Weeks)**:
-   - Consolidate early career entries
-   - Optimize for ATS systems
-   - Create AI/ML specialized version
-
-3. **Long Term (Next Month)**:
-   - Complete job market keyword research
-   - Implement all remaining content updates
-   - Set up automated testing for exports
+- [ ] Update Kaggle homepage with older ML coursework
+- [ ] Create plain text resume version for Indeed paste fields
+- [ ] Add performance monitoring for site build times
+- [ ] Investigate GitHub fork detachment (contact GitHub Support)
 
 ---
-*Last Updated: 2025-01-03*
-*Current Branch: feature/jekyll-pandoc-exports*
+*Last Updated: 2026-05-07*

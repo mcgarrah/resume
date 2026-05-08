@@ -1,0 +1,221 @@
+%% Brief Resume LaTeX Template — Generated from _data/data.yml via Jinja2
+%% Summaries only, early career consolidated. Full details at mcgarrah.org/resume
+%% Compile with: xelatex
+\documentclass[11pt,letterpaper]{article}
+
+% Packages
+\usepackage[margin=0.7in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{parskip}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{textcomp}
+
+% Colors
+\definecolor{accent}{HTML}{4B6A78}
+\definecolor{heading}{HTML}{222222}
+\definecolor{subtext}{HTML}{555555}
+\definecolor{rulecolor}{HTML}{333333}
+
+% Fonts (requires XeLaTeX)
+\defaultfontfeatures{Ligatures=TeX}
+\IfFontExistsTF{Helvetica Neue}{%
+  \setmainfont{Helvetica Neue}[
+    BoldFont=* Bold,
+    ItalicFont=* Italic,
+    BoldItalicFont=* Bold Italic,
+  ]
+}{%
+  \setmainfont{TeX Gyre Heros}[
+    BoldFont=* Bold,
+    ItalicFont=* Italic,
+    BoldItalicFont=* Bold Italic,
+  ]
+}
+
+% Hyperlink setup
+\hypersetup{
+  colorlinks=true,
+  linkcolor=accent,
+  urlcolor=accent,
+  pdfauthor={<< sidebar.name >>},
+  pdftitle={<< sidebar.name >> — Resume (Brief)},
+}
+
+% Section formatting
+\titleformat{\section}
+  {\large\bfseries\color{heading}\MakeTextUppercase}
+  {}{0em}{}
+  [\vspace{-0.5em}{\color{rulecolor}\rule{\linewidth}{1.5pt}}]
+
+\titleformat{\subsection}
+  {\normalsize\bfseries\color{heading}}
+  {}{0em}{}
+
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{8pt}{2pt}
+
+% Custom commands
+\newcommand{\jobtitle}[3]{%
+  \needspace{4\baselineskip}%
+  \subsection[#1]{#1 \hfill \small\textcolor{subtext}{#2}}%
+  \vspace{-2pt}%
+  {\small\textcolor{subtext}{#3}}%
+  \vspace{4pt}%
+}
+
+\newcommand{\edutitle}[4]{%
+  \needspace{4\baselineskip}%
+  \subsection[#1]{#1 \hfill \small\textcolor{subtext}{#2}}%
+  \vspace{-2pt}%
+  {\small\textcolor{subtext}{#3<< "\\hfill GPA: " if "#4" != "" >>#4}}%
+  \vspace{4pt}%
+}
+
+% Headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[C]{\small\color{subtext} << sidebar.name >> --- Resume (Brief)}
+\fancyfoot[C]{\small\color{subtext} Page \thepage\ of \pageref{LastPage}}
+
+\fancypagestyle{firstpage}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\small\color{subtext} Page \thepage\ of \pageref{LastPage}}%
+}
+
+% Reduce list spacing
+\setlist[itemize]{nosep, leftmargin=1.5em, topsep=2pt}
+
+\begin{document}
+\thispagestyle{firstpage}
+
+% === HEADER ===
+\begin{center}
+  {\LARGE\bfseries << sidebar.name >>}\\[4pt]
+  {\normalsize\color{subtext} << sidebar.tagline >>}\\[6pt]
+  {\small
+    << sidebar.email >> \enspace$\cdot$\enspace
+    << sidebar.phone >> \enspace$\cdot$\enspace
+    \href{https://<< sidebar.website >>}{<< sidebar.website >>} \enspace$\cdot$\enspace
+    \href{https://linkedin.com/in/<< sidebar.linkedin >>}{LinkedIn} \enspace$\cdot$\enspace
+    \href{https://github.com/<< sidebar.github >>}{GitHub}
+  }
+\end{center}
+
+\vspace{-4pt}
+
+% === CAREER PROFILE ===
+\needspace{6\baselineskip}
+\section{Career Profile}
+<< career_profile.summary | latex_escape >>
+
+% === EDUCATION ===
+\needspace{6\baselineskip}
+\section{Education}
+<% for edu in education.info %>
+\edutitle{<< edu.degree | latex_escape >>}{<< edu.time >>}{<< edu.university | latex_escape >>}{<< edu.gpa | default("") >>}
+
+<% if edu.summary %>
+{\small << edu.summary | latex_escape | latex_paragraphs >>}
+<% endif %>
+
+<% endfor %>
+
+% === EXPERIENCE (Recent: 2006–Present) ===
+\needspace{6\baselineskip}
+\section{Experience}
+<% for job in experiences.info[:12] %>
+<% if "part-time" not in (job.role | default("")) and "Consultant" not in (job.role | default("")) %>
+\jobtitle{<< job.role | latex_escape >>}{<< job.time >>}{<< job.company | latex_escape >>}
+
+<% if job.summary %>
+{\small << job.summary | latex_escape | latex_paragraphs >>}
+<% endif %>
+
+<% endif %>
+<% endfor %>
+
+% === EARLY CAREER (1990–2005, Consolidated) ===
+\needspace{6\baselineskip}
+\subsection{Early Career --- Systems Engineering \& Software Development \hfill \small\textcolor{subtext}{1990 -- 2005}}
+\vspace{4pt}
+
+{\small
+Fifteen years of progressive technical roles spanning systems programming, UNIX/Windows
+administration, database management, network engineering, and development management.
+Key positions included:
+
+\begin{itemize}
+  \item \textbf{Systems Programmer} --- NC Community College System (2005--2006): Administered
+    Solaris and AIX systems for all 58 NC community colleges; led the Solaris 9 upgrade project;
+    built automation reducing manual effort across 58 sites.
+  \item \textbf{Systems Engineer} --- Hosted Solutions (2004--2005): Senior off-shift supervisor
+    across three data centers; enterprise storage management (BakBone NetVault) for 200+ customers.
+  \item \textbf{UNIX Engineer} --- NetIQ/Ganymede Software (2002--2004): Built API-driven lab
+    automation (VMware ESX, PXE, multi-OS network boot) predating cloud computing; cross-platform
+    UNIX/Windows product development.
+  \item \textbf{Systems Programmer II} --- NC State University (2000--2002): Financial systems
+    (Sybase), open source initiatives (Realm Linux), RHCE certification.
+  \item \textbf{Development Manager} --- NC State University / NC LIVE (1999--2000): Led statewide
+    digital library platform serving all NC public libraries and universities; tripled service
+    providers in 12 months; presented at EDUCAUSE 1999.
+  \item \textbf{Benchmark Developer} --- SAS Institute (1994--1998): Performance benchmarking
+    across 14 UNIX platforms; Six Sigma greenbelt; infrastructure upgrade planning.
+  \item \textbf{Technical Services Manager} --- Pioneer Software / Q+E Software (1992--1994): Managed
+    international technical support staff of fifteen; OEM contact for 130+ customers including IBM,
+    Microsoft, Borland; ODBC driver development across 30+ commercial DBMS platforms.
+\end{itemize}
+
+Additional concurrent roles: Network Operations (Interpath Communications), Application
+Programming (NCSU), Teaching Assistant and Library Systems Consultant (NCSU 1990--1992).
+
+\vspace{4pt}
+\textit{Full details for all positions available at:} \href{https://mcgarrah.org/resume/}{mcgarrah.org/resume}
+}
+
+% === SKILLS (compact) ===
+\clearpage
+\needspace{6\baselineskip}
+\section{Skills \& Proficiency}
+\begin{multicols}{2}
+\raggedcolumns
+<% for skillset in skills.skillsets %>
+\begin{minipage}{\columnwidth}
+\noindent\textbf{<< skillset.categories | latex_escape >>}\\*
+<% for sub in skillset.sub_categories %>
+\textit{\footnotesize << sub.title | latex_escape >>}: {\footnotesize << sub.list | latex_escape >>}\\*
+<% if sub.sub_sub_categories %>
+<% for subsub in sub.sub_sub_categories %>
+\quad\textit{\footnotesize << subsub.title | latex_escape >>}: {\footnotesize << subsub.list | latex_escape >>}\\*
+<% endfor %>
+<% endif %>
+<% endfor %>
+\end{minipage}
+\vspace{4pt}
+
+<% endfor %>
+\end{multicols}
+
+% === FOOTER ===
+\vspace{12pt}
+\begin{center}
+{\small\color{subtext}
+  Full interactive resume with project details, publications, and subsection narratives:\\
+  \href{https://mcgarrah.org/resume/}{https://mcgarrah.org/resume/}
+}
+\end{center}
+
+\vspace{8pt}
+\begin{center}
+{\small\color{subtext} Generated on << generation_date >>}
+\end{center}
+
+\end{document}

@@ -254,9 +254,11 @@ if [ -f ".venv/bin/activate" ]; then
         fi
     fi
 
-    # --- LaTeX PDF ---
+    # --- LaTeX PDF (Full) ---
     if [ -f "bin/generate-latex.py" ] && python3 -c "import jinja2, yaml" 2>/dev/null; then
-        echo "Generating LaTeX PDF..."
+        echo "Generating LaTeX PDFs..."
+
+        # Full version
         if python3 bin/generate-latex.py --output "_site/downloads/McGarrah-Resume-latex.tex" 2>&1 | grep -q "Generated:"; then
             echo "  ✓ McGarrah-Resume-latex.tex"
 
@@ -265,20 +267,45 @@ if [ -f ".venv/bin/activate" ]; then
                     "_site/downloads/McGarrah-Resume-latex.tex" > /dev/null 2>&1 || true
                 xelatex -interaction=nonstopmode -output-directory="_site/downloads" \
                     "_site/downloads/McGarrah-Resume-latex.tex" > /dev/null 2>&1 || true
-                rm -f _site/downloads/*.aux _site/downloads/*.log _site/downloads/*.out
+                rm -f _site/downloads/McGarrah-Resume-latex.aux _site/downloads/McGarrah-Resume-latex.log _site/downloads/McGarrah-Resume-latex.out
 
                 if [ -f "_site/downloads/McGarrah-Resume-latex.pdf" ]; then
-                    echo "  ✓ McGarrah-Resume-latex.pdf"
+                    echo "  ✓ McGarrah-Resume-latex.pdf (full)"
                 else
-                    echo "  ✗ XeLaTeX compilation failed"
+                    echo "  ✗ XeLaTeX compilation failed (full)"
                     echo "    Debug: xelatex -interaction=nonstopmode _site/downloads/McGarrah-Resume-latex.tex"
                 fi
             else
                 echo "  ⚠ .tex generated but xelatex not available for PDF compilation"
             fi
         else
-            echo "  ✗ LaTeX template rendering failed"
+            echo "  ✗ LaTeX template rendering failed (full)"
             echo "    Debug: python3 bin/generate-latex.py --output /tmp/test.tex"
+        fi
+
+        # Brief version
+        if python3 bin/generate-latex.py --template resume-brief.tex.j2 --output "_site/downloads/McGarrah-Resume-brief.tex" 2>&1 | grep -q "Generated:"; then
+            echo "  ✓ McGarrah-Resume-brief.tex"
+
+            if command -v xelatex &> /dev/null; then
+                xelatex -interaction=nonstopmode -output-directory="_site/downloads" \
+                    "_site/downloads/McGarrah-Resume-brief.tex" > /dev/null 2>&1 || true
+                xelatex -interaction=nonstopmode -output-directory="_site/downloads" \
+                    "_site/downloads/McGarrah-Resume-brief.tex" > /dev/null 2>&1 || true
+                rm -f _site/downloads/McGarrah-Resume-brief.aux _site/downloads/McGarrah-Resume-brief.log _site/downloads/McGarrah-Resume-brief.out
+
+                if [ -f "_site/downloads/McGarrah-Resume-brief.pdf" ]; then
+                    echo "  ✓ McGarrah-Resume-brief.pdf (brief)"
+                else
+                    echo "  ✗ XeLaTeX compilation failed (brief)"
+                    echo "    Debug: xelatex -interaction=nonstopmode _site/downloads/McGarrah-Resume-brief.tex"
+                fi
+            else
+                echo "  ⚠ .tex generated but xelatex not available for PDF compilation"
+            fi
+        else
+            echo "  ✗ LaTeX template rendering failed (brief)"
+            echo "    Debug: python3 bin/generate-latex.py --template resume-brief.tex.j2 --output /tmp/test.tex"
         fi
     fi
 fi

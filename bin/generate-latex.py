@@ -175,6 +175,8 @@ def main():
     parser = argparse.ArgumentParser(description="Generate LaTeX resume from YAML data")
     parser.add_argument('--output', default='_site/downloads/McGarrah-Resume.tex',
                         help='Output .tex file path')
+    parser.add_argument('--template', default='resume.tex.j2',
+                        help='Template file in templates/ (default: resume.tex.j2)')
     parser.add_argument('--compile', action='store_true',
                         help='Compile to PDF using xelatex')
     args = parser.parse_args()
@@ -207,7 +209,7 @@ def main():
     env.filters['default'] = lambda value, default_value='': value if value else default_value
 
     # Load and render template
-    template = env.get_template('resume.tex.j2')
+    template = env.get_template(args.template)
     from datetime import date
     rendered = template.render(
         sidebar=data.get('sidebar', {}),

@@ -147,6 +147,8 @@ encoding: "utf-8"
 # WeasyPrint and XeLaTeX PDFs are generated post-build and must not be wiped
 # when Jekyll regenerates the site during `jekyll serve --incremental`.
 keep_files:
+  - downloads/McGarrah-Resume-brief.pdf
+  - downloads/McGarrah-Resume-brief.tex
   - downloads/McGarrah-Resume-styled.pdf
   - downloads/McGarrah-Resume-latex.pdf
   - downloads/McGarrah-Resume-latex.tex
