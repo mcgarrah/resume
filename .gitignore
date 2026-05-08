@@ -12,15 +12,6 @@ vendor/
 # Python virtual environment
 .venv/
 
-# Node.js
-node_modules/
-package-lock.json
-
-# Static dependencies (now using CDN)
-assets/plugins/jquery*
-assets/plugins/bootstrap/
-assets/plugins/font-awesome/
-
 # OS artifacts
 .DS_Store
 *Zone.Identifier
