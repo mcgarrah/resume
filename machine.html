@@ -140,12 +140,14 @@ title: "Michael McGarrah — Resume (Machine-Readable)"
         {% else %}{{ paper.title }}{% endif %}
       </h3>
       <meta itemprop="headline" content="{{ paper.title }}">
+      <meta itemprop="image" content="{{ site.url }}{{ site.baseurl }}/assets/images/og-resume.svg">
       <p class="meta">
         {% assign authors = paper.authors | split: " & " %}
         {% for author in authors %}
         <span itemprop="author" itemscope itemtype="https://schema.org/Person">
           <span itemprop="name">{{ author }}</span>
           {% if author contains "McGarrah" %}<meta itemprop="url" content="https://mcgarrah.org/">{% endif %}
+          {% if author contains "Young" %}<meta itemprop="url" content="https://www.nateyoung.se/">{% endif %}
         </span>{% unless forloop.last %}, {% endunless %}
         {% endfor %}
         {% if paper.conference %}| <span itemprop="isPartOf">{{ paper.conference }}</span>{% endif %}
