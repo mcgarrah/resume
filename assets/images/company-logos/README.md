@@ -250,3 +250,82 @@ was absorbed into Intersolv's DataDirect product line, which later became part o
 Merant, then Serena, then Micro Focus. No digital logo assets survive online.
 The only path to recovering the logo would be scanning physical materials
 (business cards, software boxes, manuals).
+
+## latex-logos/ Directory (XeLaTeX-Compatible Formats)
+
+The `latex-logos/` subdirectory contains all logos converted to formats that
+XeLaTeX can include directly with `\includegraphics`. XeLaTeX cannot embed SVG
+files, so SVGs are converted to PNG with transparent backgrounds.
+
+### Generation
+
+Run `bin/convert_logos_to_png.py` to regenerate:
+
+```bash
+python3 bin/convert_logos_to_png.py
+```
+
+This script:
+1. Converts all SVG logos to 400px-wide PNG with transparent backgrounds using `cairosvg`
+2. Copies existing PNG/JPG logos into the same directory
+3. Removes any old PDF conversions (no longer needed)
+
+**Requirements:** `cairosvg` (`pip install cairosvg`, already in `.venv`)
+
+### Why PNG Instead of PDF?
+
+Originally SVGs were converted to PDF for XeLaTeX. PNGs with transparent
+backgrounds are preferred because:
+- Transparent backgrounds work correctly on both light and dark surfaces
+- PNG is simpler to inspect and debug than vector PDF
+- 400px render width provides sufficient resolution for the 0.9cm display size in the resume
+- XeLaTeX handles PNG natively with `\includegraphics`
+
+### File Mapping
+
+| Source (top level) | LaTeX version (latex-logos/) | Method |
+|---|---|---|
+| `envestnet.svg` | `envestnet.png` | cairosvg SVG→PNG |
+| `georgia-tech.svg` | `georgia-tech.png` | cairosvg SVG→PNG |
+| `uncw.svg` | `uncw.png` | cairosvg SVG→PNG |
+| `ncsu-classic-1990.svg` | `ncsu-classic-1990.png` | cairosvg SVG→PNG |
+| `ncsu-block-s.svg` | `ncsu-block-s.png` | cairosvg SVG→PNG |
+| `usps-eagle.svg` | `usps-eagle.png` | cairosvg SVG→PNG |
+| `irs.svg` | `irs.png` | cairosvg SVG→PNG |
+| `sas.svg` | `sas.png` | cairosvg SVG→PNG |
+| `measurement-inc.svg` | `measurement-inc.png` | cairosvg SVG→PNG |
+| `bd.svg` | `bd.png` | cairosvg SVG→PNG |
+| `nc-community-colleges.svg` | `nc-community-colleges.png` | cairosvg SVG→PNG |
+| `nc-seal.svg` | `nc-seal.png` | cairosvg SVG→PNG |
+| `qe-software.svg` | `qe-software.png` | cairosvg SVG→PNG |
+| `ziff-davis-1990.svg` | `ziff-davis-1990.png` | cairosvg SVG→PNG (unsafe=True for XML entities) |
+| `bd-wordmark.svg` | `bd-wordmark.png` | cairosvg SVG→PNG |
+| `akc-shield.png` | `akc-shield.png` | Direct copy |
+| `bcbsnc.png` | `bcbsnc.png` | Direct copy |
+| `nc-dit.png` | `nc-dit.png` | Direct copy |
+| `nc-dor.png` | `nc-dor.png` | Direct copy |
+| `netiq.png` | `netiq.png` | Direct copy |
+| `tierpoint.png` | `tierpoint.png` | Direct copy |
+| `interpath.png` | `interpath.png` | Direct copy |
+| `ncsu-wordmark-2023.png` | `ncsu-wordmark-2023.png` | Direct copy |
+| `nclive-2000.jpg` | `nclive-2000.jpg` | Direct copy |
+| `roemer-weather.jpg` | `roemer-weather.jpg` | Direct copy |
+
+### Usage in LaTeX Templates
+
+The template sets the graphics path:
+```latex
+\graphicspath{{assets/images/company-logos/latex-logos/}}
+```
+
+Then includes logos by name (XeLaTeX auto-detects .png/.jpg extension):
+```latex
+\includegraphics[width=0.9cm,height=0.9cm,keepaspectratio]{envestnet}
+```
+
+### When to Regenerate
+
+Re-run `bin/convert_logos_to_png.py` whenever:
+- A new SVG logo is added to the top-level directory
+- An existing SVG logo is modified (e.g., viewBox crop adjustment)
+- The render size needs to change (edit `RENDER_SIZE` in the script)

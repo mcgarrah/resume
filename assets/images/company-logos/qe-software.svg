@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Q+E Software placeholder logo (Pioneer Software / Q+E / Intersolv era, 1992-1994)
+     Recreated from memory — blue background, white "Q+E" text -->
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#1a3a6b"/>
+  <text x="100" y="112" text-anchor="middle"
+        font-family="Roboto, Arial, Helvetica, sans-serif"
+        font-size="52" font-weight="bold" fill="#FFFFFF">Q+E</text>
+</svg>
