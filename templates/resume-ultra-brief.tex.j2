@@ -64,29 +64,53 @@
 \setlength{\parskip}{0pt}
 \setlength{\parindent}{0pt}
 
-% Custom command for job entries
-\newcommand{\jobentry}[4]{%
+% Logo path
+\graphicspath{{assets/images/company-logos/latex-logos/}}
+
+% Custom command for job entries with logo and summary
+\newcommand{\jobentrysummary}[6]{%
   \vspace{3pt}%
-  \noindent\href{https://mcgarrah.org/resume/print/#1}{\textbf{#2}} \hfill {\small\color{subtext}#3}\\[-2pt]
-  {\small\color{subtext}#4}%
-  \vspace{1pt}%
+  \noindent\begin{minipage}[t]{0.06\textwidth}%
+    \vspace{0pt}\includegraphics[width=0.9cm,height=0.9cm,keepaspectratio]{#1}%
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.92\textwidth}%
+    \vspace{0pt}%
+    \href{https://mcgarrah.org/resume/print/#2}{\textbf{#3}} \hfill {\small\color{subtext}#4}\\[-2pt]
+    {\small\color{subtext}#5}\\[-1pt]
+    {\footnotesize #6}%
+  \end{minipage}%
+  \vspace{2pt}%
 }
 
-% Custom command for job entries with summary
-\newcommand{\jobentrysummary}[5]{%
+% Custom command for job entries with logo, no summary
+\newcommand{\jobentry}[5]{%
   \vspace{3pt}%
-  \noindent\href{https://mcgarrah.org/resume/print/#1}{\textbf{#2}} \hfill {\small\color{subtext}#3}\\[-2pt]
-  {\small\color{subtext}#4}\\[-1pt]
-  {\footnotesize #5}%
-  \vspace{1pt}%
+  \noindent\begin{minipage}[t]{0.06\textwidth}%
+    \vspace{0pt}\includegraphics[width=0.9cm,height=0.9cm,keepaspectratio]{#1}%
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.92\textwidth}%
+    \vspace{0pt}%
+    \href{https://mcgarrah.org/resume/print/#2}{\textbf{#3}} \hfill {\small\color{subtext}#4}\\[-2pt]
+    {\small\color{subtext}#5}%
+  \end{minipage}%
+  \vspace{2pt}%
 }
 
-% Custom command for education entries
-\newcommand{\eduentry}[4]{%
+% Custom command for education entries with logo
+\newcommand{\eduentry}[5]{%
   \vspace{3pt}%
-  \noindent\textbf{#1} \hfill {\small\color{subtext}#2}\\[-2pt]
-  {\small\color{subtext}#3 \hfill #4}%
-  \vspace{1pt}%
+  \noindent\begin{minipage}[t]{0.06\textwidth}%
+    \vspace{0pt}\includegraphics[width=0.9cm,height=0.9cm,keepaspectratio]{#1}%
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.92\textwidth}%
+    \vspace{0pt}%
+    \textbf{#2} \hfill {\small\color{subtext}#3}\\[-2pt]
+    {\small\color{subtext}#4 \hfill #5}%
+  \end{minipage}%
+  \vspace{2pt}%
 }
 
 \begin{document}
@@ -124,30 +148,30 @@ Currently completing an Executive MBA at UNC Wilmington.
 % === EDUCATION ===
 \section{\href{https://mcgarrah.org/resume/print/\#education}{Education}}
 
-\eduentry{Executive MBA --- Corporate Entrepreneurship}{2025 -- present}{University of North Carolina Wilmington}{GPA: 4.0}
+\eduentry{uncw}{Executive MBA --- Corporate Entrepreneurship}{2025 -- present}{University of North Carolina Wilmington}{GPA: 4.0}
 
-\eduentry{MS Computer Science --- Interactive Intelligence (AI/ML)}{2014 -- 2019}{Georgia Institute of Technology}{GPA: 3.63}
+\eduentry{georgia-tech}{MS Computer Science --- Interactive Intelligence (AI/ML)}{2014 -- 2019}{Georgia Institute of Technology}{GPA: 3.63}
 
-\eduentry{BS Computer Science --- Honors}{1990 -- 2011}{North Carolina State University}{GPA: 3.42}
+\eduentry{ncsu-classic-1990}{BS Computer Science --- Honors}{1990 -- 2011}{North Carolina State University}{GPA: 3.42}
 
 % === EXPERIENCE ===
 \section{\href{https://mcgarrah.org/resume/print/\#experience}{Experience}}
 
-\jobentrysummary{envestnet-2021}{Lead Principal Engineer (Cloud \& ML Focus)}{Oct 2021 -- Present}{Envestnet, Inc., Emerald Isle NC (Remote)}{Cloud platform architecture across 20+ AWS accounts. Founded EKS Working Group. Led SOC 1/SOC 2 compliance for 8 simultaneous audits. Built enterprise observability framework.}
+\jobentrysummary{envestnet}{envestnet-2021}{Lead Principal Engineer (Cloud \& ML Focus)}{Oct 2021 -- Present}{Envestnet, Inc., Emerald Isle NC (Remote)}{Cloud platform architecture across 20+ AWS accounts. Founded EKS Working Group. Led SOC 1/SOC 2 compliance for 8 simultaneous audits. Built enterprise observability framework.}
 
-\jobentrysummary{bcbsnc-2019}{Principal Data \& Analytics Platform Engineer}{Apr 2019 -- Oct 2021}{Blue Cross and Blue Shield of NC, Raleigh-Durham NC (Remote)}{Architected enterprise data science platform (EKS, EMR, SageMaker). Production deep learning models processing claims data for all NC members. Director-equivalent authority.}
+\jobentrysummary{bcbsnc}{bcbsnc-2019}{Principal Data \& Analytics Platform Engineer}{Apr 2019 -- Oct 2021}{Blue Cross and Blue Shield of NC, Raleigh-Durham NC (Remote)}{Architected enterprise data science platform (EKS, EMR, SageMaker). Production deep learning models processing claims data for all NC members. Director-equivalent authority.}
 
-\jobentrysummary{usps-2017}{Data Engineer}{Nov 2017 -- Apr 2019}{United States Postal Service, Raleigh NC}{Administered 25-node SAS Viya cluster (26TB RAM) connected to 50+ node Hadoop data lake. NIST 800-53 high security. Built data acquisition modules for Chief Data Scientist's team.}
+\jobentrysummary{usps-eagle}{usps-2017}{Data Engineer}{Nov 2017 -- Apr 2019}{United States Postal Service, Raleigh NC}{Administered 25-node SAS Viya cluster (26TB RAM) connected to 50+ node Hadoop data lake. NIST 800-53 high security. Built data acquisition modules for Chief Data Scientist's team.}
 
-\jobentrysummary{akc-2016}{Cloud Architect}{Jul 2016 -- Sep 2017}{American Kennel Club, Raleigh-Durham NC}{AWS cloud evangelist. Migrated www.akc.org in 6 weeks with zero customer impact. Reduced hosting costs from \$30K/mo to under \$5K. End-to-end CI/CD.}
+\jobentrysummary{akc-shield}{akc-2016}{Cloud Architect}{Jul 2016 -- Sep 2017}{American Kennel Club, Raleigh-Durham NC}{AWS cloud evangelist. Migrated www.akc.org in 6 weeks with zero customer impact. Reduced hosting costs from \$30K/mo to under \$5K. End-to-end CI/CD.}
 
-\jobentrysummary{ncdit-2015}{Enterprise Architect for Strategic Initiatives}{May 2015 -- Jul 2016}{NC Department of Information Technology, Raleigh NC}{Led enterprise-wide technology strategy for NC state government. Authored RFI for statewide data center network modernization. Co-authored security standards RFP.}
+\jobentrysummary{nc-dit}{ncdit-2015}{Enterprise Architect for Strategic Initiatives}{May 2015 -- Jul 2016}{NC Department of Information Technology, Raleigh NC}{Led enterprise-wide technology strategy for NC state government. Authored RFI for statewide data center network modernization. Co-authored security standards RFP.}
 
-\jobentrysummary{measurement-inc-2013}{Senior Systems Programmer \& Administrator (AI)}{Apr 2013 -- Jul 2015}{Measurement Incorporated, Durham NC}{Built scalable AWS compute platform for ML scoring workloads (thousands of spot instances). Owned all costs/FinOps. Custom MIT Star Cluster for distributed AI.}
+\jobentrysummary{measurement-inc}{measurement-inc-2013}{Senior Systems Programmer \& Administrator (AI)}{Apr 2013 -- Jul 2015}{Measurement Incorporated, Durham NC}{Built scalable AWS compute platform for ML scoring workloads (thousands of spot instances). Owned all costs/FinOps. Custom MIT Star Cluster for distributed AI.}
 
-\jobentrysummary{sas-2011}{Systems Administrator}{Aug 2011 -- Mar 2013}{SAS Institute, Inc., Cary NC}{FDA CFR Part 11 validated systems for pharmaceutical clinical trials. Multi-tier SAS architectures for 80+ customers. All 6 SAS certifications in 6 consecutive months.}
+\jobentrysummary{sas}{sas-2011}{Systems Administrator}{Aug 2011 -- Mar 2013}{SAS Institute, Inc., Cary NC}{FDA CFR Part 11 validated systems for pharmaceutical clinical trials. Multi-tier SAS architectures for 80+ customers. All 6 SAS certifications in 6 consecutive months.}
 
-\jobentrysummary{ncdor-2007}{Application and Network Security Specialist}{Mar 2007 -- Aug 2011}{NC Department of Revenue, Raleigh NC}{Passed IRS SafeGuard audit (1,300-page report, no noteworthy findings). Congressional subcommittee (ETAAC). NIST 800-53, PCI-DSS, FISMA frameworks.}
+\jobentrysummary{nc-dor}{ncdor-2007}{Application and Network Security Specialist}{Mar 2007 -- Aug 2011}{NC Department of Revenue, Raleigh NC}{Passed IRS SafeGuard audit (1,300-page report, no noteworthy findings). Congressional subcommittee (ETAAC). NIST 800-53, PCI-DSS, FISMA frameworks.}
 
 % ═══════════════════════════════════════════════════════════════
 % PAGE 2: Remaining experience + Skills + Certifications
@@ -156,25 +180,25 @@ Currently completing an Executive MBA at UNC Wilmington.
 
 \section{Experience (continued)}
 
-\jobentrysummary{etaac-2009}{Congressional Subcommittee Member}{Mar 2009 -- Mar 2011}{ETAAC Security Subcommittee, Washington DC}{NIST 800-53 controls adapted to IRS Publication 1075 for third-party tax preparer security standards. Congressional report applied these as baseline.}
+\jobentrysummary{irs}{etaac-2009}{Congressional Subcommittee Member}{Mar 2009 -- Mar 2011}{ETAAC Security Subcommittee, Washington DC}{NIST 800-53 controls adapted to IRS Publication 1075 for third-party tax preparer security standards. Congressional report applied these as baseline.}
 
-\jobentrysummary{bd-2006}{IT Engineer (IT Director)}{Mar 2006 -- Mar 2007}{BD Biosciences, Durham NC}{Sole IT leader for manufacturing plant. All IT services, budgets, one direct report. Apriso MES, Oracle, SAP integration, medical device compliance.}
+\jobentrysummary{bd}{bd-2006}{IT Engineer (IT Director)}{Mar 2006 -- Mar 2007}{BD Biosciences, Durham NC}{Sole IT leader for manufacturing plant. All IT services, budgets, one direct report. Apriso MES, Oracle, SAP integration, medical device compliance.}
 
-\jobentry{ncccs-2005}{Systems Programmer}{Jan 2005 -- Mar 2006}{NC Community College System, Raleigh NC --- Solaris/AIX for all 58 NC community colleges}
+\jobentry{nc-community-colleges}{ncccs-2005}{Systems Programmer}{Jan 2005 -- Mar 2006}{NC Community College System, Raleigh NC --- Solaris/AIX for all 58 NC community colleges}
 
-\jobentry{hosted-solutions-2004}{Systems Engineer}{May 2004 -- Jan 2005}{Hosted Solutions (Springboard Hosting), Raleigh NC --- Senior off-shift supervisor, 3 data centers}
+\jobentry{tierpoint}{hosted-solutions-2004}{Systems Engineer}{May 2004 -- Jan 2005}{Hosted Solutions (Springboard Hosting), Raleigh NC --- Senior off-shift supervisor, 3 data centers}
 
-\jobentry{netiq-2002}{UNIX Engineer}{Jun 2002 -- May 2004}{NetIQ/Ganymede Software, Morrisville NC --- API-driven lab automation predating cloud computing}
+\jobentry{netiq}{netiq-2002}{UNIX Engineer}{Jun 2002 -- May 2004}{NetIQ/Ganymede Software, Morrisville NC --- API-driven lab automation predating cloud computing}
 
-\jobentry{ncsu-nclive-1999}{Development Manager / Operations Manager --- NC LIVE}{Jan 1999 -- Nov 2000}{NC State University --- Statewide digital library serving all NC public libraries and universities}
+\jobentry{ncsu-block-s}{ncsu-nclive-1999}{Development Manager / Operations Manager --- NC LIVE}{Jan 1999 -- Nov 2000}{NC State University --- Statewide digital library serving all NC public libraries and universities}
 
-\jobentry{ncsu-1998}{Application Analyst Programmer / Systems Programmer}{Jun 1998 -- Jun 2002}{NC State University, Raleigh NC --- Financial systems, Sybase, cross-platform development}
+\jobentry{ncsu-block-s}{ncsu-1998}{Application Analyst Programmer / Systems Programmer}{Jun 1998 -- Jun 2002}{NC State University, Raleigh NC --- Financial systems, Sybase, cross-platform development}
 
-\jobentry{ziff-davis-1994}{Benchmark Developer (System Programmer)}{Jun 1994 -- Jun 1998}{Ziff-Davis Publishing, Raleigh NC --- Winstone, WinBench, PC Bench, JMark (PC Magazine)}
+\jobentry{ziff-davis-1990}{ziff-davis-1994}{Benchmark Developer (System Programmer)}{Jun 1994 -- Jun 1998}{Ziff-Davis Publishing, Raleigh NC --- Winstone, WinBench, PC Bench, JMark (PC Magazine)}
 
-\jobentry{interpath-2000}{Senior Operations Technician / NOC}{1998 -- 2001}{Interpath Communications, Raleigh NC --- Network operations, two part-time stints}
+\jobentry{interpath}{interpath-2000}{Senior Operations Technician / NOC}{1998 -- 2001}{Interpath Communications, Raleigh NC --- Network operations, two part-time stints}
 
-\jobentry{pioneer-software-1992}{Technical Services Manager}{Jul 1992 -- Jun 1994}{Pioneer Software / Q+E Software, Raleigh NC --- OEM manager for 130+ customers (IBM, Microsoft, Borland)}
+\jobentry{ncsu-block-s}{pioneer-software-1992}{Technical Services Manager}{Jul 1992 -- Jun 1994}{Pioneer Software / Q+E Software, Raleigh NC --- OEM manager for 130+ customers (IBM, Microsoft, Borland)}
 
 % === SKILLS ===
 \section{\href{https://mcgarrah.org/resume/print/\#skills}{Skills}}
@@ -210,8 +234,9 @@ Currently completing an Executive MBA at UNC Wilmington.
 \section{\href{https://mcgarrah.org/resume/print/\#publications}{Publication}}
 
 {\small
-\textbf{Forced alignment for Nordic languages: Rapidly constructing a high-quality prototype.}
+\href{https://github.com/mcgarrah/LG-FAVE/blob/7c592cf6c75b8c6feee08c0fe9b79b17dd699404/Young_McGarrah_2021.pdf}{\textbf{Forced alignment for Nordic languages: Rapidly constructing a high-quality prototype.}}
 Young, N.J. \& McGarrah, M. \textit{Nordic Journal of Linguistics}, 2021.
+\enspace[\href{https://github.com/mcgarrah/LG-FAVE}{GitHub}]
 }
 
 % === FOOTER ===
