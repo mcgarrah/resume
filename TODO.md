@@ -30,7 +30,7 @@ Items organized by the REFACTOR.md phase they belong to, plus standalone improve
 ## Content
 
 - [ ] Consolidate 1990–2005 early career into fewer entries (shorten resume length)
-- [ ] Add company/university logo images to experience and education sections
+- [x] Add company/university logo images to experience and education sections
 - [ ] Add ADP-AI Automated Document Processing project entry (when public)
 - [ ] Create cover letter templates (ChatGPT-assisted, tailored per role)
 
