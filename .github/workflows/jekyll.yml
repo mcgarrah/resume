@@ -50,6 +50,10 @@ jobs:
         run: bash bin/generate-brief.sh
       - name: Generate Full PDF (XeLaTeX)
         run: bash bin/generate-latex.sh
+      - name: Generate Ultra-Brief PDF (XeLaTeX)
+        run: |
+          python3 bin/generate-latex.py --template resume-ultra-brief.tex.j2 \
+            --output _site/downloads/McGarrah-Resume-ultra-brief.tex --compile
       - name: Verify exports
         run: |
           echo "Checking for generated exports..."
@@ -63,6 +67,11 @@ jobs:
             echo "✓ McGarrah-Resume-brief.pdf (XeLaTeX brief) generated"
           else
             echo "✗ No brief PDF export found"
+          fi
+          if [ -f "_site/downloads/McGarrah-Resume-ultra-brief.pdf" ]; then
+            echo "✓ McGarrah-Resume-ultra-brief.pdf (XeLaTeX ultra-brief) generated"
+          else
+            echo "✗ No ultra-brief PDF export found"
           fi
           if [ -f "_site/downloads/McGarrah-Resume-long.pdf" ]; then
             echo "✓ McGarrah-Resume-long.pdf (XeLaTeX full) generated"
