@@ -199,7 +199,7 @@ The `assets/plugins/` directory (Bootstrap, Font Awesome, jQuery) is removed —
 | About page "full print version" | `/resume/print` | Stable |
 | PDF download link | `/resume/downloads/McGarrah-Resume.pdf` | Updated (Phase 2) |
 | DOCX download link | `/resume/downloads/McGarrah-Resume.docx` | Updated (Phase 2) |
-| New: machine-readable | `/resume/machine/` | Implemented (Phase 3) |
+| New: machine-readable | `/resume/machine/` | Live |
 | New: AI chat interface | `/resume/ask/` | New URL, optional dedicated page |
 
 ## Technology Choices
@@ -360,7 +360,7 @@ These items should be addressed in a future plugin release:
   - 7 sections, 66 articles, 110 itemscope attributes, 278 itemprop attributes
   - 2 valid JSON-LD blocks (WebPage + Person with 17 credentials, 27 occupations)
   - Heading hierarchy clean, no accessibility issues
-  - Pending: Google Rich Results Test (requires live URL), ATS system testing
+  - Live at mcgarrah.org/resume/machine/ — ready for Google Rich Results Test and ATS validation
 
 ### Phase 4 — Polish and Cleanup
 - Light/dark mode testing across browsers
@@ -469,8 +469,9 @@ bundle exec jekyll serve
 | 2026-05-06 | Phase 3 locally validated | JSON-LD valid, heading hierarchy clean, microdata complete; pending Google Rich Results Test on live URL |
 | 2026-05-06 | Experience subsections schema change | Pandoc can't distinguish `<h3>` job titles from `<strong>` subsection headings in PDF; restructure data.yml with explicit `subsections` array |
 | 2026-05-06 | Schema.org `CreativeWork` for subsections | Subsections in machine view wrapped as nested `CreativeWork` within `OrganizationRole` for ATS keyword indexing and semantic structure |
-| 2026-05-07 | Add WeasyPrint PDF generation | CSS-faithful PDF rendering; Pandoc/LaTeX can't handle flex/columns |
 | 2026-05-07 | Add Jinja2/XeLaTeX resume pipeline | Full typographic control independent of HTML; Python reads same YAML |
 | 2026-05-07 | Dual language stack (Ruby + Python) | Jekyll for web views, Python for export pipeline; deliberate architecture decision |
 | 2026-05-07 | Plan: Project dates from GitHub/articles | Add `time` field to projects where dates are discoverable |
 | 2026-05-07 | Plan: Per-entry skills taxonomy | Add `skills` array to each experience/education/project for semantic cross-referencing |
+| 2026-05-09 | Remove WeasyPrint, XeLaTeX is primary | WeasyPrint dropped; Jinja2/XeLaTeX pipeline handles all PDF generation with full typographic control |
+| 2026-05-09 | Site live at mcgarrah.org/resume | Published via GitHub Pages; enables Google Rich Results Test and live validation |
