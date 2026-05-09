@@ -1,0 +1,22 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% comment %}Standard HTML pages{% endcomment %}
+{% for page in site.pages %}{% unless page.sitemap == false %}{% unless page.url contains '/assets/' %}{% unless page.url contains '.xml' %}{% unless page.url contains '.txt' %}
+  <url>
+    <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>{% if page.last_modified_at %}
+    <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>{% endif %}
+  </url>
+{% endunless %}{% endunless %}{% endunless %}{% endunless %}{% endfor %}
+{% comment %}PDF and DOCX downloads — driven by sitemap_downloads in _config.yml{% endcomment %}
+{% for file in site.sitemap_downloads %}
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/{{ file }}</loc>
+  </url>
+{% endfor %}
+</urlset>

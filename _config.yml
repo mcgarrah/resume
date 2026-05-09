@@ -162,6 +162,16 @@ keep_files:
   - downloads/McGarrah-Resume-ultra-brief.pdf
   - downloads/McGarrah-Resume-ultra-brief.tex
 
+# Download files to include in sitemap.xml
+# Combines Pandoc-generated exports (built during jekyll build) with
+# XeLaTeX PDFs (generated post-build). Only indexable formats listed.
+sitemap_downloads:
+  - downloads/McGarrah-Resume.pdf
+  - downloads/McGarrah-Resume.docx
+  - downloads/McGarrah-Resume-brief.pdf
+  - downloads/McGarrah-Resume-long.pdf
+  - downloads/McGarrah-Resume-ultra-brief.pdf
+
 # Development Settings
 port: 4000
 #host: 0.0.0.0
