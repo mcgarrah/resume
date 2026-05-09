@@ -62,17 +62,17 @@
 \titlespacing*{\subsection}{0pt}{8pt}{2pt}
 
 % Custom commands
-\newcommand{\jobtitle}[3]{%
+\newcommand{\jobtitle}[4]{%
   \needspace{4\baselineskip}%
-  \subsection[#1]{#1 \hfill \small\textcolor{subtext}{#2}}%
+  \subsection[#1]{\href{https://mcgarrah.org/resume/print/\##4}{#1} \hfill \small\textcolor{subtext}{#2}}%
   \vspace{-2pt}%
   {\small\textcolor{subtext}{#3}}%
   \vspace{4pt}%
 }
 
-\newcommand{\edutitle}[4]{%
+\newcommand{\edutitle}[5]{%
   \needspace{4\baselineskip}%
-  \subsection[#1]{#1 \hfill \small\textcolor{subtext}{#2}}%
+  \subsection[#1]{\href{https://mcgarrah.org/resume/print/\##5}{#1} \hfill \small\textcolor{subtext}{#2}}%
   \vspace{-2pt}%
   {\small\textcolor{subtext}{#3<< "\\hfill GPA: " if "#4" != "" >>#4}}%
   \vspace{4pt}%
@@ -119,9 +119,10 @@
 
 % === EDUCATION ===
 \needspace{6\baselineskip}
-\section{Education}
+\section{\href{https://mcgarrah.org/resume/print/\#education}{Education}}
+<% set edu_logo_map = {"edu-uncw-2025": "edu-uncw-2025", "edu-gatech-2014": "edu-gatech-2014", "edu-ncsu-1990": "edu-ncsu-1990"} %>
 <% for edu in education.info %>
-\edutitle{<< edu.degree | latex_escape >>}{<< edu.time >>}{<< edu.university | latex_escape >>}{<< edu.gpa | default("") >>}
+\edutitle{<< edu.degree | latex_escape >>}{<< edu.time >>}{<< edu.university | latex_escape >>}{<< edu.gpa | default("") >>}{<< edu.anchor | default("") >>}
 
 <% if edu.summary %>
 {\small << edu.summary | latex_escape | latex_paragraphs >>}
@@ -131,10 +132,10 @@
 
 % === EXPERIENCE (Recent: 2006–Present) ===
 \needspace{6\baselineskip}
-\section{Experience}
+\section{\href{https://mcgarrah.org/resume/print/\#experience}{Experience}}
 <% for job in experiences.info[:12] %>
 <% if "part-time" not in (job.role | default("")) and "Consultant" not in (job.role | default("")) %>
-\jobtitle{<< job.role | latex_escape >>}{<< job.time >>}{<< job.company | latex_escape >>}
+\jobtitle{<< job.role | latex_escape >>}{<< job.time >>}{<< job.company | latex_escape >>}{<< job.anchor | default("") >>}
 
 <% if job.summary %>
 {\small << job.summary | latex_escape | latex_paragraphs >>}
@@ -184,7 +185,7 @@ Programming (NCSU), Teaching Assistant and Library Systems Consultant (NCSU 1990
 % === SKILLS (compact) ===
 \clearpage
 \needspace{6\baselineskip}
-\section{Skills \& Proficiency}
+\section{\href{https://mcgarrah.org/resume/print/\#skills}{Skills \& Proficiency}}
 \begin{multicols}{2}
 \raggedcolumns
 <% for skillset in skills.skillsets %>
