@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Generic tooth icon for Dr. Donn B. Freeman, DDS -->
+  <!-- Simple tooth silhouette in dental blue -->
+  <path d="M100 20 C75 20 55 35 50 60 C45 85 55 95 60 110 C65 130 58 160 55 180 C54 185 58 188 62 185 C70 175 78 150 85 140 C90 133 95 133 100 140 C105 133 110 133 115 140 C122 150 130 175 138 185 C142 188 146 185 145 180 C142 160 135 130 140 110 C145 95 155 85 150 60 C145 35 125 20 100 20 Z" fill="#4A90D9" stroke="#2C5F8A" stroke-width="2"/>
+  <!-- Subtle shine highlight -->
+  <ellipse cx="85" cy="55" rx="12" ry="18" fill="rgba(255,255,255,0.3)" transform="rotate(-15 85 55)"/>
+</svg>

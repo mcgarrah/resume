@@ -29,6 +29,8 @@ alongside simulated job entries in both light and dark mode.
 | `ziff_davis_zd_logo.svg` | Ziff-Davis Publishing (1990s ZD mark) | Wikimedia Commons (public domain) | 1KB |
 | `ziff_davis_blue_logo.svg` | Ziff Davis (modern blue wordmark) | Wikimedia Commons (public domain) | 7KB |
 | `seal_of_north_carolina.svg` | State of North Carolina (official seal) | Wikimedia Commons | 460KB |
+| `freeman-dds.svg` | Dr. Donn B. Freeman, DDS (generic tooth icon) | Custom-created | 1KB |
+| `db-basics.svg` | DB Basics, Inc. (generic database cylinder icon) | Custom-created | 1KB |
 
 ### PNG/GIF Logos (Good Quality)
 
@@ -44,6 +46,7 @@ alongside simulated job entries in both light and dark mode.
 | `ziff-davis-publishing_logo.png` | Ziff-Davis Publishing (full wordmark) | — | 48KB | — |
 | `nclive_logo_2000.jpg` | NC LIVE (original purple logo, 2000) | 199x177 | 10KB | Wayback Machine (archive.org) |
 | `hosted_solutions_logo.gif` | Hosted Solutions (original 2004) | 350x65 | 6KB | Wayback Machine (archive.org) |
+| `do2learn.jpg` | Do2Learn / Virtual Reality Aids, Inc. | 123x60 | 3KB | do2learn.com (navbar logo mark) |
 
 ### JPG Logos (Lower Quality — Check in Preview)
 
@@ -76,9 +79,6 @@ alongside simulated job entries in both light and dark mode.
 | Organization | Role | Notes |
 |-------------|------|-------|
 | Pioneer Software / Q+E Software | Technical Services Manager | Acquired by Intersolv 1994, brand dissolved. No logo found online. Would need a physical scan. |
-| DB Basics, Inc. | Consultant | Defunct small company — skip |
-| Virtual Reality Aids, Inc. | Consultant | Defunct small company — skip |
-| Dr. Donn B. Freeman, DDS | Consultant | Private dental practice — skip |
 
 ## Usage Notes
 
@@ -127,6 +127,9 @@ low-resolution to look good at that size. Use `preview.html` to visually verify.
 | NC DOR | [ncdor.gov](https://files.nc.gov/dor/dor-logo.png) |
 | NC Community Colleges | [nccommunitycolleges.edu](https://www.nccommunitycolleges.edu/site-logo.svg) (official) |
 | BCBSNC | [bluecrossnc.com](https://www.bluecrossnc.com/content/dam/bcbsnc/logos/icon-310x310.png) |
+| Do2Learn / VR Aids | [do2learn.com](https://do2learn.com/navbar/nav-img/do2learn-sm.jpg) (navbar logo mark) |
+| Dr. Donn B. Freeman, DDS | Custom SVG — generic tooth icon |
+| DB Basics, Inc. | Custom SVG — generic database cylinder icon |
 
 ### Potential Upgrades (Official Brand Kits)
 
@@ -310,6 +313,9 @@ backgrounds are preferred because:
 | `ncsu-wordmark-2023.png` | `ncsu-wordmark-2023.png` | Direct copy |
 | `nclive-2000.jpg` | `nclive-2000.jpg` | Direct copy |
 | `roemer-weather.jpg` | `roemer-weather.jpg` | Direct copy |
+| `do2learn.png` | `do2learn.jpg` | Direct copy (JPG logo mark) |
+| `freeman-dds.svg` | `freeman-dds.png` | cairosvg SVG→PNG |
+| `db-basics.svg` | `db-basics.png` | cairosvg SVG→PNG |
 
 ### Usage in LaTeX Templates
 

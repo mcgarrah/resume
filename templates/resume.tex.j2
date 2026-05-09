@@ -83,8 +83,8 @@
   \needspace{4\baselineskip}%
   \noindent\begin{minipage}[t]{0.06\textwidth}%
     \vspace{0pt}%
-    \IfFileExists{#4.png}{\includegraphics[width=0.8cm,height=0.8cm,keepaspectratio]{#4}}%
-      {\IfFileExists{#4.jpg}{\includegraphics[width=0.8cm,height=0.8cm,keepaspectratio]{#4}}%
+    \IfFileExists{assets/images/company-logos/latex-logos/#4.png}{\includegraphics[width=0.8cm,height=0.8cm,keepaspectratio]{#4}}%
+      {\IfFileExists{assets/images/company-logos/latex-logos/#4.jpg}{\includegraphics[width=0.8cm,height=0.8cm,keepaspectratio]{#4}}%
         {\logoplaceholder}}%
   \end{minipage}%
   \hfill%
@@ -102,8 +102,8 @@
   \needspace{4\baselineskip}%
   \noindent\begin{minipage}[t]{0.06\textwidth}%
     \vspace{0pt}%
-    \IfFileExists{#5.png}{\includegraphics[width=0.8cm,height=0.8cm,keepaspectratio]{#5}}%
-      {\IfFileExists{#5.jpg}{\includegraphics[width=0.8cm,height=0.8cm,keepaspectratio]{#5}}%
+    \IfFileExists{assets/images/company-logos/latex-logos/#5.png}{\includegraphics[width=0.8cm,height=0.8cm,keepaspectratio]{#5}}%
+      {\IfFileExists{assets/images/company-logos/latex-logos/#5.jpg}{\includegraphics[width=0.8cm,height=0.8cm,keepaspectratio]{#5}}%
         {\logoplaceholder}}%
   \end{minipage}%
   \hfill%
@@ -177,7 +177,7 @@
 % === EXPERIENCE ===
 \needspace{6\baselineskip}
 \section{Experience}
-<% set exp_logo_map = {"envestnet-2021": "envestnet", "bcbsnc-2019": "bcbsnc", "usps-2017": "usps-eagle", "akc-2016": "akc-shield", "ncdit-2015": "nc-dit", "measurement-inc-2013": "measurement-inc", "sas-2011": "sas", "ncdor-2007": "nc-dor", "etaac-2009": "irs", "freeman-dds-1998": "placeholder", "vr-aids-2001": "placeholder", "bd-2006": "bd", "ncccs-2005": "nc-community-colleges", "hosted-solutions-2004": "tierpoint", "netiq-2002": "netiq", "ncsu-2000": "ncsu-block-s", "interpath-2000": "interpath", "ncsu-nclive-1999": "nclive-2000", "ncsu-1998": "ncsu-block-s", "ziff-davis-1994": "ziff-davis-1990", "interpath-1998": "interpath", "db-basics-1994": "placeholder", "pioneer-software-1992": "qe-software", "roemer-weather-1992": "roemer-weather", "ncsu-ta-1990": "ncsu-classic-1990", "ncsu-library-1990": "ncsu-classic-1990", "ncsu-operator-1990": "ncsu-classic-1990"} %>
+<% set exp_logo_map = {"envestnet-2021": "envestnet", "bcbsnc-2019": "bcbsnc", "usps-2017": "usps-eagle", "akc-2016": "akc-shield", "ncdit-2015": "nc-dit", "measurement-inc-2013": "measurement-inc", "sas-2011": "sas", "ncdor-2007": "nc-dor", "etaac-2009": "irs", "freeman-dds-1998": "freeman-dds", "vr-aids-2001": "do2learn", "bd-2006": "bd", "ncccs-2005": "nc-community-colleges", "hosted-solutions-2004": "tierpoint", "netiq-2002": "netiq", "ncsu-2000": "ncsu-block-s", "interpath-2000": "interpath", "ncsu-nclive-1999": "nclive-2000", "ncsu-1998": "ncsu-block-s", "ziff-davis-1994": "ziff-davis-1990", "interpath-1998": "interpath", "db-basics-1994": "db-basics", "pioneer-software-1992": "qe-software", "roemer-weather-1992": "roemer-weather", "ncsu-ta-1990": "ncsu-classic-1990", "ncsu-library-1990": "ncsu-classic-1990", "ncsu-operator-1990": "ncsu-classic-1990"} %>
 <% for job in experiences.info %>
 \jobtitle{<< job.role | latex_escape >>}{<< job.time >>}{<< job.company | latex_escape >>}{<< exp_logo_map.get(job.anchor, "placeholder") >>}
 

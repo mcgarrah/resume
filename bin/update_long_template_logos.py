@@ -19,8 +19,8 @@ LOGO_MAP = {
     "sas-2011": "sas",
     "ncdor-2007": "nc-dor",
     "etaac-2009": "irs",
-    "freeman-dds-1998": None,  # no logo
-    "vr-aids-2001": None,  # no logo
+    "freeman-dds-1998": "freeman-dds",  # generic tooth icon
+    "vr-aids-2001": "do2learn",  # Do2Learn tagline (VR Aids operated do2learn.com)
     "bd-2006": "bd",
     "ncccs-2005": "nc-community-colleges",
     "hosted-solutions-2004": "tierpoint",
@@ -31,7 +31,7 @@ LOGO_MAP = {
     "ncsu-1998": "ncsu-block-s",
     "ziff-davis-1994": "ziff-davis-1990",
     "interpath-1998": "interpath",
-    "db-basics-1994": None,  # no logo
+    "db-basics-1994": "db-basics",  # generic database cylinder icon
     "pioneer-software-1992": "qe-software",
     "roemer-weather-1992": "roemer-weather",
     "ncsu-ta-1990": "ncsu-classic-1990",
