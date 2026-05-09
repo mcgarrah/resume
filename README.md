@@ -198,6 +198,22 @@ GitHub Actions (`.github/workflows/jekyll.yml`) builds and deploys to GitHub Pag
 2. Generates brief and full LaTeX PDFs via XeLaTeX
 3. Deploys `_site/` to GitHub Pages
 
+### Build Optimization: Cached APT Packages
+
+The `Install Pandoc and LaTeX` step uses [`awalsh128/cache-apt-pkgs-action`](https://github.com/awalsh128/cache-apt-pkgs-action) to cache the TeX Live and Pandoc apt packages between runs. Without caching, this step takes 6+ minutes (downloading ~500MB of packages every build). With caching, subsequent runs restore from cache in seconds.
+
+**If you change the LaTeX/Pandoc package list**, you must bump the `version` field in the workflow step to invalidate the cache:
+
+```yaml
+- name: Install Pandoc and LaTeX
+  uses: awalsh128/cache-apt-pkgs-action@latest
+  with:
+    packages: pandoc texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-xetex fonts-texgyre
+    version: 1.0  # ← bump this (e.g., 1.1) when changing packages
+```
+
+The `version` key is the cache key — same version means "use the cached result." Changing it forces a fresh `apt-get install` on the next run, which will then be cached under the new key.
+
 ## Views
 
 - **Brief** (`/resume/`) — Collapsible details, interactive
