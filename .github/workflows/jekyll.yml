@@ -26,11 +26,14 @@ jobs:
           ruby-version: '3.2.6'
           bundler-cache: true
           cache-version: 1
+      - name: Get cache week
+        id: cache-week
+        run: echo "week=$(date +%Y-%U)" >> "$GITHUB_OUTPUT"
       - name: Install Pandoc and LaTeX
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: pandoc texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-xetex fonts-texgyre
-          version: 2.0.1
+          version: ${{ steps.cache-week.outputs.week }}
       - name: Ensure XeLaTeX format file exists
         run: |
           if ! kpsewhich xelatex.fmt > /dev/null 2>&1; then
