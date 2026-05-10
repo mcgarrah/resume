@@ -15,7 +15,7 @@ if [ ! -d "$OUTPUT_DIR" ]; then
 fi
 
 # Generate .tex from YAML data
-python bin/generate-latex.py --output "$TEX_FILE"
+python3 bin/generate-latex.py --output "$TEX_FILE"
 
 # Compile to PDF if xelatex is available
 if command -v xelatex &> /dev/null; then

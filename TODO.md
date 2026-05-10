@@ -78,7 +78,18 @@ Items organized by the REFACTOR.md phase they belong to, plus standalone improve
 - [x] Fix Schema.org validation warnings from Google Rich Results Test
 - [x] Resolve ScholarlyArticle Rich Results Test warnings
 - [ ] Re-validate Rich Results Test after machine view update (education details, full summaries, new social profiles)
+- [ ] Schema Markup Validator: validate `/resume/machine/`
 - [ ] Test parsability with common ATS systems (Greenhouse, Lever, Workday)
+  - [ ] Brief PDF → Jobscan against 3 target job descriptions
+  - [ ] Brief PDF → Resume Worded structural analysis
+  - [ ] Brief PDF → direct Greenhouse upload
+  - [ ] Brief PDF → direct Workday upload
+  - [ ] Ultra-Brief PDF → Jobscan (compare scores to brief)
+  - [ ] DOCX → Jobscan (compare scores to PDF)
+  - [ ] DOCX → direct Lever upload
+- [ ] AI agent extraction test: feed `/resume/machine/` to Claude, ChatGPT, Gemini
+- [ ] Cross-format consistency: verify all exports have same job count, dates, credentials
+- [ ] Verify anchor links in ultra-brief PDF resolve to `/resume/print/#anchor` targets
 - [ ] Review job board keyword optimization (LinkedIn, Indeed, Dice)
 - [ ] Verify structured data indexing in Google Search Console
 

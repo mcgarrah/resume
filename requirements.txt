@@ -1,3 +1,8 @@
-# Python dependencies for resume LaTeX generation
+# Python dependencies for resume LaTeX generation (CI and local)
+# These are the minimum required for `bin/generate-latex.py`
 Jinja2==3.1.6
 PyYAML==6.0.3
+
+# Optional local-only dependencies (not needed in CI):
+#   cairosvg    — bin/convert_logos_to_png.py (SVG→PNG for LaTeX logos)
+#   pillow      — bin/crop_nc_logos.py (image cropping)
