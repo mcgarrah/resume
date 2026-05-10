@@ -21,16 +21,19 @@ python3 bin/generate-latex.py --template resume-brief.tex.j2 --output "$TEX_FILE
 if command -v xelatex &> /dev/null; then
   xelatex -interaction=nonstopmode -output-directory="$OUTPUT_DIR" "$TEX_FILE" > /dev/null 2>&1 || true
   # Run twice for cross-references
-  xelatex -interaction=nonstopmode -output-directory="$OUTPUT_DIR" "$TEX_FILE" > /dev/null 2>&1 || true
-
-  # Clean up LaTeX auxiliary files
-  rm -f "$OUTPUT_DIR"/McGarrah-Resume-brief.aux "$OUTPUT_DIR"/McGarrah-Resume-brief.log \
-        "$OUTPUT_DIR"/McGarrah-Resume-brief.out
+  xelatex -interaction=nonstopmode -output-directory="$OUTPUT_DIR" "$TEX_FILE" 2>&1 | tail -30
 
   if [ -f "$OUTPUT_DIR/McGarrah-Resume-brief.pdf" ]; then
     echo "Generated: $OUTPUT_DIR/McGarrah-Resume-brief.pdf"
+    # Clean up LaTeX auxiliary files on success
+    rm -f "$OUTPUT_DIR"/McGarrah-Resume-brief.aux "$OUTPUT_DIR"/McGarrah-Resume-brief.log \
+          "$OUTPUT_DIR"/McGarrah-Resume-brief.out
   else
-    echo "Error: PDF compilation failed. Check the .tex file for errors."
+    echo "Error: PDF compilation failed."
+    if [ -f "$OUTPUT_DIR/McGarrah-Resume-brief.log" ]; then
+      echo "Last 40 lines of LaTeX log:"
+      tail -40 "$OUTPUT_DIR/McGarrah-Resume-brief.log"
+    fi
     exit 1
   fi
 else
