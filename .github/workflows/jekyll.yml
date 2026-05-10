@@ -31,6 +31,8 @@ jobs:
         with:
           packages: pandoc texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-xetex fonts-texgyre
           version: 1.0
+      - name: Regenerate LaTeX format files
+        run: fmtutil-sys --all 2>/dev/null || fmtutil --all 2>/dev/null || true
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
