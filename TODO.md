@@ -35,6 +35,7 @@ Items organized by the REFACTOR.md phase they belong to, plus standalone improve
 - [ ] Add optional `skills` array to experience, education, and project entries
 - [ ] Start with 5 most recent experience entries as proof of concept
 - [ ] Machine view: render as `schema.org/skills` or `knowsAbout`
+- [ ] Machine view: add `itemprop="knowsAbout"` Schema.org markup to existing skills section
 - [ ] Brief/print views: compact tag list below each entry
 - [ ] LaTeX template: italic comma-separated list after entry content
 

@@ -19,6 +19,11 @@ title: "Michael McGarrah — Resume (Machine-Readable)"
       <li>GitHub: <a href="https://github.com/{{ d.sidebar.github }}" itemprop="sameAs">github.com/{{ d.sidebar.github }}</a></li>
       <li>GitLab: <a href="https://gitlab.com/{{ d.sidebar.gitlab }}" itemprop="sameAs">gitlab.com/{{ d.sidebar.gitlab }}</a></li>
       <li>Substack: <a href="https://{{ d.sidebar.substack }}.substack.com/" itemprop="sameAs">{{ d.sidebar.substack }}.substack.com</a></li>
+      {% if d.sidebar.kaggle %}<li>Kaggle: <a href="https://www.kaggle.com/{{ d.sidebar.kaggle }}" itemprop="sameAs">kaggle.com/{{ d.sidebar.kaggle }}</a></li>{% endif %}
+      {% if d.sidebar.stack-overflow %}<li>Stack Overflow: <a href="https://stackoverflow.com/users/{{ d.sidebar.stack-overflow }}" itemprop="sameAs">stackoverflow.com/users/{{ d.sidebar.stack-overflow }}</a></li>{% endif %}
+      {% if d.sidebar.discord %}<li>Discord: <a href="https://discord.com/users/{{ d.sidebar.discord }}" itemprop="sameAs">discord.com/users/{{ d.sidebar.discord }}</a></li>{% endif %}
+      {% if d.sidebar.signal %}<li>Signal: <a href="https://signal.me/#eu/{{ d.sidebar.signal }}" itemprop="sameAs">@{{ d.sidebar.signal }}</a></li>{% endif %}
+      <li>Timezone: {{ d.sidebar.timezone }}</li>
       <li>Location: <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="addressCountry">United States</span></span></li>
       <li>Citizenship: {{ d.sidebar.citizenship }}</li>
     </ul>
@@ -49,6 +54,9 @@ title: "Michael McGarrah — Resume (Machine-Readable)"
       {% if edu.summary %}
       <p itemprop="description">{{ edu.summary | markdownify | strip_html }}</p>
       {% endif %}
+      {% if edu.details %}
+      <div class="details">{{ edu.details | markdownify }}</div>
+      {% endif %}
     </article>
     {% endfor %}
   </section>
@@ -66,7 +74,7 @@ title: "Michael McGarrah — Resume (Machine-Readable)"
         | <time itemprop="startDate">{{ job.time }}</time>
       </p>
       {% if job.summary %}
-      <p itemprop="description">{{ job.summary | markdownify | strip_html | truncate: 500 }}</p>
+      <p itemprop="description">{{ job.summary | markdownify | strip_html }}</p>
       {% endif %}
       {% if job.details %}
       <div class="details">{{ job.details | markdownify }}</div>
