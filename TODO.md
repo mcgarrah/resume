@@ -77,6 +77,7 @@ Items organized by the REFACTOR.md phase they belong to, plus standalone improve
 - [x] Add og:image social preview card
 - [x] Fix Schema.org validation warnings from Google Rich Results Test
 - [x] Resolve ScholarlyArticle Rich Results Test warnings
+- [ ] Re-validate Rich Results Test after machine view update (education details, full summaries, new social profiles)
 - [ ] Test parsability with common ATS systems (Greenhouse, Lever, Workday)
 - [ ] Review job board keyword optimization (LinkedIn, Indeed, Dice)
 - [ ] Verify structured data indexing in Google Search Console

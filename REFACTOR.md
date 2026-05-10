@@ -362,6 +362,57 @@ These items should be addressed in a future plugin release:
   - Heading hierarchy clean, no accessibility issues
   - Live at mcgarrah.org/resume/machine/ — ready for Google Rich Results Test and ATS validation
 
+#### Machine View Validation Steps
+
+**1. Google Rich Results Test** (structured data for SEO)
+- URL: https://search.google.com/test/rich-results
+- Test: `https://mcgarrah.org/resume/machine/`
+- Validates: JSON-LD syntax, Schema.org type correctness, required properties
+- Status: ⚠️ Needs re-validation — machine view updated 2026-05-09 (added education details, removed summary truncation, added social profiles). Previous validation passed 2026-05-09 but content has changed since.
+
+**2. Schema Markup Validator** (general Schema.org validation)
+- URL: https://validator.schema.org/
+- Test: paste URL or HTML source
+- Validates: Schema.org vocabulary correctness, nesting, property types
+- More permissive than Google (validates all Schema.org, not just Google-supported types)
+
+**3. ATS Parse Testing** (resume-specific)
+
+ATS systems parse resumes through a 5-stage pipeline: text extraction → tokenization → sectioning → named entity recognition → structured output. Each major ATS implements this differently.
+
+| Tool | What It Tests | Free Tier | URL |
+|------|---------------|-----------|-----|
+| **Jobscan** | Keyword match + parse fidelity against a job description | 5 scans/month | https://www.jobscan.co/ |
+| **Resume Worded** | ATS score + section detection + keyword gaps | Limited free | https://resumeworded.com/ |
+| **SkillSyncer** | Keyword matching + formatting issues | Free basic | https://skillsyncer.com/ |
+| **Teal** | ATS score + keyword tracking across applications | Free tier | https://www.tealhq.com/ |
+
+**Testing methodology:**
+1. Export `/resume/print/` as PDF via browser print (or use the XeLaTeX brief PDF)
+2. Upload to each ATS checker with a target job description
+3. Record: parse success rate, section detection accuracy, keyword match score
+4. Compare results across tools to identify consistent failures
+
+**4. Direct ATS Upload Testing** (gold standard)
+
+The most reliable test is submitting through actual ATS portals:
+- **Greenhouse**: Apply to any Greenhouse-powered job posting (look for "Powered by Greenhouse" in footer)
+- **Lever**: Apply to any Lever-powered posting (URL contains `jobs.lever.co`)
+- **Workday**: Apply to any large enterprise posting (most Fortune 500)
+- **iCIMS**: Common in healthcare, finance, government
+
+After submitting, check if the parsed profile matches your resume content. Some ATS systems show you the parsed result during the application flow.
+
+**5. AI Agent Parsing Test** (future-focused)
+
+Test whether AI systems can extract structured information from the machine view:
+- Feed `https://mcgarrah.org/resume/machine/` to Claude, ChatGPT, or Gemini
+- Ask: "Extract all jobs, dates, companies, and skills from this page"
+- Verify: completeness, accuracy of dates, correct company-role associations
+- This validates the JSON-LD + semantic HTML serves its dual purpose (SEO + AI grounding)
+
+**Key insight:** ATS systems primarily parse PDF/DOCX uploads, not web pages. The machine view serves a different audience — AI agents, recruiters browsing the URL, and Google's structured data indexer. The PDF exports are what ATS systems actually consume. Both need to be tested independently.
+
 ### Phase 4 — Polish and Cleanup
 - Light/dark mode testing across browsers
 - `@media print` stylesheet for browser print
