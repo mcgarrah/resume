@@ -1,0 +1,18 @@
+name: Gitea runner smoke test
+on:
+  push:
+    branches: [main]
+jobs:
+  runner-smoke:
+    runs-on: self-hosted
+    permissions:
+      contents: read
+    steps:
+      - uses: builtin:checkout
+      - name: Verify runner tools and checkout
+        run: |
+          set -eu
+          test "$(git rev-parse --is-inside-work-tree)" = true
+          printf "runner user: %s\n" "$(id -un)"
+          git --version
+          python3 --version
