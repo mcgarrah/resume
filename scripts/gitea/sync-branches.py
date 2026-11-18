@@ -70,8 +70,8 @@ def askpass_environment(github_url: str) -> tuple[dict[str, str], tempfile.Tempo
     helper.write_text(
         "#!/bin/sh\n"
         "case \"$1\" in\n"
-        f"  *{parsed.hostname}*Username*) printf '%s\\n' 'x-access-token' ;;\n"
-        f"  *{parsed.hostname}*Password*) printf '%s\\n' \"$GITHUB_SYNC_TOKEN\" ;;\n"
+        f"  *Username*{parsed.hostname}*|*{parsed.hostname}*Username*) printf '%s\\n' 'x-access-token' ;;\n"
+        f"  *Password*{parsed.hostname}*|*{parsed.hostname}*Password*) printf '%s\\n' \"$GITHUB_SYNC_TOKEN\" ;;\n"
         "  *) exit 1 ;;\n"
         "esac\n",
         encoding="utf-8",
